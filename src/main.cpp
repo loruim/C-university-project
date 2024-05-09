@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <iostream>
+#include <vector>
 
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
@@ -99,7 +100,10 @@ int main(int argc, char** argv)
 
 		auto tex = resourceManager.loadTexture("DefaultTexture", "res/texture/battleCity.png");
 
-		auto pSprite = resourceManager.loadSprite("NewSprite", "DefaultTexture", "SpriteShader", 50, 100);
+		std::vector<std::string> subTexturesName = { "block", "topBlock", "bottomblock", "leftBlock", "rightBlock", "topLeftBlock", "topRightBlock", "bottomRightBlock", "beton" };
+		auto pTexturesAtlas = resourceManager.loadTextureAtlas("DefaultTextureAtlas", "res/texture/battleCity.png", std::move(subTexturesName), 16, 16);
+
+		auto pSprite = resourceManager.loadSprite("NewSprite", "DefaultTextureAtlas", "SpriteShader", 100, 100, "bottomblock");
 		pSprite->setPosition(glm::vec2(300, 100));
 
 		GLuint point_vbo = 0;
