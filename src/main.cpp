@@ -5,12 +5,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <iostream>
+#include <chrono>
 #include <vector>
 
 #include "Renderer/ShaderProgram.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Texture2D.h"
 #include "Renderer/Sprite.h"
+#include "Renderer/AnimatedSprite.h"
 
 GLfloat point[] = {
      0.0f,  50.f, 0.0f,
@@ -32,6 +34,8 @@ GLfloat texCoord[] = {
 
 glm::ivec2 g_windowSize(640, 480);
 
+bool istank = false;
+
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
     g_windowSize.x = width;
@@ -45,6 +49,11 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
     {
         glfwSetWindowShouldClose(pWindow, GL_TRUE);
     }
+
+	if (key == GLFW_KEY_ENTER && action == GLFW_PRESS)
+	{
+		istank = !istank;
+	}
 }
 
 int main(int argc, char** argv)
@@ -100,11 +109,51 @@ int main(int argc, char** argv)
 
 		auto tex = resourceManager.loadTexture("DefaultTexture", "res/texture/battleCity.png");
 
-		std::vector<std::string> subTexturesName = { "block", "topBlock", "bottomblock", "leftBlock", "rightBlock", "topLeftBlock", "topRightBlock", "bottomRightBlock", "beton" };
+		std::vector<std::string> subTexturesName = {
+			"topYellowTankOne",
+			"topYellowTankTwo",
+			"leftYellowTankOne",
+			"leftYellowTankTwo",
+			"bottomYellowTankOne",
+			"bottomYellowTankTwo",
+			"RightYellowTankOne",
+			"RightYellowTankTwo",
+			"topWhiteTankOne",
+			"topWhiteTankTwo",
+			"leftWhiteTankOne",
+			"leftWhiteTankTwo",
+			"bottomWhiteTankOne",
+			"bottomWhiteTankTwo",
+			"RightWhiteTankOne",
+			"RightWhiteTankTwo",
+			"block",
+			"rightBlock",
+			"bottomBlock",
+			"leftBlock",
+			"topBlock" };
+
 		auto pTexturesAtlas = resourceManager.loadTextureAtlas("DefaultTextureAtlas", "res/texture/battleCity.png", std::move(subTexturesName), 16, 16);
 
-		auto pSprite = resourceManager.loadSprite("NewSprite", "DefaultTextureAtlas", "SpriteShader", 100, 100, "bottomblock");
+		auto pSprite = resourceManager.loadSprite("NewSprite", "DefaultTextureAtlas", "SpriteShader", 100, 100, "block");
 		pSprite->setPosition(glm::vec2(300, 100));
+
+		auto pAnimatedSprite = resourceManager.loadAnimatedSprite("NewAnimatedSprite", "DefaultTextureAtlas", "SpriteShader", 100, 100, "leftWhiteTankOne");
+		
+		pAnimatedSprite->setPosition(glm::vec2(300, 300));
+		
+		std::vector<std::pair<std::string, uint16_t>> blockState;
+		blockState.emplace_back(std::make_pair<std::string, uint16_t>("block", 1000000000));
+		blockState.emplace_back(std::make_pair<std::string, uint16_t>("rightBlock", 1000000000));
+		blockState.emplace_back(std::make_pair<std::string, uint16_t>("bottomBlock", 1000000000));
+
+		std::vector<std::pair<std::string, uint16_t>> tankState;
+		tankState.emplace_back(std::make_pair<std::string, uint16_t>("topYellowTankOne", 1000000000));
+		tankState.emplace_back(std::make_pair<std::string, uint16_t>("topYellowTankTwo", 1000000000));
+
+		pAnimatedSprite->insertState("blockState", std::move(blockState));
+		pAnimatedSprite->insertState("tankState", std::move(tankState));
+
+		pAnimatedSprite->setState("blockState");
 
 		GLuint point_vbo = 0;
 		glGenBuffers(1, &point_vbo);
@@ -154,8 +203,25 @@ int main(int argc, char** argv)
 		pSpriteShaderProgram->setInt("tex", 0);
 		pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
 
+		auto lastTime = std::chrono::high_resolution_clock::now();
+
 		while (!glfwWindowShouldClose(pWindow))
 		{
+			if (istank)
+			{
+				pAnimatedSprite->setState("tankState");
+			}
+			else 
+			{
+				pAnimatedSprite->setState("blockState");
+			}
+
+			auto currentTime = std::chrono::high_resolution_clock::now();
+			uint16_t duretion = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - lastTime).count();
+			lastTime = currentTime;
+
+			pAnimatedSprite->update(duretion);
+
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			pDefaultShaderProgram->use();
@@ -169,6 +235,8 @@ int main(int argc, char** argv)
 			glDrawArrays(GL_TRIANGLES, 0, 3);
 
 			pSprite->render();
+
+			pAnimatedSprite->render();
 
 			glfwSwapBuffers(pWindow);
 
