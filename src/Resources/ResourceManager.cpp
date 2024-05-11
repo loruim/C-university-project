@@ -11,14 +11,30 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-ResourceManager::ResourceManager(const std::string& executablePath)
+std::string ResourceManager::m_path;
+ResourceManager::ShaderProgramsMap ResourceManager::m_shaderProgram;
+ResourceManager::TexturesMap ResourceManager::m_textures;
+ResourceManager::SpritesMap ResourceManager::m_sprites;
+ResourceManager::AnimatedSpritesMap ResourceManager::m_animatedSprites;
+
+
+void ResourceManager::setExecutablePath(const std::string& executablePath)
 {
 	size_t found = executablePath.find_last_of("/\\");
 	m_path = executablePath.substr(0, found);
 }
 
+void ResourceManager::unloadAllResources()
+{
+	m_path.clear();
+	m_shaderProgram.clear();
+	m_textures.clear();
+	m_sprites.clear();
+	m_animatedSprites.clear();
+}
 
-std::string ResourceManager::getFileString(const std::string& relativeFilePath) const
+
+std::string ResourceManager::getFileString(const std::string& relativeFilePath)
 {
 	std::ifstream f;
 	f.open(m_path + "/" + relativeFilePath.c_str(), std::ios::in | std::ios::binary);
