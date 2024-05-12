@@ -5,6 +5,7 @@ project(${PROJECT_NAME})
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp
+
     src/Renderer/ShaderProgram.cpp
     src/Renderer/ShaderProgram.h
     src/Renderer/Texture2D.cpp
@@ -13,11 +14,15 @@ add_executable(${PROJECT_NAME}
     src/Renderer/Sprite.h
     src/Renderer/AnimatedSprite.cpp
     src/Renderer/AnimatedSprite.h
+
     src/Resources/ResourceManager.cpp
     src/Resources/ResourceManager.h
     src/Resources/stb_image.h
+
     src/Game/Game.cpp
     src/Game/Game.h
+    src/Game/Archer.cpp
+    src/Game/Archer.h
 )
 
 add_subdirectory(external/glfw)

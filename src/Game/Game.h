@@ -2,6 +2,9 @@
 
 #include <glm/vec2.hpp>
 #include <array>
+#include <memory>
+
+class Archer;
 
 class Game
 {
@@ -24,4 +27,5 @@ private:
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
+	std::unique_ptr<Archer> m_pArcher;
 };
