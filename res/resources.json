@@ -15,13 +15,23 @@
             "subTextureHeight" 	: 16,
             "subTextures" : [
                 "FullRoad",
-                "RightRoad",
-                "BottomRoad",
-                "Water1",
-                "LeftRoad",
-                "TopRoad",
                 "House",
-                "Water2"
+                "RightRoad1",
+                "RightRoad2",
+                "RightRoad3",
+                "LeftRoad1",
+                "LeftRoad2",
+                "LeftRoad3",
+                "TopRoad1",
+                "TopRoad2",
+                "TopRoad3",
+                "BottomRoad1",
+                "BottomRoad2",
+                "BottomRoad3",
+                "Water1",
+                "Water2",
+                "Water3",
+                "Void"
             ]
         },
 

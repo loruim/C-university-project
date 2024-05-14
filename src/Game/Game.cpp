@@ -109,6 +109,7 @@ bool Game::init()
     std::vector<std::pair<std::string, uint16_t>> waterState;
     waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water1", 1000000000));
     waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water2", 1000000000));
+    waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water3", 1000000000));
     pAnimatedSprite->insertState("waterState", std::move(waterState));
     pAnimatedSprite->setState("waterState");
 
