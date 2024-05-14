@@ -163,7 +163,7 @@ std::shared_ptr <Renderer::Sprite> ResourceManager::getSprite(const std::string&
 	return nullptr;
 }
 
-// SubTexture :(
+// TextureAtlas
 
 std::shared_ptr <Renderer::Texture2D> ResourceManager::loadTextureAtlas(std::string texturename, std::string texturePath, std::vector<std::string> subTextures, const unsigned int SubTextureWidth, const unsigned int SubTextureHeight)
 {
@@ -176,8 +176,8 @@ std::shared_ptr <Renderer::Texture2D> ResourceManager::loadTextureAtlas(std::str
 		unsigned int currentTextureOffsetY = textureHeight;
 		for (auto& currentSubTextureName : subTextures)
 		{
-			glm::vec2 leftBottomUV(static_cast<float>(currentTextureOffsetX) / textureWidth, static_cast<float>(currentTextureOffsetY - SubTextureHeight) / textureHeight);
-			glm::vec2 rightTopUV(static_cast<float>(currentTextureOffsetX + SubTextureWidth) / textureWidth, static_cast<float>(currentTextureOffsetY) / textureHeight);
+			glm::vec2 leftBottomUV(static_cast<float>(currentTextureOffsetX + 0.01f) / textureWidth, static_cast<float>(currentTextureOffsetY - SubTextureHeight + 0.01f) / textureHeight);
+			glm::vec2 rightTopUV(static_cast<float>(currentTextureOffsetX + SubTextureWidth - 0.01f) / textureWidth, static_cast<float>(currentTextureOffsetY - 0.01f) / textureHeight);
 			pTexture->addSubTexture(std::move(currentSubTextureName), leftBottomUV, rightTopUV);
 
 			currentTextureOffsetX += SubTextureWidth;
@@ -260,7 +260,7 @@ bool ResourceManager::loadJSONResources(const std::string& JSONPath)
 		}
 	}
 
-	// load texture
+	// load texture atlas
 	auto textureAtlasesIt = document.FindMember("textureAtlases");
 	if (textureAtlasesIt != document.MemberEnd())
 	{

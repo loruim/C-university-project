@@ -37,7 +37,7 @@ public:
 	static std::shared_ptr <Renderer::Sprite> loadSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const std::string& subTextureName = "default");
 	static std::shared_ptr <Renderer::Sprite> getSprite(const std::string& spriteName);
 
-	// SubTexture :(
+	// TextureAtlas
 	static std::shared_ptr <Renderer::Texture2D> loadTextureAtlas(std::string texturename, std::string texturePath, std::vector<std::string> subTextures, const unsigned int SubTextureWidth, const unsigned int SubTextureHeight);
 
 	// AnimatedSprite

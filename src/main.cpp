@@ -9,14 +9,32 @@
 #include "Resources/ResourceManager.h"
 
 // glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
-glm::ivec2 g_windowSize(16*7, 11*16);
+glm::ivec2 g_windowSize(7 * 16, 11 * 16);
 std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
 
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
     g_windowSize.x = width;
     g_windowSize.y = height;
-    glViewport(0, 0, width, height);
+
+	const float map_aspect_ratio = 7.f / 11.f;
+	unsigned int viewPortWidth = g_windowSize.x;
+	unsigned int viewPortHeight = g_windowSize.y;
+	unsigned int viewPortLeftOffset = 0;
+	unsigned int viewPortBottomOffset = 0;
+
+	if (g_windowSize.x / g_windowSize.y > map_aspect_ratio)
+	{
+		viewPortWidth = static_cast<unsigned int>(g_windowSize.y * map_aspect_ratio);
+		viewPortLeftOffset = (g_windowSize.x - viewPortWidth) / 2;
+	}
+	else
+	{
+		viewPortHeight = static_cast<unsigned int>(g_windowSize.x / map_aspect_ratio);
+		viewPortBottomOffset = (g_windowSize.y - viewPortHeight) / 2;
+	}
+
+    glViewport(viewPortLeftOffset, viewPortBottomOffset, viewPortWidth, viewPortHeight);
 }
 
 void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mode)
