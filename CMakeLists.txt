@@ -21,8 +21,9 @@ add_executable(${PROJECT_NAME}
 
     src/Game/Game.cpp
     src/Game/Game.h
-    src/Game/Archer.cpp
-    src/Game/Archer.h
+
+    src/Game/GameObject/Archer.cpp
+    src/Game/GameObject/Archer.h
 )
 
 add_subdirectory(external/glfw)
@@ -32,6 +33,8 @@ add_subdirectory(external/glad)
 target_link_libraries(${PROJECT_NAME} glad)
 
 include_directories(external/glm)
+
+include_directories(external/rapidjson/include)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 

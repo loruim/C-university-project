@@ -44,6 +44,9 @@ public:
 	static std::shared_ptr <Renderer::AnimatedSprite> loadAnimatedSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const unsigned int spriteWidth, const unsigned int spriteHeight, const std::string& subTextureName = "default");
 	static std::shared_ptr <Renderer::AnimatedSprite> getAnimatedSprite(const std::string& spriteName);
 
+	// Include JSON
+	static bool loadJSONResources(const std::string& JSONPath);
+
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
 	static std::string m_path;

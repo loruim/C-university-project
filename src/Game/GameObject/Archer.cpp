@@ -1,9 +1,10 @@
 #include "Archer.h"
 
-#include "../Renderer/AnimatedSprite.h"
+#include "../../Renderer/AnimatedSprite.h"
 
 Archer::Archer(std::shared_ptr<Renderer::AnimatedSprite> pSprite, const float velocity, const glm::vec2& position) : m_eOrientation(EOrientaition::Left), m_pSprite(std::move(pSprite)), m_move(false), m_velocity(velocity), m_position(position), m_moveOffSet(glm::vec2(1.f, 0.f))
 {
+	m_pSprite->setPosition(m_position);
 }
 
 void Archer::render() const
@@ -56,6 +57,7 @@ void Archer::update(const uint64_t delta)
 	if (m_move)
 	{
 		m_position += delta * m_velocity * m_moveOffSet;
+		// m_position = 
 		m_pSprite->setPosition(m_position);
 		m_pSprite->update(delta);
 	}

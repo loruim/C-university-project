@@ -1,0 +1,85 @@
+{
+    "shaders" : [
+        {
+            "name"       : "spriteShader",
+            "filePath_v" : "res/shaders/vSprite.txt",
+            "filePath_f" : "res/shaders/fSprite.txt"
+        }
+    ],
+
+    "textureAtlases" : [
+        {
+            "name"     		: "mapTextureAtlas",
+            "filePath"      	: "res/texture/globalmap.png",
+            "subTextureWidth"  	: 16,
+            "subTextureHeight" 	: 16,
+            "subTextures" : [
+                "FullRoad",
+                "RightRoad",
+                "BottomRoad",
+                "Water1",
+                "LeftRoad",
+                "TopRoad",
+                "House",
+                "Water2"
+            ]
+        },
+
+        {
+            "name" 		: "archerTextureAtlas",
+            "filePath" 		: "res/texture/Archer.png",
+            "subTextureWidth" 	: 16,
+            "subTextureHeight" 	: 18,
+            "subTextures" : [
+                "ArcherRight1",
+                "ArcherRight2",
+                "ArcherLeft1",
+                "ArcherLeft2",
+                "ArcherAttackRight1",
+                "ArcherAttackRight2",
+                "ArcherAttackLeft1",
+                "ArcherAttackLeft2"
+            ]
+        }
+    ],
+
+    "animatedSprites" : [
+        {
+            "name" 		: "archerAnimatedSprite",
+            "textureAtlas" 	: "archerTextureAtlas",
+            "shader" 		: "spriteShader",
+            "initialWidth" 	: 100,
+            "initialHeight" 	: 100,
+            "initialSubTexture" : "ArcherRight1",
+            "states" : [
+                {
+                    "stateName" : "ArcherRightState",
+                    "frames" : [
+                        {
+                            "subTexture" : "ArcherRight1",
+                            "duration" 	 : 500000000
+                        },
+                        {
+                            "subTexture" : "ArcherRight2",
+                            "duration" 	 : 500000000
+                        }
+                    ]
+                },
+
+                {
+                    "stateName" : "ArcherLeftState",
+                    "frames" : [
+                        {
+                            "subTexture" : "ArcherLeft1",
+                            "duration" 	 : 500000000
+                        },
+                        {
+                            "subTexture" : "ArcherLeft2",
+                            "duration" 	 : 500000000
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -5,6 +5,7 @@
 #include <memory>
 
 class Archer;
+class GameField;
 
 class Game
 {
@@ -28,4 +29,5 @@ private:
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
 	std::unique_ptr<Archer> m_pArcher;
+	// std::unique_ptr<GameField> m_pField;
 };

@@ -8,8 +8,9 @@
 #include "Game/Game.h"
 #include "Resources/ResourceManager.h"
 
-glm::ivec2 g_windowSize(640, 480);
-Game g_game(g_windowSize);
+// glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
+glm::ivec2 g_windowSize(720, 560);
+std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
 
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 {
@@ -25,8 +26,9 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
         glfwSetWindowShouldClose(pWindow, GL_TRUE);
     }
 
-	g_game.setKey(key, action);
+	g_game->setKey(key, action);
 }
+
 
 int main(int argc, char** argv)
 {
@@ -65,7 +67,7 @@ int main(int argc, char** argv)
 
 	{
 		ResourceManager::setExecutablePath(argv[0]);
-		g_game.init();
+		g_game->init();
 
 		auto lastTime = std::chrono::high_resolution_clock::now();
 
@@ -75,16 +77,17 @@ int main(int argc, char** argv)
 			uint16_t duretion = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - lastTime).count();
 			lastTime = currentTime;
 
-			g_game.update(duretion);
+			g_game->update(duretion);
 
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			g_game.render();
+			g_game->render();
 			
 			glfwSwapBuffers(pWindow);
 
 			glfwPollEvents();
 		}
+		g_game = nullptr;
 		ResourceManager::unloadAllResources();
 	}
 
