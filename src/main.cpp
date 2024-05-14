@@ -9,7 +9,7 @@
 #include "Resources/ResourceManager.h"
 
 // glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
-glm::ivec2 g_windowSize(720, 560);
+glm::ivec2 g_windowSize(16*7, 11*16);
 std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
 
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)

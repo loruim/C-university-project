@@ -5,7 +5,10 @@
 #include "../Renderer/Texture2D.h"
 #include "../Renderer/Sprite.h"
 #include "../Renderer/AnimatedSprite.h"
+
 #include "GameObject/Archer.h"
+
+#include "Level.h"
 
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
@@ -26,22 +29,30 @@ Game::~Game()
 
 void Game::render()
 {
-    ResourceManager::getAnimatedSprite("NewAnimatedSprite")->render();
-    /*if (m_pField)
+    //ResourceManager::getAnimatedSprite("DefaultAnimetadSprite")->render();
+
+    if (m_pLevel)
     {
-        m_pField->render();
-    }*/
+        m_pLevel->render();
+    }
 
     if (m_pArcher)
     {
         m_pArcher->render();
     }
 
+    
 }
 
 void Game::update(const uint64_t delta)
 {
-    ResourceManager::getAnimatedSprite("NewAnimatedSprite")->update(delta);
+    //ResourceManager::getAnimatedSprite("DefaultAnimetadSprite")->update(delta);
+
+    if (m_pLevel)
+    {
+        m_pLevel->update(delta);
+    }
+
     if (m_pArcher)
     {
         if (m_keys[GLFW_KEY_W])
@@ -103,7 +114,8 @@ bool Game::init()
         return false;
     }
 
-    auto pAnimatedSprite = ResourceManager::loadAnimatedSprite("NewAnimatedSprite", "mapTextureAtlas", "spriteShader", 100, 100, "FullRoad");
+    /*auto pAnimatedSprite = ResourceManager::loadAnimatedSprite("DefaultAnimetadSprite", "mapTextureAtlas", "spriteShader", 100, 100, "FullRoad");
+
     pAnimatedSprite->setPosition(glm::vec2(300, 300));
     
     std::vector<std::pair<std::string, uint16_t>> waterState;
@@ -111,7 +123,7 @@ bool Game::init()
     waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water2", 1000000000));
     waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water3", 1000000000));
     pAnimatedSprite->insertState("waterState", std::move(waterState));
-    pAnimatedSprite->setState("waterState");
+    pAnimatedSprite->setState("waterState");*/
 
     /* Преоброзование координат */
     glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(m_windowSize.x), 0.f, static_cast<float>(m_windowSize.y), -100.f, 100.f);
@@ -128,14 +140,9 @@ bool Game::init()
         return false;
     }
 
-    m_pArcher = std::make_unique<Archer>(pArchersAnimatedSprite, 0.000001f, glm::vec2(16.f, 16.f));
+    m_pArcher = std::make_unique<Archer>(pArchersAnimatedSprite, 0.000001f, glm::vec2(0), glm::vec2(16.f, 16.f));
 
-    //auto tex = ResourceManager::loadTexture("FieldTexture", "res/texture/field.png");
-    //auto pFieldSprite = ResourceManager::loadSprite("FieldSprite", "FieldTexture", "spriteShader", 16, 16);
-
-    // std::vector<std::pair<glm::vec2, bool>> globalField;
-
-    //m_pField = std::make_unique<GameField>(pFieldSprite, glm::vec2(10.f, 10.f));
+    m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
 
     return true;
 }

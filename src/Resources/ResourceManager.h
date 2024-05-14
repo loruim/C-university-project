@@ -34,18 +34,21 @@ public:
 	static std::shared_ptr <Renderer::Texture2D> getTexture(const std::string& textureName);
 
 	// Sprite
-	static std::shared_ptr <Renderer::Sprite> loadSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const unsigned int spriteWidth, const unsigned int spriteHeight, const std::string& subTextureName = "default");
+	static std::shared_ptr <Renderer::Sprite> loadSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const std::string& subTextureName = "default");
 	static std::shared_ptr <Renderer::Sprite> getSprite(const std::string& spriteName);
 
 	// SubTexture :(
 	static std::shared_ptr <Renderer::Texture2D> loadTextureAtlas(std::string texturename, std::string texturePath, std::vector<std::string> subTextures, const unsigned int SubTextureWidth, const unsigned int SubTextureHeight);
 
 	// AnimatedSprite
-	static std::shared_ptr <Renderer::AnimatedSprite> loadAnimatedSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const unsigned int spriteWidth, const unsigned int spriteHeight, const std::string& subTextureName = "default");
+	static std::shared_ptr <Renderer::AnimatedSprite> loadAnimatedSprite(const std::string& spriteName, const std::string& textureName, const std::string& shaderName, const std::string& subTextureName = "default");
 	static std::shared_ptr <Renderer::AnimatedSprite> getAnimatedSprite(const std::string& spriteName);
 
 	// Include JSON
 	static bool loadJSONResources(const std::string& JSONPath);
+
+	// Levels
+	static const std::vector<std::vector<std::string>>& getLevels() { return m_levels; }
 
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
@@ -66,4 +69,7 @@ private:
 	// AnimatedSprite
 	typedef std::map<const std::string, std::shared_ptr<Renderer::AnimatedSprite>> AnimatedSpritesMap;
 	static AnimatedSpritesMap m_animatedSprites;
+
+	// Levels
+	static std::vector<std::vector<std::string>> m_levels;
 };

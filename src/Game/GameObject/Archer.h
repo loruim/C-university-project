@@ -3,12 +3,14 @@
 #include <memory>
 #include <glm/vec2.hpp>
 
+#include "IGameObject.h"
+
 namespace Renderer
 {
 	class AnimatedSprite;
 }
 
-class Archer
+class Archer : public IGameObject
 {
 public:
 	enum class EOrientaition {
@@ -18,18 +20,17 @@ public:
 		Right
 	};
 
-	Archer(std::shared_ptr<Renderer::AnimatedSprite> pSprite, const float velocity, const glm::vec2& position);
+	Archer(std::shared_ptr<Renderer::AnimatedSprite> pSprite, const float velocity, const glm::vec2& position, const glm::vec2& size);
 
-	void render() const;
+	void render() const override;
 	void SetOrientation(const EOrientaition eOrientation);
 	void move(const bool move);
-	void update(const uint64_t delta);
+	void update(const uint64_t delta) override;
 
 private:
 	EOrientaition m_eOrientation;
 	std::shared_ptr<Renderer::AnimatedSprite> m_pSprite;
 	bool m_move;
 	float m_velocity;
-	glm::vec2 m_position;
 	glm::vec2 m_moveOffSet;
 };

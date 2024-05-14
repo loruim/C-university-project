@@ -6,6 +6,7 @@
 
 class Archer;
 class GameField;
+class Level;
 
 class Game
 {
@@ -29,5 +30,5 @@ private:
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
 	std::unique_ptr<Archer> m_pArcher;
-	// std::unique_ptr<GameField> m_pField;
+	std::unique_ptr<Level> m_pLevel;
 };

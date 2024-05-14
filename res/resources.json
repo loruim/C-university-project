@@ -7,89 +7,172 @@
         }
     ],
 
-    "textureAtlases" : [
+  "textureAtlases": [
+    {
+      "name": "mapTextureAtlas",
+      "filePath": "res/texture/globalmap.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 16,
+      "subTextures": [
+        "FullRoad",
+        "House",
+        "RightRoad1",
+        "RightRoad2",
+        "RightRoad3",
+        "LeftRoad1",
+        "LeftRoad2",
+        "LeftRoad3",
+        "TopRoad1",
+        "TopRoad2",
+        "TopRoad3",
+        "BottomRoad1",
+        "BottomRoad2",
+        "BottomRoad3",
+        "LeftBottomRoad1",
+        "LeftBottomRoad2",
+        "LeftBottomRoad3",
+        "LeftTopRoad1",
+        "LeftTopRoad2",
+        "LeftTopRoad3",
+        "RightTopRoad1",
+        "RightTopRoad2",
+        "RightTopRoad3",
+        "RightBottomRoad1",
+        "RightBottomRoad2",
+        "RightBottmoRoad3",
+        "Water1",
+        "Water2",
+        "Water3",
+        "Void"
+      ]
+    },
+
+    {
+      "name": "archerTextureAtlas",
+      "filePath": "res/texture/Archer.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "ArcherRight1",
+        "ArcherRight2",
+        "ArcherLeft1",
+        "ArcherLeft2",
+        "ArcherAttackRight1",
+        "ArcherAttackRight2",
+        "ArcherAttackLeft1",
+        "ArcherAttackLeft2"
+      ]
+    }
+  ],
+
+  "sprite": [
+    {
+      "name": "FullRoad",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "subTextureName": "FullRoad"
+    },
+
+    {
+      "name": "House",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "subTextureName": "House"
+    },
+
+    {
+      "name": "Water",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "subTextureName": "Water1"
+    },
+
+    {
+      "name": "Void",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "subTextureName": "Void"
+    }
+  ],
+
+  "animatedSprites": [
+    {
+      "name": "archerAnimatedSprite",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherRight1",
+      "states": [
         {
-            "name"     		: "mapTextureAtlas",
-            "filePath"      	: "res/texture/globalmap.png",
-            "subTextureWidth"  	: 16,
-            "subTextureHeight" 	: 16,
-            "subTextures" : [
-                "FullRoad",
-                "House",
-                "RightRoad1",
-                "RightRoad2",
-                "RightRoad3",
-                "LeftRoad1",
-                "LeftRoad2",
-                "LeftRoad3",
-                "TopRoad1",
-                "TopRoad2",
-                "TopRoad3",
-                "BottomRoad1",
-                "BottomRoad2",
-                "BottomRoad3",
-                "Water1",
-                "Water2",
-                "Water3",
-                "Void"
-            ]
+          "stateName": "ArcherRightState",
+          "frames": [
+            {
+              "subTexture": "ArcherRight1",
+              "duration": 500000000
+            },
+            {
+              "subTexture": "ArcherRight2",
+              "duration": 500000000
+            }
+          ]
         },
 
         {
-            "name" 		: "archerTextureAtlas",
-            "filePath" 		: "res/texture/Archer.png",
-            "subTextureWidth" 	: 16,
-            "subTextureHeight" 	: 18,
-            "subTextures" : [
-                "ArcherRight1",
-                "ArcherRight2",
-                "ArcherLeft1",
-                "ArcherLeft2",
-                "ArcherAttackRight1",
-                "ArcherAttackRight2",
-                "ArcherAttackLeft1",
-                "ArcherAttackLeft2"
-            ]
+          "stateName": "ArcherLeftState",
+          "frames": [
+            {
+              "subTexture": "ArcherLeft1",
+              "duration": 500000000
+            },
+            {
+              "subTexture": "ArcherLeft2",
+              "duration": 500000000
+            }
+          ]
         }
-    ],
-
-    "animatedSprites" : [
+      ]
+    },
+    {
+      "name": "waterAnimatedASprite",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "FullRoad",
+      "states": [
         {
-            "name" 		: "archerAnimatedSprite",
-            "textureAtlas" 	: "archerTextureAtlas",
-            "shader" 		: "spriteShader",
-            "initialWidth" 	: 100,
-            "initialHeight" 	: 100,
-            "initialSubTexture" : "ArcherRight1",
-            "states" : [
-                {
-                    "stateName" : "ArcherRightState",
-                    "frames" : [
-                        {
-                            "subTexture" : "ArcherRight1",
-                            "duration" 	 : 500000000
-                        },
-                        {
-                            "subTexture" : "ArcherRight2",
-                            "duration" 	 : 500000000
-                        }
-                    ]
-                },
-
-                {
-                    "stateName" : "ArcherLeftState",
-                    "frames" : [
-                        {
-                            "subTexture" : "ArcherLeft1",
-                            "duration" 	 : 500000000
-                        },
-                        {
-                            "subTexture" : "ArcherLeft2",
-                            "duration" 	 : 500000000
-                        }
-                    ]
-                }
-            ]
+          "stateName": "waterState",
+          "frames": [
+            {
+              "subTexture": "Water1",
+              "duration": 1000000000
+            },
+            {
+              "subTexture": "Water2",
+              "duration": 1000000000
+            },
+            {
+              "subTexture": "Water3",
+              "duration": 1000000000
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ],
+
+  "levels": [
+    {
+      "description": [
+        "2222222",
+        "2000002",
+        "2001002",
+        "2100012",
+        "2000002",
+        "2000002",
+        "2220222",
+        "2000002",
+        "2000002",
+        "2010102",
+        "2222222"
+      ]
+    }
+  ]
 }
