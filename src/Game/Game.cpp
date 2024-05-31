@@ -140,7 +140,7 @@ bool Game::init()
         return false;
     }
 
-    m_pArcher = std::make_unique<Archer>(pArchersAnimatedSprite, 0.000001f, glm::vec2(0), glm::vec2(16.f, 16.f));
+    m_pArcher = std::make_unique<Archer>(pArchersAnimatedSprite, 0.000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f));
 
     m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
 

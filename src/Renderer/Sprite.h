@@ -1,5 +1,9 @@
 #pragma once
 
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+#include "VertexArray.h"
+
 #include <glad/glad.h>
 #include <glm/vec2.hpp>
 
@@ -21,15 +25,14 @@ namespace Renderer
 		Sprite& operator=(const Sprite&) = delete;
 
 		virtual void render(const glm::vec2& position, const glm::vec2& size, const float rotation) const;
-		/*void setPosition(const glm::vec2& position);
-		void setSize(const glm::vec2& size);
-		void setRotation(const float rotation);*/
 
 	protected:
 		std::shared_ptr<Texture2D> m_pTexture;
 		std::shared_ptr<ShaderProgram> m_pShaderProgram;
-		GLuint m_VAO;
-		GLuint m_vertexCoordsVBO;
-		GLuint m_textureCoordsVBO;
+
+		VertexArray m_vertexArray;
+		VertexBuffer m_vertexCoordBuffer;
+		VertexBuffer m_textureCoordBuffer;
+		IndexBuffer m_IndexBuffer;
 	};
 }

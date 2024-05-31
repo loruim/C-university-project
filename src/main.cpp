@@ -9,7 +9,7 @@
 #include "Resources/ResourceManager.h"
 
 // glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
-glm::ivec2 g_windowSize(7 * 16, 11 * 16);
+glm::ivec2 g_windowSize(8 * 16, 11 * 16);
 std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
 
 void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
@@ -23,7 +23,7 @@ void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 	unsigned int viewPortLeftOffset = 0;
 	unsigned int viewPortBottomOffset = 0;
 
-	if (g_windowSize.x / g_windowSize.y > map_aspect_ratio)
+	if (static_cast<float>(g_windowSize.x) / g_windowSize.y > map_aspect_ratio)
 	{
 		viewPortWidth = static_cast<unsigned int>(g_windowSize.y * map_aspect_ratio);
 		viewPortLeftOffset = (g_windowSize.x - viewPortWidth) / 2;
