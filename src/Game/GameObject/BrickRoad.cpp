@@ -2,7 +2,7 @@
 
 #include "../../Renderer/Sprite.h"
 
-BrickRoad::BrickRoad(const std::shared_ptr<Renderer::Sprite> pSprite, const glm::vec2& position, const glm::vec2& size, const float rotation) : IGameObject(position, size, rotation), m_pCurrentSprite(std::move(pSprite))
+BrickRoad::BrickRoad(const std::shared_ptr<RenderEngine::Sprite> pSprite, const glm::vec2& position, const glm::vec2& size, const float rotation) : IGameObject(position, size, rotation), m_pCurrentSprite(std::move(pSprite))
 {
 
 }

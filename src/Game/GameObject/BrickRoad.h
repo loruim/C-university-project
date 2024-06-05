@@ -4,7 +4,7 @@
 
 #include <memory>
 
-namespace Renderer
+namespace RenderEngine
 {
 	class Sprite;
 }
@@ -12,11 +12,11 @@ namespace Renderer
 class BrickRoad : public IGameObject
 {
 public:
-	BrickRoad(const std::shared_ptr<Renderer::Sprite> pSprite, const glm::vec2& position, const glm::vec2& size, const float rotation);
+	BrickRoad(const std::shared_ptr<RenderEngine::Sprite> pSprite, const glm::vec2& position, const glm::vec2& size, const float rotation);
 
 	virtual void render() const override;
 	virtual void update(const uint64_t delta) override;
 
 private:
-	std::shared_ptr<Renderer::Sprite> m_pCurrentSprite;
+	std::shared_ptr<RenderEngine::Sprite> m_pCurrentSprite;
 };

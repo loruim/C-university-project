@@ -3,7 +3,7 @@
 #include "../../Renderer/AnimatedSprite.h"
 #include "IGameObject.h"
 
-Archer::Archer(std::shared_ptr<Renderer::AnimatedSprite> pSprite, const float velocity, const glm::vec2& position, const glm::vec2& size) : IGameObject(position, size, 0.f), m_eOrientation(EOrientaition::Left), m_pSprite(std::move(pSprite)), m_move(false), m_velocity(velocity), m_moveOffSet(glm::vec2(1.f, 0.f))
+Archer::Archer(std::shared_ptr<RenderEngine::AnimatedSprite> pSprite, const float velocity, const glm::vec2& position, const glm::vec2& size) : IGameObject(position, size, 0.f), m_eOrientation(EOrientaition::Left), m_pSprite(std::move(pSprite)), m_move(false), m_velocity(velocity), m_moveOffSet(glm::vec2(1.f, 0.f))
 {
 }
 

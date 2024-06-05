@@ -7,6 +7,7 @@
 
 #include "Game/Game.h"
 #include "Resources/ResourceManager.h"
+#include "Renderer/Renderer.h"
 
 // glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
 glm::ivec2 g_windowSize(8 * 16, 11 * 16);
@@ -34,7 +35,7 @@ void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
 		viewPortBottomOffset = (g_windowSize.y - viewPortHeight) / 2;
 	}
 
-    glViewport(viewPortLeftOffset, viewPortBottomOffset, viewPortWidth, viewPortHeight);
+	RenderEngine::Renderer::setViewport(viewPortWidth, viewPortHeight, viewPortLeftOffset, viewPortBottomOffset);
 }
 
 void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int mode)
@@ -81,7 +82,7 @@ int main(int argc, char** argv)
 	std::cout << "Render: " << glGetString(GL_RENDERER) << std::endl;
 	std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
 
-	glClearColor(0, 0, 0, 1);
+	RenderEngine::Renderer::setClearColor(0, 0, 0, 1);
 
 	{
 		ResourceManager::setExecutablePath(argv[0]);
@@ -97,7 +98,7 @@ int main(int argc, char** argv)
 
 			g_game->update(duretion);
 
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderEngine::Renderer::clear();
 
 			g_game->render();
 			
