@@ -4,7 +4,7 @@
 #include <array>
 #include <memory>
 
-class Archer;
+class Hero;
 class GameField;
 class Level;
 
@@ -29,6 +29,6 @@ private:
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
-	std::unique_ptr<Archer> m_pArcher;
+	std::unique_ptr<Hero> m_pHero;
 	std::unique_ptr<Level> m_pLevel;
 };

@@ -4,9 +4,8 @@
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"
 #include "../Renderer/Sprite.h"
-#include "../Renderer/AnimatedSprite.h"
 
-#include "GameObject/Archer.h"
+#include "GameObject/Hero.h"
 
 #include "Level.h"
 
@@ -29,58 +28,52 @@ Game::~Game()
 
 void Game::render()
 {
-    //ResourceManager::getAnimatedSprite("DefaultAnimetadSprite")->render();
-
     if (m_pLevel)
     {
         m_pLevel->render();
     }
 
-    if (m_pArcher)
+    if (m_pHero)
     {
-        m_pArcher->render();
+        m_pHero->render();
     }
-
-    
 }
 
 void Game::update(const uint64_t delta)
 {
-    //ResourceManager::getAnimatedSprite("DefaultAnimetadSprite")->update(delta);
-
     if (m_pLevel)
     {
         m_pLevel->update(delta);
     }
 
-    if (m_pArcher)
+    if (m_pHero)
     {
         if (m_keys[GLFW_KEY_W])
         {
-            m_pArcher->SetOrientation(Archer::EOrientaition::Top);
-            m_pArcher->move(true);
+            m_pHero->SetOrientation(Hero::EOrientaition::Top);
+            m_pHero->move(true);
         }
         else if (m_keys[GLFW_KEY_A])
         {
-            m_pArcher->SetOrientation(Archer::EOrientaition::Left);
-            m_pArcher->move(true);
+            m_pHero->SetOrientation(Hero::EOrientaition::Left);
+            m_pHero->move(true);
         }
         else if (m_keys[GLFW_KEY_D])
         {
-            m_pArcher->SetOrientation(Archer::EOrientaition::Right);
-            m_pArcher->move(true);
+            m_pHero->SetOrientation(Hero::EOrientaition::Right);
+            m_pHero->move(true);
         }
         else if (m_keys[GLFW_KEY_S])
         {
-            m_pArcher->SetOrientation(Archer::EOrientaition::Bottom);
-            m_pArcher->move(true);
+            m_pHero->SetOrientation(Hero::EOrientaition::Bottom);
+            m_pHero->move(true);
         }
         else
         {
-            m_pArcher->move(false);
+            m_pHero->move(false);
         }
 
-        m_pArcher->update(delta);
+        m_pHero->update(delta);
     }
 }
 
@@ -107,23 +100,12 @@ bool Game::init()
         return false;
     }
 
-    auto pArchersTexturesAtlas = ResourceManager::getTexture("archerTextureAtlas");
-    if (!pArchersTexturesAtlas)
+    auto pHerosTexturesAtlas = ResourceManager::getTexture("archerTextureAtlas");
+    if (!pHerosTexturesAtlas)
     {
         std::cerr << "Can't find texture atlas: " << "archerTextureAtlas" << std::endl;
         return false;
     }
-
-    /*auto pAnimatedSprite = ResourceManager::loadAnimatedSprite("DefaultAnimetadSprite", "mapTextureAtlas", "spriteShader", 100, 100, "FullRoad");
-
-    pAnimatedSprite->setPosition(glm::vec2(300, 300));
-    
-    std::vector<std::pair<std::string, uint16_t>> waterState;
-    waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water1", 1000000000));
-    waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water2", 1000000000));
-    waterState.emplace_back(std::make_pair<std::string, uint16_t>("Water3", 1000000000));
-    pAnimatedSprite->insertState("waterState", std::move(waterState));
-    pAnimatedSprite->setState("waterState");*/
 
     /* Преоброзование координат */
     glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(m_windowSize.x), 0.f, static_cast<float>(m_windowSize.y), -100.f, 100.f);
@@ -133,14 +115,11 @@ bool Game::init()
     pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
     /* ------------------------ */
 
-    auto pArchersAnimatedSprite = ResourceManager::getAnimatedSprite("archerAnimatedSprite");
-    if (!pArchersAnimatedSprite)
-    {
-        std::cerr << "Can't find animated sprite: " << "archerAnimatedSprite" << std::endl;
-        return false;
-    }
-
-    m_pArcher = std::make_unique<Archer>(pArchersAnimatedSprite, 0.000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f));
+    m_pHero = std::make_unique<Hero>(ResourceManager::getSprite("archerTopState"), 
+                                     ResourceManager::getSprite("archerBottomState"), 
+                                     ResourceManager::getSprite("archerLeftState"), 
+                                     ResourceManager::getSprite("archerRightState"), 
+                                     0.0000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f));
 
     m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
 

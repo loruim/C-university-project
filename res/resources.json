@@ -70,89 +70,115 @@
       "name": "FullRoad",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
-      "subTextureName": "FullRoad"
+      "initialSubTexture": "FullRoad"
     },
 
     {
       "name": "House",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
-      "subTextureName": "House"
+      "initialSubTexture": "House"
     },
 
     {
       "name": "Water",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
-      "subTextureName": "Water1"
+      "initialSubTexture": "Water1"
     },
 
     {
       "name": "Void",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
-      "subTextureName": "Void"
-    }
-  ],
+      "initialSubTexture": "Void"
+    },
 
-  "animatedSprites": [
     {
-      "name": "archerAnimatedSprite",
+      "name": "archerTopState",
       "textureAtlas": "archerTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "ArcherRight1",
-      "states": [
+      "frames": [
         {
-          "stateName": "ArcherRightState",
-          "frames": [
-            {
-              "subTexture": "ArcherRight1",
-              "duration": 500000000
-            },
-            {
-              "subTexture": "ArcherRight2",
-              "duration": 500000000
-            }
-          ]
+          "subTexture": "ArcherRight1",
+          "duration": 500000000
         },
-
         {
-          "stateName": "ArcherLeftState",
-          "frames": [
-            {
-              "subTexture": "ArcherLeft1",
-              "duration": 500000000
-            },
-            {
-              "subTexture": "ArcherLeft2",
-              "duration": 500000000
-            }
-          ]
+          "subTexture": "ArcherRight2",
+          "duration": 500000000
         }
       ]
     },
+
     {
-      "name": "waterAnimatedASprite",
+      "name": "archerBottomState",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherLeft1",
+      "frames": [
+        {
+          "subTexture": "ArcherLeft1",
+          "duration": 500000000
+        },
+        {
+          "subTexture": "ArcherLeft2",
+          "duration": 500000000
+        }
+      ]
+    },
+
+    {
+      "name": "archerLeftState",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherLeft1",
+      "frames": [
+        {
+          "subTexture": "ArcherLeft1",
+          "duration": 500000000
+        },
+        {
+          "subTexture": "ArcherLeft2",
+          "duration": 500000000
+        }
+      ]
+    },
+
+    {
+      "name": "archerRightState",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherRight1",
+      "frames": [
+        {
+          "subTexture": "ArcherRight1",
+          "duration": 500000000
+        },
+        {
+          "subTexture": "ArcherRight2",
+          "duration": 500000000
+        }
+      ]
+    },
+
+    {
+      "name": "waterSprite",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "FullRoad",
-      "states": [
+      "initialSubTexture": "Waater1",
+      "frames": [
         {
-          "stateName": "waterState",
-          "frames": [
-            {
-              "subTexture": "Water1",
-              "duration": 1000000000
-            },
-            {
-              "subTexture": "Water2",
-              "duration": 1000000000
-            },
-            {
-              "subTexture": "Water3",
-              "duration": 1000000000
-            }
-          ]
+          "subTexture": "Water1",
+          "duration": 1000000000
+        },
+        {
+          "subTexture": "Water2",
+          "duration": 1000000000
+        },
+        {
+          "subTexture": "Water3",
+          "duration": 1000000000
         }
       ]
     }

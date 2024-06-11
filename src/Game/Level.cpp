@@ -2,7 +2,6 @@
 
 #include "../Resources/ResourceManager.h"
 #include "GameObject/BrickRoad.h"
-// #include "GameObject/Archer.h"
 
 #include <iostream>
 
