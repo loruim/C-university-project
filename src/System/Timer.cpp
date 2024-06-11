@@ -25,5 +25,5 @@ void Timer::start(const double duration)
 
 void Timer::setCallback(std::function<void()> callback)
 {
-	m_callback = callback
+	m_callback = callback;
 }

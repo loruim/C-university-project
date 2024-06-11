@@ -25,15 +25,15 @@ public:
 		 std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
 		 std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
 		 std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		 const double velocity, 
+		 const double maxVelocity, 
 		 const glm::vec2& position, 
 		 const glm::vec2& size, 
 		 const float layer);
 
 	void render() const override;
 	void SetOrientation(const EOrientaition eOrientation);
-	void move(const bool move);
 	void update(const double delta) override;
+	double getMaxVelocity() const { return m_maxVelocity; }
 
 private:
 	EOrientaition m_eOrientation;
@@ -45,7 +45,5 @@ private:
 	RenderEngine::SpriteAnimator m_spriteAnimator_bottom;
 	RenderEngine::SpriteAnimator m_spriteAnimator_left;
 	RenderEngine::SpriteAnimator m_spriteAnimator_right;
-	bool m_move;
-	double m_velocity;
-	glm::vec2 m_moveOffSet;
+	double m_maxVelocity;
 };

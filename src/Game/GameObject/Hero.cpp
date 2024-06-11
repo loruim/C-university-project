@@ -7,7 +7,7 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		   const double velocity, 
+		   const double maxVelocity, 
 		   const glm::vec2& position, 
 		   const glm::vec2& size, 
 		   const float layer)
@@ -21,8 +21,9 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 	, m_spriteAnimator_bottom(m_pSprite_bottom)
 	, m_spriteAnimator_left(m_pSprite_left)
 	, m_spriteAnimator_right(m_pSprite_right)
-	, m_move(false), m_velocity(velocity), m_moveOffSet(glm::vec2(1.f, 0.f))
+	, m_maxVelocity(maxVelocity)
 {
+	m_colliders.emplace_back(glm::vec2(0), m_size);
 }
 
 void Hero::render() const
@@ -55,38 +56,30 @@ void Hero::SetOrientation(const EOrientaition eOrientation)
 	switch (m_eOrientation)
 	{
 	case Hero::EOrientaition::Top:
-		m_moveOffSet.x = 0;
-		m_moveOffSet.y = 1;
+		m_direction.x = 0;
+		m_direction.y = 1;
 		break;
 	case Hero::EOrientaition::Bottom:
-		m_moveOffSet.x = 0;
-		m_moveOffSet.y = -1;
+		m_direction.x = 0;
+		m_direction.y = -1;
 		break;
 	case Hero::EOrientaition::Left:
-		m_moveOffSet.x = -1;
-		m_moveOffSet.y = 0;
+		m_direction.x = -1;
+		m_direction.y = 0;
 		break;
 	case Hero::EOrientaition::Right:
-		m_moveOffSet.x = 1;
-		m_moveOffSet.y = 0;
+		m_direction.x = 1;
+		m_direction.y = 0;
 		break;
 	default:
 		break;
 	}
 }
 
-void Hero::move(const bool move)
-{
-	m_move = move;
-}
-
 void Hero::update(const double delta)
 {
-	if (m_move)
+	if (m_velocity > 0)
 	{
-		m_position.x += static_cast<float>(delta * m_velocity * m_moveOffSet.x);
-		m_position.y += static_cast<float>(delta * m_velocity * m_moveOffSet.y);
-
 		switch (m_eOrientation)
 		{
 		case Hero::EOrientaition::Top:

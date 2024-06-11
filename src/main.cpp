@@ -8,6 +8,7 @@
 #include "Game/Game.h"
 #include "Resources/ResourceManager.h"
 #include "Renderer/Renderer.h"
+#include "Physics/PhysicsEngine.h"
 
 glm::ivec2 g_windowSize(8 * 16, 11 * 16);
 std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
@@ -86,8 +87,9 @@ int main(int argc, char** argv)
 
 	{
 		ResourceManager::setExecutablePath(argv[0]);
+		Physics::PhysicsEngine::init();
 		g_game->init();
-		glfwSetWindowSize(pWindow, static_cast<int>(5 * g_game->getCurrentLevelWidth()), static_cast<int>(5 * g_game->getCurrentLevelHeight()));
+		glfwSetWindowSize(pWindow, static_cast<int>(4 * g_game->getCurrentLevelWidth()), static_cast<int>(4 * g_game->getCurrentLevelHeight()));
 
 		auto lastTime = std::chrono::high_resolution_clock::now();
 
@@ -99,6 +101,8 @@ int main(int argc, char** argv)
 
 			g_game->update(duration);
 
+			Physics::PhysicsEngine::update(duration);
+
 			RenderEngine::Renderer::clear();
 
 			g_game->render();
@@ -107,6 +111,7 @@ int main(int argc, char** argv)
 
 			glfwPollEvents();
 		}
+		Physics::PhysicsEngine::terminate();
 		g_game = nullptr;
 		ResourceManager::unloadAllResources();
 	}

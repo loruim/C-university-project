@@ -31,6 +31,6 @@ private:
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
-	std::unique_ptr<Hero> m_pHero;
-	std::unique_ptr<Level> m_pLevel;
+	std::shared_ptr<Hero> m_pHero;
+	std::shared_ptr<Level> m_pLevel;
 };
