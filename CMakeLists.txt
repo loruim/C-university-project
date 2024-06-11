@@ -30,6 +30,9 @@ add_executable(${PROJECT_NAME}
     src/Resources/ResourceManager.h
     src/Resources/stb_image.h
 
+    src/System/Timer.cpp
+    src/System/Timer.h
+
     src/Game/Game.cpp
     src/Game/Game.h
 

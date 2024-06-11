@@ -71,11 +71,11 @@
       "frames": [
         {
           "subTexture": "ArcherRight1",
-          "duration": 500000000
+          "duration": 500
         },
         {
           "subTexture": "ArcherRight2",
-          "duration": 500000000
+          "duration": 500
         }
       ]
     },
@@ -88,11 +88,11 @@
       "frames": [
         {
           "subTexture": "ArcherLeft1",
-          "duration": 500000000
+          "duration": 500
         },
         {
           "subTexture": "ArcherLeft2",
-          "duration": 500000000
+          "duration": 500
         }
       ]
     },
@@ -105,11 +105,11 @@
       "frames": [
         {
           "subTexture": "ArcherLeft1",
-          "duration": 500000000
+          "duration": 500
         },
         {
           "subTexture": "ArcherLeft2",
-          "duration": 500000000
+          "duration": 500
         }
       ]
     },
@@ -122,11 +122,11 @@
       "frames": [
         {
           "subTexture": "ArcherRight1",
-          "duration": 500000000
+          "duration": 500
         },
         {
           "subTexture": "ArcherRight2",
-          "duration": 500000000
+          "duration": 500
         }
       ]
     },
@@ -139,15 +139,15 @@
       "frames": [
         {
           "subTexture": "Water1",
-          "duration": 1000000000
+          "duration": 1000
         },
         {
           "subTexture": "Water2",
-          "duration": 1000000000
+          "duration": 1000
         },
         {
           "subTexture": "Water3",
-          "duration": 1000000000
+          "duration": 1000
         }
       ]
     }

@@ -39,7 +39,7 @@ void Game::render()
     }
 }
 
-void Game::update(const uint64_t delta)
+void Game::update(const double delta)
 {
     if (m_pLevel)
     {
@@ -123,7 +123,7 @@ bool Game::init()
                                      ResourceManager::getSprite("archerBottomState"), 
                                      ResourceManager::getSprite("archerLeftState"), 
                                      ResourceManager::getSprite("archerRightState"), 
-                                     0.0000001f, m_pLevel->getPlayerRespawn()/*glm::vec2(3*16.f, 6*16.f)*/, glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+                                     0.05, m_pLevel->getPlayerRespawn()/*glm::vec2(3*16.f, 6*16.f)*/, glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
     return true;
 }
 

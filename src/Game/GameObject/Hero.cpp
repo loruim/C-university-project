@@ -7,7 +7,7 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		   const float velocity, 
+		   const double velocity, 
 		   const glm::vec2& position, 
 		   const glm::vec2& size, 
 		   const float layer)
@@ -80,11 +80,12 @@ void Hero::move(const bool move)
 	m_move = move;
 }
 
-void Hero::update(const uint64_t delta)
+void Hero::update(const double delta)
 {
 	if (m_move)
 	{
-		m_position += delta * m_velocity * m_moveOffSet;
+		m_position.x += static_cast<float>(delta * m_velocity * m_moveOffSet.x);
+		m_position.y += static_cast<float>(delta * m_velocity * m_moveOffSet.y);
 
 		switch (m_eOrientation)
 		{

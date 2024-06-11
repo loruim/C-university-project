@@ -97,7 +97,7 @@ namespace RenderEngine
         Renderer::draw(m_vertexArray, m_IndexBuffer, *m_pShaderProgram);
     }
 
-    uint64_t Sprite::getFrameDuration(const size_t frameID) const
+    double Sprite::getFrameDuration(const size_t frameID) const
     {
         return m_framesDescriptions[frameID].s_duration;
     }

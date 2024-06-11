@@ -12,7 +12,3 @@ void BrickRoad::render() const
 {
 	m_pCurrentSprite->render(m_position, m_size, m_rotation, m_layer);
 }
-
-void BrickRoad::update(const uint64_t delta)
-{
-}
