@@ -9,10 +9,10 @@ namespace RenderEngine
 	class Sprite;
 }
 
-class BrickRoad : public IGameObject
+class House : public IGameObject
 {
 public:
-	BrickRoad(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer);
+	House(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer);
 
 	virtual void render() const override;
 	virtual void update(const uint64_t delta) override;

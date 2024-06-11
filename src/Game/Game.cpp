@@ -119,7 +119,7 @@ bool Game::init()
                                      ResourceManager::getSprite("archerBottomState"), 
                                      ResourceManager::getSprite("archerLeftState"), 
                                      ResourceManager::getSprite("archerRightState"), 
-                                     0.0000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f));
+                                     0.0000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f), 1.f);
 
     m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
 

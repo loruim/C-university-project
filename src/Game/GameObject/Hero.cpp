@@ -7,8 +7,11 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		   const float velocity, const glm::vec2& position, const glm::vec2& size) 
-	: IGameObject(position, size, 0.f)
+		   const float velocity, 
+		   const glm::vec2& position, 
+		   const glm::vec2& size, 
+		   const float layer)
+	: IGameObject(position, size, 0.f, layer)
 	, m_eOrientation(EOrientaition::Left)
 	, m_pSprite_top(std::move(pSprite_top))
 	, m_pSprite_bottom(std::move(pSprite_bottom))
@@ -27,16 +30,16 @@ void Hero::render() const
 	switch (m_eOrientation)
 	{
 	case Hero::EOrientaition::Top:
-		m_pSprite_top->render(m_position, m_size, m_rotation, m_spriteAnimator_top.getCurrentFrame());
+		m_pSprite_top->render(m_position, m_size, m_rotation, m_layer, m_spriteAnimator_top.getCurrentFrame());
 		break;
 	case Hero::EOrientaition::Bottom:
-		m_pSprite_bottom->render(m_position, m_size, m_rotation, m_spriteAnimator_bottom.getCurrentFrame());
+		m_pSprite_bottom->render(m_position, m_size, m_rotation, m_layer, m_spriteAnimator_bottom.getCurrentFrame());
 		break;
 	case Hero::EOrientaition::Left:
-		m_pSprite_left->render(m_position, m_size, m_rotation, m_spriteAnimator_left.getCurrentFrame());
+		m_pSprite_left->render(m_position, m_size, m_rotation, m_layer, m_spriteAnimator_left.getCurrentFrame());
 		break;
 	case Hero::EOrientaition::Right:
-		m_pSprite_right->render(m_position, m_size, m_rotation, m_spriteAnimator_right.getCurrentFrame());
+		m_pSprite_right->render(m_position, m_size, m_rotation, m_layer, m_spriteAnimator_right.getCurrentFrame());
 		break;
 	}
 }

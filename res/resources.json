@@ -37,7 +37,7 @@
         "RightTopRoad1",
         "RightTopRoad2",
         "RightTopRoad3",
-        "RightBottomRoad1",
+        "UnbreakableTexture",
         "RightBottomRoad2",
         "RightBottmoRoad3",
         "Water1",
@@ -78,13 +78,6 @@
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "House"
-    },
-
-    {
-      "name": "Water",
-      "textureAtlas": "mapTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "Water1"
     },
 
     {

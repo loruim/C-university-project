@@ -42,6 +42,10 @@ add_executable(${PROJECT_NAME}
     src/Game/GameObject/Hero.h
     src/Game/GameObject/BrickRoad.cpp
     src/Game/GameObject/BrickRoad.h
+    src/Game/GameObject/House.cpp
+    src/Game/GameObject/House.h
+    src/Game/GameObject/Water.cpp
+    src/Game/GameObject/Water.h
 )
 
 add_subdirectory(external/glfw)

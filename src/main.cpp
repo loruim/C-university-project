@@ -9,7 +9,6 @@
 #include "Resources/ResourceManager.h"
 #include "Renderer/Renderer.h"
 
-// glm::ivec2 g_windowSize(10*16+10*2, 5*16+10*2);
 glm::ivec2 g_windowSize(8 * 16, 11 * 16);
 std::unique_ptr<Game> g_game = std::make_unique<Game>(g_windowSize);
 
@@ -83,6 +82,7 @@ int main(int argc, char** argv)
 	std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
 
 	RenderEngine::Renderer::setClearColor(0, 0, 0, 1);
+	RenderEngine::Renderer::setDepthTest(true);
 
 	{
 		ResourceManager::setExecutablePath(argv[0]);

@@ -58,7 +58,7 @@ namespace RenderEngine
     {
     }
 
-    void Sprite::render(const glm::vec2& position, const glm::vec2& size, const float rotation, const size_t frameID) const
+    void Sprite::render(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer, const size_t frameID) const
     {
         if (m_lastFrameID != frameID)
         {
@@ -79,6 +79,7 @@ namespace RenderEngine
 
         m_pShaderProgram->use();
 
+        /* Преобразование вида */
         glm::mat4 model(1.f);
         model = glm::translate(model, glm::vec3(position, 0.f));
         model = glm::translate(model, glm::vec3(0.5 * size.x, 0.5 * size.y, 0.f));
@@ -87,6 +88,8 @@ namespace RenderEngine
         model = glm::scale(model, glm::vec3(size, 1.f));
 
         m_pShaderProgram->setMatrix4("modelMat", model);
+        m_pShaderProgram->setFloat("layer", layer);
+        /* =================== */
 
         glActiveTexture(GL_TEXTURE0);
         m_pTexture->bind();

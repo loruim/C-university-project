@@ -2,6 +2,8 @@
 
 #include "../Resources/ResourceManager.h"
 #include "GameObject/BrickRoad.h"
+#include "GameObject/House.h"
+#include "GameObject/Water.h"
 
 #include <iostream>
 
@@ -12,13 +14,12 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
 	switch (description)
 	{
 	case '0':
-		return std::make_shared<BrickRoad>(ResourceManager::getSprite("FullRoad"), position, size, rotation);
+		return std::make_shared<BrickRoad>(position, size, rotation, 0.f);
 		break;
 	case '1':
-		return std::make_shared<BrickRoad>(ResourceManager::getSprite("House"), position, size, rotation);
-		break;
+		return std::make_shared<House>(position, size, rotation, 1.f);
 	case '2':
-		return std::make_shared<BrickRoad>(ResourceManager::getSprite("Water"), position, size, rotation);
+		return std::make_shared<Water>(position, size, rotation, 0.f);
 		break;
 	case '3':
 		return nullptr;
