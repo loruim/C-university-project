@@ -107,6 +107,10 @@ bool Game::init()
         return false;
     }
 
+    m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
+    m_windowSize.x = static_cast<int>(m_pLevel->getLevelWidth());
+    m_windowSize.y = static_cast<int>(m_pLevel->getLevelHeight());
+
     /* Преоброзование координат */
     glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(m_windowSize.x), 0.f, static_cast<float>(m_windowSize.y), -100.f, 100.f);
 
@@ -119,9 +123,16 @@ bool Game::init()
                                      ResourceManager::getSprite("archerBottomState"), 
                                      ResourceManager::getSprite("archerLeftState"), 
                                      ResourceManager::getSprite("archerRightState"), 
-                                     0.0000001f, glm::vec2(3*16.f, 6*16.f), glm::vec2(16.f, 16.f), 1.f);
-
-    m_pLevel = std::make_unique<Level>(ResourceManager::getLevels()[0]);
-
+                                     0.0000001f, m_pLevel->getPlayerRespawn()/*glm::vec2(3*16.f, 6*16.f)*/, glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
     return true;
+}
+
+size_t Game::getCurrentLevelWidth() const
+{
+    return m_pLevel->getLevelWidth();
+}
+
+size_t Game::getCurrentLevelHeight() const
+{
+    return m_pLevel->getLevelHeight();
 }
