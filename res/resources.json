@@ -38,6 +38,57 @@
         "ArcherAttackLeft1",
         "ArcherAttackLeft2"
       ]
+    },
+
+    {
+      "name": "knightTextureAtlas",
+      "filePath": "res/texture/knight.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "KnightRight1",
+        "KnightRight2",
+        "KnightLeft1",
+        "KnightLeft2",
+        "KnightAttackRight1",
+        "KnightAttackRight2",
+        "KnightAttackLeft1",
+        "KnightAttackLeft2"
+      ]
+    },
+
+    {
+      "name": "barbarianTextureAtlas",
+      "filePath": "res/texture/barbarian.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "BarbarianRight1",
+        "BarbarianRight2",
+        "BarbarianLeft1",
+        "BarbarianLeft2",
+        "BarbarianAttackRight1",
+        "BarbarianAttackRight2",
+        "BarbarianAttackLeft1",
+        "BarbarianAttackLeft2"
+      ]
+    },
+
+    {
+      "name": "angelTextureAtlas",
+      "filePath": "res/texture/angel.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "AngelRight1",
+        "AngelRight2",
+        "AngelLeft1",
+        "AngelLeft2",
+        "AngelAttackRight1",
+        "AngelAttackRight2",
+        "AngelAttackLeft1",
+        "AngelAttackLeft2"
+      ]
     }
   ],
 
@@ -61,40 +112,6 @@
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "Border"
-    },
-
-    {
-      "name": "archerTopState",
-      "textureAtlas": "archerTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "ArcherRight1",
-      "frames": [
-        {
-          "subTexture": "ArcherRight1",
-          "duration": 500
-        },
-        {
-          "subTexture": "ArcherRight2",
-          "duration": 500
-        }
-      ]
-    },
-
-    {
-      "name": "archerBottomState",
-      "textureAtlas": "archerTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "ArcherLeft1",
-      "frames": [
-        {
-          "subTexture": "ArcherLeft1",
-          "duration": 500
-        },
-        {
-          "subTexture": "ArcherLeft2",
-          "duration": 500
-        }
-      ]
     },
 
     {
@@ -148,6 +165,108 @@
         {
           "subTexture": "Water3",
           "duration": 1000
+        }
+      ]
+    },
+
+    {
+      "name": "knightLeftState",
+      "textureAtlas": "knightTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "KnightLeft1",
+      "frames": [
+        {
+          "subTexture": "KnightLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "KnightLeft1",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "knightRightState",
+      "textureAtlas": "knightTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "KnightRight1",
+      "frames": [
+        {
+          "subTexture": "KnightRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "KnightRight2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "barbarianLeftState",
+      "textureAtlas": "barbarianTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "BarbarianLeft1",
+      "frames": [
+        {
+          "subTexture": "BarbarianLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "BarbarianLeft2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "barbarianRightState",
+      "textureAtlas": "barbarianTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "BarbarianRight1",
+      "frames": [
+        {
+          "subTexture": "BarbarianRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "BarbarianRight2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "angelLeftState",
+      "textureAtlas": "angelTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "AngelLeft1",
+      "frames": [
+        {
+          "subTexture": "AngelLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "AngelLeft2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "angelRightState",
+      "textureAtlas": "angelTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "AngelRight1",
+      "frames": [
+        {
+          "subTexture": "AngelRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "AngelRight2",
+          "duration": 500
         }
       ]
     }

@@ -71,8 +71,6 @@ void Hero::SetOrientation(const EOrientaition eOrientation)
 		m_direction.x = 1;
 		m_direction.y = 0;
 		break;
-	default:
-		break;
 	}
 }
 

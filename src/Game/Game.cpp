@@ -17,7 +17,7 @@
 
 #include <iostream>
 
-Game::Game(const glm::ivec2& windowSize) : m_eCurrentGameState(EGameState::Active), m_windowSize(windowSize)
+Game::Game(const glm::ivec2& windowSize) : m_windowSize(windowSize), m_eCurrentGameState(EGameState::Active)
 {
     m_keys.fill(false);
 }
@@ -121,8 +121,8 @@ bool Game::init()
     pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
     /* ------------------------ */
 
-    m_pHero = std::make_shared<Hero>(ResourceManager::getSprite("archerTopState"), 
-                                     ResourceManager::getSprite("archerBottomState"), 
+    m_pHero = std::make_shared<Hero>(ResourceManager::getSprite("archerLeftState"), 
+                                     ResourceManager::getSprite("archerRightState"), 
                                      ResourceManager::getSprite("archerLeftState"), 
                                      ResourceManager::getSprite("archerRightState"), 
                                      0.05, m_pLevel->getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
