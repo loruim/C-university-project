@@ -11,7 +11,7 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 		   const glm::vec2& position, 
 		   const glm::vec2& size, 
 		   const float layer)
-	: IGameObject(position, size, 0.f, layer)
+	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(EOrientaition::Left)
 	, m_pSprite_top(std::move(pSprite_top))
 	, m_pSprite_bottom(std::move(pSprite_bottom))

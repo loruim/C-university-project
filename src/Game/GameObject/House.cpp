@@ -3,7 +3,9 @@
 #include "../../Renderer/Sprite.h"
 #include "../../Resources/ResourceManager.h"
 
-House::House(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer) : IGameObject(position, size, rotation, layer), m_pCurrentSprite(ResourceManager::getSprite("House"))
+House::House(const glm::vec2& position, const glm::vec2& size, const float rotation, const float layer) 
+	: IGameObject(IGameObject::EObjectType::House, position, size, rotation, layer)
+	, m_pCurrentSprite(ResourceManager::getSprite("House"))
 {
 
 }
