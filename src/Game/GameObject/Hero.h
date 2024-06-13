@@ -11,6 +11,8 @@ namespace RenderEngine
 	class Sprite;
 }
 
+class Arrow;
+
 class Hero : public IGameObject
 {
 public:
@@ -34,9 +36,11 @@ public:
 	void SetOrientation(const EOrientaition eOrientation);
 	void update(const double delta) override;
 	double getMaxVelocity() const { return m_maxVelocity; }
+	void fire();
 
 private:
 	EOrientaition m_eOrientation;
+	std::shared_ptr<Arrow> m_pCurrentArrow;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_top;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_bottom;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_left;

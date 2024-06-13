@@ -17,6 +17,7 @@ public:
 
 	virtual void render() const override;
 	virtual void update(const double delta) override;
+	virtual bool collides(const EObjectType objectType) override;
 
 private:
 	std::shared_ptr<RenderEngine::Sprite> m_pCurrentSprite;

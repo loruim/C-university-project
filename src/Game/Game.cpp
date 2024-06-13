@@ -74,6 +74,11 @@ void Game::update(const double delta)
             m_pHero->setVelocity(0);
         }
 
+        if (m_pHero && m_keys[GLFW_KEY_SPACE])
+        {
+            m_pHero->fire();
+        }
+
         m_pHero->update(delta);
     }
 }

@@ -54,6 +54,8 @@ add_executable(${PROJECT_NAME}
     src/Game/GameObject/Water.h
     src/Game/GameObject/Border.cpp
     src/Game/GameObject/Border.h
+    src/Game/GameObject/Arrow.cpp
+    src/Game/GameObject/Arrow.h
 )
 
 add_subdirectory(external/glfw)
@@ -62,7 +64,8 @@ target_link_libraries(${PROJECT_NAME} glfw)
 add_subdirectory(external/glad)
 target_link_libraries(${PROJECT_NAME} glad)
 
-include_directories(external/glm)
+add_subdirectory(external/glm)
+target_link_libraries(${PROJECT_NAME} glm)
 
 include_directories(external/rapidjson/include)
 

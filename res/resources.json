@@ -19,7 +19,11 @@
         "Water1",
         "Water2",
         "Water3",
-        "Border"
+        "Border",
+        "ArrowBottom",
+        "ArrowTop",
+        "ArrowLeft",
+        "ArrowRight"
       ]
     },
 
@@ -112,6 +116,34 @@
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "Border"
+    },
+
+    {
+      "name": "ArrowTop",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArrowTop"
+    },
+
+    {
+      "name": "ArrowBottom",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArrowBottom"
+    },
+
+    {
+      "name": "ArrowLeft",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArrowLeft"
+    },
+
+    {
+      "name": "ArrowRight",
+      "textureAtlas": "mapTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArrowRight"
     },
 
     {

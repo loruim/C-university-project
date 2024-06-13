@@ -2,6 +2,8 @@
 
 #include "IGameObject.h"
 #include "../../Renderer/Sprite.h"
+#include "Arrow.h"
+#include "../../Physics/PhysicsEngine.h"	
 
 Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top, 
 		   std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
@@ -13,6 +15,7 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 		   const float layer)
 	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(EOrientaition::Left)
+	, m_pCurrentArrow(std::make_shared<Arrow>(0.1, m_position + m_size / 4.f, m_size / 2.f, layer))
 	, m_pSprite_top(std::move(pSprite_top))
 	, m_pSprite_bottom(std::move(pSprite_bottom))
 	, m_pSprite_left(std::move(pSprite_left))
@@ -24,6 +27,7 @@ Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top,
 	, m_maxVelocity(maxVelocity)
 {
 	m_colliders.emplace_back(glm::vec2(0), m_size);
+	Physics::PhysicsEngine::addDynamicGameObject(m_pCurrentArrow);
 }
 
 void Hero::render() const
@@ -42,6 +46,11 @@ void Hero::render() const
 	case Hero::EOrientaition::Right:
 		m_pSprite_right->render(m_position, m_size, m_rotation, m_layer, m_spriteAnimator_right.getCurrentFrame());
 		break;
+	}
+
+	if (m_pCurrentArrow->isActive())
+	{
+		m_pCurrentArrow->render();
 	}
 }
 
@@ -93,5 +102,13 @@ void Hero::update(const double delta)
 			m_spriteAnimator_right.update(delta);
 			break;
 		}
+	}
+}
+
+void Hero::fire()
+{
+	if (!m_pCurrentArrow->isActive())
+	{
+		m_pCurrentArrow->fire(m_position + m_size / 4.f, m_direction);
 	}
 }

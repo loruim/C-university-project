@@ -15,6 +15,7 @@ public:
 		Hero,
 		House,
 		Water,
+		Arrow,
 
 		Unknown
 	};

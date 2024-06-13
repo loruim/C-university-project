@@ -20,3 +20,8 @@ void Water::update(const double delta)
 {
 	m_spriteAnimator.update(delta);
 }
+
+bool Water::collides(const EObjectType objectType)
+{
+	return objectType != IGameObject::EObjectType::Arrow;
+}
