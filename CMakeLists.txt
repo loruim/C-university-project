@@ -39,9 +39,6 @@ add_executable(${PROJECT_NAME}
     src/Game/Game.cpp
     src/Game/Game.h
 
-    src/Game/Level.cpp
-    src/Game/Level.h
-
     src/Game/GameObject/IGameObject.cpp
     src/Game/GameObject/IGameObject.h
     src/Game/GameObject/Hero.cpp
@@ -56,6 +53,13 @@ add_executable(${PROJECT_NAME}
     src/Game/GameObject/Border.h
     src/Game/GameObject/Arrow.cpp
     src/Game/GameObject/Arrow.h
+
+    src/Game/GameState/IGameState.cpp
+    src/Game/GameState/IGameState.h
+    src/Game/GameState/Level.cpp
+    src/Game/GameState/Level.h
+    src/Game/GameState/ShopScreen.cpp
+    src/Game/GameState/ShopScreen.h
 )
 
 add_subdirectory(external/glfw)

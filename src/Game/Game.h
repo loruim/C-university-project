@@ -5,8 +5,8 @@
 #include <memory>
 
 class Hero;
-class GameField;
 class Level;
+class ShopScreen;
 
 class Game
 {
@@ -18,19 +18,25 @@ public:
 	void update(const double delta);
 	void setKey(const int key, const int action);
 	bool init();
-	size_t getCurrentLevelWidth() const;
-	size_t getCurrentLevelHeight() const;
+	unsigned int getCurrentWidth() const;
+	unsigned int getCurrentHeight() const;
 
 private:
-	std::array<bool, 349> m_keys;
-
-	enum EGameState {
-		Active,
-		Pause
+	enum class EGameState {
+		FightScreen,
+		GlobalMap,
+		LoseScreen,
+		Pause,
+		ShopScreen,
+		WinnerScreen
 	};
+
+	std::array<bool, 349> m_keys;
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
 	std::shared_ptr<Hero> m_pHero;
 	std::shared_ptr<Level> m_pLevel;
+
+	std::shared_ptr<ShopScreen> m_pShopsScreen;
 };

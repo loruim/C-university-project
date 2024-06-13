@@ -18,7 +18,7 @@ void glfwWindowSizeCallback(GLFWwindow* pWindow, int width, int height)
     g_windowSize.x = width;
     g_windowSize.y = height;
 
-	const float map_aspect_ratio = static_cast<float>(g_game->getCurrentLevelWidth()) / g_game->getCurrentLevelHeight();
+	const float map_aspect_ratio = static_cast<float>(g_game->getCurrentWidth()) / g_game->getCurrentHeight();
 	unsigned int viewPortWidth = g_windowSize.x;
 	unsigned int viewPortHeight = g_windowSize.y;
 	unsigned int viewPortLeftOffset = 0;
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
 		ResourceManager::setExecutablePath(argv[0]);
 		Physics::PhysicsEngine::init();
 		g_game->init();
-		glfwSetWindowSize(pWindow, static_cast<int>(4 * g_game->getCurrentLevelWidth()), static_cast<int>(4 * g_game->getCurrentLevelHeight()));
+		glfwSetWindowSize(pWindow, static_cast<int>(4 * g_game->getCurrentWidth()), static_cast<int>(4 * g_game->getCurrentHeight()));
 
 		auto lastTime = std::chrono::high_resolution_clock::now();
 

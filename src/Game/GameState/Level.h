@@ -6,18 +6,20 @@
 
 #include <glm/vec2.hpp>
 
+#include "IGameState.h"
+
 class IGameObject;
 
-class Level
+class Level : public IGameState
 {
 public:
 	static constexpr unsigned int BLOCK_SIZE = 16;
 
 	Level(const std::vector<std::string>& levelDescription);
-	void render();
-	void update(const double delta);
-	size_t getLevelWidth() const;
-	size_t getLevelHeight() const;
+	void render() const;
+	void update(const double delta);;
+	virtual unsigned int getStateWidth() const override;
+	virtual unsigned int getStateHeight() const override;
 
 	const glm::ivec2& getPlayerRespawn() const { return m_playerRespawn; }
 	const glm::ivec2& getEnemyRespawn_1() const { return m_enemyRespawn_1; }

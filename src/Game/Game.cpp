@@ -8,7 +8,8 @@
 
 #include "GameObject/Hero.h"
 
-#include "Level.h"
+#include "GameState/Level.h"
+#include "GameState/ShopScreen.h"
 
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
@@ -17,7 +18,7 @@
 
 #include <iostream>
 
-Game::Game(const glm::ivec2& windowSize) : m_windowSize(windowSize), m_eCurrentGameState(EGameState::Active)
+Game::Game(const glm::ivec2& windowSize) : m_windowSize(windowSize), m_eCurrentGameState(EGameState::GlobalMap)
 {
     m_keys.fill(false);
 }
@@ -29,57 +30,97 @@ Game::~Game()
 
 void Game::render()
 {
-    if (m_pLevel)
+    switch (m_eCurrentGameState)
     {
-        m_pLevel->render();
-    }
+    case EGameState::FightScreen:
+        break;
+    case EGameState::GlobalMap:
+        if (m_pLevel)
+        {
+            m_pLevel->render();
+        }
 
-    if (m_pHero)
-    {
-        m_pHero->render();
+        if (m_pHero)
+        {
+            m_pHero->render();
+        }
+        break;
+    case EGameState::LoseScreen:
+        break;
+    case EGameState::Pause:
+        break;
+    case EGameState::ShopScreen:
+        m_pShopsScreen->render();
+        break;
+    case EGameState::WinnerScreen:
+        break;
     }
 }
 
 void Game::update(const double delta)
 {
-    if (m_pLevel)
+    switch (m_eCurrentGameState)
     {
-        m_pLevel->update(delta);
-    }
-
-    if (m_pHero)
-    {
-        if (m_keys[GLFW_KEY_W])
+    case EGameState::FightScreen:
+        break;
+    case EGameState::GlobalMap:
+        if (m_pLevel)
         {
-            m_pHero->SetOrientation(Hero::EOrientaition::Top);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (m_keys[GLFW_KEY_A])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Left);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (m_keys[GLFW_KEY_D])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Right);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (m_keys[GLFW_KEY_S])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Bottom);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else
-        {
-            m_pHero->setVelocity(0);
+            m_pLevel->update(delta);
         }
 
-        if (m_pHero && m_keys[GLFW_KEY_SPACE])
+        if (m_pHero)
         {
-            m_pHero->fire();
+            if (m_keys[GLFW_KEY_W])
+            {
+                m_pHero->SetOrientation(Hero::EOrientaition::Top);
+                m_pHero->setVelocity(m_pHero->getMaxVelocity());
+            }
+            else if (m_keys[GLFW_KEY_A])
+            {
+                m_pHero->SetOrientation(Hero::EOrientaition::Left);
+                m_pHero->setVelocity(m_pHero->getMaxVelocity());
+            }
+            else if (m_keys[GLFW_KEY_D])
+            {
+                m_pHero->SetOrientation(Hero::EOrientaition::Right);
+                m_pHero->setVelocity(m_pHero->getMaxVelocity());
+            }
+            else if (m_keys[GLFW_KEY_S])
+            {
+                m_pHero->SetOrientation(Hero::EOrientaition::Bottom);
+                m_pHero->setVelocity(m_pHero->getMaxVelocity());
+            }
+            else
+            {
+                m_pHero->setVelocity(0);
+            }
+
+            if (m_pHero && m_keys[GLFW_KEY_SPACE])
+            {
+                m_pHero->fire();
+            }
+
+            m_pHero->update(delta);
         }
 
-        m_pHero->update(delta);
+        if (m_keys[GLFW_KEY_ENTER])
+        {
+            m_eCurrentGameState = EGameState::ShopScreen;
+        }
+        break;
+    case EGameState::LoseScreen:
+        break;
+    case EGameState::Pause:
+        break;
+    case EGameState::ShopScreen:
+        if (m_keys[GLFW_KEY_Q])
+        {
+            m_eCurrentGameState = EGameState::GlobalMap;
+        }
+        break;
+    case EGameState::WinnerScreen:
+        break;
     }
 }
 
@@ -95,7 +136,7 @@ bool Game::init()
     auto pSpriteShaderProgram = ResourceManager::getShader("spriteShader");
     if (!pSpriteShaderProgram)
     {
-        std::cerr << "Can't create sprite: " << "spriteShader" << std::endl;
+        std::cerr << "Can't create shader: " << "spriteShader" << std::endl;
         return false;
     }
 
@@ -113,9 +154,10 @@ bool Game::init()
         return false;
     }
 
+    m_pShopsScreen = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen());
     m_pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0]);
-    m_windowSize.x = static_cast<int>(m_pLevel->getLevelWidth());
-    m_windowSize.y = static_cast<int>(m_pLevel->getLevelHeight());
+    m_windowSize.x = static_cast<int>(m_pLevel->getStateWidth());
+    m_windowSize.y = static_cast<int>(m_pLevel->getStateHeight());
     Physics::PhysicsEngine::setCurrentLevel(m_pLevel);
 
     /* Преоброзование координат */
@@ -137,12 +179,47 @@ bool Game::init()
     return true;
 }
 
-size_t Game::getCurrentLevelWidth() const
+unsigned int Game::getCurrentWidth() const
 {
-    return m_pLevel->getLevelWidth();
+    switch (m_eCurrentGameState)
+    {
+    case Game::EGameState::FightScreen:
+        break;
+    case Game::EGameState::GlobalMap:
+        return m_pLevel->getStateWidth();
+        break;
+    case Game::EGameState::LoseScreen:
+        break;
+    case Game::EGameState::Pause:
+        break;
+    case Game::EGameState::ShopScreen:
+        return m_pShopsScreen->getStateWidth();
+        break;
+    case Game::EGameState::WinnerScreen:
+        break;
+    }
+    
 }
 
-size_t Game::getCurrentLevelHeight() const
+unsigned int Game::getCurrentHeight() const
 {
-    return m_pLevel->getLevelHeight();
+    switch (m_eCurrentGameState)
+    {
+    case Game::EGameState::FightScreen:
+        break;
+    case Game::EGameState::GlobalMap:
+        return m_pLevel->getStateHeight();
+        break;
+    case Game::EGameState::LoseScreen:
+        break;
+    case Game::EGameState::Pause:
+        break;
+    case Game::EGameState::ShopScreen:
+        return m_pShopsScreen->getStateHeight();
+        break;
+    case Game::EGameState::WinnerScreen:
+        break;
+    default:
+        break;
+    }
 }

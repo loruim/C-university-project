@@ -1,11 +1,11 @@
 {
-    "shaders" : [
-        {
-            "name"       : "spriteShader",
-            "filePath_v" : "res/shaders/vSprite.txt",
-            "filePath_f" : "res/shaders/fSprite.txt"
-        }
-    ],
+  "shaders": [
+    {
+      "name": "spriteShader",
+      "filePath_v": "res/shaders/vSprite.txt",
+      "filePath_f": "res/shaders/fSprite.txt"
+    }
+  ],
 
   "textureAtlases": [
     {
@@ -24,6 +24,40 @@
         "ArrowTop",
         "ArrowLeft",
         "ArrowRight"
+      ]
+    },
+
+    {
+      "name": "shopsTextureAtlas",
+      "filePath": "res/texture/Shops.png",
+      "subTextureWidth": 41,
+      "subTextureHeight": 30,
+      "subTextures": [
+        "buyKnight",
+        "buyAngel",
+        "buyBarbarian",
+        "buyArcher",
+        "buyMagician",
+        "buyTitan"
+      ]
+    },
+
+    {
+      "name": "numberTextureAtlas",
+      "filePath": "res/texture/Numbers.png",
+      "subTextureWidth": 5,
+      "subTextureHeight": 9,
+      "subTextures": [
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine"
       ]
     },
 
@@ -93,10 +127,114 @@
         "AngelAttackLeft1",
         "AngelAttackLeft2"
       ]
+    },
+
+    {
+      "name": "magicanTextureAtlas",
+      "filePath": "res/texture/magican.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "magicanRight1",
+        "magicanRight2",
+        "magicanLeft1",
+        "magicanLeft2",
+        "magicanAttackRight1",
+        "magicanAttackRight2",
+        "magicanAttackLeft1",
+        "magicanAttackLeft2"
+      ]
+    },
+
+    {
+      "name": "titanTextureAtlas",
+      "filePath": "res/texture/titan.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 18,
+      "subTextures": [
+        "titanRight1",
+        "titanRight2",
+        "titanLeft1",
+        "titanLeft2",
+        "titanAttackRight1",
+        "titanAttackRight2",
+        "titanAttackLeft1",
+        "titanAttackLeft2"
+      ]
     }
   ],
 
   "sprite": [
+    {
+      "name": "zero",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "zero"
+    },
+
+    {
+      "name": "one",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "one"
+    },
+
+    {
+      "name": "two",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "two"
+    },
+
+    {
+      "name": "three",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "three"
+    },
+
+    {
+      "name": "four",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "four"
+    },
+
+    {
+      "name": "five",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "five"
+    },
+
+    {
+      "name": "six",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "six"
+    },
+
+    {
+      "name": "seven",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "seven"
+    },
+
+    {
+      "name": "eight",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "eight"
+    },
+
+    {
+      "name": "nine",
+      "textureAtlas": "numberTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "nine"
+    },
+
     {
       "name": "FullRoad",
       "textureAtlas": "mapTextureAtlas",
@@ -144,6 +282,48 @@
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "ArrowRight"
+    },
+
+    {
+      "name": "knightShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyKnight"
+    },
+
+    {
+      "name": "angelShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyAngel"
+    },
+
+    {
+      "name": "barbarianShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyBarbarian"
+    },
+
+    {
+      "name": "archerShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyArcher"
+    },
+
+    {
+      "name": "magicanShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyMagician"
+    },
+
+    {
+      "name": "titanShop",
+      "textureAtlas": "shopsTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "buyTitan"
     },
 
     {
@@ -301,7 +481,81 @@
           "duration": 500
         }
       ]
+    },
+
+    {
+      "name": "magicanLeftState",
+      "textureAtlas": "magicanTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "magicanLeft1",
+      "frames": [
+        {
+          "subTexture": "magicanLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "magicanLeft2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "magicanRightState",
+      "textureAtlas": "magicanTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "magicanRight1",
+      "frames": [
+        {
+          "subTexture": "magicanRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "magicanRight2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "titanLeftState",
+      "textureAtlas": "titanTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "titanLeft1",
+      "frames": [
+        {
+          "subTexture": "titanLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "titanLeft2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "titanRightState",
+      "textureAtlas": "titanTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "titanRight1",
+      "frames": [
+        {
+          "subTexture": "titanRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "titanRight2",
+          "duration": 500
+        }
+      ]
     }
+  ],
+
+  "shopsScreen": [
+    "55500005550000555",
+    "55500005550000555",
+    "55500005550000555"
   ],
 
   "levels": [

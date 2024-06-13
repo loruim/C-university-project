@@ -18,6 +18,7 @@ ResourceManager::ShaderProgramsMap ResourceManager::m_shaderProgram;
 ResourceManager::TexturesMap ResourceManager::m_textures;
 ResourceManager::SpritesMap ResourceManager::m_sprites;
 std::vector<std::vector<std::string>> ResourceManager::m_levels;
+std::vector<std::string> ResourceManager::m_shopsScreen;
 
 
 void ResourceManager::setExecutablePath(const std::string& executablePath)
@@ -311,6 +312,31 @@ bool ResourceManager::loadJSONResources(const std::string& JSONPath)
 			}
 
 			m_levels.emplace_back(std::move(levelRow));
+		}
+	}
+
+	// load Shops Screen
+	auto shopsScreenIt = document.FindMember("shopsScreen");
+	if (shopsScreenIt != document.MemberEnd())
+	{
+		const auto descriptionArray = shopsScreenIt->value.GetArray();
+		m_shopsScreen.reserve(descriptionArray.Size());
+		size_t maxLenght = 0;
+		for (const auto& currentRow : descriptionArray)
+		{
+			m_shopsScreen.emplace_back(currentRow.GetString());
+			if (maxLenght < m_shopsScreen.back().length())
+			{
+				maxLenght = m_shopsScreen.back().length();
+			}
+		}
+
+		for (auto& currentRow : m_shopsScreen)
+		{
+			while (currentRow.length() < maxLenght)
+			{
+				currentRow.append("5"); // 5 == void
+			}
 		}
 	}
 	return true;

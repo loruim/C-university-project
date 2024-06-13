@@ -1,10 +1,9 @@
 #include "Level.h"
 
-#include "../Resources/ResourceManager.h"
-#include "GameObject/BrickRoad.h"
-#include "GameObject/House.h"
-#include "GameObject/Water.h"
-#include "GameObject/Border.h"
+#include "../GameObject/BrickRoad.h"
+#include "../GameObject/House.h"
+#include "../GameObject/Water.h"
+#include "../GameObject/Border.h"
 
 #include <iostream>
 #include <algorithm>
@@ -22,7 +21,7 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
     case '2':
         return std::make_shared<Water>(position, size, rotation, 0.f);
         break;
-    case '3':
+    case '5':
         return nullptr;
         break;
     default:
@@ -77,7 +76,7 @@ Level::Level(const std::vector<std::string>& levelDescription)
 
 }
 
-void Level::render()
+void Level::render() const
 {
     for (const auto& currentMapObject : m_mapObject)
     {
@@ -99,14 +98,14 @@ void Level::update(const double delta)
     }
 }
 
-size_t Level::getLevelWidth() const
+unsigned int Level::getStateWidth() const
 {
-    return (m_widthBlocks + 3) * BLOCK_SIZE;
+    return static_cast<unsigned int>((m_widthBlocks + 3) * BLOCK_SIZE);
 }
 
-size_t Level::getLevelHeight() const
+unsigned int Level::getStateHeight() const
 {
-    return (m_heightBlocks + 1) * BLOCK_SIZE;
+    return static_cast<unsigned int>((m_heightBlocks + 1) * BLOCK_SIZE);
 }
 
 std::vector<std::shared_ptr<IGameObject>> Level::getObjectsInArea(const glm::vec2& bottomLeft, const glm::vec2& topRight)
