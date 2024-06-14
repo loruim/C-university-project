@@ -46,7 +46,7 @@ public:
 	static const std::vector<std::vector<std::string>>& getLevels() { return m_levels; }
 
 	// Shops
-	static const std::vector<std::string>& getShopsScreen() { return m_shopsScreen; }
+	static const  std::vector<std::vector<std::string>>& getShopsScreen() { return m_shopsScreen; }
 
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
@@ -68,5 +68,5 @@ private:
 	static std::vector<std::vector<std::string>> m_levels;
 
 	// Shops
-	static std::vector<std::string> m_shopsScreen;
+	static std::vector<std::vector<std::string>> m_shopsScreen;
 };

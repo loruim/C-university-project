@@ -76,7 +76,7 @@ void Game::StartNewScreen(const size_t level)
 
 void Game::StartShopScreen(const size_t shops)
 {
-    auto pShop = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen());
+    auto pShop = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0]);
     m_pCurrentGameState = pShop;
     updateViewport();
 }
