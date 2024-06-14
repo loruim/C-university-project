@@ -4,14 +4,17 @@
 #include <array>
 #include <memory>
 
-class Hero;
-class Level;
-class ShopScreen;
+class IGameState;
+
+namespace RenderEngine
+{
+	class ShaderProgram;
+}
 
 class Game
 {
 public:
-	Game(const glm::ivec2& windowSize);
+	Game(const glm::uvec2& windowSize);
 	~Game();
 
 	void render();
@@ -20,6 +23,10 @@ public:
 	bool init();
 	unsigned int getCurrentWidth() const;
 	unsigned int getCurrentHeight() const;
+	void StartNewScreen(const size_t level);
+	void StartShopScreen(const size_t shops);
+	void updateViewport();
+	void setWindowSize(const glm::uvec2& windowSize);
 
 private:
 	enum class EGameState {
@@ -35,8 +42,6 @@ private:
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
-	std::shared_ptr<Hero> m_pHero;
-	std::shared_ptr<Level> m_pLevel;
-
-	std::shared_ptr<ShopScreen> m_pShopsScreen;
+	std::shared_ptr<IGameState> m_pCurrentGameState;
+	std::shared_ptr<RenderEngine::ShaderProgram> m_pSpriteShaderProgram;
 };

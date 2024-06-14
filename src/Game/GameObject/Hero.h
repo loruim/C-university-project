@@ -23,11 +23,7 @@ public:
 		Right
 	};
 
-	Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top, 
-		 std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
-		 std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
-		 std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		 const double maxVelocity, 
+	Hero(const double maxVelocity, 
 		 const glm::vec2& position, 
 		 const glm::vec2& size, 
 		 const float layer);

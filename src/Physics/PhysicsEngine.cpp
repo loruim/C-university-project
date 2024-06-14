@@ -87,6 +87,8 @@ namespace Physics
     void PhysicsEngine::setCurrentLevel(std::shared_ptr<Level> pLevel)
     {
         m_pCurrentLevel.swap(pLevel);
+        m_dinamicObjects.clear();
+        m_pCurrentLevel->initPhysics();
     }
 
     bool PhysicsEngine::hasIntersection(const Collider& colliders1, const glm::vec2 position1, 

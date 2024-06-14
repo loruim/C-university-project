@@ -1,25 +1,22 @@
 #include "Hero.h"
 
 #include "IGameObject.h"
+#include "../../Resources/ResourceManager.h"
 #include "../../Renderer/Sprite.h"
 #include "Arrow.h"
 #include "../../Physics/PhysicsEngine.h"	
 
-Hero::Hero(std::shared_ptr<RenderEngine::Sprite> pSprite_top, 
-		   std::shared_ptr<RenderEngine::Sprite> pSprite_bottom, 
-		   std::shared_ptr<RenderEngine::Sprite> pSprite_left, 
-		   std::shared_ptr<RenderEngine::Sprite> pSprite_right, 
-		   const double maxVelocity, 
+Hero::Hero(const double maxVelocity, 
 		   const glm::vec2& position, 
 		   const glm::vec2& size, 
 		   const float layer)
 	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(EOrientaition::Left)
 	, m_pCurrentArrow(std::make_shared<Arrow>(0.1, m_position + m_size / 4.f, m_size / 2.f, layer))
-	, m_pSprite_top(std::move(pSprite_top))
-	, m_pSprite_bottom(std::move(pSprite_bottom))
-	, m_pSprite_left(std::move(pSprite_left))
-	, m_pSprite_right(std::move(pSprite_right))
+	, m_pSprite_top(ResourceManager::getSprite("archerLeftState"))
+	, m_pSprite_bottom(ResourceManager::getSprite("archerRightState"))
+	, m_pSprite_left(ResourceManager::getSprite("archerLeftState"))
+	, m_pSprite_right(ResourceManager::getSprite("archerRightState"))
 	, m_spriteAnimator_top(m_pSprite_top)
 	, m_spriteAnimator_bottom(m_pSprite_bottom)
 	, m_spriteAnimator_left(m_pSprite_left)
