@@ -1,7 +1,6 @@
 #include "Game.h"
 
 #include "../Resources/ResourceManager.h"
-#include "../Physics/PhysicsEngine.h"
 #include "../Renderer/ShaderProgram.h"
 #include "../Renderer/Texture2D.h"
 #include "../Renderer/Sprite.h"
@@ -10,6 +9,8 @@
 
 #include "GameState/Level.h"
 #include "GameState/ShopScreen.h"
+#include "../Physics/PhysicsEngine.h"
+#include "../Renderer/Renderer.h"
 
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
@@ -25,39 +26,58 @@ Game::Game(const glm::uvec2& windowSize)
     m_keys.fill(false);
 }
 
+void Game::setWindowSize(const glm::uvec2& windowSize)
+{
+    m_windowSize = windowSize;
+    updateViewport();
+}
+
 Game::~Game()
 {
 }
 
 void Game::render()
 {
-    switch (m_eCurrentGameState)
-    {
-    case Game::EGameState::FightScreen:
-        break;
-    case Game::EGameState::GlobalMap:
-        if (m_pLevel)
-        {
-            m_pLevel->render();
-        }
+    m_pCurrentGameState->render();
+}
 
-        if (m_pHero)
-        {
-            m_pHero->render();
-        }
-        break;
-    case Game::EGameState::LoseScreen:
-        break;
-    case Game::EGameState::Pause:
-        break;
-    case Game::EGameState::ShopScreen:
-        m_pShopsScreen->render();
-        break;
-    case Game::EGameState::WinnerScreen:
-        break;
-    default:
-        break;
+void Game::updateViewport()
+{
+    const float map_aspect_ratio = static_cast<float>(getCurrentWidth()) / getCurrentHeight();
+    unsigned int viewPortWidth = m_windowSize.x;
+    unsigned int viewPortHeight = m_windowSize.y;
+    unsigned int viewPortLeftOffset = 0;
+    unsigned int viewPortBottomOffset = 0;
+
+    if (static_cast<float>(m_windowSize.x) / m_windowSize.y > map_aspect_ratio)
+    {
+        viewPortWidth = static_cast<unsigned int>(m_windowSize.y * map_aspect_ratio);
+        viewPortLeftOffset = (m_windowSize.x - viewPortWidth) / 2;
     }
+    else
+    {
+        viewPortHeight = static_cast<unsigned int>(m_windowSize.x / map_aspect_ratio);
+        viewPortBottomOffset = (m_windowSize.y - viewPortHeight) / 2;
+    }
+
+    RenderEngine::Renderer::setViewport(viewPortWidth, viewPortHeight, viewPortLeftOffset, viewPortBottomOffset);
+
+    glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(getCurrentWidth()), 0.f, static_cast<float>(getCurrentHeight()), -100.f, 100.f);
+    m_pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
+}
+
+void Game::startGlobalMap()
+{
+     auto pLevel= std::make_shared<Level>(ResourceManager::getLevels()[0]);
+     m_pCurrentGameState = pLevel;
+     Physics::PhysicsEngine::setCurrentLevel(pLevel);
+     updateViewport();
+}
+
+void Game::startShopScreen(const size_t shopNumber)
+{
+    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[shopNumber]);
+    updateViewport();
 }
 
 void Game::update(const double delta)
@@ -67,49 +87,13 @@ void Game::update(const double delta)
     case EGameState::FightScreen:
         break;
     case EGameState::GlobalMap:
-        if (m_pLevel)
-        {
-            m_pLevel->update(delta);
-        }
-
-        if (m_pHero)
-        {
-            if (m_keys[GLFW_KEY_W])
-            {
-                m_pHero->SetOrientation(Hero::EOrientaition::Top);
-                m_pHero->setVelocity(m_pHero->getMaxVelocity());
-            }
-            else if (m_keys[GLFW_KEY_A])
-            {
-                m_pHero->SetOrientation(Hero::EOrientaition::Left);
-                m_pHero->setVelocity(m_pHero->getMaxVelocity());
-            }
-            else if (m_keys[GLFW_KEY_D])
-            {
-                m_pHero->SetOrientation(Hero::EOrientaition::Right);
-                m_pHero->setVelocity(m_pHero->getMaxVelocity());
-            }
-            else if (m_keys[GLFW_KEY_S])
-            {
-                m_pHero->SetOrientation(Hero::EOrientaition::Bottom);
-                m_pHero->setVelocity(m_pHero->getMaxVelocity());
-            }
-            else
-            {
-                m_pHero->setVelocity(0);
-            }
-
-            if (m_pHero && m_keys[GLFW_KEY_SPACE])
-            {
-                m_pHero->fire();
-            }
-
-            m_pHero->update(delta);
-        }
+        m_pCurrentGameState->processInput(m_keys);
+        m_pCurrentGameState->update(delta);
 
         if (m_keys[GLFW_KEY_ENTER])
         {
             m_eCurrentGameState = EGameState::ShopScreen;
+            startShopScreen(0);
         }
         break;
     case EGameState::LoseScreen:
@@ -120,6 +104,7 @@ void Game::update(const double delta)
         if (m_keys[GLFW_KEY_Q])
         {
             m_eCurrentGameState = EGameState::GlobalMap;
+            startGlobalMap();
         }
         break;
     case EGameState::WinnerScreen:
@@ -136,72 +121,27 @@ bool Game::init()
 {
     ResourceManager::loadJSONResources("res/resources.json");
 
-    auto pSpriteShaderProgram = ResourceManager::getShader("spriteShader");
-    if (!pSpriteShaderProgram)
+    m_pSpriteShaderProgram = ResourceManager::getShader("spriteShader");
+    if (!m_pSpriteShaderProgram)
     {
         std::cerr << "Can't create shader: " << "spriteShader" << std::endl;
         return false;
     }
+    m_pSpriteShaderProgram->use();
+    m_pSpriteShaderProgram->setInt("tex", 0);
 
-    m_pShopsScreen = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0]);
-    m_pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0]);
-    m_windowSize.x = static_cast<int>(m_pLevel->getStateWidth());
-    m_windowSize.y = static_cast<int>(m_pLevel->getStateHeight());
-    Physics::PhysicsEngine::setCurrentLevel(m_pLevel);
-
-    /* Преоброзование координат */
-    glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(getCurrentWidth()), 0.f, static_cast<float>(getCurrentHeight()), -100.f, 100.f);
-    pSpriteShaderProgram->use();
-    pSpriteShaderProgram->setInt("tex", 0);
-    pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
-    /* ------------------------ */
+    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0]);
+    setWindowSize(m_windowSize);
     
-    m_pHero = std::make_shared<Hero>(0.05, m_pLevel->getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
-    Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
-
     return true;
 }
 
 unsigned int Game::getCurrentWidth() const
 {
-    switch (m_eCurrentGameState)
-    {
-    case Game::EGameState::FightScreen:
-        break;
-    case Game::EGameState::GlobalMap:
-        return m_pLevel->getStateWidth();
-        break;
-    case Game::EGameState::LoseScreen:
-        break;
-    case Game::EGameState::Pause:
-        break;
-    case Game::EGameState::ShopScreen:
-        return m_pShopsScreen->getStateWidth();
-        break;
-    case Game::EGameState::WinnerScreen:
-        break;
-    }
+    return m_pCurrentGameState->getStateWidth();
 }
 
 unsigned int Game::getCurrentHeight() const
 {
-    switch (m_eCurrentGameState)
-    {
-    case Game::EGameState::FightScreen:
-        break;
-    case Game::EGameState::GlobalMap:
-        return m_pLevel->getStateHeight();
-        break;
-    case Game::EGameState::LoseScreen:
-        break;
-    case Game::EGameState::Pause:
-        break;
-    case Game::EGameState::ShopScreen:
-        return m_pShopsScreen->getStateHeight();
-        break;
-    case Game::EGameState::WinnerScreen:
-        break;
-    default:
-        break;
-    }
+    return m_pCurrentGameState->getStateHeight();
 }

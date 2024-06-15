@@ -19,6 +19,13 @@ namespace Physics
         m_pCurrentLevel.reset();
     }
 
+    void PhysicsEngine::setCurrentLevel(std::shared_ptr<Level> pLevel)
+    {
+        m_pCurrentLevel.swap(pLevel);
+        m_dinamicObjects.clear();
+        m_pCurrentLevel->initPhysics();
+    }
+
     void PhysicsEngine::update(const double delta)
     {
         for (auto& currentDinamicObject : m_dinamicObjects)
@@ -82,11 +89,6 @@ namespace Physics
     void PhysicsEngine::addDynamicGameObject(std::shared_ptr<IGameObject> pGameObject)
     {
         m_dinamicObjects.insert(std::move(pGameObject));
-    }
-
-    void PhysicsEngine::setCurrentLevel(std::shared_ptr<Level> pLevel)
-    {
-        m_pCurrentLevel.swap(pLevel);
     }
 
     bool PhysicsEngine::hasIntersection(const Collider& colliders1, const glm::vec2 position1, 
