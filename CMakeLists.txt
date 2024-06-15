@@ -47,6 +47,14 @@ add_executable(${PROJECT_NAME}
     src/Game/GameObject/BrickRoad.h
     src/Game/GameObject/House.cpp
     src/Game/GameObject/House.h
+    src/Game/GameObject/HouseLeftOne.cpp
+    src/Game/GameObject/HouseLeftOne.h
+    src/Game/GameObject/HouseLeftTwo.cpp
+    src/Game/GameObject/HouseLeftTwo.h
+    src/Game/GameObject/HouseRightOne.cpp
+    src/Game/GameObject/HouseRightOne.h
+    src/Game/GameObject/HouseRightTwo.cpp
+    src/Game/GameObject/HouseRightTwo.h
     src/Game/GameObject/Water.cpp
     src/Game/GameObject/Water.h
     src/Game/GameObject/Border.cpp

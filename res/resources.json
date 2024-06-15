@@ -64,8 +64,8 @@
     {
       "name": "leftShopsTextureAtlas_1",
       "filePath": "res/texture/LeftShop1.png",
-      "subTextureWidth": 41,
-      "subTextureHeight": 30,
+      "subTextureWidth": 32,
+      "subTextureHeight": 32,
       "subTextures": [
         "LeftShop1"
       ]
@@ -74,10 +74,30 @@
     {
       "name": "leftShopsTextureAtlas_2",
       "filePath": "res/texture/LeftShop2.png",
-      "subTextureWidth": 41,
-      "subTextureHeight": 30,
+      "subTextureWidth": 32,
+      "subTextureHeight": 32,
       "subTextures": [
         "LeftShop2"
+      ]
+    },
+
+    {
+      "name": "rightShopsTextureAtlas_1",
+      "filePath": "res/texture/RightShop1.png",
+      "subTextureWidth": 32,
+      "subTextureHeight": 32,
+      "subTextures": [
+        "RightShop1"
+      ]
+    },
+
+    {
+      "name": "rightShopsTextureAtlas_2",
+      "filePath": "res/texture/RightShop2.png",
+      "subTextureWidth": 32,
+      "subTextureHeight": 32,
+      "subTextures": [
+        "RightShop2"
       ]
     },
 
@@ -416,6 +436,34 @@
     },
 
     {
+      "name": "leftShopsSprite_1",
+      "textureAtlas": "leftShopsTextureAtlas_1",
+      "shader": "spriteShader",
+      "initialSubTexture": "LeftShop1"
+    },
+
+    {
+      "name": "leftShopsSprite_2",
+      "textureAtlas": "leftShopsTextureAtlas_2",
+      "shader": "spriteShader",
+      "initialSubTexture": "LeftShop2"
+    },
+
+    {
+      "name": "rightShopsSprite_1",
+      "textureAtlas": "rightShopsTextureAtlas_1",
+      "shader": "spriteShader",
+      "initialSubTexture": "RightShop1"
+    },
+
+    {
+      "name": "rightShopsSprite_2",
+      "textureAtlas": "rightShopsTextureAtlas_2",
+      "shader": "spriteShader",
+      "initialSubTexture": "RightShop2"
+    },
+
+    {
       "name": "pointerAnimation",
       "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
@@ -676,13 +724,13 @@
         "2222222",
         "2000002",
         "2001002",
-        "2100012",
+        "2300042",
         "2000002",
         "2000002",
         "2200022",
         "2000002",
         "2000002",
-        "2010102",
+        "2060702",
         "2222222"
       ]
     }

@@ -14,6 +14,10 @@ public:
 		Border,
 		Hero,
 		House,
+		LeftHouseOne,
+		LeftHouseTwo,
+		RightHouseOne,
+		RightHouseTwo,
 		Water,
 		Arrow,
 

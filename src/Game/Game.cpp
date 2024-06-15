@@ -76,7 +76,10 @@ void Game::startGlobalMap()
 
 void Game::startShopScreen(const size_t shopNumber)
 {
-    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[shopNumber], this);
+    auto pShops = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0], this);
+    /*pShops->setShopsType(ShopScreen::EShopsType::LeftShopScreen_1);*/
+    pShops->setShopsType(shopNumber);
+    m_pCurrentGameState = pShops;
     updateViewport();
 }
 

@@ -2,6 +2,10 @@
 
 #include "../GameObject/BrickRoad.h"
 #include "../GameObject/House.h"
+#include "../GameObject/HouseLeftOne.h"
+#include "../GameObject/HouseLeftTwo.h"
+#include "../GameObject/HouseRightOne.h"
+#include "../GameObject/HouseRightTwo.h"
 #include "../GameObject/Water.h"
 #include "../GameObject/Border.h"
 #include "../GameObject/Hero.h"
@@ -22,6 +26,18 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
         break;
     case '1':
         return std::make_shared<House>(position, size, rotation, 1.f);
+    case '3':
+        return std::make_shared<HouseLeftOne>(position, size, rotation, 0.f);
+        break;
+    case '4':
+        return std::make_shared<HouseRightOne>(position, size, rotation, 0.f);
+        break;
+    case '6':
+        return std::make_shared<HouseLeftTwo>(position, size, rotation, 0.f);
+        break;
+    case '7':
+        return std::make_shared<HouseRightTwo>(position, size, rotation, 0.f);
+        break;
     case '2':
         return std::make_shared<Water>(position, size, rotation, 0.f);
         break;
@@ -108,7 +124,25 @@ void Level::update(const double delta)
         }
         if (currentMapObject->isActive())
         {
-            m_pGame->startShopScreen(0);
+            auto getType = currentMapObject->getObjectType();
+            switch (getType)
+            {
+            case IGameObject::EObjectType::House:
+                m_pGame->startShopScreen(0);
+                break;
+            case IGameObject::EObjectType::LeftHouseOne:
+                m_pGame->startShopScreen(1);
+                break;
+            case IGameObject::EObjectType::LeftHouseTwo:
+                m_pGame->startShopScreen(2);
+                break;
+            case IGameObject::EObjectType::RightHouseOne:
+                m_pGame->startShopScreen(3);
+                break;
+            case IGameObject::EObjectType::RightHouseTwo:
+                m_pGame->startShopScreen(4);
+                break;
+            }
         }
     }
     m_pHero->update(delta);
