@@ -68,7 +68,7 @@ void Game::updateViewport()
 
 void Game::startGlobalMap()
 {
-     auto pLevel= std::make_shared<Level>(ResourceManager::getLevels()[0]);
+     auto pLevel= std::make_shared<Level>(ResourceManager::getLevels()[0], this);
      m_pCurrentGameState = pLevel;
      Physics::PhysicsEngine::setCurrentLevel(pLevel);
      updateViewport();
@@ -76,13 +76,16 @@ void Game::startGlobalMap()
 
 void Game::startShopScreen(const size_t shopNumber)
 {
-    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[shopNumber]);
+    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[shopNumber], this);
     updateViewport();
 }
 
 void Game::update(const double delta)
 {
-    switch (m_eCurrentGameState)
+    m_pCurrentGameState->processInput(m_keys);
+    m_pCurrentGameState->update(delta);
+
+    /*switch (m_eCurrentGameState)
     {
     case EGameState::FightScreen:
         break;
@@ -109,7 +112,7 @@ void Game::update(const double delta)
         break;
     case EGameState::WinnerScreen:
         break;
-    }
+    }*/
 }
 
 void Game::setKey(const int key, const int action)
@@ -130,7 +133,7 @@ bool Game::init()
     m_pSpriteShaderProgram->use();
     m_pSpriteShaderProgram->setInt("tex", 0);
 
-    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0]);
+    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0], this);
     setWindowSize(m_windowSize);
     
     return true;

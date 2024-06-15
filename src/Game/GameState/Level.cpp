@@ -5,6 +5,7 @@
 #include "../GameObject/Water.h"
 #include "../GameObject/Border.h"
 #include "../GameObject/Hero.h"
+#include "../Game.h"
 
 #include <GLFW/glfw3.h>
 
@@ -34,7 +35,7 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
     return nullptr;
 }
 
-Level::Level(const std::vector<std::string>& levelDescription)
+Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) : m_pGame(pGame)
 {
     if (levelDescription.empty())
     {
@@ -107,7 +108,7 @@ void Level::update(const double delta)
         }
         if (currentMapObject->isActive())
         {
-            m_isSwitch = currentMapObject->isActive();
+            m_pGame->startShopScreen(0);
         }
     }
     m_pHero->update(delta);

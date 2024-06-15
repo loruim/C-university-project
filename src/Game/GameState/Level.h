@@ -11,13 +11,14 @@
 
 class IGameObject;
 class Hero;
+class Game;
 
 class Level : public IGameState
 {
 public:
 	static constexpr unsigned int BLOCK_SIZE = 16;
 
-	Level(const std::vector<std::string>& levelDescription);
+	Level(const std::vector<std::string>& levelDescription, Game* pGame);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
 	virtual unsigned int getStateWidth() const override;
@@ -33,6 +34,7 @@ public:
 	void initPhysics();
 
 private:
+	Game* m_pGame;
 	size_t m_widthBlocks = 0;
 	size_t m_heightBlocks = 0;
 	unsigned int m_widhtPixel = 0;

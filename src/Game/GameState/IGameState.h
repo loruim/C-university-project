@@ -9,10 +9,7 @@ public:
 	virtual void update(const double delta) = 0;
 	virtual ~IGameState() = default;
 	virtual void processInput(std::array<bool, 349> keys) {};
-	virtual bool screenReplacement() { return m_isSwitch; }
 
 	virtual unsigned int getStateWidth() const = 0;
 	virtual unsigned int getStateHeight() const = 0;
-protected:
-	bool m_isSwitch{ false };
 };

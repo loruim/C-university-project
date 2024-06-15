@@ -419,10 +419,10 @@
       "name": "pointerAnimation",
       "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "pointer1",
+      "initialSubTexture": "pointer3",
       "frames": [
         {
-          "subTexture": "pointer1",
+          "subTexture": "pointer3",
           "duration": 500
         },
         {
@@ -430,7 +430,7 @@
           "duration": 500
         },
         {
-          "subTexture": "pointer3",
+          "subTexture": "pointer1",
           "duration": 500
         }
       ]
