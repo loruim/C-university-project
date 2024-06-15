@@ -28,17 +28,71 @@
     },
 
     {
-      "name": "shopsTextureAtlas",
-      "filePath": "res/texture/Shops.png",
+      "name": "betonTextureAtlas",
+      "filePath": "res/texture/Beton.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 16,
+      "subTextures": [
+        "fullBeton",
+        "leftBottomBeton",
+        "rightBottomBeton",
+        "bottomBeton",
+        "leftTopBeton",
+        "leftBeton",
+        "leftTop_rightBottom_beton",
+        "unRightTopBeton",
+        "rightTopBeton",
+        "leftBottom_rightTop_beton",
+        "rightBeton",
+        "unLeftTopBeton",
+        "topBeton",
+        "unRightBottomBeton",
+        "unLeftBottomBeton"
+      ]
+    },
+
+    {
+      "name": "castleShopsTextureAtlas",
+      "filePath": "res/texture/CastleShop.png",
+      "subTextureWidth": 32,
+      "subTextureHeight": 64,
+      "subTextures": [
+        "castleShopsTexture"
+      ]
+    },
+
+    {
+      "name": "leftShopsTextureAtlas_1",
+      "filePath": "res/texture/LeftShop1.png",
       "subTextureWidth": 41,
       "subTextureHeight": 30,
       "subTextures": [
-        "buyKnight",
-        "buyAngel",
-        "buyBarbarian",
-        "buyArcher",
-        "buyMagician",
-        "buyTitan"
+        "LeftShop1"
+      ]
+    },
+
+    {
+      "name": "leftShopsTextureAtlas_2",
+      "filePath": "res/texture/LeftShop2.png",
+      "subTextureWidth": 41,
+      "subTextureHeight": 30,
+      "subTextures": [
+        "LeftShop2"
+      ]
+    },
+
+    {
+      "name": "auxiliaryTextureAtlas",
+      "filePath": "res/texture/Auxiliary.png",
+      "subTextureWidth": 16,
+      "subTextureHeight": 16,
+      "subTextures": [
+        "inaccessibleField",
+        "affordableField",
+        "coin",
+        "pointer1",
+        "pointer2",
+        "pointer3"
       ]
     },
 
@@ -243,6 +297,55 @@
     },
 
     {
+      "name": "fullBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "fullBeton"
+    },
+
+    {
+      "name": "leftBottomBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "leftBottomBeton"
+    },
+
+    {
+      "name": "rightBottomBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "rightBottomBeton"
+    },
+
+    {
+      "name": "bottomBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "bottomBeton"
+    },
+
+    {
+      "name": "leftTopBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "leftTopBeton"
+    },
+
+    {
+      "name": "leftBeton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "leftBeton"
+    },
+
+    {
+      "name": "leftTop_rightBottom_beton",
+      "textureAtlas": "betonTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "leftTop_rightBottom_beton"
+    },
+
+    {
       "name": "House",
       "textureAtlas": "mapTextureAtlas",
       "shader": "spriteShader",
@@ -285,45 +388,52 @@
     },
 
     {
-      "name": "knightShop",
-      "textureAtlas": "shopsTextureAtlas",
+      "name": "inaccessibleField",
+      "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "buyKnight"
+      "initialSubTexture": "inaccessibleField"
     },
 
     {
-      "name": "angelShop",
-      "textureAtlas": "shopsTextureAtlas",
+      "name": "affordableField",
+      "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "buyAngel"
+      "initialSubTexture": "affordableField"
     },
 
     {
-      "name": "barbarianShop",
-      "textureAtlas": "shopsTextureAtlas",
+      "name": "coin",
+      "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "buyBarbarian"
+      "initialSubTexture": "coin"
     },
 
     {
-      "name": "archerShop",
-      "textureAtlas": "shopsTextureAtlas",
+      "name": "castleShopsSprite",
+      "textureAtlas": "castleShopsTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "buyArcher"
+      "initialSubTexture": "castleShopsTexture"
     },
 
     {
-      "name": "magicanShop",
-      "textureAtlas": "shopsTextureAtlas",
+      "name": "pointerAnimation",
+      "textureAtlas": "auxiliaryTextureAtlas",
       "shader": "spriteShader",
-      "initialSubTexture": "buyMagician"
-    },
-
-    {
-      "name": "titanShop",
-      "textureAtlas": "shopsTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "buyTitan"
+      "initialSubTexture": "pointer1",
+      "frames": [
+        {
+          "subTexture": "pointer1",
+          "duration": 500
+        },
+        {
+          "subTexture": "pointer2",
+          "duration": 500
+        },
+        {
+          "subTexture": "pointer3",
+          "duration": 500
+        }
+      ]
     },
 
     {
@@ -553,9 +663,11 @@
   ],
 
   "shopsScreen": [
-    "55500005550000555",
-    "55500005550000555",
-    "55500005550000555"
+    "000505050005000",
+    "055505050505050",
+    "000500050505000",
+    "550505050505055",
+    "000505050005055"
   ],
 
   "levels": [

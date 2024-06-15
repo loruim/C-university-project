@@ -4,6 +4,9 @@
 
 #include "../../Renderer/Sprite.h"
 #include "../../Resources/ResourceManager.h"
+#include "../Game.h"
+
+#include <GLFW/glfw3.h>
 
 std::shared_ptr<RenderEngine::Sprite> getSpriteForDescription(const char description)
 {
@@ -26,8 +29,8 @@ ShopScreen::ShopScreen(const std::vector<std::string>& shopScreenDescription)
 		std::cerr << "Empty shop screen description" << std::endl;
 	}
 
-	auto leftOffsetPixel = 2 * BLOCK_SIZE;
-	auto bottomOffset = STARTSCREEN_HEIGHT - 2 * BLOCK_SIZE;
+	auto leftOffsetPixel = BLOCK_SIZE * 2;
+	auto bottomOffset = STARTSCREEN_HEIGHT - BLOCK_SIZE * 2;
 
 	unsigned int currentBottomOffset = bottomOffset;
 	for (const std::string& currentRow : shopScreenDescription)
@@ -40,6 +43,16 @@ ShopScreen::ShopScreen(const std::vector<std::string>& shopScreenDescription)
 		}
 		currentBottomOffset -= BLOCK_SIZE;
 	}
+ }
+
+unsigned int ShopScreen::getStateWidth() const
+{
+	return STARTSCREEN_WIDTH;
+}
+
+unsigned int ShopScreen::getStateHeight() const
+{
+	return STARTSCREEN_HEIGHT;
 }
 
 void ShopScreen::render() const
@@ -55,14 +68,4 @@ void ShopScreen::render() const
 
 void ShopScreen::update(const double delta)
 {
-}
-
-unsigned int ShopScreen::getStateWidth() const
-{
-	return STARTSCREEN_WIDTH;
-}
-
-unsigned int ShopScreen::getStateHeight() const
-{
-	return STARTSCREEN_HEIGHT;
 }

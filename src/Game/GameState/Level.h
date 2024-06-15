@@ -10,7 +10,6 @@
 #include "IGameState.h"
 
 class IGameObject;
-class Hero;
 
 class Level : public IGameState
 {
@@ -22,7 +21,6 @@ public:
 	virtual void update(const double delta) override;
 	virtual unsigned int getStateWidth() const override;
 	virtual unsigned int getStateHeight() const override;
-	virtual void processInput(std::array<bool, 349>& keys) override;
 
 	const glm::ivec2& getPlayerRespawn() const { return m_playerRespawn; }
 	const glm::ivec2& getEnemyRespawn_1() const { return m_enemyRespawn_1; }
@@ -30,7 +28,6 @@ public:
 	const glm::ivec2& getEnemyRespawn_3() const { return m_enemyRespawn_3; }
 
 	std::vector<std::shared_ptr<IGameObject>> getObjectsInArea(const glm::vec2& bottomLeft, const glm::vec2& topRight);
-	void initPhysics();
 
 private:
 	size_t m_widthBlocks = 0;
@@ -43,5 +40,4 @@ private:
 	glm::ivec2 m_enemyRespawn_2;
 	glm::ivec2 m_enemyRespawn_3;
 	std::vector<std::shared_ptr<IGameObject>> m_mapObject;
-	std::shared_ptr<Hero> m_pHero;
 };

@@ -6,8 +6,6 @@
 #include "../GameObject/Border.h"
 #include "../GameObject/Hero.h"
 
-#include <GLFW/glfw3.h>
-
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -79,12 +77,6 @@ Level::Level(const std::vector<std::string>& levelDescription)
 
 }
 
-void Level::initPhysics()
-{
-    m_pHero = std::make_shared<Hero>(0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
-    Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
-}
-
 void Level::render() const
 {
     for (const auto& currentMapObject : m_mapObject)
@@ -94,7 +86,6 @@ void Level::render() const
             currentMapObject->render();
         }
     }
-    m_pHero->render();
 }
 
 void Level::update(const double delta)
@@ -105,44 +96,6 @@ void Level::update(const double delta)
         {
             currentMapObject->update(delta);
         }
-    }
-    m_pHero->update(delta);
-}
-
-
-void Level::processInput(std::array<bool, 349>& keys)
-{
-    if (m_pHero)
-    {
-        if (keys[GLFW_KEY_W])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Top);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (keys[GLFW_KEY_A])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Left);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (keys[GLFW_KEY_D])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Right);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else if (keys[GLFW_KEY_S])
-        {
-            m_pHero->SetOrientation(Hero::EOrientaition::Bottom);
-            m_pHero->setVelocity(m_pHero->getMaxVelocity());
-        }
-        else
-        {
-            m_pHero->setVelocity(0);
-        }
-    }
-
-    if (m_pHero && keys[GLFW_KEY_SPACE])
-    {
-        m_pHero->fire();
     }
 }
 
