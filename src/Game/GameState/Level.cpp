@@ -105,6 +105,10 @@ void Level::update(const double delta)
         {
             currentMapObject->update(delta);
         }
+        if (currentMapObject->isActive())
+        {
+            m_isSwitch = currentMapObject->isActive();
+        }
     }
     m_pHero->update(delta);
 }

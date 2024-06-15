@@ -90,7 +90,7 @@ void Game::update(const double delta)
         m_pCurrentGameState->processInput(m_keys);
         m_pCurrentGameState->update(delta);
 
-        if (m_keys[GLFW_KEY_ENTER])
+        if (m_pCurrentGameState->screenReplacement())
         {
             m_eCurrentGameState = EGameState::ShopScreen;
             startShopScreen(0);

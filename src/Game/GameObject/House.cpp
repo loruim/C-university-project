@@ -14,3 +14,12 @@ void House::render() const
 {
 	m_pCurrentSprite->render(m_position, m_size, m_rotation, m_layer);
 }
+
+bool House::collides(const EObjectType objectType)
+{
+	if (!(objectType != IGameObject::EObjectType::Hero))
+	{
+		m_isActive = true;
+	}
+	return true;
+}
