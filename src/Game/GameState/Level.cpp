@@ -98,8 +98,10 @@ Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) : m_
 
 void Level::initPhysics()
 {
-    m_pHero = std::make_shared<Hero>(0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_pHero = std::make_shared<Hero>(Hero::EHeroType::Archer, 0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
     Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
+
+    //m_Enemy.emplace(std::make_shared<Hero>(0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);)
 }
 
 void Level::render() const

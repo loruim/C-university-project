@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 #include <glm/vec2.hpp>
 
 #include "IGameObject.h"
@@ -16,6 +17,26 @@ class Arrow;
 class Hero : public IGameObject
 {
 public:
+
+	enum class EHeroType : uint8_t
+	{
+		Archer,
+		Titan,
+		Barbarian,
+		Angel,
+		Knight,
+		Magican
+	};
+
+	inline static std::string HeroTypeString[] = {
+		"archerState",
+		"titanState",
+		"barbarianState",
+		"angelState",
+		"knightState",
+		"magicanState"
+	};
+
 	enum class EOrientaition {
 		Top,
 		Bottom,
@@ -23,7 +44,8 @@ public:
 		Right
 	};
 
-	Hero(const double maxVelocity, 
+	Hero(const Hero::EHeroType eType,
+		 const double maxVelocity, 
 		 const glm::vec2& position, 
 		 const glm::vec2& size, 
 		 const float layer);
@@ -46,4 +68,5 @@ private:
 	RenderEngine::SpriteAnimator m_spriteAnimator_left;
 	RenderEngine::SpriteAnimator m_spriteAnimator_right;
 	double m_maxVelocity;
+	static const std::string& getHeroSpriteFromType(const EHeroType eType);
 };

@@ -6,17 +6,23 @@
 #include "Arrow.h"
 #include "../../Physics/PhysicsEngine.h"	
 
-Hero::Hero(const double maxVelocity, 
+const std::string& Hero::getHeroSpriteFromType(const EHeroType eType)
+{
+	return HeroTypeString[static_cast<size_t>(eType)];
+}
+
+Hero::Hero(const Hero::EHeroType eType,
+	       const double maxVelocity, 
 		   const glm::vec2& position, 
 		   const glm::vec2& size, 
 		   const float layer)
 	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(EOrientaition::Left)
 	, m_pCurrentArrow(std::make_shared<Arrow>(0.1, m_position + m_size / 4.f, m_size / 2.f, layer))
-	, m_pSprite_top(ResourceManager::getSprite("archerLeftState"))
-	, m_pSprite_bottom(ResourceManager::getSprite("archerRightState"))
-	, m_pSprite_left(ResourceManager::getSprite("archerLeftState"))
-	, m_pSprite_right(ResourceManager::getSprite("archerRightState"))
+	, m_pSprite_top(ResourceManager::getSprite(getHeroSpriteFromType(eType) + "_Left"))
+	, m_pSprite_bottom(ResourceManager::getSprite(getHeroSpriteFromType(eType) + "_Right"))
+	, m_pSprite_left(ResourceManager::getSprite(getHeroSpriteFromType(eType) + "_Left"))
+	, m_pSprite_right(ResourceManager::getSprite(getHeroSpriteFromType(eType) + "_Right"))
 	, m_spriteAnimator_top(m_pSprite_top)
 	, m_spriteAnimator_bottom(m_pSprite_bottom)
 	, m_spriteAnimator_left(m_pSprite_left)

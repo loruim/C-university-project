@@ -484,39 +484,6 @@
       ]
     },
 
-    {
-      "name": "archerLeftState",
-      "textureAtlas": "archerTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "ArcherLeft1",
-      "frames": [
-        {
-          "subTexture": "ArcherLeft1",
-          "duration": 500
-        },
-        {
-          "subTexture": "ArcherLeft2",
-          "duration": 500
-        }
-      ]
-    },
-
-    {
-      "name": "archerRightState",
-      "textureAtlas": "archerTextureAtlas",
-      "shader": "spriteShader",
-      "initialSubTexture": "ArcherRight1",
-      "frames": [
-        {
-          "subTexture": "ArcherRight1",
-          "duration": 500
-        },
-        {
-          "subTexture": "ArcherRight2",
-          "duration": 500
-        }
-      ]
-    },
 
     {
       "name": "waterSprite",
@@ -540,7 +507,41 @@
     },
 
     {
-      "name": "knightLeftState",
+      "name": "archerState_Left",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherLeft1",
+      "frames": [
+        {
+          "subTexture": "ArcherLeft1",
+          "duration": 500
+        },
+        {
+          "subTexture": "ArcherLeft2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "archerState_Right",
+      "textureAtlas": "archerTextureAtlas",
+      "shader": "spriteShader",
+      "initialSubTexture": "ArcherRight1",
+      "frames": [
+        {
+          "subTexture": "ArcherRight1",
+          "duration": 500
+        },
+        {
+          "subTexture": "ArcherRight2",
+          "duration": 500
+        }
+      ]
+    },
+
+    {
+      "name": "knightState_Left",
       "textureAtlas": "knightTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "KnightLeft1",
@@ -557,7 +558,7 @@
     },
 
     {
-      "name": "knightRightState",
+      "name": "knightState_Right",
       "textureAtlas": "knightTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "KnightRight1",
@@ -574,7 +575,7 @@
     },
 
     {
-      "name": "barbarianLeftState",
+      "name": "barbarianState_Left",
       "textureAtlas": "barbarianTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "BarbarianLeft1",
@@ -591,7 +592,7 @@
     },
 
     {
-      "name": "barbarianRightState",
+      "name": "barbarianState_Right",
       "textureAtlas": "barbarianTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "BarbarianRight1",
@@ -608,7 +609,7 @@
     },
 
     {
-      "name": "angelLeftState",
+      "name": "angelState_Left",
       "textureAtlas": "angelTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "AngelLeft1",
@@ -625,7 +626,7 @@
     },
 
     {
-      "name": "angelRightState",
+      "name": "angelState_Right",
       "textureAtlas": "angelTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "AngelRight1",
@@ -642,7 +643,7 @@
     },
 
     {
-      "name": "magicanLeftState",
+      "name": "magicanState_Left",
       "textureAtlas": "magicanTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "magicanLeft1",
@@ -659,7 +660,7 @@
     },
 
     {
-      "name": "magicanRightState",
+      "name": "magicanState_Right",
       "textureAtlas": "magicanTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "magicanRight1",
@@ -676,7 +677,7 @@
     },
 
     {
-      "name": "titanLeftState",
+      "name": "titanState_Left",
       "textureAtlas": "titanTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "titanLeft1",
@@ -693,7 +694,7 @@
     },
 
     {
-      "name": "titanRightState",
+      "name": "titanState_Right",
       "textureAtlas": "titanTextureAtlas",
       "shader": "spriteShader",
       "initialSubTexture": "titanRight1",
