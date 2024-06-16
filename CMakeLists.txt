@@ -68,6 +68,8 @@ add_executable(${PROJECT_NAME}
     src/Game/GameState/Level.h
     src/Game/GameState/ShopScreen.cpp
     src/Game/GameState/ShopScreen.h
+    src/Game/GameState/FightScreen.cpp
+    src/Game/GameState/FightScreen.h
 )
 
 add_subdirectory(external/glfw)

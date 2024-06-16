@@ -48,6 +48,9 @@ public:
 	// Shops
 	static const  std::vector<std::vector<std::string>>& getShopsScreen() { return m_shopsScreen; }
 
+	// FightScreen
+	static const  std::vector<std::string>& getFightScreen() { return m_fightScreen; }
+
 private:
 	static std::string getFileString(const std::string& relativeFilePath);
 	static std::string m_path;
@@ -69,4 +72,7 @@ private:
 
 	// Shops
 	static std::vector<std::vector<std::string>> m_shopsScreen;
+
+	// FightScreen
+	static std::vector<std::string> m_fightScreen;
 };

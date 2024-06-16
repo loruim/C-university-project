@@ -9,6 +9,7 @@
 
 #include "GameState/Level.h"
 #include "GameState/ShopScreen.h"
+#include "GameState/FightScreen.h"
 #include "../Physics/PhysicsEngine.h"
 #include "../Renderer/Renderer.h"
 
@@ -80,6 +81,12 @@ void Game::startShopScreen(const size_t shopNumber)
     /*pShops->setShopsType(ShopScreen::EShopsType::LeftShopScreen_1);*/
     pShops->setShopsType(shopNumber);
     m_pCurrentGameState = pShops;
+    updateViewport();
+}
+
+void Game::startFightMap()
+{
+    m_pCurrentGameState = std::make_shared<FightScreen>(ResourceManager::getFightScreen());
     updateViewport();
 }
 

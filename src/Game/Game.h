@@ -24,6 +24,7 @@ public:
 	unsigned int getCurrentWidth() const;
 	unsigned int getCurrentHeight() const;
 	void startGlobalMap();
+	void startFightMap();
 	void startShopScreen(const size_t shopNumber);
 	void updateViewport();
 	void setWindowSize(const glm::uvec2& windowSize);

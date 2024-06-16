@@ -181,6 +181,11 @@ void Level::processInput(std::array<bool, 349> keys)
     {
         m_pHero->fire();
     }
+
+    if (keys[GLFW_KEY_Q])
+    {
+        m_pGame->startFightMap();
+    }
 }
 
 unsigned int Level::getStateWidth() const

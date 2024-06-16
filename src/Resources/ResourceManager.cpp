@@ -19,6 +19,7 @@ ResourceManager::TexturesMap ResourceManager::m_textures;
 ResourceManager::SpritesMap ResourceManager::m_sprites;
 std::vector<std::vector<std::string>> ResourceManager::m_levels;
 std::vector<std::vector<std::string>> ResourceManager::m_shopsScreen;
+std::vector<std::string> ResourceManager::m_fightScreen;
 
 
 void ResourceManager::setExecutablePath(const std::string& executablePath)
@@ -341,6 +342,31 @@ bool ResourceManager::loadJSONResources(const std::string& JSONPath)
 			}
 		}
 		m_shopsScreen.emplace_back(std::move(ShopsRow));
+	}
+
+	// load Fight Screen
+	auto fightScreenIt = document.FindMember("fightScreen");
+	if (fightScreenIt != document.MemberEnd())
+	{
+		const auto descriptionArray = fightScreenIt->value.GetArray();
+		m_fightScreen.reserve(descriptionArray.Size());
+		size_t maxLenght = 0;
+		for (const auto& currentRow : descriptionArray)
+		{
+			m_fightScreen.emplace_back(currentRow.GetString());
+			if (maxLenght < m_fightScreen.back().length())
+			{
+				maxLenght = m_fightScreen.back().length();
+			}
+		}
+
+		for (auto& currentRow : m_fightScreen)
+		{
+			while (currentRow.length() < maxLenght)
+			{
+				currentRow.append("5"); // 5 == void
+			}
+		}
 	}
 	return true;
 }
