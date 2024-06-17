@@ -22,9 +22,12 @@
 
 Game::Game(const glm::uvec2& windowSize) 
     : m_windowSize(windowSize)
+    , m_mouseX(0)
+    , m_mouseY(0)
     , m_eCurrentGameState(EGameState::ShopScreen)
 {
     m_keys.fill(false);
+    m_mouseButtons.fill(false);
 }
 
 void Game::setWindowSize(const glm::uvec2& windowSize)
@@ -93,13 +96,26 @@ void Game::startFightMap()
 
 void Game::update(const double delta)
 {
-    m_pCurrentGameState->processInput(m_keys);
+    m_pCurrentGameState->processInputKey(m_keys);
+    m_pCurrentGameState->processInputMouse(m_mouseButtons);
+    m_pCurrentGameState->processSetMousePosition(m_mouseX, m_mouseY);
     m_pCurrentGameState->update(delta);
 }
 
 void Game::setKey(const int key, const int action)
 {
     m_keys[key] = action;
+}
+
+void Game::setButton(const int button, const int action)
+{
+    m_mouseButtons[button] = action;
+}
+
+void Game::setMousePosition(const double xpos, const double ypos)
+{
+    m_mouseX = xpos;
+    m_mouseY = ypos;
 }
 
 bool Game::init()

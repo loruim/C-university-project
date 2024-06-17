@@ -24,7 +24,7 @@ public:
 	virtual void update(const double delta) override;
 	virtual unsigned int getStateWidth() const override;
 	virtual unsigned int getStateHeight() const override;
-	virtual void processInput(std::array<bool, 349> keys) override;
+	virtual void processInputKey(std::array<bool, 349> keys) override;
 
 	const glm::ivec2& getPlayerRespawn() const { return m_playerRespawn; }
 	const glm::ivec2& getEnemyRespawn_1() const { return m_enemyRespawn_1; }

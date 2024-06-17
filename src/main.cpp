@@ -33,6 +33,15 @@ void glfwKeyCallback(GLFWwindow* pWindow, int key, int scancode, int action, int
 	g_game->setKey(key, action);
 }
 
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) 
+{
+	g_game->setButton(button, action);
+}
+
+void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) 
+{
+	g_game->setMousePosition(xpos, ypos);
+}
 
 int main(int argc, char** argv)
 {
@@ -57,6 +66,9 @@ int main(int argc, char** argv)
 	glfwSetWindowSizeCallback(pWindow, glfwWindowSizeCallback); // Растягивание окна
 	glfwSetKeyCallback(pWindow, glfwKeyCallback);
 
+	glfwSetMouseButtonCallback(pWindow, mouse_button_callback);
+	glfwSetCursorPosCallback(pWindow, cursor_position_callback);
+
 	glfwMakeContextCurrent(pWindow); // Установка текущего окна, так как окон может быть несколько
 
 	if (!gladLoadGL()) // glad initialization
@@ -74,7 +86,6 @@ int main(int argc, char** argv)
 		ResourceManager::setExecutablePath(argv[0]);
 		Physics::PhysicsEngine::init();
 		g_game->init();
-		//glfwSetWindowSize(pWindow, static_cast<int>(4 * g_game->getCurrentWidth()), static_cast<int>(4 * g_game->getCurrentHeight()));
 
 		auto lastTime = std::chrono::high_resolution_clock::now();
 

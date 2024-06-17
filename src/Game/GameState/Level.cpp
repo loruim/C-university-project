@@ -189,7 +189,7 @@ void Level::update(const double delta)
     }
 }
 
-void Level::processInput(std::array<bool, 349> keys)
+void Level::processInputKey(std::array<bool, 349> keys)
 {
     if (keys[GLFW_KEY_W])
     {

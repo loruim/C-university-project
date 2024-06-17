@@ -36,7 +36,7 @@ public:
 	ShopScreen(const std::vector<std::string>& shopScreenDescription, Game* pGame);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
-	virtual void processInput(std::array<bool, 349> keys) override;
+	virtual void processInputKey(std::array<bool, 349> keys) override;
 
 	virtual unsigned int getStateWidth() const override;
 	virtual unsigned int getStateHeight() const override;

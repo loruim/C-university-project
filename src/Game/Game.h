@@ -20,6 +20,8 @@ public:
 	void render();
 	void update(const double delta);
 	void setKey(const int key, const int action);
+	void setButton(const int button, const int action);
+	void setMousePosition(const double xpos, const double ypos);
 	bool init();
 	unsigned int getCurrentWidth() const;
 	unsigned int getCurrentHeight() const;
@@ -40,6 +42,9 @@ private:
 	};
 
 	std::array<bool, 349> m_keys;
+	std::array<bool, 8> m_mouseButtons;
+	double m_mouseX;
+	double m_mouseY;
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;

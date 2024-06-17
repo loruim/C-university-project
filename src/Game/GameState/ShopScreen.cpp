@@ -88,7 +88,7 @@ void ShopScreen::update(const double delta)
 	m_pointerSpriteAnimator.update(delta);
 }
 
-void ShopScreen::processInput(std::array<bool, 349> keys)
+void ShopScreen::processInputKey(std::array<bool, 349> keys)
 {
 	switch (m_eShopsType)
 	{

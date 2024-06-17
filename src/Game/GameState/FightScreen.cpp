@@ -85,7 +85,7 @@ void FightScreen::initPhysics()
 	Physics::PhysicsEngine::addDynamicGameObject(m_pDistantCombat);
 }
 
-void FightScreen::processInput(std::array<bool, 349> keys)
+void FightScreen::processInputKey(std::array<bool, 349> keys)
 {
 	if (keys[GLFW_KEY_W])
 	{
@@ -128,5 +128,16 @@ void FightScreen::processInput(std::array<bool, 349> keys)
 	if (keys[GLFW_KEY_ENTER])
 	{
 		m_pGame->startGlobalMap();
+	}
+}
+void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
+{
+	if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT])
+	{
+		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+
+		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Bottom);
+		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
 	}
 }

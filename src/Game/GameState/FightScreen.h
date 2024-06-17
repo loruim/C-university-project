@@ -28,7 +28,8 @@ public:
 	FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
-	virtual void processInput(std::array<bool, 349> keys) override;
+	virtual void processInputKey(std::array<bool, 349> keys) override;
+	virtual void processInputMouse(std::array<bool, 8> mouseButtons) override;
 	virtual void initPhysics() override;
 
 	virtual unsigned int getStateWidth() const override;
