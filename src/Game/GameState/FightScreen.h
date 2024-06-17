@@ -25,7 +25,12 @@ public:
 	static constexpr unsigned int STARTSCREEN_WIDTH = 10 * BLOCK_SIZE;
 	static constexpr unsigned int STARTSCREEN_HEIGHT = 12 * BLOCK_SIZE;
 
-	FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame);
+	static constexpr glm::vec2 LEFT_BOTTOM_FIELD = { 2 * BLOCK_SIZE, BLOCK_SIZE };
+	/*static constexpr unsigned int LEFT_BOTTOM_FIELD_HEIGHT = BLOCK_SIZE;*/
+	static constexpr  glm::vec2 RIGHT_BOTTOM_FIELD = { 6 * BLOCK_SIZE, 10 * BLOCK_SIZE };
+	//static constexpr unsigned int RIGHT_BOTTOM_FIELD_HEIGHT = 10 * BLOCK_SIZE;
+
+	FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame, std::vector<bool> whatUnitHave);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
 	virtual void processInputKey(std::array<bool, 349> keys) override;
@@ -46,7 +51,7 @@ public:
 private:
 	Game* m_pGame;
 	std::vector<std::pair<std::shared_ptr<RenderEngine::Sprite>, glm::vec2>> m_sprites;
-	std::shared_ptr<CloseCombat>   m_pCloseCombat;
+	std::vector<std::shared_ptr<CloseCombat>>   m_pCloseCombat;
 	std::shared_ptr<DistantCombat> m_pDistantCombat;
 
 	glm::ivec2 m_alliesRespawn_1;
@@ -57,6 +62,6 @@ private:
 	glm::ivec2 m_enemyRespawn_3;
 
 	glm::vec2 m_mousePosition;
-	/*double m_mouseX;
-	double m_mouseY;*/
+	
+	std::vector<bool> m_whatUnitHave;
 };

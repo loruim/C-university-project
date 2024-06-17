@@ -3,6 +3,7 @@
 #include <glm/vec2.hpp>
 #include <array>
 #include <memory>
+#include <vector>
 
 class IGameState;
 
@@ -50,4 +51,6 @@ private:
 	EGameState m_eCurrentGameState;
 	std::shared_ptr<IGameState> m_pCurrentGameState;
 	std::shared_ptr<RenderEngine::ShaderProgram> m_pSpriteShaderProgram;
+
+	std::vector<bool> m_whatFightUnitHave;
 };

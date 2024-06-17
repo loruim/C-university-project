@@ -28,6 +28,13 @@ Hero::Hero(const Hero::EHeroType eType,
 	, m_spriteAnimator_left(m_pSprite_left)
 	, m_spriteAnimator_right(m_pSprite_right)
 	, m_maxVelocity(maxVelocity)
+	, m_isHaveAngel(true)
+	, m_isHaveArcher(false)
+	, m_isHaveBarbarian(false)
+	, m_isHaveKnight(false)
+	, m_isHaveMagican(true)
+	, m_isHaveTitan(false)
+
 {
 	m_colliders.emplace_back(glm::vec2(0), m_size);
 	Physics::PhysicsEngine::addDynamicGameObject(m_pCurrentArrow);

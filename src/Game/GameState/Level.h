@@ -34,6 +34,8 @@ public:
 	std::vector<std::shared_ptr<IGameObject>> getObjectsInArea(const glm::vec2& bottomLeft, const glm::vec2& topRight);
 	virtual void initPhysics() override;
 
+	std::shared_ptr<Hero> GetHeroPointer() { return m_pHero; }
+
 private:
 	Game* m_pGame;
 	size_t m_widthBlocks = 0;

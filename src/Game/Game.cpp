@@ -72,7 +72,7 @@ void Game::updateViewport()
 
 void Game::startGlobalMap()
 {
-     auto pLevel= std::make_shared<Level>(ResourceManager::getLevels()[0], this);
+     auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
      m_pCurrentGameState = pLevel;
      Physics::PhysicsEngine::setCurrentLevel(pLevel);
      updateViewport();
@@ -88,7 +88,7 @@ void Game::startShopScreen(const size_t shopNumber)
 
 void Game::startFightMap()
 {
-    auto pFightScreen = std::make_shared<FightScreen>(ResourceManager::getFightScreen(), this);
+    auto pFightScreen = std::make_shared<FightScreen>(ResourceManager::getFightScreen(), this, m_whatFightUnitHave);
     m_pCurrentGameState = pFightScreen;
     Physics::PhysicsEngine::setCurrentFight(pFightScreen);
     updateViewport();
@@ -134,6 +134,12 @@ bool Game::init()
     auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
     m_pCurrentGameState = pLevel;
     Physics::PhysicsEngine::setCurrentLevel(pLevel);
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveAngel());
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveArcher());
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveBarbarian());
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveKnight());
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveMagican());
+    m_whatFightUnitHave.push_back(pLevel->GetHeroPointer()->isHaveTitan());
     updateViewport();
     setWindowSize(m_windowSize);
     

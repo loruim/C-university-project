@@ -56,6 +56,13 @@ public:
 	double getMaxVelocity() const { return m_maxVelocity; }
 	void fire();
 
+	bool isHaveAngel() { return m_isHaveAngel; }
+	bool isHaveArcher() { return m_isHaveArcher; }
+	bool isHaveBarbarian() { return m_isHaveBarbarian; }
+	bool isHaveKnight() { return m_isHaveKnight; }
+	bool isHaveMagican() { return m_isHaveMagican; }
+	bool isHaveTitan() { return m_isHaveTitan; }
+
 private:
 	EOrientaition m_eOrientation;
 	std::shared_ptr<Arrow> m_pCurrentArrow;
@@ -69,4 +76,11 @@ private:
 	RenderEngine::SpriteAnimator m_spriteAnimator_right;
 	double m_maxVelocity;
 	static const std::string& getHeroSpriteFromType(const EHeroType eType);
+
+	bool m_isHaveArcher;
+	bool m_isHaveMagican;
+	bool m_isHaveTitan;
+	bool m_isHaveBarbarian;
+	bool m_isHaveKnight;
+	bool m_isHaveAngel;
 };
