@@ -50,9 +50,9 @@ public:
 		 const glm::vec2& size, 
 		 const float layer);
 
-	void render() const override;
+	virtual void render() const override;
+	virtual void update(const double delta) override;
 	void SetOrientation(const EOrientaition eOrientation);
-	void update(const double delta) override;
 	double getMaxVelocity() const { return m_maxVelocity; }
 	void fire();
 

@@ -32,7 +32,7 @@ public:
 	const glm::ivec2& getEnemyRespawn_3() const { return m_enemyRespawn_3; }
 
 	std::vector<std::shared_ptr<IGameObject>> getObjectsInArea(const glm::vec2& bottomLeft, const glm::vec2& topRight);
-	void initPhysics();
+	virtual void initPhysics() override;
 
 private:
 	Game* m_pGame;
@@ -47,5 +47,13 @@ private:
 	glm::ivec2 m_enemyRespawn_3;
 	std::vector<std::shared_ptr<IGameObject>> m_mapObject;
 	std::shared_ptr<Hero> m_pHero;
-	//std::set< std::shared_ptr<Hero>> m_Enemy;
+
+	bool m_enemyLeftIsActive;
+	std::shared_ptr<Hero> m_enemyLeft;
+
+	bool m_enemyMiddleIsActive;
+	std::shared_ptr<Hero> m_enemyMiddle;
+
+	bool m_enemyRightIsActive;
+	std::shared_ptr<Hero> m_enemyRight;
 };

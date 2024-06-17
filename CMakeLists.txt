@@ -61,6 +61,10 @@ add_executable(${PROJECT_NAME}
     src/Game/GameObject/Border.h
     src/Game/GameObject/Arrow.cpp
     src/Game/GameObject/Arrow.h
+    src/Game/GameObject/CloseCombat.cpp
+    src/Game/GameObject/CloseCombat.h
+    src/Game/GameObject/DistantCombat.cpp
+    src/Game/GameObject/DistantCombat.h
 
     src/Game/GameState/IGameState.cpp
     src/Game/GameState/IGameState.h

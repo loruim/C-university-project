@@ -9,6 +9,7 @@
 
 class IGameObject;
 class Level;
+class FightScreen;
 
 namespace Physics
 {
@@ -59,10 +60,12 @@ namespace Physics
         static void update(const double delta);
         static void addDynamicGameObject(std::shared_ptr<IGameObject> pGameObject);
         static void	setCurrentLevel(std::shared_ptr<Level> pLevel);
+        static void	setCurrentFight(std::shared_ptr<FightScreen> pFight);
 
     private:
         static std::unordered_set<std::shared_ptr<IGameObject>> m_dinamicObjects;
         static std::shared_ptr<Level> m_pCurrentLevel;
+        static std::shared_ptr<FightScreen> m_pCurrentFight;
 
         static bool hasIntersection(const Collider& colliders1, const glm::vec2 position1, 
                                     const Collider& colliders2, const glm::vec2 position2);

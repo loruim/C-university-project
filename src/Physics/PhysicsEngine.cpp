@@ -2,11 +2,13 @@
 
 #include "../Game/GameObject/IGameObject.h"
 #include "../Game/GameState/Level.h"
+#include "../Game/GameState/FightScreen.h"
 
 namespace Physics
 {
     std::unordered_set<std::shared_ptr<IGameObject>> PhysicsEngine::m_dinamicObjects;
     std::shared_ptr<Level> PhysicsEngine::m_pCurrentLevel;
+    std::shared_ptr<FightScreen> PhysicsEngine::m_pCurrentFight;
 
     void PhysicsEngine::init()
     {
@@ -24,6 +26,13 @@ namespace Physics
         m_pCurrentLevel.swap(pLevel);
         m_dinamicObjects.clear();
         m_pCurrentLevel->initPhysics();
+    }
+
+    void PhysicsEngine::setCurrentFight(std::shared_ptr<FightScreen> pFight)
+    {
+        m_pCurrentFight.swap(pFight);
+        m_dinamicObjects.clear();
+        m_pCurrentFight->initPhysics();
     }
 
     void PhysicsEngine::update(const double delta)

@@ -101,7 +101,18 @@ void Level::initPhysics()
     m_pHero = std::make_shared<Hero>(Hero::EHeroType::Archer, 0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
     Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
 
-    //m_Enemy.emplace(std::make_shared<Hero>(0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);)
+    m_enemyLeftIsActive = true;
+    m_enemyLeft = std::make_shared<Hero>(Hero::EHeroType::Knight, 0.05, getEnemyRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+
+    m_enemyMiddleIsActive = true;
+    m_enemyMiddle = std::make_shared<Hero>(Hero::EHeroType::Angel, 0.05, getEnemyRespawn_2(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+
+    m_enemyRightIsActive = true;
+    m_enemyRight = std::make_shared<Hero>(Hero::EHeroType::Barbarian, 0.05, getEnemyRespawn_3(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+
+    Physics::PhysicsEngine::addDynamicGameObject(m_enemyLeft);
+    Physics::PhysicsEngine::addDynamicGameObject(m_enemyMiddle);
+    Physics::PhysicsEngine::addDynamicGameObject(m_enemyRight);
 }
 
 void Level::render() const
@@ -114,6 +125,21 @@ void Level::render() const
         }
     }
     m_pHero->render();
+
+    if (m_enemyLeft)
+    {
+        m_enemyLeft->render();
+    }
+
+    if (m_enemyMiddle)
+    {
+        m_enemyMiddle->render();
+    }
+
+    if (m_enemyRight)
+    {
+        m_enemyRight->render();
+    }
 }
 
 void Level::update(const double delta)
@@ -148,6 +174,19 @@ void Level::update(const double delta)
         }
     }
     m_pHero->update(delta);
+
+    if (m_enemyLeft)
+    {
+        m_enemyLeft->update(delta);
+    }
+    if (m_enemyMiddle)
+    {
+        m_enemyMiddle->update(delta);
+    }
+    if (m_enemyRight)
+    {
+        m_enemyRight->update(delta);
+    }
 }
 
 void Level::processInput(std::array<bool, 349> keys)

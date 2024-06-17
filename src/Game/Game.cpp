@@ -78,7 +78,6 @@ void Game::startGlobalMap()
 void Game::startShopScreen(const size_t shopNumber)
 {
     auto pShops = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0], this);
-    /*pShops->setShopsType(ShopScreen::EShopsType::LeftShopScreen_1);*/
     pShops->setShopsType(shopNumber);
     m_pCurrentGameState = pShops;
     updateViewport();
@@ -86,7 +85,9 @@ void Game::startShopScreen(const size_t shopNumber)
 
 void Game::startFightMap()
 {
-    m_pCurrentGameState = std::make_shared<FightScreen>(ResourceManager::getFightScreen());
+    auto pFightScreen = std::make_shared<FightScreen>(ResourceManager::getFightScreen(), this);
+    m_pCurrentGameState = pFightScreen;
+    Physics::PhysicsEngine::setCurrentFight(pFightScreen);
     updateViewport();
 }
 
@@ -94,35 +95,6 @@ void Game::update(const double delta)
 {
     m_pCurrentGameState->processInput(m_keys);
     m_pCurrentGameState->update(delta);
-
-    /*switch (m_eCurrentGameState)
-    {
-    case EGameState::FightScreen:
-        break;
-    case EGameState::GlobalMap:
-        m_pCurrentGameState->processInput(m_keys);
-        m_pCurrentGameState->update(delta);
-
-        if (m_pCurrentGameState->screenReplacement())
-        {
-            m_eCurrentGameState = EGameState::ShopScreen;
-            startShopScreen(0);
-        }
-        break;
-    case EGameState::LoseScreen:
-        break;
-    case EGameState::Pause:
-        break;
-    case EGameState::ShopScreen:
-        if (m_keys[GLFW_KEY_Q])
-        {
-            m_eCurrentGameState = EGameState::GlobalMap;
-            startGlobalMap();
-        }
-        break;
-    case EGameState::WinnerScreen:
-        break;
-    }*/
 }
 
 void Game::setKey(const int key, const int action)
@@ -143,7 +115,10 @@ bool Game::init()
     m_pSpriteShaderProgram->use();
     m_pSpriteShaderProgram->setInt("tex", 0);
 
-    m_pCurrentGameState = std::make_shared<ShopScreen>(ResourceManager::getShopsScreen()[0], this);
+    auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
+    m_pCurrentGameState = pLevel;
+    Physics::PhysicsEngine::setCurrentLevel(pLevel);
+    updateViewport();
     setWindowSize(m_windowSize);
     
     return true;

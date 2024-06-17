@@ -4,6 +4,8 @@
 
 #include "../../Renderer/Sprite.h"
 #include "../../Resources/ResourceManager.h"
+#include "../GameObject/CloseCombat.h"
+#include "../GameObject/DistantCombat.h"
 #include "../Game.h"
 
 #include <GLFW/glfw3.h>
@@ -22,7 +24,7 @@ std::shared_ptr<RenderEngine::Sprite> getFightObjectForDescription(const char de
 	return nullptr;
 }
 
-FightScreen::FightScreen(const std::vector<std::string>& fightScreenDescription)
+FightScreen::FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame) : m_pGame(pGame)
 {
 	if (fightScreenDescription.empty())
 	{
@@ -64,12 +66,67 @@ void FightScreen::render() const
 			current.first->render(current.second, glm::vec2(BLOCK_SIZE), 0.f);
 		}
 	}
+	m_pCloseCombat->render();
+	m_pDistantCombat->render();
 }
 
 void FightScreen::update(const double delta)
 {
+	m_pCloseCombat->update(delta);
+	m_pDistantCombat->update(delta);
+}
+
+void FightScreen::initPhysics()
+{
+	m_pCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, glm::vec2(16.f, 16.f), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
+	Physics::PhysicsEngine::addDynamicGameObject(m_pCloseCombat);
+
+	m_pDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, glm::vec2(32.f, 16.f), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
+	Physics::PhysicsEngine::addDynamicGameObject(m_pDistantCombat);
 }
 
 void FightScreen::processInput(std::array<bool, 349> keys)
 {
+	if (keys[GLFW_KEY_W])
+	{
+		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+
+		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Bottom);
+		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+	}
+	else if (keys[GLFW_KEY_A])
+	{
+		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Left);
+		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+
+		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Right);
+		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+	}
+	else if (keys[GLFW_KEY_D])
+	{
+		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Right);
+		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+
+		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Left);
+		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+	}
+	else if (keys[GLFW_KEY_S])
+	{
+		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Bottom);
+		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+
+		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Top);
+		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+	}
+	else
+	{
+		m_pCloseCombat->setVelocity(0);
+		m_pDistantCombat->setVelocity(0);
+	}
+
+	if (keys[GLFW_KEY_ENTER])
+	{
+		m_pGame->startGlobalMap();
+	}
 }
