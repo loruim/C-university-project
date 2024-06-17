@@ -30,7 +30,15 @@ public:
 	virtual void update(const double delta) override;
 	virtual void processInputKey(std::array<bool, 349> keys) override;
 	virtual void processInputMouse(std::array<bool, 8> mouseButtons) override;
+	virtual void processSetMousePosition(double mouseX, double mouseY) override;
 	virtual void initPhysics() override;
+
+	const glm::ivec2& getAlliesRespawn_1() const { return m_alliesRespawn_1; }
+	const glm::ivec2& getAlliesRespawn_2() const { return m_alliesRespawn_2; }
+	const glm::ivec2& getAlliesRespawn_3() const { return m_alliesRespawn_3; }
+	const glm::ivec2& getEnemyRespawn_1() const { return m_enemyRespawn_1; }
+	const glm::ivec2& getEnemyRespawn_2() const { return m_enemyRespawn_2; }
+	const glm::ivec2& getEnemyRespawn_3() const { return m_enemyRespawn_3; }
 
 	virtual unsigned int getStateWidth() const override;
 	virtual unsigned int getStateHeight() const override;
@@ -40,4 +48,15 @@ private:
 	std::vector<std::pair<std::shared_ptr<RenderEngine::Sprite>, glm::vec2>> m_sprites;
 	std::shared_ptr<CloseCombat>   m_pCloseCombat;
 	std::shared_ptr<DistantCombat> m_pDistantCombat;
+
+	glm::ivec2 m_alliesRespawn_1;
+	glm::ivec2 m_alliesRespawn_2;
+	glm::ivec2 m_alliesRespawn_3;
+	glm::ivec2 m_enemyRespawn_1;
+	glm::ivec2 m_enemyRespawn_2;
+	glm::ivec2 m_enemyRespawn_3;
+
+	glm::vec2 m_mousePosition;
+	/*double m_mouseX;
+	double m_mouseY;*/
 };

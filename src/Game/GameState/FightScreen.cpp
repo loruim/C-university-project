@@ -34,6 +34,13 @@ FightScreen::FightScreen(const std::vector<std::string>& fightScreenDescription,
 	auto leftOffsetPixel = BLOCK_SIZE * 2;
 	auto bottomOffset = STARTSCREEN_HEIGHT - BLOCK_SIZE * 2;
 
+	m_alliesRespawn_1 = { 2 * BLOCK_SIZE, BLOCK_SIZE };
+	m_alliesRespawn_2 = { 4 * BLOCK_SIZE, BLOCK_SIZE };
+	m_alliesRespawn_3 = { 6 * BLOCK_SIZE, BLOCK_SIZE };
+	m_enemyRespawn_1 = { 2 * BLOCK_SIZE, 10 * BLOCK_SIZE };
+	m_enemyRespawn_2 = { 4 * BLOCK_SIZE, 10 * BLOCK_SIZE };
+	m_enemyRespawn_3 = { 6 * BLOCK_SIZE, 10 * BLOCK_SIZE };
+
 	unsigned int currentBottomOffset = bottomOffset;
 	for (const std::string& currentRow : fightScreenDescription)
 	{
@@ -78,10 +85,10 @@ void FightScreen::update(const double delta)
 
 void FightScreen::initPhysics()
 {
-	m_pCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, glm::vec2(16.f, 16.f), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
+	m_pCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, getEnemyRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 	Physics::PhysicsEngine::addDynamicGameObject(m_pCloseCombat);
 
-	m_pDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, glm::vec2(32.f, 16.f), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
+	m_pDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 	Physics::PhysicsEngine::addDynamicGameObject(m_pDistantCombat);
 }
 
@@ -135,9 +142,21 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 	if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT])
 	{
 		m_pCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
-		m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+		// m_pCloseCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+		m_pCloseCombat->SetPosition(glm::vec2(30.f, 30.f));
 
 		m_pDistantCombat->SetOrientation(DistantCombat::EDistantUnitOrientaition::Bottom);
-		m_pDistantCombat->setVelocity(m_pCloseCombat->getMaxVelocity());
+		//this->processSetMousePosition(m_mouseX, m_mouseY); // -6.2774385622041
+		m_pDistantCombat->SetPosition(m_mousePosition);
+		//m_pDistantCombat->setVelocity(m_pDistantCombat->getMaxVelocity());
 	}
+}
+
+void FightScreen::processSetMousePosition(double mouseX, double mouseY)
+{
+	m_mousePosition = { mouseX, mouseY }; //639, 767, // 0, 764 // 0, 0 --> слева сверху находится 0
+	m_mousePosition.x = ceil(m_mousePosition.x / 4 - BLOCK_SIZE / 2);
+	m_mousePosition.y = ceil(m_mousePosition.y / 4 - BLOCK_SIZE / 2);
+
+	m_mousePosition.y = static_cast<double>(STARTSCREEN_HEIGHT) - m_mousePosition.y - BLOCK_SIZE;
 }

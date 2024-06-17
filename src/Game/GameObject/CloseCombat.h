@@ -46,6 +46,7 @@ public:
     virtual void update(const double delta) override;
     double getMaxVelocity() const { return m_maxVelocity; }
     void SetOrientation(const ECloseUnitOrientaition eUnitOrientation);
+    glm::vec2& SetPosition(glm::vec2 position) { return m_position = position; }
 
 private:
     ECloseUnitOrientaition m_eOrientation;
