@@ -47,6 +47,11 @@ public:
     double getMaxVelocity() const { return m_maxVelocity; }
     void SetOrientation(const EDistantUnitOrientaition eUnitOrientation);
     glm::vec2& SetPosition(glm::vec2 position) { return m_position = position; }
+    uint8_t getDistantSpeed() { return m_distantSpeed; }
+    glm::vec2& getLeftBottomPossibleMove() { return m_leftBottomPossibleMove; }
+    glm::vec2& getRightTopPossibleMove() { return m_rightTopPossibleMove; }
+    /*glm::vec2& setPossibleMove(glm::vec2 PossibleMove) { return m_possibleMove = PossibleMove; }
+    glm::vec2& getPossibleMove() { return m_possibleMove; }*/
 
 private:
     EDistantUnitOrientaition m_eOrientation;
@@ -59,5 +64,11 @@ private:
     RenderEngine::SpriteAnimator m_spriteAnimator_left;
     RenderEngine::SpriteAnimator m_spriteAnimator_right;
     double m_maxVelocity;
-    static const std::string& getDistantCombatSpriteFromType(const EDistantCombatUnitType eType);
+
+    glm::vec2 m_leftBottomPossibleMove;
+    glm::vec2 m_rightTopPossibleMove;
+    /*glm::vec2 m_possibleMove;*/
+
+    static uint8_t m_distantSpeed;
+    static std::string& getDistantCombatSpriteFromType(const EDistantCombatUnitType eType);
 };

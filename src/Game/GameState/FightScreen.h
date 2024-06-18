@@ -25,12 +25,10 @@ public:
 	static constexpr unsigned int STARTSCREEN_WIDTH = 10 * BLOCK_SIZE;
 	static constexpr unsigned int STARTSCREEN_HEIGHT = 12 * BLOCK_SIZE;
 
-	static constexpr glm::vec2 LEFT_BOTTOM_FIELD = { 2 * BLOCK_SIZE, BLOCK_SIZE };
-	/*static constexpr unsigned int LEFT_BOTTOM_FIELD_HEIGHT = BLOCK_SIZE;*/
-	static constexpr  glm::vec2 RIGHT_BOTTOM_FIELD = { 6 * BLOCK_SIZE, 10 * BLOCK_SIZE };
-	//static constexpr unsigned int RIGHT_BOTTOM_FIELD_HEIGHT = 10 * BLOCK_SIZE;
+	static constexpr glm::vec2 LEFT_BOTTOM_FIELD = { 2 * BLOCK_SIZE, 0};
+	static constexpr  glm::vec2 RIGHT_BOTTOM_FIELD = { 7 * BLOCK_SIZE, 10 * BLOCK_SIZE };
 
-	FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame, std::vector<bool> whatUnitHave);
+	FightScreen(const std::vector<std::string>& fightScreenDescription, Game* pGame, std::array<bool, 6> whatUnitHave);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
 	virtual void processInputKey(std::array<bool, 349> keys) override;
@@ -48,11 +46,18 @@ public:
 	virtual unsigned int getStateWidth() const override;
 	virtual unsigned int getStateHeight() const override;
 
+	void PossibleMove(const uint8_t speed, glm::vec2& leftBottom, glm::vec2& rightTop, const glm::vec2& currentPosition);
+
 private:
 	Game* m_pGame;
 	std::vector<std::pair<std::shared_ptr<RenderEngine::Sprite>, glm::vec2>> m_sprites;
 	std::vector<std::shared_ptr<CloseCombat>>   m_pCloseCombat;
-	std::shared_ptr<DistantCombat> m_pDistantCombat;
+	std::vector<std::shared_ptr<DistantCombat>> m_pDistantCombat;
+
+	glm::vec2 m_TopClosesPosition;
+	glm::vec2 m_BottomClosesPosition;
+	glm::vec2 m_LeftClosesPosition;
+	glm::vec2 m_RightClosesPosition;
 
 	glm::ivec2 m_alliesRespawn_1;
 	glm::ivec2 m_alliesRespawn_2;
@@ -62,6 +67,11 @@ private:
 	glm::ivec2 m_enemyRespawn_3;
 
 	glm::vec2 m_mousePosition;
+	glm::vec2 m_mousePositionNorm;
+	bool m_mouseReleased;
 	
-	std::vector<bool> m_whatUnitHave;
+	std::array<bool, 6> m_whatUnitHave;
+	bool m_knightTurn;
+	bool m_angelTurn;
+	bool m_barbarianTurn;
 };

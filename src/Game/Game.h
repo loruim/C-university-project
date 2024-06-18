@@ -52,5 +52,5 @@ private:
 	std::shared_ptr<IGameState> m_pCurrentGameState;
 	std::shared_ptr<RenderEngine::ShaderProgram> m_pSpriteShaderProgram;
 
-	std::vector<bool> m_whatFightUnitHave;
+	std::array<bool, 6> m_whatFightUnitHave;
 };

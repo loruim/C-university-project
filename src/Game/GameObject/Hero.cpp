@@ -31,7 +31,7 @@ Hero::Hero(const Hero::EHeroType eType,
 	, m_isHaveAngel(true)
 	, m_isHaveArcher(false)
 	, m_isHaveBarbarian(false)
-	, m_isHaveKnight(false)
+	, m_isHaveKnight(true)
 	, m_isHaveMagican(true)
 	, m_isHaveTitan(false)
 

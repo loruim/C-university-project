@@ -6,8 +6,24 @@
 #include "Arrow.h"
 #include "../../Physics/PhysicsEngine.h"	
 
-const std::string& DistantCombat::getDistantCombatSpriteFromType(const EDistantCombatUnitType eType)
+uint8_t DistantCombat::m_distantSpeed;
+
+std::string& DistantCombat::getDistantCombatSpriteFromType(const EDistantCombatUnitType eType)
 {
+	switch (eType)
+	{
+	case DistantCombat::EDistantCombatUnitType::archer:
+		m_distantSpeed = 2;
+		break;
+	case DistantCombat::EDistantCombatUnitType::magican:
+		m_distantSpeed = 3;
+		break;
+	case DistantCombat::EDistantCombatUnitType::titan:
+		m_distantSpeed = 4;
+		break;
+	default:
+		break;
+	}
 	return DistantCombatTypeString[static_cast<size_t>(eType)];
 }
 
@@ -27,6 +43,8 @@ DistantCombat::DistantCombat(const DistantCombat::EDistantCombatUnitType eType,
 	, m_spriteAnimator_left(m_pSprite_left)
 	, m_spriteAnimator_right(m_pSprite_right)
 	, m_maxVelocity(maxVelocity)
+	, m_leftBottomPossibleMove(0)
+	, m_rightTopPossibleMove(0)
 {
 }
 

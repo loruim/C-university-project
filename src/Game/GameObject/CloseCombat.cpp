@@ -18,6 +18,7 @@ CloseCombat::CloseCombat(const CloseCombat::ECloseCombatUnitType eType,
 						 const float layer)
 	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(ECloseUnitOrientaition::Left)
+	, m_eType(eType)
 	, m_pSprite_top(ResourceManager::getSprite(getCloseCombatSpriteFromType(eType) + "_Left"))
 	, m_pSprite_bottom(ResourceManager::getSprite(getCloseCombatSpriteFromType(eType) + "_Right"))
 	, m_pSprite_left(ResourceManager::getSprite(getCloseCombatSpriteFromType(eType) + "_Left"))
@@ -27,7 +28,21 @@ CloseCombat::CloseCombat(const CloseCombat::ECloseCombatUnitType eType,
 	, m_spriteAnimator_left(m_pSprite_left)
 	, m_spriteAnimator_right(m_pSprite_right)
 	, m_maxVelocity(maxVelocity)
+	, m_leftBottomPossibleMove(0)
+	, m_rightTopPossibleMove(0)
 {
+	switch (m_eType)
+	{
+	case CloseCombat::ECloseCombatUnitType::knight:
+		m_closeSpeed = 2;
+		break;
+	case CloseCombat::ECloseCombatUnitType::barbarian:
+		m_closeSpeed = 3;
+		break;
+	case CloseCombat::ECloseCombatUnitType::angel:
+		m_closeSpeed = 5;
+		break;
+	}
 }
 
 void CloseCombat::render() const

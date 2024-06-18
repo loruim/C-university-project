@@ -47,6 +47,10 @@ public:
     double getMaxVelocity() const { return m_maxVelocity; }
     void SetOrientation(const ECloseUnitOrientaition eUnitOrientation);
     glm::vec2& SetPosition(glm::vec2 position) { return m_position = position; }
+    uint8_t getCloseSpeed() { return m_closeSpeed; }
+    glm::vec2& getLeftBottomPossibleMove() { return m_leftBottomPossibleMove; }
+    glm::vec2& getRightTopPossibleMove() { return m_rightTopPossibleMove; }
+    ECloseCombatUnitType getEType() { return m_eType; }
 
 private:
     ECloseUnitOrientaition m_eOrientation;
@@ -59,5 +63,11 @@ private:
     RenderEngine::SpriteAnimator m_spriteAnimator_left;
     RenderEngine::SpriteAnimator m_spriteAnimator_right;
     double m_maxVelocity;
+    
+    glm::vec2 m_leftBottomPossibleMove;
+    glm::vec2 m_rightTopPossibleMove;
+    ECloseCombatUnitType m_eType;
+
+    uint8_t m_closeSpeed;
     static const std::string& getCloseCombatSpriteFromType(const ECloseCombatUnitType eType);
 };
