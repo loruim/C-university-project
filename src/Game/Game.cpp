@@ -25,6 +25,9 @@ Game::Game(const glm::uvec2& windowSize)
     , m_mouseX(0)
     , m_mouseY(0)
     , m_eCurrentGameState(EGameState::ShopScreen)
+    , m_enemyLeftLive(true)
+    , m_enemyMiddleLive(true)
+    , m_enemyRightLive(true)
 {
     m_keys.fill(false);
     m_availableUnits.fill(false);
@@ -73,7 +76,7 @@ void Game::updateViewport()
 
 void Game::startGlobalMap()
 {
-     auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
+     auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this, m_enemyLeftLive, m_enemyMiddleLive, m_enemyRightLive);
      m_pCurrentGameState = pLevel;
      Physics::PhysicsEngine::setCurrentLevel(pLevel);
      m_availableUnits[0] = pLevel->GetHeroPointer()->isHaveAngel();
@@ -138,7 +141,7 @@ bool Game::init()
     m_pSpriteShaderProgram->use();
     m_pSpriteShaderProgram->setInt("tex", 0);
 
-    auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
+    auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this, m_enemyLeftLive, m_enemyMiddleLive, m_enemyRightLive);
     m_pCurrentGameState = pLevel;
     Physics::PhysicsEngine::setCurrentLevel(pLevel);
     m_availableUnits[0] = pLevel->GetHeroPointer()->isHaveAngel();

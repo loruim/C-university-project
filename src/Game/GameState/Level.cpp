@@ -51,11 +51,11 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
     return nullptr;
 }
 
-Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) 
+Level::Level(const std::vector<std::string>& levelDescription, Game* pGame, bool enemyLeftLive, bool enemyMiddleLive, bool enemyRightLive)
     : m_pGame(pGame)
-    , m_enemyLeftIsActive(true)
-    , m_enemyMiddleIsActive(true)
-    , m_enemyRightIsActive(true)
+    , m_enemyLeftIsActive(enemyLeftLive)
+    , m_enemyMiddleIsActive(enemyMiddleLive)
+    , m_enemyRightIsActive(enemyRightLive)
     , m_leftEnemy_RightTopPosition(0)
     , m_leftEnemy_LeftBottomPosition(0)
 {
@@ -107,36 +107,42 @@ void Level::initPhysics()
     m_pHero = std::make_shared<Hero>(Hero::EHeroType::Archer, 0.05, getPlayerRespawn(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
     Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
 
-    m_enemyLeftIsActive = true;
-    m_enemyLeft = std::make_shared<Hero>(Hero::EHeroType::Knight, 0.05, getEnemyRespawn_2(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
-    m_enemyLeft->SetIsHaveAngel(false);
-    m_enemyLeft->SetIsHaveArcher(true);
-    m_enemyLeft->SetIsHaveBarbarian(false);
-    m_enemyLeft->SetIsHaveKnight(true);
-    m_enemyLeft->SetIsHaveMagican(false);
-    m_enemyLeft->SetIsHaveTitan(false);
-
-    m_enemyMiddleIsActive = true;
-    m_enemyMiddle = std::make_shared<Hero>(Hero::EHeroType::Angel, 0.05, getEnemyRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
-    m_enemyMiddle->SetIsHaveAngel(true);
-    m_enemyMiddle->SetIsHaveArcher(false);
-    m_enemyMiddle->SetIsHaveBarbarian(false);
-    m_enemyMiddle->SetIsHaveKnight(false);
-    m_enemyMiddle->SetIsHaveMagican(true);
-    m_enemyMiddle->SetIsHaveTitan(false);
-
-    m_enemyRightIsActive = true;
-    m_enemyRight = std::make_shared<Hero>(Hero::EHeroType::Barbarian, 0.05, getEnemyRespawn_3(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
-    m_enemyMiddle->SetIsHaveAngel(false);
-    m_enemyMiddle->SetIsHaveArcher(false);
-    m_enemyMiddle->SetIsHaveBarbarian(true);
-    m_enemyMiddle->SetIsHaveKnight(false);
-    m_enemyMiddle->SetIsHaveMagican(false);
-    m_enemyMiddle->SetIsHaveTitan(true);
-
-    Physics::PhysicsEngine::addDynamicGameObject(m_enemyLeft);
-    Physics::PhysicsEngine::addDynamicGameObject(m_enemyMiddle);
-    Physics::PhysicsEngine::addDynamicGameObject(m_enemyRight);
+    //m_enemyLeftIsActive = true;
+    if (m_enemyLeftIsActive)
+    {
+        m_enemyLeft = std::make_shared<Hero>(Hero::EHeroType::Knight, 0.05, getEnemyRespawn_2(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+        m_enemyLeft->SetIsHaveAngel(false);
+        m_enemyLeft->SetIsHaveArcher(true);
+        m_enemyLeft->SetIsHaveBarbarian(false);
+        m_enemyLeft->SetIsHaveKnight(true);
+        m_enemyLeft->SetIsHaveMagican(false);
+        m_enemyLeft->SetIsHaveTitan(false);
+        Physics::PhysicsEngine::addDynamicGameObject(m_enemyLeft);
+    }
+    
+    if (m_enemyMiddleIsActive)
+    {
+        m_enemyMiddle = std::make_shared<Hero>(Hero::EHeroType::Angel, 0.05, getEnemyRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+        m_enemyMiddle->SetIsHaveAngel(true);
+        m_enemyMiddle->SetIsHaveArcher(false);
+        m_enemyMiddle->SetIsHaveBarbarian(false);
+        m_enemyMiddle->SetIsHaveKnight(false);
+        m_enemyMiddle->SetIsHaveMagican(true);
+        m_enemyMiddle->SetIsHaveTitan(false);
+        Physics::PhysicsEngine::addDynamicGameObject(m_enemyMiddle);
+    }
+    
+    if (m_enemyRightIsActive)
+    {
+        m_enemyRight = std::make_shared<Hero>(Hero::EHeroType::Barbarian, 0.05, getEnemyRespawn_3(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+        m_enemyRight->SetIsHaveAngel(false);
+        m_enemyRight->SetIsHaveArcher(false);
+        m_enemyRight->SetIsHaveBarbarian(true);
+        m_enemyRight->SetIsHaveKnight(false);
+        m_enemyRight->SetIsHaveMagican(false);
+        m_enemyRight->SetIsHaveTitan(true);
+        Physics::PhysicsEngine::addDynamicGameObject(m_enemyRight);
+    }
 }
 
 void Level::render() const
@@ -150,17 +156,17 @@ void Level::render() const
     }
     m_pHero->render();
 
-    if (m_enemyLeft)
+    if (m_enemyLeftIsActive)
     {
         m_enemyLeft->render();
     }
 
-    if (m_enemyMiddle)
+    if (m_enemyMiddleIsActive)
     {
         m_enemyMiddle->render();
     }
 
-    if (m_enemyRight)
+    if (m_enemyRightIsActive)
     {
         m_enemyRight->render();
     }
@@ -199,41 +205,38 @@ void Level::update(const double delta)
     }
     m_pHero->update(delta);
 
-    if (m_enemyLeft)
+    if (m_enemyLeftIsActive)
     {
         m_enemyLeft->update(delta);
+        m_leftEnemy_LeftBottomPosition = m_enemyLeft->getCurrentPosition();
+        m_leftEnemy_RightTopPosition = glm::vec2(m_leftEnemy_LeftBottomPosition.x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
+        if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+            && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
+        {
+            m_pGame->startFightMap(m_enemyLeft);
+        }
     }
-    if (m_enemyMiddle)
+    if (m_enemyMiddleIsActive)
     {
         m_enemyMiddle->update(delta);
+        m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x - 3, m_enemyMiddle->getCurrentPosition().y);
+        m_leftEnemy_RightTopPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x + 8, m_leftEnemy_LeftBottomPosition.y + 16);
+        if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+            && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
+        {
+            m_pGame->startFightMap(m_enemyMiddle);
+        }
     }
-    if (m_enemyRight)
+    if (m_enemyRightIsActive)
     {
         m_enemyRight->update(delta);
-    }
-
-    m_leftEnemy_LeftBottomPosition = m_enemyLeft->getCurrentPosition();
-    m_leftEnemy_RightTopPosition = glm::vec2(m_leftEnemy_LeftBottomPosition.x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
-    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
-        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
-    {
-        m_pGame->startFightMap(m_enemyLeft);
-    }
-
-    m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x - 3, m_enemyMiddle->getCurrentPosition().y);
-    m_leftEnemy_RightTopPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x + 8, m_leftEnemy_LeftBottomPosition.y + 16);
-    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
-        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
-    {
-        m_pGame->startFightMap(m_enemyMiddle);
-    }
-    
-    m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyRight->getCurrentPosition().x - 3, m_enemyRight->getCurrentPosition().y);
-    m_leftEnemy_RightTopPosition = glm::vec2(m_enemyRight->getCurrentPosition().x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
-    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
-        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y) // 82, 55
-    {
-        m_pGame->startFightMap(m_enemyRight);
+        m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyRight->getCurrentPosition().x - 3, m_enemyRight->getCurrentPosition().y);
+        m_leftEnemy_RightTopPosition = glm::vec2(m_enemyRight->getCurrentPosition().x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
+        if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+            && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y) // 82, 55
+        {
+            m_pGame->startFightMap(m_enemyRight);
+        }
     }
 }
 

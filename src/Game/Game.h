@@ -34,6 +34,10 @@ public:
 	void updateViewport();
 	void setWindowSize(const glm::uvec2& windowSize);
 
+	void setEnemyLeftLive(bool isLive) { m_enemyLeftLive = isLive; }
+	void setEnemyRightLive(bool isLive) { m_enemyRightLive = isLive; }
+	void setEnemyMiddleLive(bool isLive) { m_enemyMiddleLive = isLive; }
+
 private:
 	enum class EGameState {
 		FightScreen,
@@ -55,4 +59,8 @@ private:
 	std::shared_ptr<RenderEngine::ShaderProgram> m_pSpriteShaderProgram;
 
 	std::array<bool, 6> m_availableUnits;
+
+	bool m_enemyLeftLive;
+	bool m_enemyRightLive;
+	bool m_enemyMiddleLive;
 };

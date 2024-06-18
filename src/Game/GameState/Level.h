@@ -19,7 +19,7 @@ class Level : public IGameState
 public:
 	static constexpr unsigned int BLOCK_SIZE = 16;
 
-	Level(const std::vector<std::string>& levelDescription, Game* pGame);
+	Level(const std::vector<std::string>& levelDescription, Game* pGame, bool enemyLeftLive, bool enemyMiddleLive, bool enemyRightLive);
 	virtual void render() const override;
 	virtual void update(const double delta) override;
 	virtual unsigned int getStateWidth() const override;

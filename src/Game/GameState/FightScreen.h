@@ -85,8 +85,8 @@ private:
 	bool m_titanTurn;
 
 	std::shared_ptr<Hero> m_enemy;
-	std::vector<std::shared_ptr<CloseCombat>>   m_pEnemyCloseCombat;
-	std::vector<std::shared_ptr<DistantCombat>> m_pEnemyDistantCombat;
+	std::shared_ptr<CloseCombat>   m_pEnemyCloseCombat;
+	std::shared_ptr<DistantCombat> m_pEnemyDistantCombat;
 
 	bool m_enemyKnightTurn;
 	bool m_enemyAngelTurn;

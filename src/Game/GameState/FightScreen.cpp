@@ -111,14 +111,14 @@ void FightScreen::render() const
 		distantCurrent->render();
 	}
 
-	for (const auto& combatEnemyCurrent : m_pEnemyCloseCombat)
+	if (m_pEnemyCloseCombat != nullptr)
 	{
-		combatEnemyCurrent->render();
+		m_pEnemyCloseCombat->render();
 	}
 
-	for (const auto& distantEnemyCurrent : m_pEnemyDistantCombat)
+	if (m_pEnemyDistantCombat != nullptr)
 	{
-		distantEnemyCurrent->render();
+		m_pEnemyDistantCombat->render();
 	}
 }
 
@@ -135,14 +135,35 @@ void FightScreen::update(const double delta)
 		distantCurrent->update(delta);
 	}
 
-	for (const auto& combatEnemyCurrent : m_pEnemyCloseCombat)
+	if (m_pEnemyCloseCombat != nullptr)
 	{
-		combatEnemyCurrent->update(delta);
+		m_pEnemyCloseCombat->update(delta);
+	}
+	
+	if (m_pEnemyDistantCombat != nullptr)
+	{
+		m_pEnemyDistantCombat->update(delta);
 	}
 
-	for (const auto& distantEnemyCurrent : m_pEnemyDistantCombat)
+	if (m_pEnemyCloseCombat == nullptr && m_pEnemyDistantCombat == nullptr)
 	{
-		distantEnemyCurrent->update(delta);
+		if (m_enemy->getCurrentPosition() == glm::vec2(3 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2))
+		{
+			m_pGame->setEnemyLeftLive(false);
+			m_pGame->startGlobalMap();
+		}
+		
+		if (m_enemy->getCurrentPosition() == glm::vec2(4 * BLOCK_SIZE, 2 * BLOCK_SIZE + BLOCK_SIZE / 2))
+		{
+			m_pGame->setEnemyMiddleLive(false);
+			m_pGame->startGlobalMap();
+		}
+
+		if (m_enemy->getCurrentPosition() == glm::vec2(5 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2))
+		{
+			m_pGame->setEnemyRightLive(false);
+			m_pGame->startGlobalMap();
+		}
 	}
 }
 
@@ -202,50 +223,43 @@ void FightScreen::EnemyUnits()
 {
 	if (m_enemy->isHaveAngel())
 	{
-		m_pEnemyCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::angel, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::angel, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyAngelTurn = true;
 	}
 
 	if (m_enemy->isHaveTitan())
 	{
-		m_pEnemyDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::titan, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::titan, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyTitanTurn = true;
 	}
 
 	if (m_enemy->isHaveMagican())
 	{
-		m_pEnemyDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, getEnemyRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, getEnemyRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyMagicanTurn = true;
 	}
 
 	if (m_enemy->isHaveBarbarian())
 	{
-		m_pEnemyCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::barbarian, 0.05, getEnemyRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::barbarian, 0.05, getEnemyRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyBarbarianTurn = true;
 	}
 
 	if (m_enemy->isHaveKnight())
 	{
-		m_pEnemyCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, getEnemyRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyCloseCombat = std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, getEnemyRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyKnightTurn = true;
 	}
 
 	if (m_enemy->isHaveArcher())
 	{
-		m_pEnemyDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::archer, 0.05, getEnemyRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_pEnemyDistantCombat = std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::archer, 0.05, getEnemyRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f);
 		m_enemyArcherTurn = true;
 	}
 
+	Physics::PhysicsEngine::addDynamicGameObject(m_pEnemyCloseCombat);
+	Physics::PhysicsEngine::addDynamicGameObject(m_pEnemyDistantCombat);
 
-	for (const auto& combatEnemyCurrent : m_pEnemyCloseCombat)
-	{
-		Physics::PhysicsEngine::addDynamicGameObject(combatEnemyCurrent);
-	}
-
-	for (const auto& distantEnemyCurrent : m_pEnemyDistantCombat)
-	{
-		Physics::PhysicsEngine::addDynamicGameObject(distantEnemyCurrent);
-	}
 }
 
 void FightScreen::processInputKey(std::array<bool, 349> keys)
@@ -297,6 +311,21 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 								++m_mousePositionNorm.y;
 							}
 							closeCurrent->SetPosition(m_mousePositionNorm);
+							if (m_pEnemyCloseCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyCloseCombat->getCurrentPosition())
+								{
+									m_pEnemyCloseCombat = nullptr;
+								}
+							}
+
+							if (m_pEnemyDistantCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyDistantCombat->getCurrentPosition())
+								{
+									m_pEnemyDistantCombat = nullptr;
+								}
+							}
 							break;
 						}
 					}
@@ -323,6 +352,21 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 								++m_mousePositionNorm.y;
 							}
 							closeCurrent->SetPosition(m_mousePositionNorm);
+							if (m_pEnemyCloseCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyCloseCombat->getCurrentPosition())
+								{
+									m_pEnemyCloseCombat = nullptr;
+								}
+							}
+
+							if (m_pEnemyDistantCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyDistantCombat->getCurrentPosition())
+								{
+									m_pEnemyDistantCombat = nullptr;
+								}
+							}
 							break;
 						}
 					}
@@ -349,6 +393,21 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 								++m_mousePositionNorm.y;
 							}
 							closeCurrent->SetPosition(m_mousePositionNorm);
+							if (m_pEnemyCloseCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyCloseCombat->getCurrentPosition())
+								{
+									m_pEnemyCloseCombat = nullptr;
+								}
+							}
+
+							if (m_pEnemyDistantCombat != nullptr)
+							{
+								if (closeCurrent->getCurrentPosition() == m_pEnemyDistantCombat->getCurrentPosition())
+								{
+									m_pEnemyDistantCombat = nullptr;
+								}
+							}
 							break;
 						}
 					}
