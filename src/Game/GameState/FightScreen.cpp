@@ -31,14 +31,18 @@ FightScreen::FightScreen(const std::vector<std::string>& fightScreenDescription,
 	, m_mousePosition(glm::vec2(0))
 	, m_mousePositionNorm(glm::vec2(0))
 	, m_whatUnitHave(std::move(whatUnitHave))
-	, m_mouseReleased(true)
+	, m_mouseLeftReleased(true)
+	, m_mouseRightReleased(true)
 	, m_TopClosesPosition(0)
 	, m_BottomClosesPosition(0)
 	, m_LeftClosesPosition(0)
 	, m_RightClosesPosition(0)
-	, m_knightTurn(true)
-	, m_angelTurn(true)
-	, m_barbarianTurn(true)
+	, m_knightTurn(false)
+	, m_angelTurn(false)
+	, m_barbarianTurn(false)
+	, m_archerTurn(false)
+	, m_magicanTurn(false)
+	, m_titanTurn(false)
 {
 	if (fightScreenDescription.empty())
 	{
@@ -92,8 +96,7 @@ void FightScreen::render() const
 	{
 		combatCurrent->render();
 	}
-	//m_pCloseCombat[0]->render();
-	//m_pDistantCombat->render();
+
 	for (const auto& distantCurrent : m_pDistantCombat)
 	{
 		distantCurrent->render();
@@ -102,54 +105,54 @@ void FightScreen::render() const
 
 void FightScreen::update(const double delta)
 {
-	//m_pCloseCombat[0]->update(delta);
 	for (const auto& combatCurrent : m_pCloseCombat)
 	{
 		combatCurrent->update(delta);
-		PossibleMove(combatCurrent->getCloseSpeed(), combatCurrent->getLeftBottomPossibleMove(), combatCurrent->getRightTopPossibleMove(), combatCurrent->getCurrentPosition());
 		
 	}
 
 	for (const auto& distantCurrent : m_pDistantCombat)
 	{
 		distantCurrent->update(delta);
-		PossibleMove(distantCurrent->getDistantSpeed(), distantCurrent->getLeftBottomPossibleMove(), distantCurrent->getRightTopPossibleMove(), distantCurrent->getCurrentPosition());
 	}
-	//m_pDistantCombat->update(delta);
-	//PossibleMove(m_distantSpeed);
 }
 
 void FightScreen::initPhysics()
 {
-	//if (Hero::isHaveAngel())
 	if (m_whatUnitHave[0])
 	{
 		m_pCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::angel, 0.05, getEnemyRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_angelTurn = true;
 	}
 
 	if (m_whatUnitHave[5])
 	{
 		m_pDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::titan, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_titanTurn = true;
 	}
 
 	if (m_whatUnitHave[4])
 	{
 		m_pDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::magican, 0.05, getEnemyRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_magicanTurn = true;
 	}
 
 	if (m_whatUnitHave[2])
 	{
 		m_pCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::barbarian, 0.05, getAlliesRespawn_1(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_barbarianTurn = true;
 	}
 
 	if (m_whatUnitHave[3])
 	{
 		m_pCloseCombat.push_back(std::make_shared<CloseCombat>(CloseCombat::ECloseCombatUnitType::knight, 0.05, getAlliesRespawn_2(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_knightTurn = true;
 	}
 
 	if (m_whatUnitHave[1])
 	{
 		m_pDistantCombat.push_back(std::make_shared<DistantCombat>(DistantCombat::EDistantCombatUnitType::archer, 0.05, getAlliesRespawn_3(), glm::vec2(FightScreen::BLOCK_SIZE, FightScreen::BLOCK_SIZE), 1.f));
+		m_archerTurn = true;
 	}
 
 
@@ -175,17 +178,22 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 {
 	if (!mouseButtons[GLFW_MOUSE_BUTTON_LEFT])
 	{
-		m_mouseReleased = true;
+		m_mouseLeftReleased = true;
+	}
+
+	if (!mouseButtons[GLFW_MOUSE_BUTTON_RIGHT])
+	{
+		m_mouseRightReleased = true;
 	}
 
 	
-	if (m_mouseReleased)
+	if (m_mouseLeftReleased)
 	{
-		for (const auto closeCurrent : m_pCloseCombat)
+		for (const auto& closeCurrent : m_pCloseCombat)
 		{
 			if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT])
 			{
-				m_mouseReleased = false;
+				m_mouseLeftReleased = false;
 				if (closeCurrent->getEType() == CloseCombat::ECloseCombatUnitType::angel)
 				{
 					if (m_angelTurn)
@@ -216,7 +224,33 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 				{
 					if (m_knightTurn)
 					{
-
+						PossibleMove(closeCurrent->getCloseSpeed(), closeCurrent->getLeftBottomPossibleMove(), closeCurrent->getRightTopPossibleMove(), closeCurrent->getCurrentPosition());
+						closeCurrent->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+						m_LeftClosesPosition = closeCurrent->getLeftBottomPossibleMove();
+						m_RightClosesPosition = closeCurrent->getRightTopPossibleMove();
+						if (m_mousePosition.x > m_LeftClosesPosition.x && m_mousePosition.x < m_RightClosesPosition.x
+							&& m_mousePosition.y > m_LeftClosesPosition.y && m_mousePosition.y < m_RightClosesPosition.y)
+						{
+							m_mousePositionNorm = m_mousePosition;
+							m_knightTurn = false;
+							while (static_cast<unsigned int>(m_mousePositionNorm.x) % BLOCK_SIZE != 0)
+							{
+								--m_mousePositionNorm.x;
+							}
+							while (static_cast<unsigned int>(m_mousePositionNorm.y) % BLOCK_SIZE != 0)
+							{
+								++m_mousePositionNorm.y;
+							}
+							closeCurrent->SetPosition(m_mousePositionNorm);
+							break;
+						}
+					}
+				}
+				else if (closeCurrent->getEType() == CloseCombat::ECloseCombatUnitType::barbarian)
+				{
+					if (m_barbarianTurn)
+					{
+						PossibleMove(closeCurrent->getCloseSpeed(), closeCurrent->getLeftBottomPossibleMove(), closeCurrent->getRightTopPossibleMove(), closeCurrent->getCurrentPosition());
 						closeCurrent->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
 						m_LeftClosesPosition = closeCurrent->getLeftBottomPossibleMove();
 						m_RightClosesPosition = closeCurrent->getRightTopPossibleMove();
@@ -243,38 +277,127 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 	}
 	
 
-	if (!m_angelTurn && !m_knightTurn)
+	if (!m_angelTurn && !m_knightTurn && !m_barbarianTurn)
 	{
-		m_angelTurn = true;
-		m_knightTurn = true;
-	}
-	/*for (const auto distantCurrent : m_pDistantCombat)
-	{
-		if (m_mouseReleased)
+		if (m_whatUnitHave[0])
 		{
-			if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT])
+			m_angelTurn = true;
+		}
+		
+		if (m_whatUnitHave[2])
+		{
+			m_barbarianTurn = true;
+		}
+
+		if (m_whatUnitHave[3])
+		{
+			m_knightTurn = true;
+		}
+	}
+
+	if (m_mouseRightReleased)
+	{
+		for (const auto& distantCurrent : m_pDistantCombat)
+		{
+			if (mouseButtons[GLFW_MOUSE_BUTTON_RIGHT])
 			{
-				m_mouseReleased = false;
-				distantCurrent->SetOrientation(DistantCombat::EDistantUnitOrientaition::Bottom);
-				m_LeftClosesPosition = distantCurrent->getLeftBottomPossibleMove();
-				m_RightClosesPosition = distantCurrent->getRightTopPossibleMove();
-				if (m_mousePosition.x > m_LeftClosesPosition.x && m_mousePosition.x < m_RightClosesPosition.x
-					&& m_mousePosition.y > m_LeftClosesPosition.y && m_mousePosition.y < m_RightClosesPosition.y)
+				m_mouseRightReleased = false;
+				if (distantCurrent->getEType() == DistantCombat::EDistantCombatUnitType::magican)
 				{
-					m_mousePositionNorm = m_mousePosition;
-					while (static_cast<unsigned int>(m_mousePositionNorm.x) % BLOCK_SIZE != 0)
+					if (m_magicanTurn)
 					{
-						--m_mousePositionNorm.x;
+						PossibleMove(distantCurrent->getDistantSpeed(), distantCurrent->getLeftBottomPossibleMove(), distantCurrent->getRightTopPossibleMove(), distantCurrent->getCurrentPosition());
+						distantCurrent->SetOrientation(DistantCombat::EDistantUnitOrientaition::Top);
+						m_LeftClosesPosition = distantCurrent->getLeftBottomPossibleMove();
+						m_RightClosesPosition = distantCurrent->getRightTopPossibleMove();
+						if (m_mousePosition.x > m_LeftClosesPosition.x && m_mousePosition.x < m_RightClosesPosition.x
+							&& m_mousePosition.y > m_LeftClosesPosition.y && m_mousePosition.y < m_RightClosesPosition.y)
+						{
+							m_mousePositionNorm = m_mousePosition;
+							while (static_cast<unsigned int>(m_mousePositionNorm.x) % BLOCK_SIZE != 0)
+							{
+								--m_mousePositionNorm.x;
+							}
+							while (static_cast<unsigned int>(m_mousePositionNorm.y) % BLOCK_SIZE != 0)
+							{
+								++m_mousePositionNorm.y;
+							}
+							distantCurrent->SetPosition(m_mousePositionNorm);
+							break;
+						}
 					}
-					while (static_cast<unsigned int>(m_mousePositionNorm.y) % BLOCK_SIZE != 0)
+				}
+				else if (distantCurrent->getEType() == DistantCombat::EDistantCombatUnitType::archer)
+				{
+					if (m_archerTurn)
 					{
-						++m_mousePositionNorm.y;
+						PossibleMove(distantCurrent->getDistantSpeed(), distantCurrent->getLeftBottomPossibleMove(), distantCurrent->getRightTopPossibleMove(), distantCurrent->getCurrentPosition());
+						distantCurrent->SetOrientation(DistantCombat::EDistantUnitOrientaition::Top);
+						m_LeftClosesPosition = distantCurrent->getLeftBottomPossibleMove();
+						m_RightClosesPosition = distantCurrent->getRightTopPossibleMove();
+						if (m_mousePosition.x > m_LeftClosesPosition.x && m_mousePosition.x < m_RightClosesPosition.x
+							&& m_mousePosition.y > m_LeftClosesPosition.y && m_mousePosition.y < m_RightClosesPosition.y)
+						{
+							m_mousePositionNorm = m_mousePosition;
+							while (static_cast<unsigned int>(m_mousePositionNorm.x) % BLOCK_SIZE != 0)
+							{
+								--m_mousePositionNorm.x;
+							}
+							while (static_cast<unsigned int>(m_mousePositionNorm.y) % BLOCK_SIZE != 0)
+							{
+								++m_mousePositionNorm.y;
+							}
+							distantCurrent->SetPosition(m_mousePositionNorm);
+							break;
+						}
 					}
-					distantCurrent->SetPosition(m_mousePositionNorm);
+				}
+				else if (distantCurrent->getEType() == DistantCombat::EDistantCombatUnitType::titan)
+				{
+					if (m_titanTurn)
+					{
+						PossibleMove(distantCurrent->getDistantSpeed(), distantCurrent->getLeftBottomPossibleMove(), distantCurrent->getRightTopPossibleMove(), distantCurrent->getCurrentPosition());
+						distantCurrent->SetOrientation(DistantCombat::EDistantUnitOrientaition::Top);
+						m_LeftClosesPosition = distantCurrent->getLeftBottomPossibleMove();
+						m_RightClosesPosition = distantCurrent->getRightTopPossibleMove();
+						if (m_mousePosition.x > m_LeftClosesPosition.x && m_mousePosition.x < m_RightClosesPosition.x
+							&& m_mousePosition.y > m_LeftClosesPosition.y && m_mousePosition.y < m_RightClosesPosition.y)
+						{
+							m_mousePositionNorm = m_mousePosition;
+							while (static_cast<unsigned int>(m_mousePositionNorm.x) % BLOCK_SIZE != 0)
+							{
+								--m_mousePositionNorm.x;
+							}
+							while (static_cast<unsigned int>(m_mousePositionNorm.y) % BLOCK_SIZE != 0)
+							{
+								++m_mousePositionNorm.y;
+							}
+							distantCurrent->SetPosition(m_mousePositionNorm);
+							break;
+						}
+					}
 				}
 			}
 		}
-	}*/
+	}
+	
+	if (!m_archerTurn && !m_magicanTurn && !m_titanTurn)
+	{
+		if (m_whatUnitHave[1])
+		{
+			m_archerTurn = true;
+		}
+
+		if (m_whatUnitHave[5])
+		{
+			m_titanTurn = true;
+		}
+
+		if (m_whatUnitHave[4])
+		{
+			m_magicanTurn = true;
+		}
+	}
 }
 
 void FightScreen::processSetMousePosition(double mouseX, double mouseY)
@@ -296,13 +419,13 @@ void FightScreen::PossibleMove(const uint8_t speed, glm::vec2& leftBottom, glm::
 		rightTop.y = RIGHT_BOTTOM_FIELD.y;
 	}
 
-	rightTop.x = currentPosition.x + speed * BLOCK_SIZE + BLOCK_SIZE / 2;
+	rightTop.x = currentPosition.x + speed * BLOCK_SIZE + static_cast<float>(BLOCK_SIZE / 2);
 	if (rightTop.x > RIGHT_BOTTOM_FIELD.x)
 	{
 		rightTop.x = RIGHT_BOTTOM_FIELD.x;
 	}
 
-	leftBottom.y = currentPosition.y - speed * BLOCK_SIZE - BLOCK_SIZE / 2;
+	leftBottom.y = currentPosition.y - speed * BLOCK_SIZE - static_cast<float>(BLOCK_SIZE / 2);
 	if (leftBottom.y < LEFT_BOTTOM_FIELD.y)
 	{
 		leftBottom.y = LEFT_BOTTOM_FIELD.y;

@@ -50,8 +50,8 @@ public:
     uint8_t getDistantSpeed() { return m_distantSpeed; }
     glm::vec2& getLeftBottomPossibleMove() { return m_leftBottomPossibleMove; }
     glm::vec2& getRightTopPossibleMove() { return m_rightTopPossibleMove; }
-    /*glm::vec2& setPossibleMove(glm::vec2 PossibleMove) { return m_possibleMove = PossibleMove; }
-    glm::vec2& getPossibleMove() { return m_possibleMove; }*/
+    EDistantCombatUnitType getEType() { return m_eType; }
+    
 
 private:
     EDistantUnitOrientaition m_eOrientation;
@@ -67,7 +67,7 @@ private:
 
     glm::vec2 m_leftBottomPossibleMove;
     glm::vec2 m_rightTopPossibleMove;
-    /*glm::vec2 m_possibleMove;*/
+    EDistantCombatUnitType m_eType;
 
     static uint8_t m_distantSpeed;
     static std::string& getDistantCombatSpriteFromType(const EDistantCombatUnitType eType);

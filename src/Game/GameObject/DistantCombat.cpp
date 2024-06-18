@@ -34,6 +34,7 @@ DistantCombat::DistantCombat(const DistantCombat::EDistantCombatUnitType eType,
 							 const float layer)
 	: IGameObject(IGameObject::EObjectType::Hero, position, size, 0.f, layer)
 	, m_eOrientation(EDistantUnitOrientaition::Left)
+	, m_eType(eType)
 	, m_pSprite_top(ResourceManager::getSprite(getDistantCombatSpriteFromType(eType) + "_Left"))
 	, m_pSprite_bottom(ResourceManager::getSprite(getDistantCombatSpriteFromType(eType) + "_Right"))
 	, m_pSprite_left(ResourceManager::getSprite(getDistantCombatSpriteFromType(eType) + "_Left"))

@@ -68,10 +68,16 @@ private:
 
 	glm::vec2 m_mousePosition;
 	glm::vec2 m_mousePositionNorm;
-	bool m_mouseReleased;
+	bool m_mouseLeftReleased;
+	bool m_mouseRightReleased;
 	
 	std::array<bool, 6> m_whatUnitHave;
+
 	bool m_knightTurn;
 	bool m_angelTurn;
 	bool m_barbarianTurn;
+
+	bool m_archerTurn;
+	bool m_magicanTurn;
+	bool m_titanTurn;
 };
