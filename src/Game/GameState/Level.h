@@ -58,4 +58,7 @@ private:
 
 	bool m_enemyRightIsActive;
 	std::shared_ptr<Hero> m_enemyRight;
+
+	glm::vec2 m_leftEnemy_RightTopPosition;
+	glm::vec2 m_leftEnemy_LeftBottomPosition;
 };

@@ -27,7 +27,7 @@ Game::Game(const glm::uvec2& windowSize)
     , m_eCurrentGameState(EGameState::ShopScreen)
 {
     m_keys.fill(false);
-    m_whatFightUnitHave.fill(false);
+    m_availableUnits.fill(false);
     m_mouseButtons.fill(false);
 }
 
@@ -76,12 +76,12 @@ void Game::startGlobalMap()
      auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
      m_pCurrentGameState = pLevel;
      Physics::PhysicsEngine::setCurrentLevel(pLevel);
-     m_whatFightUnitHave[0] = pLevel->GetHeroPointer()->isHaveAngel();
-     m_whatFightUnitHave[1] = pLevel->GetHeroPointer()->isHaveArcher();
-     m_whatFightUnitHave[2] = pLevel->GetHeroPointer()->isHaveBarbarian();
-     m_whatFightUnitHave[3] = pLevel->GetHeroPointer()->isHaveKnight();
-     m_whatFightUnitHave[4] = pLevel->GetHeroPointer()->isHaveMagican();
-     m_whatFightUnitHave[5] = pLevel->GetHeroPointer()->isHaveTitan();
+     m_availableUnits[0] = pLevel->GetHeroPointer()->isHaveAngel();
+     m_availableUnits[1] = pLevel->GetHeroPointer()->isHaveArcher();
+     m_availableUnits[2] = pLevel->GetHeroPointer()->isHaveBarbarian();
+     m_availableUnits[3] = pLevel->GetHeroPointer()->isHaveKnight();
+     m_availableUnits[4] = pLevel->GetHeroPointer()->isHaveMagican();
+     m_availableUnits[5] = pLevel->GetHeroPointer()->isHaveTitan();
      updateViewport();
 }
 
@@ -93,9 +93,9 @@ void Game::startShopScreen(const size_t shopNumber)
     updateViewport();
 }
 
-void Game::startFightMap()
+void Game::startFightMap(std::shared_ptr<Hero> enemy)
 {
-    auto pFightScreen = std::make_shared<FightScreen>(ResourceManager::getFightScreen(), this, m_whatFightUnitHave);
+    auto pFightScreen = std::make_shared<FightScreen>(ResourceManager::getFightScreen(), this, m_availableUnits, enemy);
     m_pCurrentGameState = pFightScreen;
     Physics::PhysicsEngine::setCurrentFight(pFightScreen);
     updateViewport();
@@ -141,12 +141,12 @@ bool Game::init()
     auto pLevel = std::make_shared<Level>(ResourceManager::getLevels()[0], this);
     m_pCurrentGameState = pLevel;
     Physics::PhysicsEngine::setCurrentLevel(pLevel);
-    m_whatFightUnitHave[0] = pLevel->GetHeroPointer()->isHaveAngel();
-    m_whatFightUnitHave[1] = pLevel->GetHeroPointer()->isHaveArcher();
-    m_whatFightUnitHave[2] = pLevel->GetHeroPointer()->isHaveBarbarian();
-    m_whatFightUnitHave[3] = pLevel->GetHeroPointer()->isHaveKnight();
-    m_whatFightUnitHave[4] = pLevel->GetHeroPointer()->isHaveMagican();
-    m_whatFightUnitHave[5] = pLevel->GetHeroPointer()->isHaveTitan();
+    m_availableUnits[0] = pLevel->GetHeroPointer()->isHaveAngel();
+    m_availableUnits[1] = pLevel->GetHeroPointer()->isHaveArcher();
+    m_availableUnits[2] = pLevel->GetHeroPointer()->isHaveBarbarian();
+    m_availableUnits[3] = pLevel->GetHeroPointer()->isHaveKnight();
+    m_availableUnits[4] = pLevel->GetHeroPointer()->isHaveMagican();
+    m_availableUnits[5] = pLevel->GetHeroPointer()->isHaveTitan();
     updateViewport();
     setWindowSize(m_windowSize);
     

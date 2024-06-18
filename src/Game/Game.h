@@ -12,6 +12,8 @@ namespace RenderEngine
 	class ShaderProgram;
 }
 
+class Hero;
+
 class Game
 {
 public:
@@ -27,7 +29,7 @@ public:
 	unsigned int getCurrentWidth() const;
 	unsigned int getCurrentHeight() const;
 	void startGlobalMap();
-	void startFightMap();
+	void startFightMap(std::shared_ptr<Hero> enemy);
 	void startShopScreen(const size_t shopNumber);
 	void updateViewport();
 	void setWindowSize(const glm::uvec2& windowSize);
@@ -52,5 +54,5 @@ private:
 	std::shared_ptr<IGameState> m_pCurrentGameState;
 	std::shared_ptr<RenderEngine::ShaderProgram> m_pSpriteShaderProgram;
 
-	std::array<bool, 6> m_whatFightUnitHave;
+	std::array<bool, 6> m_availableUnits;
 };

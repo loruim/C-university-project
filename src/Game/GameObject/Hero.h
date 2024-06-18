@@ -63,6 +63,13 @@ public:
 	bool isHaveMagican() { return m_isHaveMagican; }
 	bool isHaveTitan() { return m_isHaveTitan; }
 
+	void SetIsHaveAngel(bool isActive) { m_isHaveAngel = isActive; }
+	void SetIsHaveArcher(bool isActive) { m_isHaveArcher = isActive; }
+	void SetIsHaveBarbarian(bool isActive) { m_isHaveBarbarian = isActive;; }
+	void SetIsHaveKnight(bool isActive) { m_isHaveKnight = isActive;; }
+	void SetIsHaveMagican(bool isActive) { m_isHaveMagican = isActive;; }
+	void SetIsHaveTitan(bool isActive) { m_isHaveTitan = isActive;; }
+
 private:
 	EOrientaition m_eOrientation;
 	std::shared_ptr<Arrow> m_pCurrentArrow;

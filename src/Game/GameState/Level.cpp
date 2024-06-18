@@ -51,7 +51,13 @@ std::shared_ptr<IGameObject> createGameObjectFromDescription(const char descript
     return nullptr;
 }
 
-Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) : m_pGame(pGame)
+Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) 
+    : m_pGame(pGame)
+    , m_enemyLeftIsActive(true)
+    , m_enemyMiddleIsActive(true)
+    , m_enemyRightIsActive(true)
+    , m_leftEnemy_RightTopPosition(0)
+    , m_leftEnemy_LeftBottomPosition(0)
 {
     if (levelDescription.empty())
     {
@@ -63,10 +69,10 @@ Level::Level(const std::vector<std::string>& levelDescription, Game* pGame) : m_
     m_widhtPixel = static_cast<unsigned int>(m_widthBlocks * BLOCK_SIZE);
     m_heightPixel = static_cast<unsigned int>(m_heightBlocks * BLOCK_SIZE);
 
-    m_playerRespawn = { 4 * BLOCK_SIZE, 6 * BLOCK_SIZE + BLOCK_SIZE / 2 };
-    m_enemyRespawn_1 = { 4 * BLOCK_SIZE, 2 * BLOCK_SIZE + BLOCK_SIZE / 2 };
-    m_enemyRespawn_2 = { 3 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2 };
-    m_enemyRespawn_3 = { 5 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2 };
+    m_playerRespawn = { 4 * BLOCK_SIZE, 6 * BLOCK_SIZE + BLOCK_SIZE / 2 }; // 64, 104
+    m_enemyRespawn_1 = { 4 * BLOCK_SIZE, 2 * BLOCK_SIZE + BLOCK_SIZE / 2 }; // 64, 40
+    m_enemyRespawn_2 = { 3 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2 }; // 48, 56
+    m_enemyRespawn_3 = { 5 * BLOCK_SIZE, 3 * BLOCK_SIZE + BLOCK_SIZE / 2 }; // 80, 56
 
     m_mapObject.reserve(m_widthBlocks * m_heightBlocks + 4);
     unsigned int currentBottomOffSet = static_cast<unsigned int>(BLOCK_SIZE * (m_heightBlocks - 1) + BLOCK_SIZE / 2.f);
@@ -102,13 +108,31 @@ void Level::initPhysics()
     Physics::PhysicsEngine::addDynamicGameObject(m_pHero);
 
     m_enemyLeftIsActive = true;
-    m_enemyLeft = std::make_shared<Hero>(Hero::EHeroType::Knight, 0.05, getEnemyRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_enemyLeft = std::make_shared<Hero>(Hero::EHeroType::Knight, 0.05, getEnemyRespawn_2(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_enemyLeft->SetIsHaveAngel(false);
+    m_enemyLeft->SetIsHaveArcher(true);
+    m_enemyLeft->SetIsHaveBarbarian(false);
+    m_enemyLeft->SetIsHaveKnight(true);
+    m_enemyLeft->SetIsHaveMagican(false);
+    m_enemyLeft->SetIsHaveTitan(false);
 
     m_enemyMiddleIsActive = true;
-    m_enemyMiddle = std::make_shared<Hero>(Hero::EHeroType::Angel, 0.05, getEnemyRespawn_2(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_enemyMiddle = std::make_shared<Hero>(Hero::EHeroType::Angel, 0.05, getEnemyRespawn_1(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_enemyMiddle->SetIsHaveAngel(true);
+    m_enemyMiddle->SetIsHaveArcher(false);
+    m_enemyMiddle->SetIsHaveBarbarian(false);
+    m_enemyMiddle->SetIsHaveKnight(false);
+    m_enemyMiddle->SetIsHaveMagican(true);
+    m_enemyMiddle->SetIsHaveTitan(false);
 
     m_enemyRightIsActive = true;
     m_enemyRight = std::make_shared<Hero>(Hero::EHeroType::Barbarian, 0.05, getEnemyRespawn_3(), glm::vec2(Level::BLOCK_SIZE, Level::BLOCK_SIZE), 1.f);
+    m_enemyMiddle->SetIsHaveAngel(false);
+    m_enemyMiddle->SetIsHaveArcher(false);
+    m_enemyMiddle->SetIsHaveBarbarian(true);
+    m_enemyMiddle->SetIsHaveKnight(false);
+    m_enemyMiddle->SetIsHaveMagican(false);
+    m_enemyMiddle->SetIsHaveTitan(true);
 
     Physics::PhysicsEngine::addDynamicGameObject(m_enemyLeft);
     Physics::PhysicsEngine::addDynamicGameObject(m_enemyMiddle);
@@ -187,6 +211,30 @@ void Level::update(const double delta)
     {
         m_enemyRight->update(delta);
     }
+
+    m_leftEnemy_LeftBottomPosition = m_enemyLeft->getCurrentPosition();
+    m_leftEnemy_RightTopPosition = glm::vec2(m_leftEnemy_LeftBottomPosition.x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
+    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
+    {
+        m_pGame->startFightMap(m_enemyLeft);
+    }
+
+    m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x - 3, m_enemyMiddle->getCurrentPosition().y);
+    m_leftEnemy_RightTopPosition = glm::vec2(m_enemyMiddle->getCurrentPosition().x + 8, m_leftEnemy_LeftBottomPosition.y + 16);
+    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y)
+    {
+        m_pGame->startFightMap(m_enemyMiddle);
+    }
+    
+    m_leftEnemy_LeftBottomPosition = glm::vec2(m_enemyRight->getCurrentPosition().x - 3, m_enemyRight->getCurrentPosition().y);
+    m_leftEnemy_RightTopPosition = glm::vec2(m_enemyRight->getCurrentPosition().x + 16, m_leftEnemy_LeftBottomPosition.y + 16);
+    if (m_pHero->getCurrentPosition().x > m_leftEnemy_LeftBottomPosition.x && m_pHero->getCurrentPosition().x < m_leftEnemy_RightTopPosition.x
+        && m_pHero->getCurrentPosition().y > m_leftEnemy_LeftBottomPosition.y && m_pHero->getCurrentPosition().y < m_leftEnemy_RightTopPosition.y) // 82, 55
+    {
+        m_pGame->startFightMap(m_enemyRight);
+    }
 }
 
 void Level::processInputKey(std::array<bool, 349> keys)
@@ -219,11 +267,6 @@ void Level::processInputKey(std::array<bool, 349> keys)
     if (m_pHero && keys[GLFW_KEY_SPACE])
     {
         m_pHero->fire();
-    }
-
-    if (keys[GLFW_KEY_Q])
-    {
-        m_pGame->startFightMap();
     }
 }
 
