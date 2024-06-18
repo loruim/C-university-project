@@ -72,7 +72,7 @@ void CloseCombat::SetOrientation(const ECloseUnitOrientaition eOrientation)
 	}
 
 	m_eOrientation = eOrientation;
-	switch (m_eOrientation)
+	/*switch (m_eOrientation)
 	{
 	case CloseCombat::ECloseUnitOrientaition::Top:
 		m_direction.x = 0;
@@ -90,12 +90,12 @@ void CloseCombat::SetOrientation(const ECloseUnitOrientaition eOrientation)
 		m_direction.x = 1;
 		m_direction.y = 0;
 		break;
-	}
+	}*/
 }
 
 void CloseCombat::update(const double delta)
 {
-	if (m_velocity > 0)
+	/*if (m_velocity > 0)
 	{
 		switch (m_eOrientation)
 		{
@@ -112,5 +112,5 @@ void CloseCombat::update(const double delta)
 			m_spriteAnimator_right.update(delta);
 			break;
 		}
-	}
+	}*/
 }

@@ -95,4 +95,6 @@ private:
 	bool m_enemyArcherTurn;
 	bool m_enemyMagicanTurn;
 	bool m_enemyTitanTurn;
+
+	bool m_playerTurn;
 };

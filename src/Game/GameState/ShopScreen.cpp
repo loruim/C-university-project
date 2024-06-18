@@ -171,21 +171,29 @@ void ShopScreen::setShopsType(const size_t shopNumber)
 		m_eShopsType = EShopsType::LeftShopScreen_1;
 		setMenuSize(32, 32);
 		m_menuSprite = std::make_pair(ResourceManager::getSprite("leftShopsSprite_1"), glm::vec2(6 * BLOCK_SIZE, STARTSCREEN_HEIGHT - m_sizeShopScreenDescription * BLOCK_SIZE - MENU_HEIGHT - 9 * BLOCK_SIZE));
+		m_pointerSprite = std::make_pair(ResourceManager::getSprite("pointerAnimation"), glm::vec2(6 * BLOCK_SIZE + MENU_WIDTH * 2, m_menuSprite.second.y + 2 * BLOCK_SIZE - m_currentMenuSelection * MENU_HEIGHT * 2));
+		m_pointerSpriteAnimator = m_pointerSprite.first;
 		break;
 	case 2:
 		m_eShopsType = EShopsType::LeftShopScreen_2;
 		setMenuSize(32, 32);
 		m_menuSprite = std::make_pair(ResourceManager::getSprite("leftShopsSprite_2"), glm::vec2(6 * BLOCK_SIZE, STARTSCREEN_HEIGHT - m_sizeShopScreenDescription * BLOCK_SIZE - MENU_HEIGHT - 9 * BLOCK_SIZE));
+		m_pointerSprite = std::make_pair(ResourceManager::getSprite("pointerAnimation"), glm::vec2(6 * BLOCK_SIZE + MENU_WIDTH * 2, m_menuSprite.second.y + 2 * BLOCK_SIZE - m_currentMenuSelection * MENU_HEIGHT * 2));
+		m_pointerSpriteAnimator = m_pointerSprite.first;
 		break;
 	case 3:
 		m_eShopsType = EShopsType::RightShopScreen_1;
 		setMenuSize(32, 32);
 		m_menuSprite = std::make_pair(ResourceManager::getSprite("rightShopsSprite_1"), glm::vec2(6 * BLOCK_SIZE, STARTSCREEN_HEIGHT - m_sizeShopScreenDescription * BLOCK_SIZE - MENU_HEIGHT - 9 * BLOCK_SIZE));
+		m_pointerSprite = std::make_pair(ResourceManager::getSprite("pointerAnimation"), glm::vec2(6 * BLOCK_SIZE + MENU_WIDTH * 2, m_menuSprite.second.y + 2 * BLOCK_SIZE - m_currentMenuSelection * MENU_HEIGHT * 2));
+		m_pointerSpriteAnimator = m_pointerSprite.first;
 		break;
 	case 4:
 		m_eShopsType = EShopsType::RightShopScreen_2;
 		setMenuSize(32, 32);
 		m_menuSprite = std::make_pair(ResourceManager::getSprite("rightShopsSprite_2"), glm::vec2(6 * BLOCK_SIZE, STARTSCREEN_HEIGHT - m_sizeShopScreenDescription * BLOCK_SIZE - MENU_HEIGHT - 9 * BLOCK_SIZE));
+		m_pointerSprite = std::make_pair(ResourceManager::getSprite("pointerAnimation"), glm::vec2(6 * BLOCK_SIZE + MENU_WIDTH * 2, m_menuSprite.second.y + 2 * BLOCK_SIZE - m_currentMenuSelection * MENU_HEIGHT * 2));
+		m_pointerSpriteAnimator = m_pointerSprite.first;
 		break;
 	}
 }
