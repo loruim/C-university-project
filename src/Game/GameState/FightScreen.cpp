@@ -583,7 +583,7 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 					m_playerTurn = true;
 				}
 			}
-			/*else if (m_pEnemyCloseCombat->getEType() == CloseCombat::ECloseCombatUnitType::knight)
+			else if (m_pEnemyCloseCombat->getEType() == CloseCombat::ECloseCombatUnitType::knight)
 			{
 				if (m_enemyKnightTurn)
 				{
@@ -603,11 +603,36 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 					{
 						--m_RightClosesPosition.x;
 					}
-					m_enemyAngelTurn = false;
+					m_enemyKnightTurn = false;
 					m_pEnemyCloseCombat->SetPosition(glm::vec2(m_RightClosesPosition.x - BLOCK_SIZE * 2, m_LeftClosesPosition.y + BLOCK_SIZE / 2));
 					m_playerTurn = true;
 				}
-			}*/
+			}
+			else if (m_pEnemyCloseCombat->getEType() == CloseCombat::ECloseCombatUnitType::barbarian)
+			{
+				if (m_enemyKnightTurn)
+				{
+					PossibleMove(m_pEnemyCloseCombat->getCloseSpeed(), m_pEnemyCloseCombat->getLeftBottomPossibleMove(), m_pEnemyCloseCombat->getRightTopPossibleMove(), m_pEnemyCloseCombat->getCurrentPosition());
+					m_pEnemyCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+					m_LeftClosesPosition = m_pEnemyCloseCombat->getLeftBottomPossibleMove();
+					while (m_LeftClosesPosition.x < BLOCK_SIZE * 2)
+					{
+						++m_LeftClosesPosition.x;
+					}
+					while (m_LeftClosesPosition.y < BLOCK_SIZE)
+					{
+						++m_LeftClosesPosition.y;
+					}
+					m_RightClosesPosition = m_pEnemyCloseCombat->getRightTopPossibleMove();
+					while (m_RightClosesPosition.x > BLOCK_SIZE * 6)
+					{
+						--m_RightClosesPosition.x;
+					}
+					m_enemyBarbarianTurn = false;
+					m_pEnemyCloseCombat->SetPosition(glm::vec2(m_RightClosesPosition.x - BLOCK_SIZE * 2, m_LeftClosesPosition.y + BLOCK_SIZE / 2));
+					m_playerTurn = true;
+				}
+			}
 		}
 
 		if (!m_enemyAngelTurn && !m_enemyKnightTurn && !m_enemyBarbarianTurn)
@@ -625,6 +650,107 @@ void FightScreen::processInputMouse(std::array<bool, 8> mouseButtons)
 			if (m_enemy->isHaveKnight())
 			{
 				m_enemyBarbarianTurn = true;
+			}
+		}
+
+		if(m_pEnemyDistantCombat != nullptr)
+		{
+			if (m_pEnemyDistantCombat->getEType() == DistantCombat::EDistantCombatUnitType::magican)
+			{
+				if (m_enemyMagicanTurn)
+				{
+					/*PossibleMove(m_pEnemyCloseCombat->getCloseSpeed(), m_pEnemyCloseCombat->getLeftBottomPossibleMove(), m_pEnemyCloseCombat->getRightTopPossibleMove(), m_pEnemyCloseCombat->getCurrentPosition());
+					m_pEnemyCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+					m_LeftClosesPosition = m_pEnemyCloseCombat->getLeftBottomPossibleMove();
+					while (m_LeftClosesPosition.x < BLOCK_SIZE * 2)
+					{
+						++m_LeftClosesPosition.x;
+					}
+					while (m_LeftClosesPosition.y < BLOCK_SIZE)
+					{
+						++m_LeftClosesPosition.y;
+					}
+					m_RightClosesPosition = m_pEnemyCloseCombat->getRightTopPossibleMove();
+					while (m_RightClosesPosition.x > BLOCK_SIZE * 6)
+					{
+						--m_RightClosesPosition.x;
+					}
+					m_enemyMagicanTurn = false;
+					if (static_cast<unsigned int>(m_LeftClosesPosition.y) % BLOCK_SIZE != 0)
+					{
+						m_LeftClosesPosition.y = m_LeftClosesPosition.y + BLOCK_SIZE / 2;
+					}
+					m_pEnemyCloseCombat->SetPosition(glm::vec2(m_RightClosesPosition.x - BLOCK_SIZE * 2, m_LeftClosesPosition.y));*/
+					m_playerTurn = true;
+				}
+			}
+			else if (m_pEnemyDistantCombat->getEType() == DistantCombat::EDistantCombatUnitType::archer)
+			{
+				if (m_enemyArcherTurn)
+				{
+					/*PossibleMove(m_pEnemyCloseCombat->getCloseSpeed(), m_pEnemyCloseCombat->getLeftBottomPossibleMove(), m_pEnemyCloseCombat->getRightTopPossibleMove(), m_pEnemyCloseCombat->getCurrentPosition());
+					m_pEnemyCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+					m_LeftClosesPosition = m_pEnemyCloseCombat->getLeftBottomPossibleMove();
+					while (m_LeftClosesPosition.x < BLOCK_SIZE * 2)
+					{
+						++m_LeftClosesPosition.x;
+					}
+					while (m_LeftClosesPosition.y < BLOCK_SIZE)
+					{
+						++m_LeftClosesPosition.y;
+					}
+					m_RightClosesPosition = m_pEnemyCloseCombat->getRightTopPossibleMove();
+					while (m_RightClosesPosition.x > BLOCK_SIZE * 6)
+					{
+						--m_RightClosesPosition.x;
+					}
+					m_enemyKnightTurn = false;
+					m_pEnemyCloseCombat->SetPosition(glm::vec2(m_RightClosesPosition.x - BLOCK_SIZE * 2, m_LeftClosesPosition.y + BLOCK_SIZE / 2));*/
+					m_playerTurn = true;
+				}
+			}
+			else if (m_pEnemyDistantCombat->getEType() == DistantCombat::EDistantCombatUnitType::titan)
+			{
+				if (m_enemyTitanTurn)
+				{
+					/*PossibleMove(m_pEnemyCloseCombat->getCloseSpeed(), m_pEnemyCloseCombat->getLeftBottomPossibleMove(), m_pEnemyCloseCombat->getRightTopPossibleMove(), m_pEnemyCloseCombat->getCurrentPosition());
+					m_pEnemyCloseCombat->SetOrientation(CloseCombat::ECloseUnitOrientaition::Top);
+					m_LeftClosesPosition = m_pEnemyCloseCombat->getLeftBottomPossibleMove();
+					while (m_LeftClosesPosition.x < BLOCK_SIZE * 2)
+					{
+						++m_LeftClosesPosition.x;
+					}
+					while (m_LeftClosesPosition.y < BLOCK_SIZE)
+					{
+						++m_LeftClosesPosition.y;
+					}
+					m_RightClosesPosition = m_pEnemyCloseCombat->getRightTopPossibleMove();
+					while (m_RightClosesPosition.x > BLOCK_SIZE * 6)
+					{
+						--m_RightClosesPosition.x;
+					}
+					m_enemyTitanTurn = false;
+					m_pEnemyCloseCombat->SetPosition(glm::vec2(m_RightClosesPosition.x - BLOCK_SIZE * 2, m_LeftClosesPosition.y + BLOCK_SIZE / 2));*/
+					m_playerTurn = true;
+				}
+			}
+		}
+
+		if (!m_enemyMagicanTurn && !m_enemyArcherTurn && !m_enemyTitanTurn)
+		{
+			if (m_enemy->isHaveMagican())
+			{
+				m_enemyMagicanTurn = true;
+			}
+
+			if (m_enemy->isHaveArcher())
+			{
+				m_enemyArcherTurn = true;
+			}
+
+			if (m_enemy->isHaveTitan())
+			{
+				m_enemyTitanTurn = true;
 			}
 		}
 	}
