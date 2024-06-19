@@ -1,0 +1,284 @@
+\doxysection{Level Class Reference}
+\hypertarget{class_level}{}\label{class_level}\index{Level@{Level}}
+
+
+{\ttfamily \#include $<$Level.\+h$>$}
+
+Inheritance diagram for Level\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_level}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_level_a0a998cf42bfa491242a55f316680386a}{Level}} (const std\+::vector$<$ std\+::string $>$ \&level\+Description, \mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}p\+Game, bool enemy\+Left\+Live, bool enemy\+Middle\+Live, bool enemy\+Right\+Live)
+\item 
+virtual void \mbox{\hyperlink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update}} (const double delta) override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width}} () const override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key}} (std\+::array$<$ bool, 349 $>$ keys) override
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_level_aef12df3cf970f42e0a59dc6c9639af9a}{get\+Player\+Respawn}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_level_a4413e6c0c1fb7062019209fe38eee31a}{get\+Enemy\+Respawn\+\_\+1}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_level_a3afcaf8a7b8f010523224edf0b02389a}{get\+Enemy\+Respawn\+\_\+2}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_level_ad486c98c7b26fa52b1ce5f4e5880ddde}{get\+Enemy\+Respawn\+\_\+3}} () const
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ $>$ \mbox{\hyperlink{class_level_abb641ca14443d7e2aeccbadbf30752ad}{get\+Objects\+In\+Area}} (const glm\+::vec2 \&bottom\+Left, const glm\+::vec2 \&top\+Right)
+\item 
+virtual void \mbox{\hyperlink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics}} () override
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$ \mbox{\hyperlink{class_level_a00149df68b9c34e68465dd44e0f8f8bb}{Get\+Hero\+Pointer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_game_state}{IGame\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c}{\texorpdfstring{$\sim$}{\string~}\+IGame\+State}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse}} (std\+::array$<$ bool, 8 $>$ mouse\+Buttons)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position}} (double mouseX, double mouseY)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_level_a44a733756f70aa4c0ea7201ab58d8128}{BLOCK\+\_\+\+SIZE}} = 16
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_level_a0a998cf42bfa491242a55f316680386a}\label{class_level_a0a998cf42bfa491242a55f316680386a} 
+\index{Level@{Level}!Level@{Level}}
+\index{Level@{Level}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{Level()}{Level()}}
+{\footnotesize\ttfamily Level\+::\+Level (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{level\+Description,  }\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{p\+Game,  }\item[{bool}]{enemy\+Left\+Live,  }\item[{bool}]{enemy\+Middle\+Live,  }\item[{bool}]{enemy\+Right\+Live }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_level_a4413e6c0c1fb7062019209fe38eee31a}\label{class_level_a4413e6c0c1fb7062019209fe38eee31a} 
+\index{Level@{Level}!getEnemyRespawn\_1@{getEnemyRespawn\_1}}
+\index{getEnemyRespawn\_1@{getEnemyRespawn\_1}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_1()}{getEnemyRespawn\_1()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Level\+::get\+Enemy\+Respawn\+\_\+1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_level_a3afcaf8a7b8f010523224edf0b02389a}\label{class_level_a3afcaf8a7b8f010523224edf0b02389a} 
+\index{Level@{Level}!getEnemyRespawn\_2@{getEnemyRespawn\_2}}
+\index{getEnemyRespawn\_2@{getEnemyRespawn\_2}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_2()}{getEnemyRespawn\_2()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Level\+::get\+Enemy\+Respawn\+\_\+2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_level_ad486c98c7b26fa52b1ce5f4e5880ddde}\label{class_level_ad486c98c7b26fa52b1ce5f4e5880ddde} 
+\index{Level@{Level}!getEnemyRespawn\_3@{getEnemyRespawn\_3}}
+\index{getEnemyRespawn\_3@{getEnemyRespawn\_3}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_3()}{getEnemyRespawn\_3()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Level\+::get\+Enemy\+Respawn\+\_\+3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_level_a00149df68b9c34e68465dd44e0f8f8bb}\label{class_level_a00149df68b9c34e68465dd44e0f8f8bb} 
+\index{Level@{Level}!GetHeroPointer@{GetHeroPointer}}
+\index{GetHeroPointer@{GetHeroPointer}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{GetHeroPointer()}{GetHeroPointer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$ Level\+::\+Get\+Hero\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_level_abb641ca14443d7e2aeccbadbf30752ad}\label{class_level_abb641ca14443d7e2aeccbadbf30752ad} 
+\index{Level@{Level}!getObjectsInArea@{getObjectsInArea}}
+\index{getObjectsInArea@{getObjectsInArea}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getObjectsInArea()}{getObjectsInArea()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ $>$ Level\+::get\+Objects\+In\+Area (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{bottom\+Left,  }\item[{const glm\+::vec2 \&}]{top\+Right }\end{DoxyParamCaption})}
+
+\Hypertarget{class_level_aef12df3cf970f42e0a59dc6c9639af9a}\label{class_level_aef12df3cf970f42e0a59dc6c9639af9a} 
+\index{Level@{Level}!getPlayerRespawn@{getPlayerRespawn}}
+\index{getPlayerRespawn@{getPlayerRespawn}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getPlayerRespawn()}{getPlayerRespawn()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Level\+::get\+Player\+Respawn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_level_aa290d9ea741f29c04a9ab060c50aee3c}\label{class_level_aa290d9ea741f29c04a9ab060c50aee3c} 
+\index{Level@{Level}!getStateHeight@{getStateHeight}}
+\index{getStateHeight@{getStateHeight}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getStateHeight()}{getStateHeight()}}
+{\footnotesize\ttfamily unsigned int Level\+::get\+State\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render()} 
+
+\doxylink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update()} 
+
+\doxylink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics()} 
+
+\doxylink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen height 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{IGame\+State}}.
+
+\Hypertarget{class_level_ab0420362add74e363b944d07a3801d87}\label{class_level_ab0420362add74e363b944d07a3801d87} 
+\index{Level@{Level}!getStateWidth@{getStateWidth}}
+\index{getStateWidth@{getStateWidth}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{getStateWidth()}{getStateWidth()}}
+{\footnotesize\ttfamily unsigned int Level\+::get\+State\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render()} 
+
+\doxylink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update()} 
+
+\doxylink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics()} 
+
+\doxylink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen width 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{IGame\+State}}.
+
+\Hypertarget{class_level_a26b193d1f6bde08d7238d9643352122a}\label{class_level_a26b193d1f6bde08d7238d9643352122a} 
+\index{Level@{Level}!initPhysics@{initPhysics}}
+\index{initPhysics@{initPhysics}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{initPhysics()}{initPhysics()}}
+{\footnotesize\ttfamily void Level\+::init\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render()} 
+
+\doxylink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update()} 
+
+\doxylink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width()} 
+
+\doxylink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{IGame\+State}}.
+
+\Hypertarget{class_level_ac401b5113a9a91289bf476ca195fa48b}\label{class_level_ac401b5113a9a91289bf476ca195fa48b} 
+\index{Level@{Level}!processInputKey@{processInputKey}}
+\index{processInputKey@{processInputKey}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{processInputKey()}{processInputKey()}}
+{\footnotesize\ttfamily void Level\+::process\+Input\+Key (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 349 $>$}]{keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render()} 
+
+\doxylink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics()} 
+
+\doxylink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width()} 
+
+\doxylink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em keys} & array of key numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{IGame\+State}}.
+
+\Hypertarget{class_level_a67665b537f9a4cf98b1fb7a1921addb2}\label{class_level_a67665b537f9a4cf98b1fb7a1921addb2} 
+\index{Level@{Level}!render@{render}}
+\index{render@{render}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Level\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for rendering in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update()} 
+
+\doxylink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics()} 
+
+\doxylink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width()} 
+
+\doxylink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{IGame\+State}}.
+
+\Hypertarget{class_level_a1655bfd53bbb1bef889a83103b69e23b}\label{class_level_a1655bfd53bbb1bef889a83103b69e23b} 
+\index{Level@{Level}!update@{update}}
+\index{update@{update}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Level\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for updating in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render()} 
+
+\doxylink{class_level_ac401b5113a9a91289bf476ca195fa48b}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_level_a26b193d1f6bde08d7238d9643352122a}{init\+Physics()} 
+
+\doxylink{class_level_ab0420362add74e363b944d07a3801d87}{get\+State\+Width()} 
+
+\doxylink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & update time. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{IGame\+State}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_level_a44a733756f70aa4c0ea7201ab58d8128}\label{class_level_a44a733756f70aa4c0ea7201ab58d8128} 
+\index{Level@{Level}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!Level@{Level}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily constexpr unsigned int Level\+::\+BLOCK\+\_\+\+SIZE = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_level_8h}{Level.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_level_8cpp}{Level.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,36 @@
+\doxysection{Sprite\+Animator.\+h}
+\hypertarget{_sprite_animator_8h_source}{}\label{_sprite_animator_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/SpriteAnimator.h@{C:/Studies/Project/HMM/src/Renderer/SpriteAnimator.h}}
+\mbox{\hyperlink{_sprite_animator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{SpriteAnimator}}}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{SpriteAnimator}}(std::shared\_ptr<Sprite>\ pSprite);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_ad1313599d6214adf927021beeccfc6bb}{getCurrentFrame}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_currentFrame;\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_a65eb6bfba69a2b51cd50818a18e85bbc}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_a04eec5eb016709fc8c9dcb70de717c12}{getTotalDuration}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_totalDuration;\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_abd87b84246fcf569696c360bf9f2625e}{reset}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ std::shared\_ptr<Sprite>\ m\_pSprite;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_currentFrame;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_currentFrameDurration;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_currentAnimationTime;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_totalDuration;}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}

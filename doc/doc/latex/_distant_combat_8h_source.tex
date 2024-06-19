@@ -1,0 +1,80 @@
+\doxysection{Distant\+Combat.\+h}
+\hypertarget{_distant_combat_8h_source}{}\label{_distant_combat_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameObject/DistantCombat.h@{C:/Studies/Project/HMM/src/Game/GameObject/DistantCombat.h}}
+\mbox{\hyperlink{_distant_combat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_object_8h}{IGameObject.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Renderer/SpriteAnimator.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_distant_combat}{DistantCombat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2}{EDistantCombatUnitType}}\ :\ uint8\_t}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2a97fbdf62d73918bdaf5acb8aaf4a823c}{archer}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2ab09156b256ccaa0f872a10d0d7d4a80f}{magican}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2a3250320dcaf3b60f1417b7b37986c4a3}{titan}}}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_distant_combat_abf854395246952913dcc83fe0c280802}{DistantCombatTypeString}}[]\ =\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}archerState"{}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}magicanState"{}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}titanState"{}}}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62a}{EDistantUnitOrientaition}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62aaa4ffdcf0dc1f31b9acaf295d75b51d00}{Top}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62aa2ad9d63b69c4a10a5cc9cad923133bc4}{Bottom}},}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62aa945d5e233cf7d6240f6b783b36a374ff}{Left}},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62aa92b09c7c48c520c3c55e497875da437c}{Right}}}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_distant_combat}{DistantCombat}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2}{DistantCombat::EDistantCombatUnitType}}\ eType,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ maxVelocity,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ position,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ size,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ layer);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_distant_combat_a4406943f7e8c49832f02c540cce86b53}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_distant_combat_aa01e14439de7da5d4c10d3dea567107f}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_distant_combat_acf2e4fe3c86c70ac26e7565632387069}{getMaxVelocity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_maxVelocity;\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_distant_combat_a44d3da0e6b842daeda77b9c1e9b406fd}{SetOrientation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62a}{EDistantUnitOrientaition}}\ eUnitOrientation);}
+\DoxyCodeLine{00049\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_distant_combat_a25737cf23ea9ba3a9e5424b6727eacda}{SetPosition}}(glm::vec2\ position)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_i_game_object_abb979b52a409a6f22db44fdd370fdc36}{m\_position}}\ =\ position;\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_distant_combat_a0f9e0e7c8fef17d1cdda103cf00193db}{getDistantSpeed}}()\ \{\ \textcolor{keywordflow}{return}\ m\_distantSpeed;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_distant_combat_a3cedd94be9568316908e8d84d13ebd27}{getLeftBottomPossibleMove}}()\ \{\ \textcolor{keywordflow}{return}\ m\_leftBottomPossibleMove;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_distant_combat_a6fa1ab220ec9737f73ff79aa974822b4}{getRightTopPossibleMove}}()\ \{\ \textcolor{keywordflow}{return}\ m\_rightTopPossibleMove;\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2}{EDistantCombatUnitType}}\ \mbox{\hyperlink{class_distant_combat_a31529e394805ca0f88a6cb561cf9bf0d}{getEType}}()\ \{\ \textcolor{keywordflow}{return}\ m\_eType;\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_distant_combat_ab537cf5cbd6ce6dd84232cec3a6bb62a}{EDistantUnitOrientaition}}\ m\_eOrientation;}
+\DoxyCodeLine{00058\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_top;}
+\DoxyCodeLine{00059\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_bottom;}
+\DoxyCodeLine{00060\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_left;}
+\DoxyCodeLine{00061\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_right;}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_top;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_bottom;}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_left;}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_right;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_maxVelocity;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ glm::vec2\ m\_leftBottomPossibleMove;}
+\DoxyCodeLine{00069\ \ \ \ \ glm::vec2\ m\_rightTopPossibleMove;}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2}{EDistantCombatUnitType}}\ m\_eType;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ m\_distantSpeed;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ std::string\&\ getDistantCombatSpriteFromType(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_distant_combat_aa613421e7953c7b734544dcbb3863ae2}{EDistantCombatUnitType}}\ eType);}
+\DoxyCodeLine{00074\ \};}
+
+\end{DoxyCode}

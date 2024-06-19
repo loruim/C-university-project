@@ -70,7 +70,7 @@ void Game::updateViewport()
 
     RenderEngine::Renderer::setViewport(viewPortWidth, viewPortHeight, viewPortLeftOffset, viewPortBottomOffset);
 
-    glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(getCurrentWidth()), 0.f, static_cast<float>(getCurrentHeight()), -100.f, 100.f);
+    glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(getCurrentWidth()), 0.f, static_cast<float>(getCurrentHeight()), -100.f, 100.f); ///< matrix for correct display of object sizes on the screen
     m_pSpriteShaderProgram->setMatrix4("projectionMat", projectionMatrix);
 }
 
@@ -130,9 +130,9 @@ void Game::setMousePosition(const double xpos, const double ypos)
 
 bool Game::init()
 {
-    ResourceManager::loadJSONResources("res/resources.json");
+    ResourceManager::loadJSONResources("res/resources.json"); ///< loading data from JSON file
 
-    m_pSpriteShaderProgram = ResourceManager::getShader("spriteShader");
+    m_pSpriteShaderProgram = ResourceManager::getShader("spriteShader"); ///< connecting shaders
     if (!m_pSpriteShaderProgram)
     {
         std::cerr << "Can't create shader: " << "spriteShader" << std::endl;

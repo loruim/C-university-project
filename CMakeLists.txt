@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 set(PROJECT_NAME HMM)
 project(${PROJECT_NAME})
+
+#set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17) 
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp
@@ -38,9 +40,6 @@ add_executable(${PROJECT_NAME}
 
     src/Game/Game.cpp
     src/Game/Game.h
-
-    src/Game/AIcomponent.cpp
-    src/Game/AIcomponent.h
 
     src/Game/GameObject/IGameObject.cpp
     src/Game/GameObject/IGameObject.h
@@ -95,3 +94,12 @@ set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAK
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD 
                     COMMAND ${CMAKE_COMMAND} -E copy_directory 
                     ${CMAKE_SOURCE_DIR}/res $<TARGET_FILE_DIR:${PROJECT_NAME}>/res)
+
+
+add_executable(tests test/game-tests.cpp)
+#set_property(TARGET tests PROPERTY CXX_STANDARD 17) 
+target_link_libraries(tests glm)
+target_link_libraries(tests glad)
+target_link_libraries(tests glfw)
+enable_testing()
+add_test(NAME tests COMMAND tests --force-color -d)

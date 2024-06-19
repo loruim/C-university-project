@@ -1,0 +1,252 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+game class  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_a1dbb2d0271bee0adb21368ef9ccda7aa}{Game}} (const glm\+::uvec2 \&window\+Size)
+\item 
+\mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\texorpdfstring{$\sim$}{\string~}\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render}} ()
+\item 
+void \mbox{\hyperlink{class_game_aa66e26d1ddfcd41f1380c03deae03477}{update}} (const double delta)
+\item 
+void \mbox{\hyperlink{class_game_a640bca6e10e175713b78660c1c8df865}{set\+Key}} (const int key, const int action)
+\item 
+void \mbox{\hyperlink{class_game_aff79df40c2be6e125bac06e1d7956f1d}{set\+Button}} (const int button, const int action)
+\item 
+void \mbox{\hyperlink{class_game_a5f2d14429b3540e5265ac945ed406f25}{set\+Mouse\+Position}} (const double xpos, const double ypos)
+\item 
+bool \mbox{\hyperlink{class_game_a8ff3a6838bad4ea9493c103f96d7bff3}{init}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_game_af420bf7a312cb75aba9888f95b61a213}{get\+Current\+Width}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_game_a19c43c667f6aa2b88e5091e05aebf5ce}{get\+Current\+Height}} () const
+\item 
+void \mbox{\hyperlink{class_game_a7e22024492bdbce48e77c1f1840dc93b}{start\+Global\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_game_a63ce13acce639041cb1e25e6d288c10a}{start\+Fight\+Map}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$ enemy)
+\item 
+void \mbox{\hyperlink{class_game_a3f0331c8de80306a6ccdfffaf13364dc}{start\+Shop\+Screen}} (const size\+\_\+t shop\+Number)
+\item 
+void \mbox{\hyperlink{class_game_a4163a8dadafec7e7f5f9688aefa01c46}{update\+Viewport}} ()
+\item 
+void \mbox{\hyperlink{class_game_a1fa389d5e6ad40b82af3b23a5ac88096}{set\+Window\+Size}} (const glm\+::uvec2 \&window\+Size)
+\item 
+void \mbox{\hyperlink{class_game_a76ee9495347288557236e28c43421977}{set\+Enemy\+Left\+Live}} (bool is\+Live)
+\item 
+void \mbox{\hyperlink{class_game_a250b662aa253adba4090f5491a3d32e3}{set\+Enemy\+Right\+Live}} (bool is\+Live)
+\item 
+void \mbox{\hyperlink{class_game_af8632700357baaa77b5827e9a72d8620}{set\+Enemy\+Middle\+Live}} (bool is\+Live)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+game class 
+
+A class that calls the main functions of game states and changes these states depending on conditions 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_a1dbb2d0271bee0adb21368ef9ccda7aa}\label{class_game_a1dbb2d0271bee0adb21368ef9ccda7aa} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}\item[{const glm\+::uvec2 \&}]{window\+Size }\end{DoxyParamCaption})}
+
+A constructor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em window\+Size} & glm\+::uvec2\& \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530} 
+\index{Game@{Game}!````~Game@{\texorpdfstring{$\sim$}{\string~}Game}}
+\index{````~Game@{\texorpdfstring{$\sim$}{\string~}Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Game()}{\string~Game()}}
+{\footnotesize\ttfamily Game\+::\texorpdfstring{$\sim$}{\string~}\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a19c43c667f6aa2b88e5091e05aebf5ce}\label{class_game_a19c43c667f6aa2b88e5091e05aebf5ce} 
+\index{Game@{Game}!getCurrentHeight@{getCurrentHeight}}
+\index{getCurrentHeight@{getCurrentHeight}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCurrentHeight()}{getCurrentHeight()}}
+{\footnotesize\ttfamily unsigned int Game\+::get\+Current\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member. \begin{DoxyReturn}{Returns}
+screen Height 
+\end{DoxyReturn}
+\Hypertarget{class_game_af420bf7a312cb75aba9888f95b61a213}\label{class_game_af420bf7a312cb75aba9888f95b61a213} 
+\index{Game@{Game}!getCurrentWidth@{getCurrentWidth}}
+\index{getCurrentWidth@{getCurrentWidth}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCurrentWidth()}{getCurrentWidth()}}
+{\footnotesize\ttfamily unsigned int Game\+::get\+Current\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member. \begin{DoxyReturn}{Returns}
+screen Width 
+\end{DoxyReturn}
+\Hypertarget{class_game_a8ff3a6838bad4ea9493c103f96d7bff3}\label{class_game_a8ff3a6838bad4ea9493c103f96d7bff3} 
+\index{Game@{Game}!init@{init}}
+\index{init@{init}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Game\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A member. \begin{DoxyReturn}{Returns}
+true if the game started successfully, else if there was an error 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} loading data from JSON file
+
+\texorpdfstring{$<$}{<} connecting shaders\Hypertarget{class_game_a15ddd769261d923827a3cdf41499c843}\label{class_game_a15ddd769261d923827a3cdf41499c843} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A member. Responsible for rendering in the current frame \Hypertarget{class_game_aff79df40c2be6e125bac06e1d7956f1d}\label{class_game_aff79df40c2be6e125bac06e1d7956f1d} 
+\index{Game@{Game}!setButton@{setButton}}
+\index{setButton@{setButton}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setButton()}{setButton()}}
+{\footnotesize\ttfamily void Game\+::set\+Button (\begin{DoxyParamCaption}\item[{const int}]{button,  }\item[{const int}]{action }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}{Parameters}
+{\em button} & Int, shows the button number \\
+\hline
+{\em action} & Int, maps a button number to a button \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a76ee9495347288557236e28c43421977}\label{class_game_a76ee9495347288557236e28c43421977} 
+\index{Game@{Game}!setEnemyLeftLive@{setEnemyLeftLive}}
+\index{setEnemyLeftLive@{setEnemyLeftLive}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setEnemyLeftLive()}{setEnemyLeftLive()}}
+{\footnotesize\ttfamily void Game\+::set\+Enemy\+Left\+Live (\begin{DoxyParamCaption}\item[{bool}]{is\+Live }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A member. Shows the presence of the left enemy on the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em is\+Live} & bool, shows the state of the left opponent \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_af8632700357baaa77b5827e9a72d8620}\label{class_game_af8632700357baaa77b5827e9a72d8620} 
+\index{Game@{Game}!setEnemyMiddleLive@{setEnemyMiddleLive}}
+\index{setEnemyMiddleLive@{setEnemyMiddleLive}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setEnemyMiddleLive()}{setEnemyMiddleLive()}}
+{\footnotesize\ttfamily void Game\+::set\+Enemy\+Middle\+Live (\begin{DoxyParamCaption}\item[{bool}]{is\+Live }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A member. Shows the presence of the middle enemy on the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em is\+Live} & bool, shows the state of the middle opponent \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a250b662aa253adba4090f5491a3d32e3}\label{class_game_a250b662aa253adba4090f5491a3d32e3} 
+\index{Game@{Game}!setEnemyRightLive@{setEnemyRightLive}}
+\index{setEnemyRightLive@{setEnemyRightLive}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setEnemyRightLive()}{setEnemyRightLive()}}
+{\footnotesize\ttfamily void Game\+::set\+Enemy\+Right\+Live (\begin{DoxyParamCaption}\item[{bool}]{is\+Live }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A member. Shows the presence of the right enemy on the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em is\+Live} & bool, shows the state of the right opponent \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a640bca6e10e175713b78660c1c8df865}\label{class_game_a640bca6e10e175713b78660c1c8df865} 
+\index{Game@{Game}!setKey@{setKey}}
+\index{setKey@{setKey}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setKey()}{setKey()}}
+{\footnotesize\ttfamily void Game\+::set\+Key (\begin{DoxyParamCaption}\item[{const int}]{key,  }\item[{const int}]{action }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}{Parameters}
+{\em key} & Int, shows the key number \\
+\hline
+{\em action} & Int, maps a key number to a key \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a5f2d14429b3540e5265ac945ed406f25}\label{class_game_a5f2d14429b3540e5265ac945ed406f25} 
+\index{Game@{Game}!setMousePosition@{setMousePosition}}
+\index{setMousePosition@{setMousePosition}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setMousePosition()}{setMousePosition()}}
+{\footnotesize\ttfamily void Game\+::set\+Mouse\+Position (\begin{DoxyParamCaption}\item[{const double}]{xpos,  }\item[{const double}]{ypos }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em xpos} & Double, mouse X coordinates \\
+\hline
+\mbox{\texttt{ in}}  & {\em ypos} & Double, mouse Y coordinates \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a1fa389d5e6ad40b82af3b23a5ac88096}\label{class_game_a1fa389d5e6ad40b82af3b23a5ac88096} 
+\index{Game@{Game}!setWindowSize@{setWindowSize}}
+\index{setWindowSize@{setWindowSize}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setWindowSize()}{setWindowSize()}}
+{\footnotesize\ttfamily void Game\+::set\+Window\+Size (\begin{DoxyParamCaption}\item[{const glm\+::uvec2 \&}]{window\+Size }\end{DoxyParamCaption})}
+
+A member. Sets screen dimensions 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em window\+Size} & glm\+::uvec2, Contains new screen sizes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a63ce13acce639041cb1e25e6d288c10a}\label{class_game_a63ce13acce639041cb1e25e6d288c10a} 
+\index{Game@{Game}!startFightMap@{startFightMap}}
+\index{startFightMap@{startFightMap}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{startFightMap()}{startFightMap()}}
+{\footnotesize\ttfamily void Game\+::start\+Fight\+Map (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$}]{enemy }\end{DoxyParamCaption})}
+
+A member. Launches fight map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em enemy} & Ptr, Indicates the data of the enemy with whom the battle took place \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a7e22024492bdbce48e77c1f1840dc93b}\label{class_game_a7e22024492bdbce48e77c1f1840dc93b} 
+\index{Game@{Game}!startGlobalMap@{startGlobalMap}}
+\index{startGlobalMap@{startGlobalMap}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{startGlobalMap()}{startGlobalMap()}}
+{\footnotesize\ttfamily void Game\+::start\+Global\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A member. Launches global map \Hypertarget{class_game_a3f0331c8de80306a6ccdfffaf13364dc}\label{class_game_a3f0331c8de80306a6ccdfffaf13364dc} 
+\index{Game@{Game}!startShopScreen@{startShopScreen}}
+\index{startShopScreen@{startShopScreen}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{startShopScreen()}{startShopScreen()}}
+{\footnotesize\ttfamily void Game\+::start\+Shop\+Screen (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{shop\+Number }\end{DoxyParamCaption})}
+
+A member. Launches shop map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em shop\+Number} & Size\+\_\+t, Indicates the store number \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_aa66e26d1ddfcd41f1380c03deae03477}\label{class_game_aa66e26d1ddfcd41f1380c03deae03477} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})}
+
+A member. Responsible for updating in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_game_af420bf7a312cb75aba9888f95b61a213}{get\+Current\+Width()} 
+
+\doxylink{class_game_a19c43c667f6aa2b88e5091e05aebf5ce}{get\+Current\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & Double update time. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a4163a8dadafec7e7f5f9688aefa01c46}\label{class_game_a4163a8dadafec7e7f5f9688aefa01c46} 
+\index{Game@{Game}!updateViewport@{updateViewport}}
+\index{updateViewport@{updateViewport}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateViewport()}{updateViewport()}}
+{\footnotesize\ttfamily void Game\+::update\+Viewport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A member. Adjusts the map to screen sizes \texorpdfstring{$<$}{<} matrix for correct display of object sizes on the screen
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\mbox{\hyperlink{_game_8h}{Game.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\mbox{\hyperlink{_game_8cpp}{Game.\+cpp}}\end{DoxyCompactItemize}

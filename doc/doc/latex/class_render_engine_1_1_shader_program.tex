@@ -1,0 +1,174 @@
+\doxysection{Render\+Engine\+::Shader\+Program Class Reference}
+\hypertarget{class_render_engine_1_1_shader_program}{}\label{class_render_engine_1_1_shader_program}\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+
+
+shader loading class  
+
+
+
+
+{\ttfamily \#include $<$Shader\+Program.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program_a1943db98882d8ca8203c7f2d606b5b3f}{Shader\+Program}} (const std\+::string vertex\+Shader, const std\+::string fragment\+Shader)
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program_a0424e4131712b1fb344fc2a75aa335d9}{\texorpdfstring{$\sim$}{\string~}\+Shader\+Program}} ()
+\item 
+bool \mbox{\hyperlink{class_render_engine_1_1_shader_program_adbbe8afddf71ac1f0b295b81a6462701}{is\+Compiled}} () const
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_shader_program_aac1babd09e9ce3e242ecbfedc8ed2f89}{use}} () const
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_shader_program_a333d02c2f3743b90d3f17162994f12a7}{set\+Int}} (const std\+::string \&name, const GLint value)
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_shader_program_a9a10a563a22a3c4f41c63633cfe4b307}{set\+Float}} (const std\+::string \&name, const GLfloat value)
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_shader_program_ab6f9f2966ac0db82d051ba2941d9a79f}{set\+Matrix4}} (const std\+::string \&name, const glm\+::mat4 \&matrix)
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389}{Shader\+Program}} ()=delete
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program_a13a1f64c08a8f869b06a997004f8410e}{Shader\+Program}} (\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&)=delete
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \& \mbox{\hyperlink{class_render_engine_1_1_shader_program_a02f1738cd9f4b9310e0b85afa7c53edc}{operator=}} (const \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&)=delete
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \& \mbox{\hyperlink{class_render_engine_1_1_shader_program_a1fcd52f4590d6acc698ffadabd65ba90}{operator=}} (\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&\&shader\+Program) noexcept
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_shader_program_a57d8acb7615071d70ba38c74ca0ef0fc}{Shader\+Program}} (\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&\&shader\+Program) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+shader loading class 
+
+Ñlass that loads vertex and fragment shaders 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_render_engine_1_1_shader_program_a1943db98882d8ca8203c7f2d606b5b3f}\label{class_render_engine_1_1_shader_program_a1943db98882d8ca8203c7f2d606b5b3f} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}\item[{const std\+::string}]{vertex\+Shader,  }\item[{const std\+::string}]{fragment\+Shader }\end{DoxyParamCaption})}
+
+A constructor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vertex\+Shader} & std\+::string \\
+\hline
+\mbox{\texttt{ in}}  & {\em fragment\+Shader} & std\+::string \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_shader_program_a0424e4131712b1fb344fc2a75aa335d9}\label{class_render_engine_1_1_shader_program_a0424e4131712b1fb344fc2a75aa335d9} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}}
+\index{````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ShaderProgram()}{\string~ShaderProgram()}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Shader\+Program\+::\texorpdfstring{$\sim$}{\string~}\+Shader\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A destructor. Clears shader slots to free up memory \Hypertarget{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389}\label{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_render_engine_1_1_shader_program_a13a1f64c08a8f869b06a997004f8410e}\label{class_render_engine_1_1_shader_program_a13a1f64c08a8f869b06a997004f8410e} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_render_engine_1_1_shader_program_a57d8acb7615071d70ba38c74ca0ef0fc}\label{class_render_engine_1_1_shader_program_a57d8acb7615071d70ba38c74ca0ef0fc} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&\&}]{shader\+Program }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Move add 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em shader\+Program} & \doxylink{class_render_engine_1_1_shader_program}{Shader\+Program}\&\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_render_engine_1_1_shader_program}{Shader\+Program}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_engine_1_1_shader_program_adbbe8afddf71ac1f0b295b81a6462701}\label{class_render_engine_1_1_shader_program_adbbe8afddf71ac1f0b295b81a6462701} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!isCompiled@{isCompiled}}
+\index{isCompiled@{isCompiled}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{isCompiled()}{isCompiled()}}
+{\footnotesize\ttfamily bool Render\+Engine\+::\+Shader\+Program\+::is\+Compiled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+A const member. \begin{DoxyReturn}{Returns}
+Compilation status 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_shader_program_a02f1738cd9f4b9310e0b85afa7c53edc}\label{class_render_engine_1_1_shader_program_a02f1738cd9f4b9310e0b85afa7c53edc} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!operator=@{operator=}}
+\index{operator=@{operator=}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \& Render\+Engine\+::\+Shader\+Program\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_render_engine_1_1_shader_program_a1fcd52f4590d6acc698ffadabd65ba90}\label{class_render_engine_1_1_shader_program_a1fcd52f4590d6acc698ffadabd65ba90} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!operator=@{operator=}}
+\index{operator=@{operator=}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \& Render\+Engine\+::\+Shader\+Program\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&\&}]{shader\+Program }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Move assignment 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em shader\+Program} & \doxylink{class_render_engine_1_1_shader_program}{Shader\+Program}\&\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_render_engine_1_1_shader_program}{Shader\+Program}\& 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_shader_program_a9a10a563a22a3c4f41c63633cfe4b307}\label{class_render_engine_1_1_shader_program_a9a10a563a22a3c4f41c63633cfe4b307} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!setFloat@{setFloat}}
+\index{setFloat@{setFloat}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setFloat()}{setFloat()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Shader\+Program\+::set\+Float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const GLfloat}]{value }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & std\+::string\& \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & GLfloat \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_shader_program_a333d02c2f3743b90d3f17162994f12a7}\label{class_render_engine_1_1_shader_program_a333d02c2f3743b90d3f17162994f12a7} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!setInt@{setInt}}
+\index{setInt@{setInt}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setInt()}{setInt()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Shader\+Program\+::set\+Int (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const GLint}]{value }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & std\+::string\& \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & GLint \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_shader_program_ab6f9f2966ac0db82d051ba2941d9a79f}\label{class_render_engine_1_1_shader_program_ab6f9f2966ac0db82d051ba2941d9a79f} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!setMatrix4@{setMatrix4}}
+\index{setMatrix4@{setMatrix4}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setMatrix4()}{setMatrix4()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Shader\+Program\+::set\+Matrix4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::mat4 \&}]{matrix }\end{DoxyParamCaption})}
+
+A member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & std\+::string\& \\
+\hline
+\mbox{\texttt{ in}}  & {\em matrix} & glm\+::mat4\& \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_shader_program_aac1babd09e9ce3e242ecbfedc8ed2f89}\label{class_render_engine_1_1_shader_program_aac1babd09e9ce3e242ecbfedc8ed2f89} 
+\index{RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}!use@{use}}
+\index{use@{use}!RenderEngine::ShaderProgram@{RenderEngine::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Shader\+Program\+::use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member. Uses current shaders 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_shader_program_8h}{Shader\+Program.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_shader_program_8cpp}{Shader\+Program.\+cpp}}\end{DoxyCompactItemize}

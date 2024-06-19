@@ -1,0 +1,104 @@
+\doxysection{Render\+Engine\+::Renderer Class Reference}
+\hypertarget{class_render_engine_1_1_renderer}{}\label{class_render_engine_1_1_renderer}\index{RenderEngine::Renderer@{RenderEngine::Renderer}}
+
+
+render loading class  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_render_engine_1_1_renderer_a8c895a8e2996bfa06960545fafb6812b}{draw}} (const \mbox{\hyperlink{class_render_engine_1_1_vertex_array}{Vertex\+Array}} \&vertex\+Array, const \mbox{\hyperlink{class_render_engine_1_1_index_buffer}{Index\+Buffer}} \&index\+Buffer, const \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&shader)
+\item 
+static void \mbox{\hyperlink{class_render_engine_1_1_renderer_a802cca930d82c428ccaeb95b53699846}{set\+Clear\+Color}} (float r, float g, float b, float alpha)
+\item 
+static void \mbox{\hyperlink{class_render_engine_1_1_renderer_a6dba043c10796ed083e3f24addf69e1d}{set\+Depth\+Test}} (const bool enable)
+\item 
+static void \mbox{\hyperlink{class_render_engine_1_1_renderer_ad8fe3cbcdc4dcc717000bff1538066e9}{clear}} ()
+\item 
+static void \mbox{\hyperlink{class_render_engine_1_1_renderer_aa4c49b401c2f5bd261675fc3af069982}{set\+Viewport}} (unsigned int width, unsigned int height, unsigned int left\+Offset=0, unsigned int bottom\+Offset=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+render loading class 
+
+The class loads all screen functions such as drawing, color filling, etc. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_engine_1_1_renderer_ad8fe3cbcdc4dcc717000bff1538066e9}\label{class_render_engine_1_1_renderer_ad8fe3cbcdc4dcc717000bff1538066e9} 
+\index{RenderEngine::Renderer@{RenderEngine::Renderer}!clear@{clear}}
+\index{clear@{clear}!RenderEngine::Renderer@{RenderEngine::Renderer}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Renderer\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Responsible for cleaning the screen \Hypertarget{class_render_engine_1_1_renderer_a8c895a8e2996bfa06960545fafb6812b}\label{class_render_engine_1_1_renderer_a8c895a8e2996bfa06960545fafb6812b} 
+\index{RenderEngine::Renderer@{RenderEngine::Renderer}!draw@{draw}}
+\index{draw@{draw}!RenderEngine::Renderer@{RenderEngine::Renderer}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Renderer\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_render_engine_1_1_vertex_array}{Vertex\+Array}} \&}]{vertex\+Array,  }\item[{const \mbox{\hyperlink{class_render_engine_1_1_index_buffer}{Index\+Buffer}} \&}]{index\+Buffer,  }\item[{const \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Draws a pair of triangles so that the result is a square 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vertex\+Array} & \doxylink{class_render_engine_1_1_vertex_array}{Vertex\+Array}\&, reference to points in space whose connection forms a figure \\
+\hline
+\mbox{\texttt{ in}}  & {\em index\+Buffer} & \doxylink{class_render_engine_1_1_index_buffer}{Index\+Buffer}\&, link to the order of connecting the dots \\
+\hline
+\mbox{\texttt{ in}}  & {\em shader} & \doxylink{class_render_engine_1_1_shader_program}{Shader\+Program}\&, link to shaders \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_renderer_a802cca930d82c428ccaeb95b53699846}\label{class_render_engine_1_1_renderer_a802cca930d82c428ccaeb95b53699846} 
+\index{RenderEngine::Renderer@{RenderEngine::Renderer}!setClearColor@{setClearColor}}
+\index{setClearColor@{setClearColor}!RenderEngine::Renderer@{RenderEngine::Renderer}}
+\doxysubsubsection{\texorpdfstring{setClearColor()}{setClearColor()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Renderer\+::set\+Clear\+Color (\begin{DoxyParamCaption}\item[{float}]{r,  }\item[{float}]{g,  }\item[{float}]{b,  }\item[{float}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Fills the screen with the selected color 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & float, red color \\
+\hline
+\mbox{\texttt{ in}}  & {\em g} & float, green color \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & float, blue color \\
+\hline
+\mbox{\texttt{ in}}  & {\em alpha} & float, transparency \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_renderer_a6dba043c10796ed083e3f24addf69e1d}\label{class_render_engine_1_1_renderer_a6dba043c10796ed083e3f24addf69e1d} 
+\index{RenderEngine::Renderer@{RenderEngine::Renderer}!setDepthTest@{setDepthTest}}
+\index{setDepthTest@{setDepthTest}!RenderEngine::Renderer@{RenderEngine::Renderer}}
+\doxysubsubsection{\texorpdfstring{setDepthTest()}{setDepthTest()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Renderer\+::set\+Depth\+Test (\begin{DoxyParamCaption}\item[{const bool}]{enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Responsible for activating color depth 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em enable} & bool \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_renderer_aa4c49b401c2f5bd261675fc3af069982}\label{class_render_engine_1_1_renderer_aa4c49b401c2f5bd261675fc3af069982} 
+\index{RenderEngine::Renderer@{RenderEngine::Renderer}!setViewport@{setViewport}}
+\index{setViewport@{setViewport}!RenderEngine::Renderer@{RenderEngine::Renderer}}
+\doxysubsubsection{\texorpdfstring{setViewport()}{setViewport()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Renderer\+::set\+Viewport (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height,  }\item[{unsigned int}]{left\+Offset = {\ttfamily 0},  }\item[{unsigned int}]{bottom\+Offset = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Responsible for displaying the game depending on the screen size 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em width} & unsigned int \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & unsigned int \\
+\hline
+\mbox{\texttt{ in}}  & {\em left\+Offset} & unsigned int \\
+\hline
+\mbox{\texttt{ in}}  & {\em bottom\+Offset} & unsigned int \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_renderer_8h}{Renderer.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_renderer_8cpp}{Renderer.\+cpp}}\end{DoxyCompactItemize}

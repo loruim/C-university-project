@@ -1,0 +1,203 @@
+\doxysection{C\+:/\+Studies/\+Project/\+HMM/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{C:/Studies/Project/HMM/src/main.cpp@{C:/Studies/Project/HMM/src/main.cpp}}
+{\ttfamily \#include $<$glad/glad.\+h$>$}\newline
+{\ttfamily \#include $<$GLFW/glfw3.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}Game/\+Game.\+h"{}}\newline
+{\ttfamily \#include "{}Resources/\+Resource\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}Renderer/\+Renderer.\+h"{}}\newline
+{\ttfamily \#include "{}Physics/\+Physics\+Engine.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::uvec2 \mbox{\hyperlink{main_8cpp_ac3aa5919c1a4761c65955cc4ae724831}{g\+\_\+window\+Size}} (SCALE \texorpdfstring{$\ast$}{*}10 \texorpdfstring{$\ast$}{*}BLOCK\+\_\+\+SIZE, SCALE \texorpdfstring{$\ast$}{*}12 \texorpdfstring{$\ast$}{*}BLOCK\+\_\+\+SIZE)
+\begin{DoxyCompactList}\small\item\em Window Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8a5df35ef4e759d24c40adc36ff2a1e3}{glfw\+Window\+Size\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}p\+Window, int width, int height)
+\begin{DoxyCompactList}\small\item\em Function that tracks window size changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a45bbd08544348bb47e458c38da20232c}{glfw\+Key\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}p\+Window, int key, int scancode, int action, int mode)
+\begin{DoxyCompactList}\small\item\em Function showing which key is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}{mouse\+\_\+button\+\_\+callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int button, int action, int mods)
+\begin{DoxyCompactList}\small\item\em Function showing which mouse button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a9e55daacac57a7170edea00f0e44b14f}{cursor\+\_\+position\+\_\+callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, double xpos, double ypos)
+\begin{DoxyCompactList}\small\item\em Function returning mouse position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em Function with main game loop @parem\mbox{[}out\mbox{]} argc Int, The command line parameter, in this case shows the path to the files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$ \mbox{\hyperlink{main_8cpp_ab1999e5edc6688b9894c69054be98d39}{g\+\_\+game}} = std\+::make\+\_\+unique$<$\mbox{\hyperlink{class_game}{Game}}$>$(\mbox{\hyperlink{main_8cpp_ac3aa5919c1a4761c65955cc4ae724831}{g\+\_\+window\+Size}})
+\begin{DoxyCompactList}\small\item\em Indicates a class containing the main functions of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a9e55daacac57a7170edea00f0e44b14f}\label{main_8cpp_a9e55daacac57a7170edea00f0e44b14f} 
+\index{main.cpp@{main.cpp}!cursor\_position\_callback@{cursor\_position\_callback}}
+\index{cursor\_position\_callback@{cursor\_position\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cursor\_position\_callback()}{cursor\_position\_callback()}}
+{\footnotesize\ttfamily void cursor\+\_\+position\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{double}]{xpos,  }\item[{double}]{ypos }\end{DoxyParamCaption})}
+
+
+
+Function returning mouse position. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Window} & Ptr, shows which window the key was pressed on @parem\mbox{[}in\mbox{]} xpos Double, X position \\
+\hline
+\mbox{\texttt{ in}}  & {\em ypos} & Double, Y position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_ac3aa5919c1a4761c65955cc4ae724831}\label{main_8cpp_ac3aa5919c1a4761c65955cc4ae724831} 
+\index{main.cpp@{main.cpp}!g\_windowSize@{g\_windowSize}}
+\index{g\_windowSize@{g\_windowSize}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_windowSize()}{g\_windowSize()}}
+{\footnotesize\ttfamily glm\+::uvec2 g\+\_\+window\+Size (\begin{DoxyParamCaption}\item[{SCALE \texorpdfstring{$\ast$}{*}10 \texorpdfstring{$\ast$}{*}}]{BLOCK\+\_\+\+SIZE,  }\item[{SCALE \texorpdfstring{$\ast$}{*}12 \texorpdfstring{$\ast$}{*}}]{BLOCK\+\_\+\+SIZE }\end{DoxyParamCaption})}
+
+
+
+Window Size. 
+
+\Hypertarget{main_8cpp_a45bbd08544348bb47e458c38da20232c}\label{main_8cpp_a45bbd08544348bb47e458c38da20232c} 
+\index{main.cpp@{main.cpp}!glfwKeyCallback@{glfwKeyCallback}}
+\index{glfwKeyCallback@{glfwKeyCallback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfwKeyCallback()}{glfwKeyCallback()}}
+{\footnotesize\ttfamily void glfw\+Key\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{p\+Window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+Function showing which key is pressed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Window} & Ptr, shows which window the key was pressed on @parem\mbox{[}in\mbox{]} key Int, key that was pressed or released \\
+\hline
+\mbox{\texttt{ in}}  & {\em scancode} & Int, the platform-\/specific scancode of the key \\
+\hline
+\mbox{\texttt{ in}}  & {\em action} & Int, shows whether the button is pressed or not \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & Int, bit field describing which \mbox{[}modifier keys\mbox{]}(mods) were held down \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a8a5df35ef4e759d24c40adc36ff2a1e3}\label{main_8cpp_a8a5df35ef4e759d24c40adc36ff2a1e3} 
+\index{main.cpp@{main.cpp}!glfwWindowSizeCallback@{glfwWindowSizeCallback}}
+\index{glfwWindowSizeCallback@{glfwWindowSizeCallback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfwWindowSizeCallback()}{glfwWindowSizeCallback()}}
+{\footnotesize\ttfamily void glfw\+Window\+Size\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{p\+Window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Function that tracks window size changes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em p\+Window} & Ptr, returning window dimensions \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Int width, accepts new width \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Int height, accepts new height \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Function with main game loop @parem\mbox{[}out\mbox{]} argc Int, The command line parameter, in this case shows the path to the files. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em argv} & Char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, Contains the names of the paths to the files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero if successfully 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Initializing the main GLFW library
+
+\texorpdfstring{$<$}{<} GLFW function. Specifying the GLFW version
+
+\texorpdfstring{$<$}{<} Creating a main window using GLFW.
+
+\texorpdfstring{$<$}{<} GLFW function. Setting a callback to resize a window
+
+\texorpdfstring{$<$}{<} GLFW function. Setting a callback to track keys pressed on the keyboard
+
+\texorpdfstring{$<$}{<} GLFW function. Setting a callback to track keys pressed on the mouse
+
+\texorpdfstring{$<$}{<} GLFW function. Setting a callback to track mouse cursor coordinates
+
+\texorpdfstring{$<$}{<} GLFW function. Setting the current window
+
+\texorpdfstring{$<$}{<} Initializing GLAD library
+
+\texorpdfstring{$<$}{<} Fill the screen with RGB color
+
+\texorpdfstring{$<$}{<} Function including color depth
+
+\texorpdfstring{$<$}{<} Function that gets file paths
+
+\texorpdfstring{$<$}{<} Function that initializes physics in the game
+
+\texorpdfstring{$<$}{<} Function that initializes the game
+
+\texorpdfstring{$<$}{<} Parameter counting time from frame
+
+\texorpdfstring{$<$}{<} Main game loop
+
+\texorpdfstring{$<$}{<} Parameter counting the end of frame time
+
+\texorpdfstring{$<$}{<} Update game state with duration frequency
+
+\texorpdfstring{$<$}{<} Update the state of the game physics with frequency duration
+
+\texorpdfstring{$<$}{<} Color clear game screen function
+
+\texorpdfstring{$<$}{<} \doxylink{class_game}{Game} rendering function
+
+\texorpdfstring{$<$}{<} GLFW function. Sets the currently active window
+
+\texorpdfstring{$<$}{<} GLFW function. Handles all expected events, such as window resizes or mouse clicks
+
+\texorpdfstring{$<$}{<} Cleaning up game physics
+
+\texorpdfstring{$<$}{<} Freeing memory from the game
+
+\texorpdfstring{$<$}{<} Unloading all game resources
+
+\texorpdfstring{$<$}{<} Destroying GLFW context\Hypertarget{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}\label{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86} 
+\index{main.cpp@{main.cpp}!mouse\_button\_callback@{mouse\_button\_callback}}
+\index{mouse\_button\_callback@{mouse\_button\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mouse\_button\_callback()}{mouse\_button\_callback()}}
+{\footnotesize\ttfamily void mouse\+\_\+button\+\_\+callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{button,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+
+
+Function showing which mouse button is pressed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Window} & Ptr, shows which window the key was pressed on @parem\mbox{[}in\mbox{]} button Int, button that was pressed or released \\
+\hline
+\mbox{\texttt{ in}}  & {\em action} & Int, shows whether the button is pressed or not \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & Int, bit field describing which \mbox{[}modifier keys\mbox{]}(mods) were held down \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_ab1999e5edc6688b9894c69054be98d39}\label{main_8cpp_ab1999e5edc6688b9894c69054be98d39} 
+\index{main.cpp@{main.cpp}!g\_game@{g\_game}}
+\index{g\_game@{g\_game}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_game}{g\_game}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_game}{Game}}$>$ g\+\_\+game = std\+::make\+\_\+unique$<$\mbox{\hyperlink{class_game}{Game}}$>$(\mbox{\hyperlink{main_8cpp_ac3aa5919c1a4761c65955cc4ae724831}{g\+\_\+window\+Size}})}
+
+
+
+Indicates a class containing the main functions of the game. 
+

@@ -1,0 +1,288 @@
+\doxysection{IGame\+State Class Reference}
+\hypertarget{class_i_game_state}{}\label{class_i_game_state}\index{IGameState@{IGameState}}
+
+
+game state class  
+
+
+
+
+{\ttfamily \#include $<$IGame\+State.\+h$>$}
+
+Inheritance diagram for IGame\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_game_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update}} (const double delta)=0
+\item 
+virtual \mbox{\hyperlink{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c}{\texorpdfstring{$\sim$}{\string~}\+IGame\+State}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key}} (std\+::array$<$ bool, 349 $>$ keys)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse}} (std\+::array$<$ bool, 8 $>$ mouse\+Buttons)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position}} (double mouseX, double mouseY)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics}} ()
+\item 
+virtual unsigned int \mbox{\hyperlink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width}} () const =0
+\item 
+virtual unsigned int \mbox{\hyperlink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+game state class 
+
+Virtual class. All classes that describe the current state of the game are inherited from it, such as \doxylink{class_level}{Level}, \doxylink{class_shop_screen}{Shop\+Screen}, \doxylink{class_fight_screen}{Fight\+Screen} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c}\label{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c} 
+\index{IGameState@{IGameState}!````~IGameState@{\texorpdfstring{$\sim$}{\string~}IGameState}}
+\index{````~IGameState@{\texorpdfstring{$\sim$}{\string~}IGameState}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IGameState()}{\string~IGameState()}}
+{\footnotesize\ttfamily virtual IGame\+State\+::\texorpdfstring{$\sim$}{\string~}\+IGame\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+A basic virtual destructor. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_game_state_a6b38bb6053843df6da3913b68041076c}\label{class_i_game_state_a6b38bb6053843df6da3913b68041076c} 
+\index{IGameState@{IGameState}!getStateHeight@{getStateHeight}}
+\index{getStateHeight@{getStateHeight}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{getStateHeight()}{getStateHeight()}}
+{\footnotesize\ttfamily virtual unsigned int IGame\+State\+::get\+State\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen height 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{Fight\+Screen}}, \mbox{\hyperlink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{Level}}, and \mbox{\hyperlink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{Shop\+Screen}}.
+
+\Hypertarget{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}\label{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67} 
+\index{IGameState@{IGameState}!getStateWidth@{getStateWidth}}
+\index{getStateWidth@{getStateWidth}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{getStateWidth()}{getStateWidth()}}
+{\footnotesize\ttfamily virtual unsigned int IGame\+State\+::get\+State\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen width 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{Fight\+Screen}}, \mbox{\hyperlink{class_level_ab0420362add74e363b944d07a3801d87}{Level}}, and \mbox{\hyperlink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{Shop\+Screen}}.
+
+\Hypertarget{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}\label{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca} 
+\index{IGameState@{IGameState}!initPhysics@{initPhysics}}
+\index{initPhysics@{initPhysics}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{initPhysics()}{initPhysics()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::init\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in \mbox{\hyperlink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{Fight\+Screen}}, and \mbox{\hyperlink{class_level_a26b193d1f6bde08d7238d9643352122a}{Level}}.
+
+\Hypertarget{class_i_game_state_af4d78dd1a94966818bdc467008285d80}\label{class_i_game_state_af4d78dd1a94966818bdc467008285d80} 
+\index{IGameState@{IGameState}!processInputKey@{processInputKey}}
+\index{processInputKey@{processInputKey}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{processInputKey()}{processInputKey()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::process\+Input\+Key (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 349 $>$}]{keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em keys} & array of key numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{Fight\+Screen}}, \mbox{\hyperlink{class_level_ac401b5113a9a91289bf476ca195fa48b}{Level}}, and \mbox{\hyperlink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{Shop\+Screen}}.
+
+\Hypertarget{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}\label{class_i_game_state_a7462499453d06e562d8f034fcf1c0413} 
+\index{IGameState@{IGameState}!processInputMouse@{processInputMouse}}
+\index{processInputMouse@{processInputMouse}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{processInputMouse()}{processInputMouse()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::process\+Input\+Mouse (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 8 $>$}]{mouse\+Buttons }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mouse\+Buttons} & array of mouse button numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{Fight\+Screen}}.
+
+\Hypertarget{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}\label{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912} 
+\index{IGameState@{IGameState}!processSetMousePosition@{processSetMousePosition}}
+\index{processSetMousePosition@{processSetMousePosition}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{processSetMousePosition()}{processSetMousePosition()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::process\+Set\+Mouse\+Position (\begin{DoxyParamCaption}\item[{double}]{mouseX,  }\item[{double}]{mouseY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mouseX} & mouse X coordinates. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mouseY} & mouse Y coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{Fight\+Screen}}.
+
+\Hypertarget{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}\label{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76} 
+\index{IGameState@{IGameState}!render@{render}}
+\index{render@{render}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual member. Responsible for rendering in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{update()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{Fight\+Screen}}, \mbox{\hyperlink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{Level}}, and \mbox{\hyperlink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{Shop\+Screen}}.
+
+\Hypertarget{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}\label{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1} 
+\index{IGameState@{IGameState}!update@{update}}
+\index{update@{update}!IGameState@{IGameState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void IGame\+State\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+A pure virtual member. Responsible for updating in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{render()} 
+
+\doxylink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{get\+State\+Width()} 
+
+\doxylink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & update time. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{Fight\+Screen}}, \mbox{\hyperlink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{Level}}, and \mbox{\hyperlink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{Shop\+Screen}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_i_game_state_8h}{IGame\+State.\+h}}\end{DoxyCompactItemize}

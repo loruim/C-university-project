@@ -1,0 +1,67 @@
+\doxysection{Sprite.\+h}
+\hypertarget{_sprite_8h_source}{}\label{_sprite_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/Sprite.h@{C:/Studies/Project/HMM/src/Renderer/Sprite.h}}
+\mbox{\hyperlink{_sprite_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_buffer_8h}{VertexBuffer.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_index_buffer_8h}{IndexBuffer.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_array_8h}{VertexArray.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }Texture2D;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }ShaderProgram;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}}}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{FrameDescription}}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_ac40b43855b2183cb3579804bcf445fce}{FrameDescription}}(\textcolor{keyword}{const}\ glm::vec2\ leftBottomUV,\ \textcolor{keyword}{const}\ glm::vec2\ rightTopUV,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ duration)\ :\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_a48c9beb7c529695b797d681294c466fa}{s\_leftBottomUV}}(leftBottomUV),\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_acc7481870df4682e5ee7a36e318cb214}{s\_rightTopUV}}(rightTopUV),\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_ad790f892e1c494568a5bc54b5c88f300}{s\_duration}}(duration)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_a48c9beb7c529695b797d681294c466fa}{s\_leftBottomUV}};\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_acc7481870df4682e5ee7a36e318cb214}{s\_rightTopUV}};\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description_ad790f892e1c494568a5bc54b5c88f300}{s\_duration}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}}(std::shared\_ptr<Texture2D>\ pTexture,\ std::string\ initialSubTexture,\ std::shared\_ptr<ShaderProgram>\ pShaderProgram);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_ad6d4de88a531d931ead5cfb19562502a}{\string~Sprite}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_ad161d021d6202f3a5d79f4e7c55b19b2}{Sprite}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}}\&\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a7c0f3c715b0bbef8be1414fa283d245a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a821e3fe8fa256999933dd216120bbbb4}{render}}(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec2\&\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ layer\ =\ 0.f,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ frameID\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_ab4bf9b3527fe035ad0e59a23f16c0116}{getFrameDuration}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ frameID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a06bde6757cfc90df4b6f959bad9c7684}{getFramesCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_aa85616698bef2a6b60f261a547fc7496}{insertFrames}}(std::vector<FrameDescription>\ framesDescriptions);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ std::shared\_ptr<Texture2D>\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a9eb6a2e618984f5c86c7d61b7eeceec6}{m\_pTexture}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::shared\_ptr<ShaderProgram>\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a71555ad4619b3ac5e3f7d2af16d52d2f}{m\_pShaderProgram}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_array}{VertexArray}}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_aca80b6815eed18e5cb11314bb6c74546}{m\_vertexArray}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a814af86bd7f6d6c6661b93432b003b30}{m\_vertexCoordBuffer}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a02058738d20a7bb04efd108cb2197ee1}{m\_textureCoordBuffer}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_index_buffer}{IndexBuffer}}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a14f11465d20fa1719d87b2dc63690955}{m\_IndexBuffer}};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ std::vector<FrameDescription>\ \mbox{\hyperlink{class_render_engine_1_1_sprite_aed13d68ceece4ce2691ae87cbbab4b62}{m\_framesDescriptions}};\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_render_engine_1_1_sprite_a15194f4a47d09e89552ba50d9c8bcee1}{m\_lastFrameID}};}
+\DoxyCodeLine{00114\ \ \ \ \ \};}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,85 @@
+\doxysection{Render\+Engine\+::Sprite\+Animator Class Reference}
+\hypertarget{class_render_engine_1_1_sprite_animator}{}\label{class_render_engine_1_1_sprite_animator}\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+
+
+sprite animation loading class  
+
+
+
+
+{\ttfamily \#include $<$Sprite\+Animator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_sprite_animator_a83bb0bb1f74efc3dda0ca1c64a7d0581}{Sprite\+Animator}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} $>$ p\+Sprite)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_ad1313599d6214adf927021beeccfc6bb}{get\+Current\+Frame}} () const
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_a65eb6bfba69a2b51cd50818a18e85bbc}{update}} (const double delta)
+\item 
+double \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_a04eec5eb016709fc8c9dcb70de717c12}{get\+Total\+Duration}} () const
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_sprite_animator_abd87b84246fcf569696c360bf9f2625e}{reset}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+sprite animation loading class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_render_engine_1_1_sprite_animator_a83bb0bb1f74efc3dda0ca1c64a7d0581}\label{class_render_engine_1_1_sprite_animator_a83bb0bb1f74efc3dda0ca1c64a7d0581} 
+\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}!SpriteAnimator@{SpriteAnimator}}
+\index{SpriteAnimator@{SpriteAnimator}!RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+\doxysubsubsection{\texorpdfstring{SpriteAnimator()}{SpriteAnimator()}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Sprite\+Animator\+::\+Sprite\+Animator (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} $>$}]{p\+Sprite }\end{DoxyParamCaption})}
+
+A constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Sprite} & std\+::shared\+\_\+ptr$<$\+Sprite$>$, link to the sprite that needs to be animated\textbackslash{} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_engine_1_1_sprite_animator_ad1313599d6214adf927021beeccfc6bb}\label{class_render_engine_1_1_sprite_animator_ad1313599d6214adf927021beeccfc6bb} 
+\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}!getCurrentFrame@{getCurrentFrame}}
+\index{getCurrentFrame@{getCurrentFrame}!RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+\doxysubsubsection{\texorpdfstring{getCurrentFrame()}{getCurrentFrame()}}
+{\footnotesize\ttfamily size\+\_\+t Render\+Engine\+::\+Sprite\+Animator\+::get\+Current\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+A member. \begin{DoxyReturn}{Returns}
+Current Frame 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_sprite_animator_a04eec5eb016709fc8c9dcb70de717c12}\label{class_render_engine_1_1_sprite_animator_a04eec5eb016709fc8c9dcb70de717c12} 
+\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}!getTotalDuration@{getTotalDuration}}
+\index{getTotalDuration@{getTotalDuration}!RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+\doxysubsubsection{\texorpdfstring{getTotalDuration()}{getTotalDuration()}}
+{\footnotesize\ttfamily double Render\+Engine\+::\+Sprite\+Animator\+::get\+Total\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+A member. Responsible for updating in the current frame \begin{DoxyReturn}{Returns}
+total Durations. 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_sprite_animator_abd87b84246fcf569696c360bf9f2625e}\label{class_render_engine_1_1_sprite_animator_abd87b84246fcf569696c360bf9f2625e} 
+\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}!reset@{reset}}
+\index{reset@{reset}!RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Sprite\+Animator\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A member. Resets animation \Hypertarget{class_render_engine_1_1_sprite_animator_a65eb6bfba69a2b51cd50818a18e85bbc}\label{class_render_engine_1_1_sprite_animator_a65eb6bfba69a2b51cd50818a18e85bbc} 
+\index{RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}!update@{update}}
+\index{update@{update}!RenderEngine::SpriteAnimator@{RenderEngine::SpriteAnimator}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Sprite\+Animator\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})}
+
+A member. Responsible for updating in the current frame 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & Double update time. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_sprite_animator_8h}{Sprite\+Animator.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_sprite_animator_8cpp}{Sprite\+Animator.\+cpp}}\end{DoxyCompactItemize}

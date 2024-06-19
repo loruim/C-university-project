@@ -1,0 +1,28 @@
+\doxysection{House.\+h}
+\hypertarget{_house_8h_source}{}\label{_house_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameObject/House.h@{C:/Studies/Project/HMM/src/Game/GameObject/House.h}}
+\mbox{\hyperlink{_house_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_object_8h}{IGameObject.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00010\ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_house}{House}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278aaebfe46795575772b7cf413e25caeab9}{House}}(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec2\&\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ layer);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_house_acfd43f46865e16b9a64148d6e91c3f3c}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_house_a61f6773bdaf4ecba9907c3f3dd0af2a5}{collides}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObjectType}}\ objectType)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pCurrentSprite;}
+\DoxyCodeLine{00022\ \};}
+
+\end{DoxyCode}

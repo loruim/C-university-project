@@ -1,0 +1,79 @@
+\doxysection{Close\+Combat.\+h}
+\hypertarget{_close_combat_8h_source}{}\label{_close_combat_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameObject/CloseCombat.h@{C:/Studies/Project/HMM/src/Game/GameObject/CloseCombat.h}}
+\mbox{\hyperlink{_close_combat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_object_8h}{IGameObject.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Renderer/SpriteAnimator.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_close_combat}{CloseCombat}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6}{ECloseCombatUnitType}}\ :\ uint8\_t}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6aefead51028a03db2d63f0e79ba032a82}{knight}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6a7ff5defb01eba61a2e1039a79805c2b6}{barbarian}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6af4f068e71e0d87bf0ad51e6214ab84e9}{angel}}}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_close_combat_ad6f32f9dce44895f868c6500cb30894a}{CloseCombatTypeString}}[]\ =\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}knightState"{}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}barbarianState"{}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}angelState"{}}}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79}{ECloseUnitOrientaition}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79aa4ffdcf0dc1f31b9acaf295d75b51d00}{Top}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79a2ad9d63b69c4a10a5cc9cad923133bc4}{Bottom}},}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79a945d5e233cf7d6240f6b783b36a374ff}{Left}},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79a92b09c7c48c520c3c55e497875da437c}{Right}}}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_close_combat}{CloseCombat}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6}{CloseCombat::ECloseCombatUnitType}}\ eType,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ maxVelocity,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ position,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ size,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ layer);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_close_combat_af75a9ce2b0ab1198a14383007271e4ed}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_close_combat_a50b94f2bec638831b15a341e87432025}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_close_combat_ad1a1e0bb3bbbda4f8171f7f9f1a80901}{getMaxVelocity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_maxVelocity;\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_close_combat_a5851d3022fdb724d392b2ece4d6c46e2}{SetOrientation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79}{ECloseUnitOrientaition}}\ eUnitOrientation);}
+\DoxyCodeLine{00049\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_close_combat_a59db8b99ae13147dbaf38746fe3d46ba}{SetPosition}}(glm::vec2\ position)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_i_game_object_abb979b52a409a6f22db44fdd370fdc36}{m\_position}}\ =\ position;\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_close_combat_a51dcf4188b2d1786e8e0950bd93b8563}{getCloseSpeed}}()\ \{\ \textcolor{keywordflow}{return}\ m\_closeSpeed;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_close_combat_a4260576775f33d0ee9d837ff2a4ded1b}{getLeftBottomPossibleMove}}()\ \{\ \textcolor{keywordflow}{return}\ m\_leftBottomPossibleMove;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ glm::vec2\&\ \mbox{\hyperlink{class_close_combat_a01e52dc9384f89d5b05a561baa716d4c}{getRightTopPossibleMove}}()\ \{\ \textcolor{keywordflow}{return}\ m\_rightTopPossibleMove;\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6}{ECloseCombatUnitType}}\ \mbox{\hyperlink{class_close_combat_a6a21b378625e7bdc238f8343e107d51f}{getEType}}()\ \{\ \textcolor{keywordflow}{return}\ m\_eType;\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_close_combat_a0499bcad5071a21d7a6bcca9ee248d79}{ECloseUnitOrientaition}}\ m\_eOrientation;}
+\DoxyCodeLine{00057\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_top;}
+\DoxyCodeLine{00058\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_bottom;}
+\DoxyCodeLine{00059\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_left;}
+\DoxyCodeLine{00060\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pSprite\_right;}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_top;}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_bottom;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_left;}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator\_right;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_maxVelocity;}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ glm::vec2\ m\_leftBottomPossibleMove;}
+\DoxyCodeLine{00068\ \ \ \ \ glm::vec2\ m\_rightTopPossibleMove;}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6}{ECloseCombatUnitType}}\ m\_eType;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ uint8\_t\ m\_closeSpeed;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\&\ getCloseCombatSpriteFromType(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_close_combat_ae6ebe81ac18b8cc1b48bf26a6a1e31f6}{ECloseCombatUnitType}}\ eType);}
+\DoxyCodeLine{00073\ \};}
+
+\end{DoxyCode}

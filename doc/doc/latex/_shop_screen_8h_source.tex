@@ -1,0 +1,65 @@
+\doxysection{Shop\+Screen.\+h}
+\hypertarget{_shop_screen_8h_source}{}\label{_shop_screen_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameState/ShopScreen.h@{C:/Studies/Project/HMM/src/Game/GameState/ShopScreen.h}}
+\mbox{\hyperlink{_shop_screen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_state_8h}{IGameState.h}}"{}}\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../Renderer/SpriteAnimator.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00014\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shop_screen}{ShopScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_state}{IGameState}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61}{EShopsType}}\ :\ uint8\_t}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61abd914a3964f3062aa01aeb42e817579f}{CastleShopScreen}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a61543cf7533049c7774128dcc1b15f35}{LeftShopScreen\_1}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ac576d6003b23de5e8c0422cda42d715c}{LeftShopScreen\_2}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ab31edc2908e6ae0cebdeb7e92ba61b45}{RightShopScreen\_1}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a36183e782dcfee6fecff98b139b3a1cf}{RightShopScreen\_2}}}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\_SIZE}}\ =\ 8;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_a0a8f534d0cfa049d33dc4e204252b427}{STARTSCREEN\_WIDTH}}\ =\ 10\ *\ \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\_SIZE}}\ *\ 2;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_aa280e3ae7fa0a4d7fc561ffce784b38c}{STARTSCREEN\_HEIGHT}}\ =\ 12\ *\ \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\_SIZE}}\ *\ 2;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_afcb7e6fd89a57f62f473f70074064a69}{POINTER\_SIZE}}\ =\ \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\_SIZE}}\ *\ 2;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_shop_screen}{ShopScreen}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ shopScreenDescription,\ \mbox{\hyperlink{class_game}{Game}}*\ pGame);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{processInputKey}}(std::array<bool,\ 349>\ keys)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{getStateWidth}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{getStateHeight}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shop_screen_a7a98563eeea5c4aa71b772752a84a63a}{setShopsType}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ shopNumber);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shop_screen_a4e29866d5ccf280aeec53124af15c0d7}{setMenuSize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ newMenuWidth,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ newMenuHeight);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ MENU\_WIDTH\ =\ 32;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ MENU\_HEIGHT\ =\ 64;}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}*\ m\_pGame;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_currentMenuSelection;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyReleased;}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<std::pair<std::shared\_ptr<RenderEngine::Sprite>,\ glm::vec2>>\ m\_sprites;}
+\DoxyCodeLine{00054\ \ \ \ \ std::pair<std::shared\_ptr<RenderEngine::Sprite>,\ glm::vec2>\ m\_menuSprite;}
+\DoxyCodeLine{00055\ \ \ \ \ std::pair<std::shared\_ptr<RenderEngine::Sprite>,\ glm::vec2>\ m\_pointerSprite;}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_pointerSpriteAnimator;}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61}{EShopsType}}\ m\_eShopsType;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_sizeShopScreenDescription;}
+\DoxyCodeLine{00059\ \};}
+
+\end{DoxyCode}

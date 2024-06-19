@@ -1,0 +1,99 @@
+\doxysection{Resource\+Manager.\+h}
+\hypertarget{_resource_manager_8h_source}{}\label{_resource_manager_8h_source}\index{C:/Studies/Project/HMM/src/Resources/ResourceManager.h@{C:/Studies/Project/HMM/src/Resources/ResourceManager.h}}
+\mbox{\hyperlink{_resource_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }ShaderProgram;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }Texture2D;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_resource_manager}{ResourceManager}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_resource_manager_a8f0a12e2880872509619fd3421ccaf81}{setExecutablePath}}(\textcolor{keyword}{const}\ std::string\&\ executablePath);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_resource_manager_ac8e6c416a491f6fcc78ed682313feb4a}{unloadAllResources}}();}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_resource_manager_aef25bb48c1ff96b8179c9f9cbb547831}{ResourceManager}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_resource_manager_a58e4471be44450a9d9c8a9a695473b4d}{\string~ResourceManager}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1}{ResourceManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&\ \mbox{\hyperlink{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&\ \mbox{\hyperlink{class_resource_manager_a60d8524043be673959b061a3c04f2a02}{operator=}}(\mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_resource_manager_a2112fd194e0d1b9fa0b5fca2474099e5}{ResourceManager}}(\mbox{\hyperlink{class_resource_manager}{ResourceManager}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Shaders}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::ShaderProgram>\ \mbox{\hyperlink{class_resource_manager_a66a2f48375635446866f8028b468d493}{loadShaderProgram}}(\textcolor{keyword}{const}\ std::string\&\ shaderName,\ \textcolor{keyword}{const}\ std::string\&\ vertexPath,\ \textcolor{keyword}{const}\ std::string\&\ fragmentPath);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::ShaderProgram>\ \mbox{\hyperlink{class_resource_manager_a14b822bdf28d77f1ad607e6d3e31136f}{getShader}}(\textcolor{keyword}{const}\ std::string\&\ shaderName);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Texture}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::Texture2D>\ \mbox{\hyperlink{class_resource_manager_a32b8e7bfa42b0c04d7ed04e17220077e}{loadTexture}}(\textcolor{keyword}{const}\ std::string\&\ textureName,\ \textcolor{keyword}{const}\ std::string\&\ texturePath);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::Texture2D>\ \mbox{\hyperlink{class_resource_manager_a513bb365ad35de480e8c2d3fd7ad64f2}{getTexture}}(\textcolor{keyword}{const}\ std::string\&\ textureName);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ Sprite}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::Sprite>\ \mbox{\hyperlink{class_resource_manager_a92cfb8aa5044020689d9ff9a0ba730e0}{loadSprite}}(\textcolor{keyword}{const}\ std::string\&\ spriteName,\ \textcolor{keyword}{const}\ std::string\&\ textureName,\ \textcolor{keyword}{const}\ std::string\&\ shaderName,\ \textcolor{keyword}{const}\ std::string\&\ subTextureName\ =\ \textcolor{stringliteral}{"{}default"{}});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::Sprite>\ \mbox{\hyperlink{class_resource_manager_aaffa9a94ed0879b2283e1e8a6fef213f}{getSprite}}(\textcolor{keyword}{const}\ std::string\&\ spriteName);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ TextureAtlas}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr\ <RenderEngine::Texture2D>\ \mbox{\hyperlink{class_resource_manager_a09da9a2545cd0ae8d8c5ffe22ee95326}{loadTextureAtlas}}(std::string\ texturename,\ std::string\ texturePath,\ std::vector<std::string>\ subTextures,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ SubTextureWidth,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ SubTextureHeight);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ Include\ JSON}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_resource_manager_a3f16c1be36c8671e78f7153828fdc8da}{loadJSONResources}}(\textcolor{keyword}{const}\ std::string\&\ JSONPath);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ Levels}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::vector<std::vector<std::string>>\&\ \mbox{\hyperlink{class_resource_manager_af977b3d15033189a130e5fba1f91ea95}{getLevels}}()\ \{\ \textcolor{keywordflow}{return}\ m\_levels;\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ Shops}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \ std::vector<std::vector<std::string>>\&\ \mbox{\hyperlink{class_resource_manager_a489f0b8595ca491b744cbe1bc1a36564}{getShopsScreen}}()\ \{\ \textcolor{keywordflow}{return}\ m\_shopsScreen;\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ FightScreen}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \ std::vector<std::string>\&\ \mbox{\hyperlink{class_resource_manager_a1488383b83fa1df8dfe134407ece9641}{getFightScreen}}()\ \{\ \textcolor{keywordflow}{return}\ m\_fightScreen;\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ getFileString(\textcolor{keyword}{const}\ std::string\&\ relativeFilePath);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ m\_path;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ Shaders}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<const\ std::string,\ std::shared\_ptr<RenderEngine::ShaderProgram>>\ ShaderProgramsMap;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{static}\ ShaderProgramsMap\ m\_shaderProgram;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ Texture}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<const\ std::string,\ std::shared\_ptr<RenderEngine::Texture2D>>\ TexturesMap;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{static}\ TexturesMap\ m\_textures;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ Sprite}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{typedef}\ std::map<const\ std::string,\ std::shared\_ptr<RenderEngine::Sprite>>\ SpritesMap;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{static}\ SpritesMap\ m\_sprites;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//\ Levels}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<std::string>>\ m\_levels;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ Shops}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<std::string>>\ m\_shopsScreen;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ FightScreen}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ m\_fightScreen;}
+\DoxyCodeLine{00183\ \};}
+
+\end{DoxyCode}

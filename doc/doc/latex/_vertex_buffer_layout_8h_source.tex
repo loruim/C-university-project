@@ -1,0 +1,36 @@
+\doxysection{Vertex\+Buffer\+Layout.\+h}
+\hypertarget{_vertex_buffer_layout_8h_source}{}\label{_vertex_buffer_layout_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/VertexBufferLayout.h@{C:/Studies/Project/HMM/src/Renderer/VertexBufferLayout.h}}
+\mbox{\hyperlink{_vertex_buffer_layout_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_render_engine_1_1_vertex_buffer_layout_element}{VertexBufferLayoutElement}}}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ GLint\ \mbox{\hyperlink{struct_render_engine_1_1_vertex_buffer_layout_element_ab4d1dbf37183f454fc1f3282723f8974}{count}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ GLenum\ \mbox{\hyperlink{struct_render_engine_1_1_vertex_buffer_layout_element_ae8ca5e480b5d976acefb7521a89faad5}{type}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ GLboolean\ \mbox{\hyperlink{struct_render_engine_1_1_vertex_buffer_layout_element_a76d87a545a7b6f30db7de9c9a8859806}{normalized}};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_render_engine_1_1_vertex_buffer_layout_element_a7ff29b15e02b16867e0aa42592fa8545}{size}};}
+\DoxyCodeLine{00014\ \ \ \ \ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout}{VertexBufferLayout}}}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout_a9e402089b53e87aec760ca4ab038b6d0}{VertexBufferLayout}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout_ac76417d1dc8de2c66a8595d59c91dd3e}{reserveElements}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout_a27797b6ba30dd4ec633998676479a594}{getStride}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_stride;\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout_ad63c21d8408f3b37c813fcb39401806e}{addElementLayoutFloat}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ normalized);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<VertexBufferLayoutElement>\&\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_layout_a3b96ac1e3f69e6e660db73331e459a66}{getLayoutElements}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_layoutElements;\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::vector<VertexBufferLayoutElement>\ m\_layoutElements;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_stride;}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}

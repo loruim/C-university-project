@@ -1,0 +1,63 @@
+\doxysection{Texture2\+D.\+h}
+\hypertarget{_texture2_d_8h_source}{}\label{_texture2_d_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/Texture2D.h@{C:/Studies/Project/HMM/src/Renderer/Texture2D.h}}
+\mbox{\hyperlink{_texture2_d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}\ }
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d}{SubTexture2D}}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_aa299a74bdfc6f21863d5aa2395d153cc}{leftBottomUV}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_a7c66522634ce452c1ba3a690ac3a25ba}{rightTopUV}};\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_a167f6103b9f91000ff6ac400af743337}{SubTexture2D}}(\textcolor{keyword}{const}\ glm::vec2\ \_leftBottomUV,\ \textcolor{keyword}{const}\ glm::vec2\ \_rightTopUV)\ :\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_aa299a74bdfc6f21863d5aa2395d153cc}{leftBottomUV}}(\_leftBottomUV),\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_a7c66522634ce452c1ba3a690ac3a25ba}{rightTopUV}}(\_rightTopUV)\ \{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_a281a2bcd365b55745e48b3eedaccc473}{SubTexture2D}}()\ :\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_aa299a74bdfc6f21863d5aa2395d153cc}{leftBottomUV}}(0.f),\ \mbox{\hyperlink{struct_render_engine_1_1_texture2_d_1_1_sub_texture2_d_a7c66522634ce452c1ba3a690ac3a25ba}{rightTopUV}}(1.f)\ \{\}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_ab6b79f328faeeb20a862fa9137d6e17e}{Texture2D}}(\textcolor{keyword}{const}\ GLuint\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_affa3fc5b82c8b6e0d450b8a9a50c8dda}{width}},\ \textcolor{keyword}{const}\ GLuint\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a203fb7d1555424fdcb7b17b4d290a654}{height}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ channels\ =\ 4,\ \textcolor{keyword}{const}\ GLenum\ filter\ =\ GL\_LINEAR,\ \textcolor{keyword}{const}\ GLenum\ wrapMode\ =\ GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a8c8edab31f79c0125c34bbd71c117b53}{\string~Texture2D}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_ab6b79f328faeeb20a862fa9137d6e17e}{Texture2D}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a8b9ac42691ff386df98a83583531b817}{Texture2D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_aa21a4d72d72093950d469071a6ea579f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_aa21a4d72d72093950d469071a6ea579f}{operator=}}(\mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&\&\ texture2D);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_ab6b79f328faeeb20a862fa9137d6e17e}{Texture2D}}(\mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}\&\&\ texture2D);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a20e92aa8e75ad2fad92cc94352da8af7}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_affa3fc5b82c8b6e0d450b8a9a50c8dda}{width}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_width;\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a203fb7d1555424fdcb7b17b4d290a654}{height}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_height;\ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Функции для\ SubStruct}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_af74610d1e8b7ddf0d0962ea82b25acee}{addSubTexture}}(std::string\ name,\ \textcolor{keyword}{const}\ glm::vec2\&\ leftBottomUV,\ \textcolor{keyword}{const}\ glm::vec2\&\ rightTopUV);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SubTexture2D\&\ \mbox{\hyperlink{class_render_engine_1_1_texture2_d_a10e871b56556e82597caae18b8366821}{getSubTexture}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ GLuint\ m\_ID;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ GLenum\ m\_mode;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_width;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_height;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ std::map<std::string,\ SubTexture2D>\ m\_subTextures;}
+\DoxyCodeLine{00124\ \ \ \ \ \};}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}

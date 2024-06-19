@@ -1,0 +1,33 @@
+\doxysection{Vertex\+Buffer.\+h}
+\hypertarget{_vertex_buffer_8h_source}{}\label{_vertex_buffer_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/VertexBuffer.h@{C:/Studies/Project/HMM/src/Renderer/VertexBuffer.h}}
+\mbox{\hyperlink{_vertex_buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}glad/glad.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a131507ef1b6b1307f0e36a5f6a1b09ca}{VertexBuffer}}();}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a1a0ae38e6f407bb9b0bc19f0f6af8658}{\string~VertexBuffer}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a07780faf798d81f32b39a787377e66e3}{VertexBuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_adcb0fcf9bb3b597f8dea687e91ddfaa4}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a131507ef1b6b1307f0e36a5f6a1b09ca}{VertexBuffer}}(\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&\&\ vertexBuffer)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_adcb0fcf9bb3b597f8dea687e91ddfaa4}{operator=}}(\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{VertexBuffer}}\&\&\ vertexBuffer)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a715a63b847ef00e456ab55dff7875a92}{init}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a640dda4a919de1f78581866b47c98e22}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_a8b5f8c1f4509070e03ee11d7d95f603c}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer_ae3ee172208adcdf4268e43f77c446107}{unbind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ GLuint\ m\_id;}
+\DoxyCodeLine{00026\ \ \ \ \ \};}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}

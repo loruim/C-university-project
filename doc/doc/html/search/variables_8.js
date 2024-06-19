@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['m_5fcolliders_0',['m_colliders',['../class_i_game_object.html#a93f8c1862c4792e3222cca68b0c612b1',1,'IGameObject']]],
+  ['m_5fdirection_1',['m_direction',['../class_i_game_object.html#af67d4b70c21561e49a099087e0c9ca97',1,'IGameObject']]],
+  ['m_5fframesdescriptions_2',['m_framesDescriptions',['../class_render_engine_1_1_sprite.html#aed13d68ceece4ce2691ae87cbbab4b62',1,'RenderEngine::Sprite']]],
+  ['m_5findexbuffer_3',['m_IndexBuffer',['../class_render_engine_1_1_sprite.html#a14f11465d20fa1719d87b2dc63690955',1,'RenderEngine::Sprite']]],
+  ['m_5fisactive_4',['m_isActive',['../class_i_game_object.html#a12966301c6ff702d900bff29e4ad2b16',1,'IGameObject']]],
+  ['m_5flastframeid_5',['m_lastFrameID',['../class_render_engine_1_1_sprite.html#a15194f4a47d09e89552ba50d9c8bcee1',1,'RenderEngine::Sprite']]],
+  ['m_5flayer_6',['m_layer',['../class_i_game_object.html#afb39bd878c6fd0fbc731ecb36c437491',1,'IGameObject']]],
+  ['m_5fobjecttype_7',['m_objectType',['../class_i_game_object.html#a2b6dbcf4743e2d8beb5257b0bef3ac80',1,'IGameObject']]],
+  ['m_5fposition_8',['m_position',['../class_i_game_object.html#abb979b52a409a6f22db44fdd370fdc36',1,'IGameObject']]],
+  ['m_5fpshaderprogram_9',['m_pShaderProgram',['../class_render_engine_1_1_sprite.html#a71555ad4619b3ac5e3f7d2af16d52d2f',1,'RenderEngine::Sprite']]],
+  ['m_5fptexture_10',['m_pTexture',['../class_render_engine_1_1_sprite.html#a9eb6a2e618984f5c86c7d61b7eeceec6',1,'RenderEngine::Sprite']]],
+  ['m_5frotation_11',['m_rotation',['../class_i_game_object.html#a6d113fa3d3c71d926033fdb6dca1d957',1,'IGameObject']]],
+  ['m_5fsize_12',['m_size',['../class_i_game_object.html#a085fec4ed9a8a0eb4a57cef7c39ab367',1,'IGameObject']]],
+  ['m_5ftexturecoordbuffer_13',['m_textureCoordBuffer',['../class_render_engine_1_1_sprite.html#a02058738d20a7bb04efd108cb2197ee1',1,'RenderEngine::Sprite']]],
+  ['m_5fvelocity_14',['m_velocity',['../class_i_game_object.html#a1b9ba2ed5e5027f1b4821d79c1b000dc',1,'IGameObject']]],
+  ['m_5fvertexarray_15',['m_vertexArray',['../class_render_engine_1_1_sprite.html#aca80b6815eed18e5cb11314bb6c74546',1,'RenderEngine::Sprite']]],
+  ['m_5fvertexcoordbuffer_16',['m_vertexCoordBuffer',['../class_render_engine_1_1_sprite.html#a814af86bd7f6d6c6661b93432b003b30',1,'RenderEngine::Sprite']]]
+];

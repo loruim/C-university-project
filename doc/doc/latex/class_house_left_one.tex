@@ -1,0 +1,130 @@
+\doxysection{House\+Left\+One Class Reference}
+\hypertarget{class_house_left_one}{}\label{class_house_left_one}\index{HouseLeftOne@{HouseLeftOne}}
+
+
+{\ttfamily \#include $<$House\+Left\+One.\+h$>$}
+
+Inheritance diagram for House\+Left\+One\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_house_left_one}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_house_left_one_a438d7e71f74e6aa82b533d8cbbc0397f}{House\+Left\+One}} (const glm\+::vec2 \&position, const glm\+::vec2 \&size, const float rotation, const float layer)
+\item 
+virtual void \mbox{\hyperlink{class_house_left_one_a7cad9c1667914295a9ccbd8005ec21f1}{render}} () const override
+\item 
+virtual bool \mbox{\hyperlink{class_house_left_one_a4a3a4d1d012774838489618ed795a5f1}{collides}} (const \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}} object\+Type) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_game_object}{IGame\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_game_object_a77bfe76a493a5d375fea804277e6f5d8}{IGame\+Object}} (const \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}} object\+Type, const glm\+::vec2 \&position, const glm\+::vec2 \&size, const float rotation, const float layer)
+\item 
+virtual \mbox{\hyperlink{class_i_game_object_a4f66e595aac6c39352e89101c8e49ad5}{\texorpdfstring{$\sim$}{\string~}\+IGame\+Object}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_a40fddc57c294e439845169895b051fe5}{update}} (const double delta)
+\item 
+virtual glm\+::vec2 \& \mbox{\hyperlink{class_i_game_object_a6ea5712a1dfea4882b5c0d57e67a3e2b}{get\+Current\+Position}} ()
+\item 
+virtual glm\+::vec2 \& \mbox{\hyperlink{class_i_game_object_a4dc966574986992b849195fda9de4856}{get\+Current\+Direction}} ()
+\item 
+virtual double \mbox{\hyperlink{class_i_game_object_a8b4b2997dae7ea6771a88db374f4d4df}{get\+Current\+Velocity}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_a2d912afa2909dcfac3221b6ab388b462}{set\+Velocity}} (const double velocity)
+\item 
+const glm\+::vec2 \& \mbox{\hyperlink{class_i_game_object_af1b044b77acc11dfc0f4d6bfd619b8af}{get\+Size}} ()
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{struct_physics_1_1_collider}{Physics\+::\+Collider}} $>$ \& \mbox{\hyperlink{class_i_game_object_aa5d90280b1fac8a2f897ccae1c27dda5}{get\+Colliders}} ()
+\item 
+\mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}} \mbox{\hyperlink{class_i_game_object_a4d82a0010be50566b75959e4105872eb}{get\+Object\+Type}} () const
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_aae786bc60c050d3da8fa6123db7866bc}{on\+Collision}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_i_game_object_add5e8d21922885345835b0a3b571276c}{is\+Active}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_i_game_object}{IGame\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}} \{ \newline
+\mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a1a0326d0697dbf300b2e309ba45c2a3a}{Brick\+Road}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a070554647306343cbea29ebfdd278ba8}{Border}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278ae0a67c8c63f8f7362917abef6ca24c6b}{Hero}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278aaebfe46795575772b7cf413e25caeab9}{House}}
+, \newline
+\mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a2c0844a6c4e2a2749e82e62f70acb40a}{Left\+House\+One}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a5de2f52c2c7ef9687c29ac903eb85394}{Left\+House\+Two}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a7755212be9250fb3ee5eafc5bf5bee1e}{Right\+House\+One}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278ad5789770b372c09dcbb60c5612652b8d}{Right\+House\+Two}}
+, \newline
+\mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a27634ff8002b12e75d98e07ccd005d18}{Water}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a0f4e1aaabd074689b7d3ead824d1ee8e}{Arrow}}
+, \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a88183b946cc5f0e8c96b2e66e1c74a7e}{Unknown}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_i_game_object}{IGame\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_i_game_object_abb979b52a409a6f22db44fdd370fdc36}{m\+\_\+position}}
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_i_game_object_a085fec4ed9a8a0eb4a57cef7c39ab367}{m\+\_\+size}}
+\item 
+float \mbox{\hyperlink{class_i_game_object_a6d113fa3d3c71d926033fdb6dca1d957}{m\+\_\+rotation}}
+\item 
+float \mbox{\hyperlink{class_i_game_object_afb39bd878c6fd0fbc731ecb36c437491}{m\+\_\+layer}}
+\item 
+\mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}} \mbox{\hyperlink{class_i_game_object_a2b6dbcf4743e2d8beb5257b0bef3ac80}{m\+\_\+object\+Type}}
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_i_game_object_af67d4b70c21561e49a099087e0c9ca97}{m\+\_\+direction}}
+\item 
+double \mbox{\hyperlink{class_i_game_object_a1b9ba2ed5e5027f1b4821d79c1b000dc}{m\+\_\+velocity}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_physics_1_1_collider}{Physics\+::\+Collider}} $>$ \mbox{\hyperlink{class_i_game_object_a93f8c1862c4792e3222cca68b0c612b1}{m\+\_\+colliders}}
+\item 
+bool \mbox{\hyperlink{class_i_game_object_a12966301c6ff702d900bff29e4ad2b16}{m\+\_\+is\+Active}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_house_left_one_a438d7e71f74e6aa82b533d8cbbc0397f}\label{class_house_left_one_a438d7e71f74e6aa82b533d8cbbc0397f} 
+\index{HouseLeftOne@{HouseLeftOne}!HouseLeftOne@{HouseLeftOne}}
+\index{HouseLeftOne@{HouseLeftOne}!HouseLeftOne@{HouseLeftOne}}
+\doxysubsubsection{\texorpdfstring{HouseLeftOne()}{HouseLeftOne()}}
+{\footnotesize\ttfamily House\+Left\+One\+::\+House\+Left\+One (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{position,  }\item[{const glm\+::vec2 \&}]{size,  }\item[{const float}]{rotation,  }\item[{const float}]{layer }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_house_left_one_a4a3a4d1d012774838489618ed795a5f1}\label{class_house_left_one_a4a3a4d1d012774838489618ed795a5f1} 
+\index{HouseLeftOne@{HouseLeftOne}!collides@{collides}}
+\index{collides@{collides}!HouseLeftOne@{HouseLeftOne}}
+\doxysubsubsection{\texorpdfstring{collides()}{collides()}}
+{\footnotesize\ttfamily bool House\+Left\+One\+::collides (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObject\+Type}}}]{object\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxyReturn}{Returns}
+collision confirmation 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_object_a9eeac2297b04420892e31a8c319e6d55}{IGame\+Object}}.
+
+\Hypertarget{class_house_left_one_a7cad9c1667914295a9ccbd8005ec21f1}\label{class_house_left_one_a7cad9c1667914295a9ccbd8005ec21f1} 
+\index{HouseLeftOne@{HouseLeftOne}!render@{render}}
+\index{render@{render}!HouseLeftOne@{HouseLeftOne}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void House\+Left\+One\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A full virtual member 
+
+Implements \mbox{\hyperlink{class_i_game_object_a5bd463a5742a20b924f3aaf1630c55c8}{IGame\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+Object/\mbox{\hyperlink{_house_left_one_8h}{House\+Left\+One.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+Object/\mbox{\hyperlink{_house_left_one_8cpp}{House\+Left\+One.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,23 @@
+\doxysection{Timer.\+h}
+\hypertarget{_timer_8h_source}{}\label{_timer_8h_source}\index{C:/Studies/Project/HMM/src/System/Timer.h@{C:/Studies/Project/HMM/src/System/Timer.h}}
+\mbox{\hyperlink{_timer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_timer}{Timer}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{Timer}}();}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_timer_aaa10ac7033ad35bef022aad718fbb03f}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta);}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_timer_ad06e7101f290df5e2bbb8fdfb0f07f33}{start}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ duration);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_timer_a7a8cc5f49024b9d34d078f681a9cf93f}{setCallback}}(std::function<\textcolor{keywordtype}{void}()>\ callback);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::function<void()>\ m\_callback;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_timeLeft;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_isRunnig;}
+\DoxyCodeLine{00017\ \};}
+
+\end{DoxyCode}

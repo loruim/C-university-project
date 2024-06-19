@@ -1,0 +1,298 @@
+\doxysection{Resource\+Manager Class Reference}
+\hypertarget{class_resource_manager}{}\label{class_resource_manager}\index{ResourceManager@{ResourceManager}}
+
+
+resource loading class  
+
+
+
+
+{\ttfamily \#include $<$Resource\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_resource_manager_aef25bb48c1ff96b8179c9f9cbb547831}{Resource\+Manager}} ()=delete
+\item 
+\mbox{\hyperlink{class_resource_manager_a58e4471be44450a9d9c8a9a695473b4d}{\texorpdfstring{$\sim$}{\string~}\+Resource\+Manager}} ()=delete
+\item 
+\mbox{\hyperlink{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1}{Resource\+Manager}} (const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&)=delete
+\item 
+\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& \mbox{\hyperlink{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0}{operator=}} (const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&)=delete
+\item 
+\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& \mbox{\hyperlink{class_resource_manager_a60d8524043be673959b061a3c04f2a02}{operator=}} (\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&\&)=delete
+\item 
+\mbox{\hyperlink{class_resource_manager_a2112fd194e0d1b9fa0b5fca2474099e5}{Resource\+Manager}} (\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&\&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_resource_manager_a8f0a12e2880872509619fd3421ccaf81}{set\+Executable\+Path}} (const std\+::string \&executable\+Path)
+\item 
+static void \mbox{\hyperlink{class_resource_manager_ac8e6c416a491f6fcc78ed682313feb4a}{unload\+All\+Resources}} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Render\+Engine\+::\+Shader\+Program}} $>$ \mbox{\hyperlink{class_resource_manager_a66a2f48375635446866f8028b468d493}{load\+Shader\+Program}} (const std\+::string \&shader\+Name, const std\+::string \&vertex\+Path, const std\+::string \&fragment\+Path)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Render\+Engine\+::\+Shader\+Program}} $>$ \mbox{\hyperlink{class_resource_manager_a14b822bdf28d77f1ad607e6d3e31136f}{get\+Shader}} (const std\+::string \&shader\+Name)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ \mbox{\hyperlink{class_resource_manager_a32b8e7bfa42b0c04d7ed04e17220077e}{load\+Texture}} (const std\+::string \&texture\+Name, const std\+::string \&texture\+Path)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ \mbox{\hyperlink{class_resource_manager_a513bb365ad35de480e8c2d3fd7ad64f2}{get\+Texture}} (const std\+::string \&texture\+Name)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Render\+Engine\+::\+Sprite}} $>$ \mbox{\hyperlink{class_resource_manager_a92cfb8aa5044020689d9ff9a0ba730e0}{load\+Sprite}} (const std\+::string \&sprite\+Name, const std\+::string \&texture\+Name, const std\+::string \&shader\+Name, const std\+::string \&sub\+Texture\+Name="{}default"{})
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Render\+Engine\+::\+Sprite}} $>$ \mbox{\hyperlink{class_resource_manager_aaffa9a94ed0879b2283e1e8a6fef213f}{get\+Sprite}} (const std\+::string \&sprite\+Name)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ \mbox{\hyperlink{class_resource_manager_a09da9a2545cd0ae8d8c5ffe22ee95326}{load\+Texture\+Atlas}} (std\+::string texturename, std\+::string texture\+Path, std\+::vector$<$ std\+::string $>$ sub\+Textures, const unsigned int Sub\+Texture\+Width, const unsigned int Sub\+Texture\+Height)
+\item 
+static bool \mbox{\hyperlink{class_resource_manager_a3f16c1be36c8671e78f7153828fdc8da}{load\+JSONResources}} (const std\+::string \&JSONPath)
+\item 
+static const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \& \mbox{\hyperlink{class_resource_manager_af977b3d15033189a130e5fba1f91ea95}{get\+Levels}} ()
+\item 
+static const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \& \mbox{\hyperlink{class_resource_manager_a489f0b8595ca491b744cbe1bc1a36564}{get\+Shops\+Screen}} ()
+\item 
+static const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{class_resource_manager_a1488383b83fa1df8dfe134407ece9641}{get\+Fight\+Screen}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+resource loading class 
+
+The class that loads all resources, such as textures, shaders, animation times, etc. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_resource_manager_aef25bb48c1ff96b8179c9f9cbb547831}\label{class_resource_manager_aef25bb48c1ff96b8179c9f9cbb547831} 
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{ResourceManager()}{ResourceManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Resource\+Manager\+::\+Resource\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_resource_manager_a58e4471be44450a9d9c8a9a695473b4d}\label{class_resource_manager_a58e4471be44450a9d9c8a9a695473b4d} 
+\index{ResourceManager@{ResourceManager}!````~ResourceManager@{\texorpdfstring{$\sim$}{\string~}ResourceManager}}
+\index{````~ResourceManager@{\texorpdfstring{$\sim$}{\string~}ResourceManager}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ResourceManager()}{\string~ResourceManager()}}
+{\footnotesize\ttfamily Resource\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Resource\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1}\label{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1} 
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{ResourceManager()}{ResourceManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Resource\+Manager\+::\+Resource\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_resource_manager_a2112fd194e0d1b9fa0b5fca2474099e5}\label{class_resource_manager_a2112fd194e0d1b9fa0b5fca2474099e5} 
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\index{ResourceManager@{ResourceManager}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{ResourceManager()}{ResourceManager()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Resource\+Manager\+::\+Resource\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_resource_manager_a1488383b83fa1df8dfe134407ece9641}\label{class_resource_manager_a1488383b83fa1df8dfe134407ece9641} 
+\index{ResourceManager@{ResourceManager}!getFightScreen@{getFightScreen}}
+\index{getFightScreen@{getFightScreen}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getFightScreen()}{getFightScreen()}}
+{\footnotesize\ttfamily static const std\+::vector$<$ std\+::string $>$ \& Resource\+Manager\+::get\+Fight\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+A static member. \begin{DoxyReturn}{Returns}
+A vector of values ​​representing the structure of the fight map 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_af977b3d15033189a130e5fba1f91ea95}\label{class_resource_manager_af977b3d15033189a130e5fba1f91ea95} 
+\index{ResourceManager@{ResourceManager}!getLevels@{getLevels}}
+\index{getLevels@{getLevels}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getLevels()}{getLevels()}}
+{\footnotesize\ttfamily static const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \& Resource\+Manager\+::get\+Levels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+A static member. \begin{DoxyReturn}{Returns}
+A vector of values ​​representing the structure of the map 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a14b822bdf28d77f1ad607e6d3e31136f}\label{class_resource_manager_a14b822bdf28d77f1ad607e6d3e31136f} 
+\index{ResourceManager@{ResourceManager}!getShader@{getShader}}
+\index{getShader@{getShader}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getShader()}{getShader()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Render\+Engine\+::\+Shader\+Program}} $>$ Resource\+Manager\+::get\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em shader\+Name} & std\+::string, shader name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to shaders programm 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a489f0b8595ca491b744cbe1bc1a36564}\label{class_resource_manager_a489f0b8595ca491b744cbe1bc1a36564} 
+\index{ResourceManager@{ResourceManager}!getShopsScreen@{getShopsScreen}}
+\index{getShopsScreen@{getShopsScreen}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getShopsScreen()}{getShopsScreen()}}
+{\footnotesize\ttfamily static const std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \& Resource\+Manager\+::get\+Shops\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+A static member. \begin{DoxyReturn}{Returns}
+A vector of values ​​representing the structure of the shop 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_aaffa9a94ed0879b2283e1e8a6fef213f}\label{class_resource_manager_aaffa9a94ed0879b2283e1e8a6fef213f} 
+\index{ResourceManager@{ResourceManager}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Render\+Engine\+::\+Sprite}} $>$ Resource\+Manager\+::get\+Sprite (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sprite\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sprite\+Name} & std\+::string, sprite name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to sprite 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a513bb365ad35de480e8c2d3fd7ad64f2}\label{class_resource_manager_a513bb365ad35de480e8c2d3fd7ad64f2} 
+\index{ResourceManager@{ResourceManager}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ Resource\+Manager\+::get\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em texture\+Name} & std\+::string, texture name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to texture 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a3f16c1be36c8671e78f7153828fdc8da}\label{class_resource_manager_a3f16c1be36c8671e78f7153828fdc8da} 
+\index{ResourceManager@{ResourceManager}!loadJSONResources@{loadJSONResources}}
+\index{loadJSONResources@{loadJSONResources}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{loadJSONResources()}{loadJSONResources()}}
+{\footnotesize\ttfamily bool Resource\+Manager\+::load\+JSONResources (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{JSONPath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_resource_manager_a66a2f48375635446866f8028b468d493}{load\+Shader\+Program()} 
+
+\doxylink{class_resource_manager_a09da9a2545cd0ae8d8c5ffe22ee95326}{load\+Texture\+Atlas()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em JSONPath} & std\+::string, path to JSON file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+results of parsing a JSON file and loading data from it 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a66a2f48375635446866f8028b468d493}\label{class_resource_manager_a66a2f48375635446866f8028b468d493} 
+\index{ResourceManager@{ResourceManager}!loadShaderProgram@{loadShaderProgram}}
+\index{loadShaderProgram@{loadShaderProgram}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{loadShaderProgram()}{loadShaderProgram()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Render\+Engine\+::\+Shader\+Program}} $>$ Resource\+Manager\+::load\+Shader\+Program (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Name,  }\item[{const std\+::string \&}]{vertex\+Path,  }\item[{const std\+::string \&}]{fragment\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_resource_manager_a8f0a12e2880872509619fd3421ccaf81}{set\+Executable\+Path()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em shader\+Name} & std\+::string, shader name \\
+\hline
+\mbox{\texttt{ in}}  & {\em vertex\+Path} & std\+::string, path to the file with vertex shaders \\
+\hline
+\mbox{\texttt{ in}}  & {\em fragment\+Path} & std\+::string, path to the file with fragment shaders \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to shaders program 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a92cfb8aa5044020689d9ff9a0ba730e0}\label{class_resource_manager_a92cfb8aa5044020689d9ff9a0ba730e0} 
+\index{ResourceManager@{ResourceManager}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_sprite}{Render\+Engine\+::\+Sprite}} $>$ Resource\+Manager\+::load\+Sprite (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sprite\+Name,  }\item[{const std\+::string \&}]{texture\+Name,  }\item[{const std\+::string \&}]{shader\+Name,  }\item[{const std\+::string \&}]{sub\+Texture\+Name = {\ttfamily "{}default"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_resource_manager_a513bb365ad35de480e8c2d3fd7ad64f2}{get\+Texture()} 
+
+\doxylink{class_resource_manager_a14b822bdf28d77f1ad607e6d3e31136f}{get\+Shader()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sprite\+Name} & std\+::string, sprite name \\
+\hline
+\mbox{\texttt{ in}}  & {\em texture\+Name} & std\+::string, texutre name \\
+\hline
+\mbox{\texttt{ in}}  & {\em shader\+Name} & std\+::string, shader\+Name name \\
+\hline
+\mbox{\texttt{ in}}  & {\em sub\+Texture\+Name} & std\+::string, subtexture name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to sprite 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a32b8e7bfa42b0c04d7ed04e17220077e}\label{class_resource_manager_a32b8e7bfa42b0c04d7ed04e17220077e} 
+\index{ResourceManager@{ResourceManager}!loadTexture@{loadTexture}}
+\index{loadTexture@{loadTexture}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ Resource\+Manager\+::load\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name,  }\item[{const std\+::string \&}]{texture\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em texture\+Name} & std\+::string, texture name \\
+\hline
+\mbox{\texttt{ in}}  & {\em texture\+Path} & std\+::string, path to the file with texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to texture 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a09da9a2545cd0ae8d8c5ffe22ee95326}\label{class_resource_manager_a09da9a2545cd0ae8d8c5ffe22ee95326} 
+\index{ResourceManager@{ResourceManager}!loadTextureAtlas@{loadTextureAtlas}}
+\index{loadTextureAtlas@{loadTextureAtlas}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{loadTextureAtlas()}{loadTextureAtlas()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Render\+Engine\+::\+Texture2D}} $>$ Resource\+Manager\+::load\+Texture\+Atlas (\begin{DoxyParamCaption}\item[{std\+::string}]{texturename,  }\item[{std\+::string}]{texture\+Path,  }\item[{std\+::vector$<$ std\+::string $>$}]{sub\+Textures,  }\item[{const unsigned int}]{Sub\+Texture\+Width,  }\item[{const unsigned int}]{Sub\+Texture\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_resource_manager_a32b8e7bfa42b0c04d7ed04e17220077e}{load\+Texture()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em texture\+Name} & std\+::string, texutre name \\
+\hline
+\mbox{\texttt{ in}}  & {\em sub\+Textures} & std\+::string, subtexture name \\
+\hline
+\mbox{\texttt{ in}}  & {\em Sub\+Texture\+Width} & unsigned int, subtexture width \\
+\hline
+\mbox{\texttt{ in}}  & {\em Sub\+Texture\+Height} & unsigned int, subtexture height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to texture atlas 
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0}\label{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0} 
+\index{ResourceManager@{ResourceManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& Resource\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_resource_manager_a60d8524043be673959b061a3c04f2a02}\label{class_resource_manager_a60d8524043be673959b061a3c04f2a02} 
+\index{ResourceManager@{ResourceManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& Resource\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_resource_manager_a8f0a12e2880872509619fd3421ccaf81}\label{class_resource_manager_a8f0a12e2880872509619fd3421ccaf81} 
+\index{ResourceManager@{ResourceManager}!setExecutablePath@{setExecutablePath}}
+\index{setExecutablePath@{setExecutablePath}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{setExecutablePath()}{setExecutablePath()}}
+{\footnotesize\ttfamily void Resource\+Manager\+::set\+Executable\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{executable\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Gets the path to the files 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em executable\+Path} & std\+::string\&, path to files \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_resource_manager_ac8e6c416a491f6fcc78ed682313feb4a}\label{class_resource_manager_ac8e6c416a491f6fcc78ed682313feb4a} 
+\index{ResourceManager@{ResourceManager}!unloadAllResources@{unloadAllResources}}
+\index{unloadAllResources@{unloadAllResources}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{unloadAllResources()}{unloadAllResources()}}
+{\footnotesize\ttfamily void Resource\+Manager\+::unload\+All\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Unloads all resources 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Resources/\mbox{\hyperlink{_resource_manager_8h}{Resource\+Manager.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Resources/\mbox{\hyperlink{_resource_manager_8cpp}{Resource\+Manager.\+cpp}}\end{DoxyCompactItemize}

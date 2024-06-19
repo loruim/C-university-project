@@ -1,0 +1,394 @@
+\doxysection{Fight\+Screen Class Reference}
+\hypertarget{class_fight_screen}{}\label{class_fight_screen}\index{FightScreen@{FightScreen}}
+
+
+{\ttfamily \#include $<$Fight\+Screen.\+h$>$}
+
+Inheritance diagram for Fight\+Screen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fight_screen}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fight_screen_a1af0211ac58a9c3d3d136745d39be7b8}{Fight\+Screen}} (const std\+::vector$<$ std\+::string $>$ \&fight\+Screen\+Description, \mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}p\+Game, std\+::array$<$ bool, 6 $>$ what\+Unit\+Have, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$ enemy)
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update}} (const double delta) override
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key}} (std\+::array$<$ bool, 349 $>$ keys) override
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse}} (std\+::array$<$ bool, 8 $>$ mouse\+Buttons) override
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position}} (double mouseX, double mouseY) override
+\item 
+virtual void \mbox{\hyperlink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics}} () override
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_a11b1042eddcd22ae4287731a318843c1}{get\+Allies\+Respawn\+\_\+1}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_a5e5e2a22bac4e49c56b1a8ffd5342df7}{get\+Allies\+Respawn\+\_\+2}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_aeb8afd0820aec9b0ab85c6484eaa00d3}{get\+Allies\+Respawn\+\_\+3}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_a02e72b0daa538a65147940a56d4f6464}{get\+Enemy\+Respawn\+\_\+1}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_addb044447a74936f9b31bb5715f57a21}{get\+Enemy\+Respawn\+\_\+2}} () const
+\item 
+const glm\+::ivec2 \& \mbox{\hyperlink{class_fight_screen_ad8bf69f25dc9a0340f5d59fb174ec218}{get\+Enemy\+Respawn\+\_\+3}} () const
+\item 
+virtual unsigned int \mbox{\hyperlink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width}} () const override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height}} () const override
+\item 
+void \mbox{\hyperlink{class_fight_screen_a2ab2b7cfbdeae7abd9eecb5128cfb1c4}{Possible\+Move}} (const uint8\+\_\+t speed, glm\+::vec2 \&left\+Bottom, glm\+::vec2 \&right\+Top, const glm\+::vec2 \&current\+Position)
+\item 
+void \mbox{\hyperlink{class_fight_screen_add352def41ed870554d5bc749bf55576}{Enemy\+Units}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_game_state}{IGame\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c}{\texorpdfstring{$\sim$}{\string~}\+IGame\+State}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}} = 16
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_fight_screen_a3af5eeeabf89d1e309f136d46005c01a}{STARTSCREEN\+\_\+\+WIDTH}} = 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_fight_screen_a50e71d25692ed7d5a7df18a111b2b9c4}{STARTSCREEN\+\_\+\+HEIGHT}} = 12 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}
+\item 
+static constexpr glm\+::vec2 \mbox{\hyperlink{class_fight_screen_ac887455e8e1e37b835c4e80bce5e9abe}{LEFT\+\_\+\+BOTTOM\+\_\+\+FIELD}} = \{ 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}, 0\}
+\item 
+static constexpr glm\+::vec2 \mbox{\hyperlink{class_fight_screen_afb73cc1ea70b7219d8845d3012b5eb08}{RIGHT\+\_\+\+BOTTOM\+\_\+\+FIELD}} = \{ 7 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}, 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}} \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fight_screen_a1af0211ac58a9c3d3d136745d39be7b8}\label{class_fight_screen_a1af0211ac58a9c3d3d136745d39be7b8} 
+\index{FightScreen@{FightScreen}!FightScreen@{FightScreen}}
+\index{FightScreen@{FightScreen}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{FightScreen()}{FightScreen()}}
+{\footnotesize\ttfamily Fight\+Screen\+::\+Fight\+Screen (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{fight\+Screen\+Description,  }\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{p\+Game,  }\item[{std\+::array$<$ bool, 6 $>$}]{what\+Unit\+Have,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_hero}{Hero}} $>$}]{enemy }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fight_screen_add352def41ed870554d5bc749bf55576}\label{class_fight_screen_add352def41ed870554d5bc749bf55576} 
+\index{FightScreen@{FightScreen}!EnemyUnits@{EnemyUnits}}
+\index{EnemyUnits@{EnemyUnits}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{EnemyUnits()}{EnemyUnits()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::\+Enemy\+Units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_fight_screen_a11b1042eddcd22ae4287731a318843c1}\label{class_fight_screen_a11b1042eddcd22ae4287731a318843c1} 
+\index{FightScreen@{FightScreen}!getAlliesRespawn\_1@{getAlliesRespawn\_1}}
+\index{getAlliesRespawn\_1@{getAlliesRespawn\_1}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getAlliesRespawn\_1()}{getAlliesRespawn\_1()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Allies\+Respawn\+\_\+1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_a5e5e2a22bac4e49c56b1a8ffd5342df7}\label{class_fight_screen_a5e5e2a22bac4e49c56b1a8ffd5342df7} 
+\index{FightScreen@{FightScreen}!getAlliesRespawn\_2@{getAlliesRespawn\_2}}
+\index{getAlliesRespawn\_2@{getAlliesRespawn\_2}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getAlliesRespawn\_2()}{getAlliesRespawn\_2()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Allies\+Respawn\+\_\+2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_aeb8afd0820aec9b0ab85c6484eaa00d3}\label{class_fight_screen_aeb8afd0820aec9b0ab85c6484eaa00d3} 
+\index{FightScreen@{FightScreen}!getAlliesRespawn\_3@{getAlliesRespawn\_3}}
+\index{getAlliesRespawn\_3@{getAlliesRespawn\_3}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getAlliesRespawn\_3()}{getAlliesRespawn\_3()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Allies\+Respawn\+\_\+3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_a02e72b0daa538a65147940a56d4f6464}\label{class_fight_screen_a02e72b0daa538a65147940a56d4f6464} 
+\index{FightScreen@{FightScreen}!getEnemyRespawn\_1@{getEnemyRespawn\_1}}
+\index{getEnemyRespawn\_1@{getEnemyRespawn\_1}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_1()}{getEnemyRespawn\_1()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Enemy\+Respawn\+\_\+1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_addb044447a74936f9b31bb5715f57a21}\label{class_fight_screen_addb044447a74936f9b31bb5715f57a21} 
+\index{FightScreen@{FightScreen}!getEnemyRespawn\_2@{getEnemyRespawn\_2}}
+\index{getEnemyRespawn\_2@{getEnemyRespawn\_2}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_2()}{getEnemyRespawn\_2()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Enemy\+Respawn\+\_\+2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_ad8bf69f25dc9a0340f5d59fb174ec218}\label{class_fight_screen_ad8bf69f25dc9a0340f5d59fb174ec218} 
+\index{FightScreen@{FightScreen}!getEnemyRespawn\_3@{getEnemyRespawn\_3}}
+\index{getEnemyRespawn\_3@{getEnemyRespawn\_3}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getEnemyRespawn\_3()}{getEnemyRespawn\_3()}}
+{\footnotesize\ttfamily const glm\+::ivec2 \& Fight\+Screen\+::get\+Enemy\+Respawn\+\_\+3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}\label{class_fight_screen_a02a44cf1c6b8956b88307c650da84567} 
+\index{FightScreen@{FightScreen}!getStateHeight@{getStateHeight}}
+\index{getStateHeight@{getStateHeight}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getStateHeight()}{getStateHeight()}}
+{\footnotesize\ttfamily unsigned int Fight\+Screen\+::get\+State\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen height 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}\label{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0} 
+\index{FightScreen@{FightScreen}!getStateWidth@{getStateWidth}}
+\index{getStateWidth@{getStateWidth}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{getStateWidth()}{getStateWidth()}}
+{\footnotesize\ttfamily unsigned int Fight\+Screen\+::get\+State\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen width 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}\label{class_fight_screen_a15f565075ab3ee5c885fec26f535d056} 
+\index{FightScreen@{FightScreen}!initPhysics@{initPhysics}}
+\index{initPhysics@{initPhysics}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{initPhysics()}{initPhysics()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::init\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_a2ab2b7cfbdeae7abd9eecb5128cfb1c4}\label{class_fight_screen_a2ab2b7cfbdeae7abd9eecb5128cfb1c4} 
+\index{FightScreen@{FightScreen}!PossibleMove@{PossibleMove}}
+\index{PossibleMove@{PossibleMove}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{PossibleMove()}{PossibleMove()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::\+Possible\+Move (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{speed,  }\item[{glm\+::vec2 \&}]{left\+Bottom,  }\item[{glm\+::vec2 \&}]{right\+Top,  }\item[{const glm\+::vec2 \&}]{current\+Position }\end{DoxyParamCaption})}
+
+\Hypertarget{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}\label{class_fight_screen_a7967de0c171905c3c89d1920b21157a4} 
+\index{FightScreen@{FightScreen}!processInputKey@{processInputKey}}
+\index{processInputKey@{processInputKey}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{processInputKey()}{processInputKey()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::process\+Input\+Key (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 349 $>$}]{keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em keys} & array of key numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}\label{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63} 
+\index{FightScreen@{FightScreen}!processInputMouse@{processInputMouse}}
+\index{processInputMouse@{processInputMouse}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{processInputMouse()}{processInputMouse()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::process\+Input\+Mouse (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 8 $>$}]{mouse\+Buttons }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mouse\+Buttons} & array of mouse button numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}\label{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512} 
+\index{FightScreen@{FightScreen}!processSetMousePosition@{processSetMousePosition}}
+\index{processSetMousePosition@{processSetMousePosition}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{processSetMousePosition()}{processSetMousePosition()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::process\+Set\+Mouse\+Position (\begin{DoxyParamCaption}\item[{double}]{mouseX,  }\item[{double}]{mouseY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mouseX} & mouse X coordinates. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mouseY} & mouse Y coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_acf23f229d381b1484232b9c327b38df7}\label{class_fight_screen_acf23f229d381b1484232b9c327b38df7} 
+\index{FightScreen@{FightScreen}!render@{render}}
+\index{render@{render}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for rendering in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{IGame\+State}}.
+
+\Hypertarget{class_fight_screen_a8351d322cf455589a23973e14ec920f3}\label{class_fight_screen_a8351d322cf455589a23973e14ec920f3} 
+\index{FightScreen@{FightScreen}!update@{update}}
+\index{update@{update}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Fight\+Screen\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for updating in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render()} 
+
+\doxylink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{process\+Input\+Key()} 
+
+\doxylink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{process\+Input\+Mouse()} 
+
+\doxylink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{init\+Physics()} 
+
+\doxylink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{get\+State\+Width()} 
+
+\doxylink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & update time. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{IGame\+State}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fight_screen_a6414178d821a04a70d020ff760008702}\label{class_fight_screen_a6414178d821a04a70d020ff760008702} 
+\index{FightScreen@{FightScreen}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily constexpr unsigned int Fight\+Screen\+::\+BLOCK\+\_\+\+SIZE = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_fight_screen_ac887455e8e1e37b835c4e80bce5e9abe}\label{class_fight_screen_ac887455e8e1e37b835c4e80bce5e9abe} 
+\index{FightScreen@{FightScreen}!LEFT\_BOTTOM\_FIELD@{LEFT\_BOTTOM\_FIELD}}
+\index{LEFT\_BOTTOM\_FIELD@{LEFT\_BOTTOM\_FIELD}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{LEFT\_BOTTOM\_FIELD}{LEFT\_BOTTOM\_FIELD}}
+{\footnotesize\ttfamily constexpr glm\+::vec2 Fight\+Screen\+::\+LEFT\+\_\+\+BOTTOM\+\_\+\+FIELD = \{ 2 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}, 0\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_fight_screen_afb73cc1ea70b7219d8845d3012b5eb08}\label{class_fight_screen_afb73cc1ea70b7219d8845d3012b5eb08} 
+\index{FightScreen@{FightScreen}!RIGHT\_BOTTOM\_FIELD@{RIGHT\_BOTTOM\_FIELD}}
+\index{RIGHT\_BOTTOM\_FIELD@{RIGHT\_BOTTOM\_FIELD}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{RIGHT\_BOTTOM\_FIELD}{RIGHT\_BOTTOM\_FIELD}}
+{\footnotesize\ttfamily constexpr glm\+::vec2 Fight\+Screen\+::\+RIGHT\+\_\+\+BOTTOM\+\_\+\+FIELD = \{ 7 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}, 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}} \}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_fight_screen_a50e71d25692ed7d5a7df18a111b2b9c4}\label{class_fight_screen_a50e71d25692ed7d5a7df18a111b2b9c4} 
+\index{FightScreen@{FightScreen}!STARTSCREEN\_HEIGHT@{STARTSCREEN\_HEIGHT}}
+\index{STARTSCREEN\_HEIGHT@{STARTSCREEN\_HEIGHT}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{STARTSCREEN\_HEIGHT}{STARTSCREEN\_HEIGHT}}
+{\footnotesize\ttfamily constexpr unsigned int Fight\+Screen\+::\+STARTSCREEN\+\_\+\+HEIGHT = 12 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_fight_screen_a3af5eeeabf89d1e309f136d46005c01a}\label{class_fight_screen_a3af5eeeabf89d1e309f136d46005c01a} 
+\index{FightScreen@{FightScreen}!STARTSCREEN\_WIDTH@{STARTSCREEN\_WIDTH}}
+\index{STARTSCREEN\_WIDTH@{STARTSCREEN\_WIDTH}!FightScreen@{FightScreen}}
+\doxysubsubsection{\texorpdfstring{STARTSCREEN\_WIDTH}{STARTSCREEN\_WIDTH}}
+{\footnotesize\ttfamily constexpr unsigned int Fight\+Screen\+::\+STARTSCREEN\+\_\+\+WIDTH = 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\+\_\+\+SIZE}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_fight_screen_8h}{Fight\+Screen.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_fight_screen_8cpp}{Fight\+Screen.\+cpp}}\end{DoxyCompactItemize}

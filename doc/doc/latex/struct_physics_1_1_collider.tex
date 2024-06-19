@@ -1,0 +1,101 @@
+\doxysection{Physics\+::Collider Struct Reference}
+\hypertarget{struct_physics_1_1_collider}{}\label{struct_physics_1_1_collider}\index{Physics::Collider@{Physics::Collider}}
+
+
+collider texture  
+
+
+
+
+{\ttfamily \#include $<$Physics\+Engine.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_physics_1_1_collider_a3ba01f4a44db9f03235e852bb010a127}{Collider}} (const glm\+::vec2 \&\+\_\+bottom\+Left, const glm\+::vec2 \&\+\_\+top\+Right, std\+::function$<$ void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} \&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$ \+\_\+on\+Collision\+Callback=\{\})
+\item 
+\mbox{\hyperlink{struct_physics_1_1_collider_a7804c2440053a01685be6ffec3df36b9}{Collider}} (const \mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}} \&\+\_\+bounding\+Box, std\+::function$<$ void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} \&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$ \+\_\+on\+Collision\+Callback=\{\})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}} \mbox{\hyperlink{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b}{bounding\+Box}}
+\begin{DoxyCompactList}\small\item\em struct variable. stores four coordinates, lower left and upper right corner \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39}{is\+Active}}
+\begin{DoxyCompactList}\small\item\em indicator whether an object has a collision \end{DoxyCompactList}\item 
+std\+::function$<$ void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} \&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$ \mbox{\hyperlink{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b}{on\+Collision\+Callback}}
+\begin{DoxyCompactList}\small\item\em receives data about which texture received a collision and from which side \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+collider texture 
+
+checks if the texture has a collision 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_physics_1_1_collider_a3ba01f4a44db9f03235e852bb010a127}\label{struct_physics_1_1_collider_a3ba01f4a44db9f03235e852bb010a127} 
+\index{Physics::Collider@{Physics::Collider}!Collider@{Collider}}
+\index{Collider@{Collider}!Physics::Collider@{Physics::Collider}}
+\doxysubsubsection{\texorpdfstring{Collider()}{Collider()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Physics\+::\+Collider\+::\+Collider (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{\+\_\+bottom\+Left,  }\item[{const glm\+::vec2 \&}]{\+\_\+top\+Right,  }\item[{std\+::function$<$ void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} \&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$}]{\+\_\+on\+Collision\+Callback = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A constructor. First overload 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+bottom\+Left} & glm\+::vec2\&, coordinates of the lower left point \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+top\+Right} & glm\+::vec2\&, coordinates of the upper right point \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+on\+Collision\+Callback} & std\+::function$<$void(const IGame\+Object\&, const ECollision\+Direction)$>$, receives data about which texture received a collision and from which side \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_physics_1_1_collider_a7804c2440053a01685be6ffec3df36b9}\label{struct_physics_1_1_collider_a7804c2440053a01685be6ffec3df36b9} 
+\index{Physics::Collider@{Physics::Collider}!Collider@{Collider}}
+\index{Collider@{Collider}!Physics::Collider@{Physics::Collider}}
+\doxysubsubsection{\texorpdfstring{Collider()}{Collider()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Physics\+::\+Collider\+::\+Collider (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}} \&}]{\+\_\+bounding\+Box,  }\item[{std\+::function$<$ void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} \&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$}]{\+\_\+on\+Collision\+Callback = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A constructor. Second overload 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \+\_\+bounding\+Box} & \doxylink{struct_physics_1_1_a_a_b_b}{AABB}\&, struct variable, stores four coordinates, lower left and upper right corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em \+\_\+on\+Collision\+Callback} & std\+::function$<$void(const IGame\+Object\&, const ECollision\+Direction)$>$, receives data about which texture received a collision and from which side \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b}\label{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b} 
+\index{Physics::Collider@{Physics::Collider}!boundingBox@{boundingBox}}
+\index{boundingBox@{boundingBox}!Physics::Collider@{Physics::Collider}}
+\doxysubsubsection{\texorpdfstring{boundingBox}{boundingBox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}} Physics\+::\+Collider\+::bounding\+Box}
+
+
+
+struct variable. stores four coordinates, lower left and upper right corner 
+
+\Hypertarget{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39}\label{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39} 
+\index{Physics::Collider@{Physics::Collider}!isActive@{isActive}}
+\index{isActive@{isActive}!Physics::Collider@{Physics::Collider}}
+\doxysubsubsection{\texorpdfstring{isActive}{isActive}}
+{\footnotesize\ttfamily bool Physics\+::\+Collider\+::is\+Active}
+
+
+
+indicator whether an object has a collision 
+
+\Hypertarget{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b}\label{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b} 
+\index{Physics::Collider@{Physics::Collider}!onCollisionCallback@{onCollisionCallback}}
+\index{onCollisionCallback@{onCollisionCallback}!Physics::Collider@{Physics::Collider}}
+\doxysubsubsection{\texorpdfstring{onCollisionCallback}{onCollisionCallback}}
+{\footnotesize\ttfamily std\+::function$<$void(const \mbox{\hyperlink{class_i_game_object}{IGame\+Object}}\&, const \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollision\+Direction}})$>$ Physics\+::\+Collider\+::on\+Collision\+Callback}
+
+
+
+receives data about which texture received a collision and from which side 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Physics/\mbox{\hyperlink{_physics_engine_8h}{Physics\+Engine.\+h}}\end{DoxyCompactItemize}

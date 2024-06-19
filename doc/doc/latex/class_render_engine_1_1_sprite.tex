@@ -1,0 +1,210 @@
+\doxysection{Render\+Engine\+::Sprite Class Reference}
+\hypertarget{class_render_engine_1_1_sprite}{}\label{class_render_engine_1_1_sprite}\index{RenderEngine::Sprite@{RenderEngine::Sprite}}
+
+
+sprite loading class  
+
+
+
+
+{\ttfamily \#include $<$Sprite.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{Frame\+Description}}
+\begin{DoxyCompactList}\small\item\em Frame Description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_sprite_af8c1d33b98ba5e4945ed84c2d3a7e7d6}{Sprite}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}} $>$ p\+Texture, std\+::string initial\+Sub\+Texture, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} $>$ p\+Shader\+Program)
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_sprite_ad6d4de88a531d931ead5cfb19562502a}{\texorpdfstring{$\sim$}{\string~}\+Sprite}} ()
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_sprite_ad161d021d6202f3a5d79f4e7c55b19b2}{Sprite}} (const \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \&)=delete
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \& \mbox{\hyperlink{class_render_engine_1_1_sprite_a7c0f3c715b0bbef8be1414fa283d245a}{operator=}} (const \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_sprite_a821e3fe8fa256999933dd216120bbbb4}{render}} (const glm\+::vec2 \&position, const glm\+::vec2 \&size, const float rotation, const float layer=0.f, const size\+\_\+t frame\+ID=0) const
+\item 
+double \mbox{\hyperlink{class_render_engine_1_1_sprite_ab4bf9b3527fe035ad0e59a23f16c0116}{get\+Frame\+Duration}} (const size\+\_\+t frame\+ID) const
+\item 
+size\+\_\+t \mbox{\hyperlink{class_render_engine_1_1_sprite_a06bde6757cfc90df4b6f959bad9c7684}{get\+Frames\+Count}} () const
+\item 
+void \mbox{\hyperlink{class_render_engine_1_1_sprite_aa85616698bef2a6b60f261a547fc7496}{insert\+Frames}} (std\+::vector$<$ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{Frame\+Description}} $>$ frames\+Descriptions)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}} $>$ \mbox{\hyperlink{class_render_engine_1_1_sprite_a9eb6a2e618984f5c86c7d61b7eeceec6}{m\+\_\+p\+Texture}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{class_render_engine_1_1_sprite_a71555ad4619b3ac5e3f7d2af16d52d2f}{m\+\_\+p\+Shader\+Program}}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_vertex_array}{Vertex\+Array}} \mbox{\hyperlink{class_render_engine_1_1_sprite_aca80b6815eed18e5cb11314bb6c74546}{m\+\_\+vertex\+Array}}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{Vertex\+Buffer}} \mbox{\hyperlink{class_render_engine_1_1_sprite_a814af86bd7f6d6c6661b93432b003b30}{m\+\_\+vertex\+Coord\+Buffer}}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{Vertex\+Buffer}} \mbox{\hyperlink{class_render_engine_1_1_sprite_a02058738d20a7bb04efd108cb2197ee1}{m\+\_\+texture\+Coord\+Buffer}}
+\item 
+\mbox{\hyperlink{class_render_engine_1_1_index_buffer}{Index\+Buffer}} \mbox{\hyperlink{class_render_engine_1_1_sprite_a14f11465d20fa1719d87b2dc63690955}{m\+\_\+\+Index\+Buffer}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{Frame\+Description}} $>$ \mbox{\hyperlink{class_render_engine_1_1_sprite_aed13d68ceece4ce2691ae87cbbab4b62}{m\+\_\+frames\+Descriptions}}
+\begin{DoxyCompactList}\small\item\em vector structure elements \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_render_engine_1_1_sprite_a15194f4a47d09e89552ba50d9c8bcee1}{m\+\_\+last\+Frame\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+sprite loading class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_render_engine_1_1_sprite_af8c1d33b98ba5e4945ed84c2d3a7e7d6}\label{class_render_engine_1_1_sprite_af8c1d33b98ba5e4945ed84c2d3a7e7d6} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{Sprite()}{Sprite()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Sprite\+::\+Sprite (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}} $>$}]{p\+Texture,  }\item[{std\+::string}]{initial\+Sub\+Texture,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}} $>$}]{p\+Shader\+Program }\end{DoxyParamCaption})}
+
+A constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Texture} & std\+::shared\+\_\+ptr$<$\+Texture2\+D$>$, texture pointer \\
+\hline
+\mbox{\texttt{ in}}  & {\em initial\+Sub\+Texture} & std\+::string, name sub\+Texture \\
+\hline
+\mbox{\texttt{ in}}  & {\em p\+Shader\+Program} & std\+::shared\+\_\+ptr$<$\+Shader\+Program$>$, pointer on shader \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_sprite_ad6d4de88a531d931ead5cfb19562502a}\label{class_render_engine_1_1_sprite_ad6d4de88a531d931ead5cfb19562502a} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!````~Sprite@{\texorpdfstring{$\sim$}{\string~}Sprite}}
+\index{````~Sprite@{\texorpdfstring{$\sim$}{\string~}Sprite}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Sprite()}{\string~Sprite()}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Sprite\+::\texorpdfstring{$\sim$}{\string~}\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+A disconstructor \Hypertarget{class_render_engine_1_1_sprite_ad161d021d6202f3a5d79f4e7c55b19b2}\label{class_render_engine_1_1_sprite_ad161d021d6202f3a5d79f4e7c55b19b2} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{Sprite()}{Sprite()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Render\+Engine\+::\+Sprite\+::\+Sprite (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_engine_1_1_sprite_ab4bf9b3527fe035ad0e59a23f16c0116}\label{class_render_engine_1_1_sprite_ab4bf9b3527fe035ad0e59a23f16c0116} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!getFrameDuration@{getFrameDuration}}
+\index{getFrameDuration@{getFrameDuration}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{getFrameDuration()}{getFrameDuration()}}
+{\footnotesize\ttfamily double Render\+Engine\+::\+Sprite\+::get\+Frame\+Duration (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{frame\+ID }\end{DoxyParamCaption}) const}
+
+A const member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em frame\+ID} & size\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frame Duration 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_sprite_a06bde6757cfc90df4b6f959bad9c7684}\label{class_render_engine_1_1_sprite_a06bde6757cfc90df4b6f959bad9c7684} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!getFramesCount@{getFramesCount}}
+\index{getFramesCount@{getFramesCount}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{getFramesCount()}{getFramesCount()}}
+{\footnotesize\ttfamily size\+\_\+t Render\+Engine\+::\+Sprite\+::get\+Frames\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+A const member. \begin{DoxyReturn}{Returns}
+frame count 
+\end{DoxyReturn}
+\Hypertarget{class_render_engine_1_1_sprite_aa85616698bef2a6b60f261a547fc7496}\label{class_render_engine_1_1_sprite_aa85616698bef2a6b60f261a547fc7496} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!insertFrames@{insertFrames}}
+\index{insertFrames@{insertFrames}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{insertFrames()}{insertFrames()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Sprite\+::insert\+Frames (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{Frame\+Description}} $>$}]{frames\+Descriptions }\end{DoxyParamCaption})}
+
+A const member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em frames\+Descriptions} & std\+::vector$<$\+Frame\+Description$>$ \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_render_engine_1_1_sprite_a7c0f3c715b0bbef8be1414fa283d245a}\label{class_render_engine_1_1_sprite_a7c0f3c715b0bbef8be1414fa283d245a} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!operator=@{operator=}}
+\index{operator=@{operator=}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \& Render\+Engine\+::\+Sprite\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_render_engine_1_1_sprite}{Sprite}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a821e3fe8fa256999933dd216120bbbb4}\label{class_render_engine_1_1_sprite_a821e3fe8fa256999933dd216120bbbb4} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!render@{render}}
+\index{render@{render}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Render\+Engine\+::\+Sprite\+::render (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{position,  }\item[{const glm\+::vec2 \&}]{size,  }\item[{const float}]{rotation,  }\item[{const float}]{layer = {\ttfamily 0.f},  }\item[{const size\+\_\+t}]{frame\+ID = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+A member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em position} & glm\+::vec2\& \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & glm\+::vec2\& \\
+\hline
+\mbox{\texttt{ in}}  & {\em rotation} & float \\
+\hline
+\mbox{\texttt{ in}}  & {\em layer} & float \\
+\hline
+\mbox{\texttt{ in}}  & {\em frame\+ID} & size\+\_\+t, the last frame \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_render_engine_1_1_sprite_aed13d68ceece4ce2691ae87cbbab4b62}\label{class_render_engine_1_1_sprite_aed13d68ceece4ce2691ae87cbbab4b62} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_framesDescriptions@{m\_framesDescriptions}}
+\index{m\_framesDescriptions@{m\_framesDescriptions}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_framesDescriptions}{m\_framesDescriptions}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_render_engine_1_1_sprite_1_1_frame_description}{Frame\+Description}}$>$ Render\+Engine\+::\+Sprite\+::m\+\_\+frames\+Descriptions\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+vector structure elements 
+
+\Hypertarget{class_render_engine_1_1_sprite_a14f11465d20fa1719d87b2dc63690955}\label{class_render_engine_1_1_sprite_a14f11465d20fa1719d87b2dc63690955} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_IndexBuffer@{m\_IndexBuffer}}
+\index{m\_IndexBuffer@{m\_IndexBuffer}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_IndexBuffer}{m\_IndexBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_index_buffer}{Index\+Buffer}} Render\+Engine\+::\+Sprite\+::m\+\_\+\+Index\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a15194f4a47d09e89552ba50d9c8bcee1}\label{class_render_engine_1_1_sprite_a15194f4a47d09e89552ba50d9c8bcee1} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_lastFrameID@{m\_lastFrameID}}
+\index{m\_lastFrameID@{m\_lastFrameID}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_lastFrameID}{m\_lastFrameID}}
+{\footnotesize\ttfamily size\+\_\+t Render\+Engine\+::\+Sprite\+::m\+\_\+last\+Frame\+ID\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a71555ad4619b3ac5e3f7d2af16d52d2f}\label{class_render_engine_1_1_sprite_a71555ad4619b3ac5e3f7d2af16d52d2f} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_pShaderProgram@{m\_pShaderProgram}}
+\index{m\_pShaderProgram@{m\_pShaderProgram}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_pShaderProgram}{m\_pShaderProgram}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_render_engine_1_1_shader_program}{Shader\+Program}}$>$ Render\+Engine\+::\+Sprite\+::m\+\_\+p\+Shader\+Program\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a9eb6a2e618984f5c86c7d61b7eeceec6}\label{class_render_engine_1_1_sprite_a9eb6a2e618984f5c86c7d61b7eeceec6} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_pTexture@{m\_pTexture}}
+\index{m\_pTexture@{m\_pTexture}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_pTexture}{m\_pTexture}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_render_engine_1_1_texture2_d}{Texture2D}}$>$ Render\+Engine\+::\+Sprite\+::m\+\_\+p\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a02058738d20a7bb04efd108cb2197ee1}\label{class_render_engine_1_1_sprite_a02058738d20a7bb04efd108cb2197ee1} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_textureCoordBuffer@{m\_textureCoordBuffer}}
+\index{m\_textureCoordBuffer@{m\_textureCoordBuffer}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_textureCoordBuffer}{m\_textureCoordBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{Vertex\+Buffer}} Render\+Engine\+::\+Sprite\+::m\+\_\+texture\+Coord\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_aca80b6815eed18e5cb11314bb6c74546}\label{class_render_engine_1_1_sprite_aca80b6815eed18e5cb11314bb6c74546} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_vertexArray@{m\_vertexArray}}
+\index{m\_vertexArray@{m\_vertexArray}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_vertexArray}{m\_vertexArray}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_vertex_array}{Vertex\+Array}} Render\+Engine\+::\+Sprite\+::m\+\_\+vertex\+Array\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_render_engine_1_1_sprite_a814af86bd7f6d6c6661b93432b003b30}\label{class_render_engine_1_1_sprite_a814af86bd7f6d6c6661b93432b003b30} 
+\index{RenderEngine::Sprite@{RenderEngine::Sprite}!m\_vertexCoordBuffer@{m\_vertexCoordBuffer}}
+\index{m\_vertexCoordBuffer@{m\_vertexCoordBuffer}!RenderEngine::Sprite@{RenderEngine::Sprite}}
+\doxysubsubsection{\texorpdfstring{m\_vertexCoordBuffer}{m\_vertexCoordBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_render_engine_1_1_vertex_buffer}{Vertex\+Buffer}} Render\+Engine\+::\+Sprite\+::m\+\_\+vertex\+Coord\+Buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_sprite_8h}{Sprite.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Renderer/\mbox{\hyperlink{_sprite_8cpp}{Sprite.\+cpp}}\end{DoxyCompactItemize}

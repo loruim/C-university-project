@@ -1,0 +1,70 @@
+\doxysection{Level.\+h}
+\hypertarget{_level_8h_source}{}\label{_level_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameState/Level.h@{C:/Studies/Project/HMM/src/Game/GameState/Level.h}}
+\mbox{\hyperlink{_level_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_state_8h}{IGameState.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_game_object}{IGameObject}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_hero}{Hero}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_level}{Level}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_state}{IGameState}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_level_a44a733756f70aa4c0ea7201ab58d8128}{BLOCK\_SIZE}}\ =\ 16;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_level}{Level}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ levelDescription,\ \mbox{\hyperlink{class_game}{Game}}*\ pGame,\ \textcolor{keywordtype}{bool}\ enemyLeftLive,\ \textcolor{keywordtype}{bool}\ enemyMiddleLive,\ \textcolor{keywordtype}{bool}\ enemyRightLive);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_level_a67665b537f9a4cf98b1fb7a1921addb2}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_level_a1655bfd53bbb1bef889a83103b69e23b}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_level_ab0420362add74e363b944d07a3801d87}{getStateWidth}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_level_aa290d9ea741f29c04a9ab060c50aee3c}{getStateHeight}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_level_ac401b5113a9a91289bf476ca195fa48b}{processInputKey}}(std::array<bool,\ 349>\ keys)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_level_aef12df3cf970f42e0a59dc6c9639af9a}{getPlayerRespawn}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_playerRespawn;\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_level_a4413e6c0c1fb7062019209fe38eee31a}{getEnemyRespawn\_1}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_1;\ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_level_a3afcaf8a7b8f010523224edf0b02389a}{getEnemyRespawn\_2}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_2;\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_level_ad486c98c7b26fa52b1ce5f4e5880ddde}{getEnemyRespawn\_3}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_3;\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::shared\_ptr<IGameObject>>\ \mbox{\hyperlink{class_level_abb641ca14443d7e2aeccbadbf30752ad}{getObjectsInArea}}(\textcolor{keyword}{const}\ glm::vec2\&\ bottomLeft,\ \textcolor{keyword}{const}\ glm::vec2\&\ topRight);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_level_a26b193d1f6bde08d7238d9643352122a}{initPhysics}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::shared\_ptr<Hero>\ \mbox{\hyperlink{class_level_a00149df68b9c34e68465dd44e0f8f8bb}{GetHeroPointer}}()\ \{\ \textcolor{keywordflow}{return}\ m\_pHero;\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}*\ m\_pGame;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_widthBlocks\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_heightBlocks\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_widhtPixel\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_heightPixel\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ glm::ivec2\ m\_playerRespawn;}
+\DoxyCodeLine{00047\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_1;}
+\DoxyCodeLine{00048\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_2;}
+\DoxyCodeLine{00049\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_3;}
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<std::shared\_ptr<IGameObject>>\ m\_mapObject;}
+\DoxyCodeLine{00051\ \ \ \ \ std::shared\_ptr<Hero>\ m\_pHero;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyLeftIsActive;}
+\DoxyCodeLine{00054\ \ \ \ \ std::shared\_ptr<Hero>\ m\_enemyLeft;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyMiddleIsActive;}
+\DoxyCodeLine{00057\ \ \ \ \ std::shared\_ptr<Hero>\ m\_enemyMiddle;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyRightIsActive;}
+\DoxyCodeLine{00060\ \ \ \ \ std::shared\_ptr<Hero>\ m\_enemyRight;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ glm::vec2\ m\_leftEnemy\_RightTopPosition;}
+\DoxyCodeLine{00063\ \ \ \ \ glm::vec2\ m\_leftEnemy\_LeftBottomPosition;}
+\DoxyCodeLine{00064\ \};}
+
+\end{DoxyCode}

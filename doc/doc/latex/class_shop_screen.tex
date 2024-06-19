@@ -1,0 +1,295 @@
+\doxysection{Shop\+Screen Class Reference}
+\hypertarget{class_shop_screen}{}\label{class_shop_screen}\index{ShopScreen@{ShopScreen}}
+
+
+{\ttfamily \#include $<$Shop\+Screen.\+h$>$}
+
+Inheritance diagram for Shop\+Screen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shop_screen}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61}{EShops\+Type}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61abd914a3964f3062aa01aeb42e817579f}{Castle\+Shop\+Screen}}
+, \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a61543cf7533049c7774128dcc1b15f35}{Left\+Shop\+Screen\+\_\+1}}
+, \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ac576d6003b23de5e8c0422cda42d715c}{Left\+Shop\+Screen\+\_\+2}}
+, \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ab31edc2908e6ae0cebdeb7e92ba61b45}{Right\+Shop\+Screen\+\_\+1}}
+, \newline
+\mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a36183e782dcfee6fecff98b139b3a1cf}{Right\+Shop\+Screen\+\_\+2}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shop_screen_abea48352b36fce5b8bcee17f6a8f5bd2}{Shop\+Screen}} (const std\+::vector$<$ std\+::string $>$ \&shop\+Screen\+Description, \mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}p\+Game)
+\item 
+virtual void \mbox{\hyperlink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update}} (const double delta) override
+\item 
+virtual void \mbox{\hyperlink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{process\+Input\+Key}} (std\+::array$<$ bool, 349 $>$ keys) override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{get\+State\+Width}} () const override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{get\+State\+Height}} () const override
+\item 
+void \mbox{\hyperlink{class_shop_screen_a7a98563eeea5c4aa71b772752a84a63a}{set\+Shops\+Type}} (const size\+\_\+t shop\+Number)
+\item 
+void \mbox{\hyperlink{class_shop_screen_a4e29866d5ccf280aeec53124af15c0d7}{set\+Menu\+Size}} (const unsigned int new\+Menu\+Width, const unsigned int new\+Menu\+Height)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_game_state}{IGame\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_i_game_state_a5311fda56b33975b3dd82d3d506ce95c}{\texorpdfstring{$\sim$}{\string~}\+IGame\+State}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse}} (std\+::array$<$ bool, 8 $>$ mouse\+Buttons)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position}} (double mouseX, double mouseY)
+\item 
+virtual void \mbox{\hyperlink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} = 8
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_shop_screen_a0a8f534d0cfa049d33dc4e204252b427}{STARTSCREEN\+\_\+\+WIDTH}} = 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_shop_screen_aa280e3ae7fa0a4d7fc561ffce784b38c}{STARTSCREEN\+\_\+\+HEIGHT}} = 12 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2
+\item 
+static constexpr unsigned int \mbox{\hyperlink{class_shop_screen_afcb7e6fd89a57f62f473f70074064a69}{POINTER\+\_\+\+SIZE}} = \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61} 
+\index{ShopScreen@{ShopScreen}!EShopsType@{EShopsType}}
+\index{EShopsType@{EShopsType}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{EShopsType}{EShopsType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61}{Shop\+Screen\+::\+EShops\+Type}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CastleShopScreen@{CastleShopScreen}!ShopScreen@{ShopScreen}}\index{ShopScreen@{ShopScreen}!CastleShopScreen@{CastleShopScreen}}}\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61abd914a3964f3062aa01aeb42e817579f}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61abd914a3964f3062aa01aeb42e817579f} 
+Castle\+Shop\+Screen&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LeftShopScreen\_1@{LeftShopScreen\_1}!ShopScreen@{ShopScreen}}\index{ShopScreen@{ShopScreen}!LeftShopScreen\_1@{LeftShopScreen\_1}}}\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a61543cf7533049c7774128dcc1b15f35}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a61543cf7533049c7774128dcc1b15f35} 
+Left\+Shop\+Screen\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LeftShopScreen\_2@{LeftShopScreen\_2}!ShopScreen@{ShopScreen}}\index{ShopScreen@{ShopScreen}!LeftShopScreen\_2@{LeftShopScreen\_2}}}\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ac576d6003b23de5e8c0422cda42d715c}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ac576d6003b23de5e8c0422cda42d715c} 
+Left\+Shop\+Screen\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RightShopScreen\_1@{RightShopScreen\_1}!ShopScreen@{ShopScreen}}\index{ShopScreen@{ShopScreen}!RightShopScreen\_1@{RightShopScreen\_1}}}\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ab31edc2908e6ae0cebdeb7e92ba61b45}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61ab31edc2908e6ae0cebdeb7e92ba61b45} 
+Right\+Shop\+Screen\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RightShopScreen\_2@{RightShopScreen\_2}!ShopScreen@{ShopScreen}}\index{ShopScreen@{ShopScreen}!RightShopScreen\_2@{RightShopScreen\_2}}}\Hypertarget{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a36183e782dcfee6fecff98b139b3a1cf}\label{class_shop_screen_a77ec231cc596625c23fb3ae7f59afb61a36183e782dcfee6fecff98b139b3a1cf} 
+Right\+Shop\+Screen\+\_\+2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shop_screen_abea48352b36fce5b8bcee17f6a8f5bd2}\label{class_shop_screen_abea48352b36fce5b8bcee17f6a8f5bd2} 
+\index{ShopScreen@{ShopScreen}!ShopScreen@{ShopScreen}}
+\index{ShopScreen@{ShopScreen}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{ShopScreen()}{ShopScreen()}}
+{\footnotesize\ttfamily Shop\+Screen\+::\+Shop\+Screen (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{shop\+Screen\+Description,  }\item[{\mbox{\hyperlink{class_game}{Game}} \texorpdfstring{$\ast$}{*}}]{p\+Game }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}\label{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c} 
+\index{ShopScreen@{ShopScreen}!getStateHeight@{getStateHeight}}
+\index{getStateHeight@{getStateHeight}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{getStateHeight()}{getStateHeight()}}
+{\footnotesize\ttfamily unsigned int Shop\+Screen\+::get\+State\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render()} 
+
+\doxylink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update()} 
+
+\doxylink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{get\+State\+Width()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen height 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a6b38bb6053843df6da3913b68041076c}{IGame\+State}}.
+
+\Hypertarget{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}\label{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f} 
+\index{ShopScreen@{ShopScreen}!getStateWidth@{getStateWidth}}
+\index{getStateWidth@{getStateWidth}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{getStateWidth()}{getStateWidth()}}
+{\footnotesize\ttfamily unsigned int Shop\+Screen\+::get\+State\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render()} 
+
+\doxylink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update()} 
+
+\doxylink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Screen width 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a12b4e8a2e3af98f9d3fa8061a3c0ad67}{IGame\+State}}.
+
+\Hypertarget{class_shop_screen_af418028dff0e60574427d2e63d68dbae}\label{class_shop_screen_af418028dff0e60574427d2e63d68dbae} 
+\index{ShopScreen@{ShopScreen}!processInputKey@{processInputKey}}
+\index{processInputKey@{processInputKey}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{processInputKey()}{processInputKey()}}
+{\footnotesize\ttfamily void Shop\+Screen\+::process\+Input\+Key (\begin{DoxyParamCaption}\item[{std\+::array$<$ bool, 349 $>$}]{keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A virtual member. \begin{DoxySeeAlso}{See also}
+\doxylink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render()} 
+
+\doxylink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{get\+State\+Width()} 
+
+\doxylink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em keys} & array of key numbers. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_i_game_state_af4d78dd1a94966818bdc467008285d80}{IGame\+State}}.
+
+\Hypertarget{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}\label{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951} 
+\index{ShopScreen@{ShopScreen}!render@{render}}
+\index{render@{render}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Shop\+Screen\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for rendering in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}{update()} 
+
+\doxylink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{get\+State\+Width()} 
+
+\doxylink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a5140d2ddb4c4d349c790f31f9393fd76}{IGame\+State}}.
+
+\Hypertarget{class_shop_screen_a4e29866d5ccf280aeec53124af15c0d7}\label{class_shop_screen_a4e29866d5ccf280aeec53124af15c0d7} 
+\index{ShopScreen@{ShopScreen}!setMenuSize@{setMenuSize}}
+\index{setMenuSize@{setMenuSize}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{setMenuSize()}{setMenuSize()}}
+{\footnotesize\ttfamily void Shop\+Screen\+::set\+Menu\+Size (\begin{DoxyParamCaption}\item[{const unsigned int}]{new\+Menu\+Width,  }\item[{const unsigned int}]{new\+Menu\+Height }\end{DoxyParamCaption})}
+
+\Hypertarget{class_shop_screen_a7a98563eeea5c4aa71b772752a84a63a}\label{class_shop_screen_a7a98563eeea5c4aa71b772752a84a63a} 
+\index{ShopScreen@{ShopScreen}!setShopsType@{setShopsType}}
+\index{setShopsType@{setShopsType}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{setShopsType()}{setShopsType()}}
+{\footnotesize\ttfamily void Shop\+Screen\+::set\+Shops\+Type (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{shop\+Number }\end{DoxyParamCaption})}
+
+\Hypertarget{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8}\label{class_shop_screen_a6d761009a9b92b96693d0c6cb93dc4e8} 
+\index{ShopScreen@{ShopScreen}!update@{update}}
+\index{update@{update}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Shop\+Screen\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+A pure virtual member. Responsible for updating in the current frame \begin{DoxySeeAlso}{See also}
+\doxylink{class_shop_screen_a84a1f10edca8f741e9199d35c3d08951}{render()} 
+
+\doxylink{class_shop_screen_af418028dff0e60574427d2e63d68dbae}{process\+Input\+Key()} 
+
+\doxylink{class_i_game_state_a7462499453d06e562d8f034fcf1c0413}{process\+Input\+Mouse()} 
+
+\doxylink{class_i_game_state_ae7aa66feb02e9b743fe21ad498d7c912}{process\+Set\+Mouse\+Position()} 
+
+\doxylink{class_i_game_state_a9e6ddd6b943fefbd494e1417da15ceca}{init\+Physics()} 
+
+\doxylink{class_shop_screen_ae11a4c31efa4d21d69ab3ecd7cba8b9f}{get\+State\+Width()} 
+
+\doxylink{class_shop_screen_a203538d04bfa0ffe8c5e35788a5ac59c}{get\+State\+Height()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & update time. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_game_state_a367eae7df9ababe4bd05f4291cfbffd1}{IGame\+State}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shop_screen_aa39caac26302d86c97443588a26f8c12}\label{class_shop_screen_aa39caac26302d86c97443588a26f8c12} 
+\index{ShopScreen@{ShopScreen}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily constexpr unsigned int Shop\+Screen\+::\+BLOCK\+\_\+\+SIZE = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_shop_screen_afcb7e6fd89a57f62f473f70074064a69}\label{class_shop_screen_afcb7e6fd89a57f62f473f70074064a69} 
+\index{ShopScreen@{ShopScreen}!POINTER\_SIZE@{POINTER\_SIZE}}
+\index{POINTER\_SIZE@{POINTER\_SIZE}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{POINTER\_SIZE}{POINTER\_SIZE}}
+{\footnotesize\ttfamily constexpr unsigned int Shop\+Screen\+::\+POINTER\+\_\+\+SIZE = \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_shop_screen_aa280e3ae7fa0a4d7fc561ffce784b38c}\label{class_shop_screen_aa280e3ae7fa0a4d7fc561ffce784b38c} 
+\index{ShopScreen@{ShopScreen}!STARTSCREEN\_HEIGHT@{STARTSCREEN\_HEIGHT}}
+\index{STARTSCREEN\_HEIGHT@{STARTSCREEN\_HEIGHT}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{STARTSCREEN\_HEIGHT}{STARTSCREEN\_HEIGHT}}
+{\footnotesize\ttfamily constexpr unsigned int Shop\+Screen\+::\+STARTSCREEN\+\_\+\+HEIGHT = 12 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_shop_screen_a0a8f534d0cfa049d33dc4e204252b427}\label{class_shop_screen_a0a8f534d0cfa049d33dc4e204252b427} 
+\index{ShopScreen@{ShopScreen}!STARTSCREEN\_WIDTH@{STARTSCREEN\_WIDTH}}
+\index{STARTSCREEN\_WIDTH@{STARTSCREEN\_WIDTH}!ShopScreen@{ShopScreen}}
+\doxysubsubsection{\texorpdfstring{STARTSCREEN\_WIDTH}{STARTSCREEN\_WIDTH}}
+{\footnotesize\ttfamily constexpr unsigned int Shop\+Screen\+::\+STARTSCREEN\+\_\+\+WIDTH = 10 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_shop_screen_aa39caac26302d86c97443588a26f8c12}{BLOCK\+\_\+\+SIZE}} \texorpdfstring{$\ast$}{*} 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_shop_screen_8h}{Shop\+Screen.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_fight_scren_8cpp}{Fight\+Scren.\+cpp}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Game/\+Game\+State/\mbox{\hyperlink{_shop_screen_8cpp}{Shop\+Screen.\+cpp}}\end{DoxyCompactItemize}

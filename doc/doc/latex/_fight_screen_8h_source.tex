@@ -1,0 +1,106 @@
+\doxysection{Fight\+Screen.\+h}
+\hypertarget{_fight_screen_8h_source}{}\label{_fight_screen_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameState/FightScreen.h@{C:/Studies/Project/HMM/src/Game/GameState/FightScreen.h}}
+\mbox{\hyperlink{_fight_screen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_state_8h}{IGameState.h}}"{}}\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../Renderer/SpriteAnimator.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_hero}{Hero}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_close_combat}{CloseCombat}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_distant_combat}{DistantCombat}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fight_screen}{FightScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_state}{IGameState}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}}\ =\ 16;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fight_screen_a3af5eeeabf89d1e309f136d46005c01a}{STARTSCREEN\_WIDTH}}\ =\ 10\ *\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fight_screen_a50e71d25692ed7d5a7df18a111b2b9c4}{STARTSCREEN\_HEIGHT}}\ =\ 12\ *\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ glm::vec2\ \mbox{\hyperlink{class_fight_screen_ac887455e8e1e37b835c4e80bce5e9abe}{LEFT\_BOTTOM\_FIELD}}\ =\ \{\ 2\ *\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}},\ 0\};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \ glm::vec2\ \mbox{\hyperlink{class_fight_screen_afb73cc1ea70b7219d8845d3012b5eb08}{RIGHT\_BOTTOM\_FIELD}}\ =\ \{\ 7\ *\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}},\ 10\ *\ \mbox{\hyperlink{class_fight_screen_a6414178d821a04a70d020ff760008702}{BLOCK\_SIZE}}\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_fight_screen}{FightScreen}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ fightScreenDescription,\ \mbox{\hyperlink{class_game}{Game}}*\ pGame,\ std::array<bool,\ 6>\ whatUnitHave,\ std::shared\_ptr<Hero>\ enemy);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_acf23f229d381b1484232b9c327b38df7}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a8351d322cf455589a23973e14ec920f3}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a7967de0c171905c3c89d1920b21157a4}{processInputKey}}(std::array<bool,\ 349>\ keys)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a7917ec895d8e158fcf93fc308e17ae63}{processInputMouse}}(std::array<bool,\ 8>\ mouseButtons)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a915b84fff61698ca8a9001afd0bfe512}{processSetMousePosition}}(\textcolor{keywordtype}{double}\ mouseX,\ \textcolor{keywordtype}{double}\ mouseY)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a15f565075ab3ee5c885fec26f535d056}{initPhysics}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_a11b1042eddcd22ae4287731a318843c1}{getAlliesRespawn\_1}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_alliesRespawn\_1;\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_a5e5e2a22bac4e49c56b1a8ffd5342df7}{getAlliesRespawn\_2}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_alliesRespawn\_2;\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_aeb8afd0820aec9b0ab85c6484eaa00d3}{getAlliesRespawn\_3}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_alliesRespawn\_3;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_a02e72b0daa538a65147940a56d4f6464}{getEnemyRespawn\_1}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_1;\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_addb044447a74936f9b31bb5715f57a21}{getEnemyRespawn\_2}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_2;\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ glm::ivec2\&\ \mbox{\hyperlink{class_fight_screen_ad8bf69f25dc9a0340f5d59fb174ec218}{getEnemyRespawn\_3}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_enemyRespawn\_3;\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fight_screen_aa1180c0d4547a666202cc85b1b71eff0}{getStateWidth}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fight_screen_a02a44cf1c6b8956b88307c650da84567}{getStateHeight}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_a2ab2b7cfbdeae7abd9eecb5128cfb1c4}{PossibleMove}}(\textcolor{keyword}{const}\ uint8\_t\ speed,\ glm::vec2\&\ leftBottom,\ glm::vec2\&\ rightTop,\ \textcolor{keyword}{const}\ glm::vec2\&\ currentPosition);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fight_screen_add352def41ed870554d5bc749bf55576}{EnemyUnits}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}*\ m\_pGame;}
+\DoxyCodeLine{00056\ \ \ \ \ std::vector<std::pair<std::shared\_ptr<RenderEngine::Sprite>,\ glm::vec2>>\ m\_sprites;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ glm::vec2\ m\_TopClosesPosition;}
+\DoxyCodeLine{00059\ \ \ \ \ glm::vec2\ m\_BottomClosesPosition;}
+\DoxyCodeLine{00060\ \ \ \ \ glm::vec2\ m\_LeftClosesPosition;}
+\DoxyCodeLine{00061\ \ \ \ \ glm::vec2\ m\_RightClosesPosition;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ glm::ivec2\ m\_alliesRespawn\_1;}
+\DoxyCodeLine{00064\ \ \ \ \ glm::ivec2\ m\_alliesRespawn\_2;}
+\DoxyCodeLine{00065\ \ \ \ \ glm::ivec2\ m\_alliesRespawn\_3;}
+\DoxyCodeLine{00066\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_1;}
+\DoxyCodeLine{00067\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_2;}
+\DoxyCodeLine{00068\ \ \ \ \ glm::ivec2\ m\_enemyRespawn\_3;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ glm::vec2\ m\_mousePosition;}
+\DoxyCodeLine{00071\ \ \ \ \ glm::vec2\ m\_mousePositionNorm;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_mouseLeftReleased;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_mouseRightReleased;}
+\DoxyCodeLine{00074\ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ std::array<bool,\ 6>\ m\_availableUnits;}
+\DoxyCodeLine{00076\ \ \ \ \ std::vector<std::shared\_ptr<CloseCombat>>\ \ \ m\_pCloseCombat;}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<std::shared\_ptr<DistantCombat>>\ m\_pDistantCombat;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_knightTurn;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_angelTurn;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_barbarianTurn;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_archerTurn;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_magicanTurn;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_titanTurn;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::shared\_ptr<Hero>\ m\_enemy;}
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<CloseCombat>\ \ \ m\_pEnemyCloseCombat;}
+\DoxyCodeLine{00089\ \ \ \ \ std::shared\_ptr<DistantCombat>\ m\_pEnemyDistantCombat;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyKnightTurn;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyAngelTurn;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyBarbarianTurn;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyArcherTurn;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyMagicanTurn;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyTitanTurn;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_playerTurn;}
+\DoxyCodeLine{00100\ \};}
+
+\end{DoxyCode}

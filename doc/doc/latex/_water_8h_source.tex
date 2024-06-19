@@ -1,0 +1,31 @@
+\doxysection{Water.\+h}
+\hypertarget{_water_8h_source}{}\label{_water_8h_source}\index{C:/Studies/Project/HMM/src/Game/GameObject/Water.h@{C:/Studies/Project/HMM/src/Game/GameObject/Water.h}}
+\mbox{\hyperlink{_water_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_game_object_8h}{IGameObject.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../Renderer/SpriteAnimator.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_water}{Water}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278a27634ff8002b12e75d98e07ccd005d18}{Water}}(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec2\&\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ layer);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_water_a12db5b7e312f3701e7fea15fc4d67876}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_water_a3e2b7b8a37a265fbef5a4126faaf189b}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_water_a804d2d9c69ae675726e857dc8680aee9}{collides}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_i_game_object_a45eaf38a5e32a8474327a86f03f02278}{EObjectType}}\ objectType)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::shared\_ptr<RenderEngine::Sprite>\ m\_pCurrentSprite;}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_sprite_animator}{RenderEngine::SpriteAnimator}}\ m\_spriteAnimator;}
+\DoxyCodeLine{00025\ \};}
+
+\end{DoxyCode}

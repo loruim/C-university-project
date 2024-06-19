@@ -1,0 +1,46 @@
+\doxysection{Shader\+Program.\+h}
+\hypertarget{_shader_program_8h_source}{}\label{_shader_program_8h_source}\index{C:/Studies/Project/HMM/src/Renderer/ShaderProgram.h@{C:/Studies/Project/HMM/src/Renderer/ShaderProgram.h}}
+\mbox{\hyperlink{_shader_program_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/mat4x4.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389}{ShaderProgram}}(\textcolor{keyword}{const}\ std::string\ vertexShader,\ \textcolor{keyword}{const}\ std::string\ fragmentShader);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a0424e4131712b1fb344fc2a75aa335d9}{\string~ShaderProgram}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_adbbe8afddf71ac1f0b295b81a6462701}{isCompiled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_isCompiled;\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_aac1babd09e9ce3e242ecbfedc8ed2f89}{use}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a333d02c2f3743b90d3f17162994f12a7}{setInt}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ GLint\ value);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a9a10a563a22a3c4f41c63633cfe4b307}{setFloat}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ GLfloat\ value);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_ab6f9f2966ac0db82d051ba2941d9a79f}{setMatrix4}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389}{ShaderProgram}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a13a1f64c08a8f869b06a997004f8410e}{ShaderProgram}}(\mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a02f1738cd9f4b9310e0b85afa7c53edc}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&\ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a02f1738cd9f4b9310e0b85afa7c53edc}{operator=}}(\mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&\&\ shaderProgram)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_render_engine_1_1_shader_program_a4ce5a66126066ac580bfffc43660e389}{ShaderProgram}}(\mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}}\&\&\ shaderProgram)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ createShader(\textcolor{keyword}{const}\ std::string\&\ source,\ \textcolor{keyword}{const}\ GLenum\ shaderType,\ GLuint\&\ shaderID);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_isCompiled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ GLuint\ m\_ID\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \};}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\doxysection{Physics\+Engine.\+h}
+\hypertarget{_physics_engine_8h_source}{}\label{_physics_engine_8h_source}\index{C:/Studies/Project/HMM/src/Physics/PhysicsEngine.h@{C:/Studies/Project/HMM/src/Physics/PhysicsEngine.h}}
+\mbox{\hyperlink{_physics_engine_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_game_object}{IGameObject}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_level}{Level}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fight_screen}{FightScreen}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_physics}{Physics}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollisionDirection}}\ :\ uint8\_t}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016aa4ffdcf0dc1f31b9acaf295d75b51d00}{Top}},\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016a2ad9d63b69c4a10a5cc9cad923133bc4}{Bottom}},\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016a945d5e233cf7d6240f6b783b36a374ff}{Left}},\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016a92b09c7c48c520c3c55e497875da437c}{Right}}\ }
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}}}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b_a4af4763ee21570b7e775f9834f1e23c6}{AABB}}(\textcolor{keyword}{const}\ glm::vec2\&\ \_bottomLeft,\ \textcolor{keyword}{const}\ glm::vec2\&\ \_topRight)\ :\ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b_a8488df793e9bdef5287215d798551a44}{bottomLeft}}(\_bottomLeft),\ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b_a9ceeca2e11876df4c734afe72793aa8e}{topRight}}(\_topRight)\ \{\}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b_a8488df793e9bdef5287215d798551a44}{bottomLeft}};\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b_a9ceeca2e11876df4c734afe72793aa8e}{topRight}};\ }
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_physics_1_1_collider}{Collider}}}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_physics_1_1_collider_a3ba01f4a44db9f03235e852bb010a127}{Collider}}(\textcolor{keyword}{const}\ glm::vec2\&\ \_bottomLeft,\ \textcolor{keyword}{const}\ glm::vec2\&\ \_topRight,\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollisionDirection}})>\ \_onCollisionCallback\ =\ \{\})}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b}{boundingBox}}(\_bottomLeft,\ \_topRight)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39}{isActive}}(true)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b}{onCollisionCallback}}(\_onCollisionCallback)\ \{\}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_physics_1_1_collider_a7804c2440053a01685be6ffec3df36b9}{Collider}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}}\&\ \_boundingBox,\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollisionDirection}})>\ \_onCollisionCallback\ =\ \{\})}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b}{boundingBox}}(\_boundingBox)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39}{isActive}}(true)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b}{onCollisionCallback}}(\_onCollisionCallback)\ \{\}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_physics_1_1_a_a_b_b}{AABB}}\ \mbox{\hyperlink{struct_physics_1_1_collider_aa9168d02cf38ae79f966673e7b1dfc7b}{boundingBox}};\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_physics_1_1_collider_a47a9025314beda101be4d3928c653d39}{isActive}};\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::function<void(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_i_game_object}{IGameObject}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespace_physics_a44c40a83dce6f18978628580469b8016}{ECollisionDirection}})>\ \mbox{\hyperlink{struct_physics_1_1_collider_a81d706a6d0cbce7db2ff8ac7ddefce3b}{onCollisionCallback}};\ }
+\DoxyCodeLine{00086\ \ \ \ \ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine_a47a5de8d2caef1d78d2df5f4a02da40e}{PhysicsEngine}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine_a80378d2d7c98b5d07b3cb2099b022f74}{\string~PhysicsEngine}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine_a890e4c21ff7e9bd610c6e2dfd8165d06}{PhysicsEngine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&\ \mbox{\hyperlink{class_physics_1_1_physics_engine_adf2567a2e5b27a2de5b4657b555cde29}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&\ \mbox{\hyperlink{class_physics_1_1_physics_engine_a9554efe5610fda357a8c37255f2213f7}{operator=}}(\mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_physics_1_1_physics_engine_afb75f1b202ee5c0129c0d937a309aae9}{PhysicsEngine}}(\mbox{\hyperlink{class_physics_1_1_physics_engine}{PhysicsEngine}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_abd0d177f700c78b1fd574196be29bb1d}{init}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_ac898583d4dbf04b6d3429ac6d4cb1eb8}{terminate}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_ac38e6d22a52c9a94bfda1e17c6be6264}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_a6a054886e1228bb03b8a192f8bdabe8b}{addDynamicGameObject}}(std::shared\_ptr<IGameObject>\ pGameObject);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_aa669a3e3aeef393b91006cea92b4fdf0}{setCurrentLevel}}(std::shared\_ptr<Level>\ pLevel);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_physics_1_1_physics_engine_ade7ba2ca65f0c00b83d5bcdebb2d399e}{setCurrentFight}}(std::shared\_ptr<FightScreen>\ pFight);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_set<std::shared\_ptr<IGameObject>>\ m\_dinamicObjects;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Level>\ m\_pCurrentLevel;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<FightScreen>\ m\_pCurrentFight;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ hasIntersection(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_physics_1_1_collider}{Collider}}\&\ colliders1,\ \textcolor{keyword}{const}\ glm::vec2\ position1,\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_physics_1_1_collider}{Collider}}\&\ colliders2,\ \textcolor{keyword}{const}\ glm::vec2\ position2);}
+\DoxyCodeLine{00151\ \ \ \ \ \};}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}

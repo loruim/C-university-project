@@ -1,0 +1,85 @@
+\doxysection{Game.\+h}
+\hypertarget{_game_8h_source}{}\label{_game_8h_source}\index{C:/Studies/Project/HMM/src/Game/Game.h@{C:/Studies/Project/HMM/src/Game/Game.h}}
+\mbox{\hyperlink{_game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/vec2.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_game_state}{IGameState}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_render_engine}{RenderEngine}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_engine_1_1_shader_program}{ShaderProgram}};}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_hero}{Hero}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}(\textcolor{keyword}{const}\ glm::uvec2\&\ windowSize);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_aa66e26d1ddfcd41f1380c03deae03477}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ delta);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a640bca6e10e175713b78660c1c8df865}{setKey}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ action);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_aff79df40c2be6e125bac06e1d7956f1d}{setButton}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ button,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ action);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a5f2d14429b3540e5265ac945ed406f25}{setMousePosition}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ xpos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ypos);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_a8ff3a6838bad4ea9493c103f96d7bff3}{init}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_game_af420bf7a312cb75aba9888f95b61a213}{getCurrentWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_game_a19c43c667f6aa2b88e5091e05aebf5ce}{getCurrentHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a7e22024492bdbce48e77c1f1840dc93b}{startGlobalMap}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a63ce13acce639041cb1e25e6d288c10a}{startFightMap}}(std::shared\_ptr<Hero>\ enemy);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a3f0331c8de80306a6ccdfffaf13364dc}{startShopScreen}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ shopNumber);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a4163a8dadafec7e7f5f9688aefa01c46}{updateViewport}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a1fa389d5e6ad40b82af3b23a5ac88096}{setWindowSize}}(\textcolor{keyword}{const}\ glm::uvec2\&\ windowSize);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a76ee9495347288557236e28c43421977}{setEnemyLeftLive}}(\textcolor{keywordtype}{bool}\ isLive)\ \{\ m\_enemyLeftLive\ =\ isLive;\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a250b662aa253adba4090f5491a3d32e3}{setEnemyRightLive}}(\textcolor{keywordtype}{bool}\ isLive)\ \{\ m\_enemyRightLive\ =\ isLive;\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_af8632700357baaa77b5827e9a72d8620}{setEnemyMiddleLive}}(\textcolor{keywordtype}{bool}\ isLive)\ \{\ m\_enemyMiddleLive\ =\ isLive;\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{enum\ class}\ EGameState\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fight_screen}{FightScreen}},\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ GlobalMap,\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_shop_screen}{ShopScreen}},\ }
+\DoxyCodeLine{00147\ \ \ \ \ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::array<bool,\ 349>\ m\_keys;}
+\DoxyCodeLine{00150\ \ \ \ \ std::array<bool,\ 8>\ m\_mouseButtons;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_mouseX;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_mouseY;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ glm::ivec2\ m\_windowSize;}
+\DoxyCodeLine{00155\ \ \ \ \ EGameState\ m\_eCurrentGameState;\ }
+\DoxyCodeLine{00156\ \ \ \ \ std::shared\_ptr<IGameState>\ m\_pCurrentGameState;\ }
+\DoxyCodeLine{00157\ \ \ \ \ std::shared\_ptr<RenderEngine::ShaderProgram>\ m\_pSpriteShaderProgram;\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::array<bool,\ 6>\ m\_availableUnits;\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyLeftLive;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyRightLive;}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enemyMiddleLive;}
+\DoxyCodeLine{00164\ \};}
+
+\end{DoxyCode}

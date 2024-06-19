@@ -1,0 +1,150 @@
+\doxysection{Physics\+::Physics\+Engine Class Reference}
+\hypertarget{class_physics_1_1_physics_engine}{}\label{class_physics_1_1_physics_engine}\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+
+
+adds physics to game objects  
+
+
+
+
+{\ttfamily \#include $<$Physics\+Engine.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine_a47a5de8d2caef1d78d2df5f4a02da40e}{Physics\+Engine}} ()=delete
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine_a80378d2d7c98b5d07b3cb2099b022f74}{\texorpdfstring{$\sim$}{\string~}\+Physics\+Engine}} ()=delete
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine_a890e4c21ff7e9bd610c6e2dfd8165d06}{Physics\+Engine}} (const \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&)=delete
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \& \mbox{\hyperlink{class_physics_1_1_physics_engine_adf2567a2e5b27a2de5b4657b555cde29}{operator=}} (const \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&)=delete
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \& \mbox{\hyperlink{class_physics_1_1_physics_engine_a9554efe5610fda357a8c37255f2213f7}{operator=}} (\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&\&)=delete
+\item 
+\mbox{\hyperlink{class_physics_1_1_physics_engine_afb75f1b202ee5c0129c0d937a309aae9}{Physics\+Engine}} (\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&\&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_abd0d177f700c78b1fd574196be29bb1d}{init}} ()
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_ac898583d4dbf04b6d3429ac6d4cb1eb8}{terminate}} ()
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_ac38e6d22a52c9a94bfda1e17c6be6264}{update}} (const double delta)
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_a6a054886e1228bb03b8a192f8bdabe8b}{add\+Dynamic\+Game\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$ p\+Game\+Object)
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_aa669a3e3aeef393b91006cea92b4fdf0}{set\+Current\+Level}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_level}{Level}} $>$ p\+Level)
+\item 
+static void \mbox{\hyperlink{class_physics_1_1_physics_engine_ade7ba2ca65f0c00b83d5bcdebb2d399e}{set\+Current\+Fight}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_fight_screen}{Fight\+Screen}} $>$ p\+Fight)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+adds physics to game objects 
+
+Class that loads object physics 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_physics_1_1_physics_engine_a47a5de8d2caef1d78d2df5f4a02da40e}\label{class_physics_1_1_physics_engine_a47a5de8d2caef1d78d2df5f4a02da40e} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!PhysicsEngine@{PhysicsEngine}}
+\index{PhysicsEngine@{PhysicsEngine}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{PhysicsEngine()}{PhysicsEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Physics\+::\+Physics\+Engine\+::\+Physics\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_physics_1_1_physics_engine_a80378d2d7c98b5d07b3cb2099b022f74}\label{class_physics_1_1_physics_engine_a80378d2d7c98b5d07b3cb2099b022f74} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!````~PhysicsEngine@{\texorpdfstring{$\sim$}{\string~}PhysicsEngine}}
+\index{````~PhysicsEngine@{\texorpdfstring{$\sim$}{\string~}PhysicsEngine}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PhysicsEngine()}{\string~PhysicsEngine()}}
+{\footnotesize\ttfamily Physics\+::\+Physics\+Engine\+::\texorpdfstring{$\sim$}{\string~}\+Physics\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_physics_1_1_physics_engine_a890e4c21ff7e9bd610c6e2dfd8165d06}\label{class_physics_1_1_physics_engine_a890e4c21ff7e9bd610c6e2dfd8165d06} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!PhysicsEngine@{PhysicsEngine}}
+\index{PhysicsEngine@{PhysicsEngine}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{PhysicsEngine()}{PhysicsEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Physics\+::\+Physics\+Engine\+::\+Physics\+Engine (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_physics_1_1_physics_engine_afb75f1b202ee5c0129c0d937a309aae9}\label{class_physics_1_1_physics_engine_afb75f1b202ee5c0129c0d937a309aae9} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!PhysicsEngine@{PhysicsEngine}}
+\index{PhysicsEngine@{PhysicsEngine}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{PhysicsEngine()}{PhysicsEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Physics\+::\+Physics\+Engine\+::\+Physics\+Engine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_physics_1_1_physics_engine_a6a054886e1228bb03b8a192f8bdabe8b}\label{class_physics_1_1_physics_engine_a6a054886e1228bb03b8a192f8bdabe8b} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!addDynamicGameObject@{addDynamicGameObject}}
+\index{addDynamicGameObject@{addDynamicGameObject}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{addDynamicGameObject()}{addDynamicGameObject()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::add\+Dynamic\+Game\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_game_object}{IGame\+Object}} $>$}]{p\+Game\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Game\+Object} & std\+::shared\+\_\+ptr$<$\+IGame\+Object$>$, points to dynamic objects. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_physics_1_1_physics_engine_abd0d177f700c78b1fd574196be29bb1d}\label{class_physics_1_1_physics_engine_abd0d177f700c78b1fd574196be29bb1d} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!init@{init}}
+\index{init@{init}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Initializes the physics engine in the game \Hypertarget{class_physics_1_1_physics_engine_adf2567a2e5b27a2de5b4657b555cde29}\label{class_physics_1_1_physics_engine_adf2567a2e5b27a2de5b4657b555cde29} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!operator=@{operator=}}
+\index{operator=@{operator=}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \& Physics\+::\+Physics\+Engine\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_physics_1_1_physics_engine_a9554efe5610fda357a8c37255f2213f7}\label{class_physics_1_1_physics_engine_a9554efe5610fda357a8c37255f2213f7} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!operator=@{operator=}}
+\index{operator=@{operator=}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \& Physics\+::\+Physics\+Engine\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_physics_1_1_physics_engine}{Physics\+Engine}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_physics_1_1_physics_engine_ade7ba2ca65f0c00b83d5bcdebb2d399e}\label{class_physics_1_1_physics_engine_ade7ba2ca65f0c00b83d5bcdebb2d399e} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!setCurrentFight@{setCurrentFight}}
+\index{setCurrentFight@{setCurrentFight}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{setCurrentFight()}{setCurrentFight()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::set\+Current\+Fight (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_fight_screen}{Fight\+Screen}} $>$}]{p\+Fight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Level} & std\+::shared\+\_\+ptr$<$\+Fight\+Screen$>$, Contains the p\+Fight map. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_physics_1_1_physics_engine_aa669a3e3aeef393b91006cea92b4fdf0}\label{class_physics_1_1_physics_engine_aa669a3e3aeef393b91006cea92b4fdf0} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!setCurrentLevel@{setCurrentLevel}}
+\index{setCurrentLevel@{setCurrentLevel}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{setCurrentLevel()}{setCurrentLevel()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::set\+Current\+Level (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_level}{Level}} $>$}]{p\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Level} & std\+::shared\+\_\+ptr$<$\+Level$>$, Contains the main map. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_physics_1_1_physics_engine_ac898583d4dbf04b6d3429ac6d4cb1eb8}\label{class_physics_1_1_physics_engine_ac898583d4dbf04b6d3429ac6d4cb1eb8} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!terminate@{terminate}}
+\index{terminate@{terminate}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. Destroys the physics engine in the game \Hypertarget{class_physics_1_1_physics_engine_ac38e6d22a52c9a94bfda1e17c6be6264}\label{class_physics_1_1_physics_engine_ac38e6d22a52c9a94bfda1e17c6be6264} 
+\index{Physics::PhysicsEngine@{Physics::PhysicsEngine}!update@{update}}
+\index{update@{update}!Physics::PhysicsEngine@{Physics::PhysicsEngine}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Physics\+::\+Physics\+Engine\+::update (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A static member. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em delta} & Double, update time. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Physics/\mbox{\hyperlink{_physics_engine_8h}{Physics\+Engine.\+h}}\item 
+C\+:/\+Studies/\+Project/\+HMM/src/\+Physics/\mbox{\hyperlink{_physics_engine_8cpp}{Physics\+Engine.\+cpp}}\end{DoxyCompactItemize}
